@@ -5,26 +5,23 @@ require "date"
 require "fileutils"
 
 class PagesController < ApplicationController
-
-
-
-
   def home
-    authorization = Signet::OAuth2::Client.new(access_token: current_user.token)
-    service = Google::Apis::CalendarV3::CalendarService.new
-    service.authorization = authorization
-
-    # Fetch the next 10 events for the user
-    calendar_id = "primary"
-
-    @response = service.list_events(calendar_id,
-                                    max_results:   10,
-                                   single_events: true,
-                                   order_by:      "startTime",
-                                   time_min:      DateTime.now.rfc3339)
-
-
   end
+  # def home
+  #   authorization = Signet::OAuth2::Client.new(access_token: current_user.token)
+  #   service = Google::Apis::CalendarV3::CalendarService.new
+  #   service.authorization = authorization
+
+  #   # Fetch the next 10 events for the user
+  #   calendar_id = "primary"
+
+  #   @response = service.list_events(calendar_id,
+  #                                  max_results:   10,
+  #                                  single_events: true,
+  #                                  order_by:      "startTime",
+  #                                  time_min:      DateTime.now.rfc3339)
+
+  # end
 end
 
     # authorization = Signet::OAuth2::Client.new(access_token: current_user.token)
