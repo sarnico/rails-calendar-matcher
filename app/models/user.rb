@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :matches, through: :jct_user_matches
   has_many :user_events
+  has_many :matches
 
 
   def self.find_for_google_oauth2(auth)

@@ -1,0 +1,10 @@
+<div class="form">
+  <%= simple_form_for [@match] do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :title, label: 'Give a title to your event', placeholder: 'The title' %>
+    <%= f.input :location, label: 'Address of the event', placeholder: 'The address' %>
+    <%= f.input :description, label: 'Description of the event', placeholder: 'The description' %>
+    <%= f.input :max_date, label: 'Pick a date before' %>
+    <%= f.button :submit, 'Create', class: "btn-primary" %>
+  <% end %>
+</div>
