@@ -1,18 +1,23 @@
-<h1>La homepage de Calendar Matcher</h1>
+
+<% if user_signed_in? %>
+  <h1>La homepage de Calendar Matcher</h1>
 
 
 
-<p>Upcoming events:</p>
-<% if @response.items.empty? %>
-  No upcoming events found
-<% else %>
-  <% @response.items.each do |event| %>
-  <ul>
-  <% start = event.start.date || event.start.date_time %>
-  <% ended = event.end.date || event.end.date_time %>
-  <li>
-  <%= "#{event.summary} #{start} - #{ended}" %>
-  </li>
-  </ul>
+  <p>Upcoming events:</p>
+  <% if @response.items.empty? %>
+    No upcoming events found
+  <% else %>
+    <% @response.items.each do |event| %>
+    <ul>
+    <% start = event.start.date || event.start.date_time %>
+    <% ended = event.end.date || event.end.date_time %>
+    <li>
+    <%= "#{event.summary} #{start} - #{ended}" %>
+    </li>
+    </ul>
+    <% end %>
   <% end %>
+<% else %>
+  <p>hi</p>
 <% end %>

@@ -8,8 +8,9 @@ class PagesController < ApplicationController
 
 
 
-
   def home
+
+
     authorization = Signet::OAuth2::Client.new(access_token: current_user.token)
     service = Google::Apis::CalendarV3::CalendarService.new
     service.authorization = authorization
