@@ -268,6 +268,7 @@ Devise.setup do |config|
     scope: 'userinfo.email,calendar'
   }
 
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

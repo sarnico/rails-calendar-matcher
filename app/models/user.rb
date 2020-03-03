@@ -3,11 +3,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable
+         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
+
+
+  has_many: matches, through: :jct_user_matches
+  has_many: user_events
+
 
   def self.find_for_google_oauth2(auth)
     data = auth.info
-
     user = User.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -18,6 +22,6 @@ class User < ApplicationRecord
     user.refresh_token = auth.credentials.refresh_token
     user.save
     return user
-
   end
 end
+

@@ -10,12 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_142144) do
+ActiveRecord::Schema.define(version: 2020_03_03_135136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "google_calendar_wrappers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jct_user_matches", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_jct_user_matches_on_match_id"
+    t.index ["user_id"], name: "index_jct_user_matches_on_user_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "location"
+    t.datetime "match_date"
+    t.datetime "min_date"
+    t.datetime "max_date"
+    t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,6 +50,15 @@ ActiveRecord::Schema.define(version: 2020_03_02_142144) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tokens_on_user_id"
+  end
+
+  create_table "user_events", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -49,5 +79,8 @@ ActiveRecord::Schema.define(version: 2020_03_02_142144) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "jct_user_matches", "matches"
+  add_foreign_key "jct_user_matches", "users"
   add_foreign_key "tokens", "users"
+  add_foreign_key "user_events", "users"
 end
