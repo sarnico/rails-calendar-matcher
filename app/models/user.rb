@@ -6,8 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
 
 
-  has_many: matches, through: :jct_user_matches
-  has_many: user_events
+  has_many :matches, through: :jct_user_matches
+  has_many :user_events
 
 
   def self.find_for_google_oauth2(auth)
