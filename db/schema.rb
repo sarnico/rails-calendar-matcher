@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_135136) do
+ActiveRecord::Schema.define(version: 2020_03_03_155556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,11 +34,13 @@ ActiveRecord::Schema.define(version: 2020_03_03_135136) do
     t.text "description"
     t.string "location"
     t.datetime "match_date"
-    t.datetime "min_date"
+    t.datetime "min_date", default: "2020-03-03 15:14:18"
     t.datetime "max_date"
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "owner_id"
+    t.index ["owner_id"], name: "index_matches_on_owner_id"
   end
 
   create_table "tokens", force: :cascade do |t|

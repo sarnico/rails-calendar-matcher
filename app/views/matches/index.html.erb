@@ -1,0 +1,6 @@
+<p>Matches down here</p>
+<% @matchs.each do |match| %>
+  <%= match.title %>
+<% end %>
+
+<%= link_to "Create a match", new_match_path %>
