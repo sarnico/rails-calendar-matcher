@@ -1,3 +1,18 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <p>you're logged in</p>
+
+<p>"Upcoming events:"</p>
+<% if @response.items.empty? %>
+  No upcoming events found
+<% else %>
+  <% @response.items.each do |event| %>
+  <ul>
+  <% start = event.start.date || event.start.date_time %>
+  <% ended = event.end.date || event.end.date_time %>
+  <li>
+  <%= "#{event.summary} #{start} - #{ended}" %>
+  </li>
+  </ul>
+  <% end %>
+<% end %>
