@@ -7,7 +7,6 @@ class User < ApplicationRecord
 
   def self.find_for_google_oauth2(auth)
     data = auth.info
-    if validate_email(auth)
       user = User.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.provider = auth.provider
         user.uid = auth.uid
@@ -18,8 +17,5 @@ class User < ApplicationRecord
       user.refresh_token = auth.credentials.refresh_token
       user.save
       return user
-    else
-      return nil
-    end
   end
 end
