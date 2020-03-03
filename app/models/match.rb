@@ -1,5 +1,5 @@
 class Match < ApplicationRecord
-  has_many: users, through: :jct_user_matches
+  has_many :users, through: :jct_user_matches
 
   validates :title, presence: true
   validates :min_date, presence: true, default: Time.now
