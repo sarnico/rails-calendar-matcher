@@ -10,10 +10,6 @@ class PagesController < ApplicationController
 
   def home
   end
-<<<<<<< HEAD
-
-end
-=======
 
   def test
     set_match = Match.last
@@ -33,5 +29,3 @@ end
 
 
 end
-
->>>>>>> 346a9ed296476cf6a8429a58ed693fa4c23cc01c
