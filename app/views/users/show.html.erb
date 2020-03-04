@@ -1,11 +1,14 @@
 <h1>My account</h1>
 
-<p><strong>First name :</strong> <%="interpoler first_name"%></p>
-<p><strong>Last name :</strong> <%="interpoler last_name"%></p>
-<p><strong>Email :</strong> <%="interpoler email"%></p>
+<div class="avatar">
+  <% if current_user.avatar != nil %>
+    <%= image_tag "#{current_user.avatar}", height: 150, width: 150 %>
+  <% end %>
+</div>
 
-
-<p><%= link_to "Update infos", edit_user_registration_path %></p>
+<div class="google-account">
+  <p><strong>You are connected with your Google Account :</strong> <%= "#{current_user.email}" %></p>
+</div>
 
 <p><%= link_to "Back home", root_path %></p>
 
