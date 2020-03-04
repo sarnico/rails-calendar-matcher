@@ -1,5 +1,22 @@
-<% if user_signed_in? %>
-  <h1>La homepage de Calendar Matcher</h1>
-<% else %>
-  <p>CONNECTE TOI AVEC GOOGLE BUDDY</p>
-<% end %>
+<div class="container pt-5">
+  <% if user_signed_in? %>
+    <h1 class ="text-center">Welcome to the Calendar Matcher</h1>
+  <% else %>
+    <h1>CONNECTE TOI AVEC GOOGLE BUDDY</h1>
+  <% end %>
+
+  <h4 class ="text-center mt-4 ">The automated event scheduling manager</h4>
+</div>
+
+
+<div class="image bg-white pt-4 pb-5 mt-5 mb-5 d-flex justify-content-center">
+  <%= image_tag "homepage.png", style:"height: 300px;"%>
+</div>
+
+
+<div class="container">
+  <h4 class ="text-center">"Thanks to CM we plan girls night easily now" - ⭐️⭐️⭐️⭐️⭐️</h4>
+  <p class ="text-center">Maria, 35 y.o.</p>
+</div>
+
+
