@@ -25,6 +25,7 @@
               <%= link_to "My account", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "My calendar", user_events_path, class: "dropdown-item" %>
               <%= link_to "My groups", "#", class: "dropdown-item" %>
+              <%= link_to "My events", matches_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
