@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_155556) do
     t.text "description"
     t.string "location"
     t.datetime "match_date"
-    t.datetime "min_date", default: "2020-03-03 15:14:18"
+    t.datetime "min_date", default: "2020-03-03 16:01:55"
     t.datetime "max_date"
     t.string "state"
     t.datetime "created_at", null: false
