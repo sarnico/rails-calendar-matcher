@@ -15,12 +15,19 @@ class MatchesController < ApplicationController
   end
 
   def create
+
     @match = Match.new(match_params)
-    @match.save
-    redirect_to matches_path
+    binding.pry
+    if @match.save
+      redirect_to matches_path
+    else
+      render :new
+    end
   end
 
+
   def edit
+
   end
 
   def update
@@ -36,7 +43,7 @@ class MatchesController < ApplicationController
   private
 
   def match_params
-    params.require(:match).permit(:id, :title, :description, :location, :match_date, :min_date, :max_date, :state)
+    params.require(:match).permit(:id, :title, :description, :location, :match_date, :min_date, :max_date, :min_time, :max_time, :state, :owner_id)
   end
 
   def set_match

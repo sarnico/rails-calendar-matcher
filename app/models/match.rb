@@ -3,7 +3,6 @@ class Match < ApplicationRecord
   belongs_to :owner, class_name: 'User'
 
   validates :title, presence: true
-  validates :min_date, presence: true
   validates :max_date, presence: true
 
 end
