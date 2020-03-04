@@ -5,6 +5,7 @@
     <%= f.input :location, label: 'Address of the event', placeholder: 'The address' %>
     <%= f.input :description, label: 'Description of the event', placeholder: 'The description' %>
     <%= f.input :max_date, label: 'Pick a date before' %>
+    <%= f.association :users, collection: User.all, as: :check_boxes %>
     <%= f.button :submit, 'Create', class: "btn-primary" %>
   <% end %>
 </div>

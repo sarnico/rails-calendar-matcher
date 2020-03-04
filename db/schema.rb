@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_155556) do
+ActiveRecord::Schema.define(version: 2020_03_04_122505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,27 +20,25 @@ ActiveRecord::Schema.define(version: 2020_03_03_155556) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "jct_user_matches", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "match_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["match_id"], name: "index_jct_user_matches_on_match_id"
-    t.index ["user_id"], name: "index_jct_user_matches_on_user_id"
-  end
-
   create_table "matches", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "location"
     t.datetime "match_date"
-    t.datetime "min_date", default: "2020-03-03 15:14:18"
+    t.datetime "min_date", default: "2020-03-04 13:36:00"
     t.datetime "max_date"
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "owner_id"
     t.index ["owner_id"], name: "index_matches_on_owner_id"
+  end
+
+  create_table "matches_users", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "match_id"
+    t.index ["match_id"], name: "index_matches_users_on_match_id"
+    t.index ["user_id"], name: "index_matches_users_on_user_id"
   end
 
   create_table "tokens", force: :cascade do |t|
@@ -81,8 +79,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_155556) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "jct_user_matches", "matches"
-  add_foreign_key "jct_user_matches", "users"
   add_foreign_key "tokens", "users"
   add_foreign_key "user_events", "users"
 end
