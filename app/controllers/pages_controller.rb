@@ -10,5 +10,28 @@ class PagesController < ApplicationController
 
   def home
   end
+<<<<<<< HEAD
 
 end
+=======
+
+  def test
+    set_match = Match.last
+    set_match.max_date
+    set_match.max_time
+    set_match.min_time
+
+    raise
+    groupe=[1, 2]
+    groupe.each do |user|
+      user
+      raise
+    end
+
+  end
+
+
+
+end
+
+>>>>>>> 346a9ed296476cf6a8429a58ed693fa4c23cc01c
