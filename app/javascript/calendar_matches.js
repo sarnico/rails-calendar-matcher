@@ -21,14 +21,9 @@ var calendar = () => {
       // doc for the events : https://fullcalendar.io/docs/event-object
       // add an event : https://fullcalendar.io/docs/Calendar-addEvent
     });
-
     calendar.render();
   });
 }
-
-
-
-
 
 
 
