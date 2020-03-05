@@ -13,6 +13,9 @@ class MatchesController < ApplicationController
   end
 
   def show
+
+    @results = FindMatch.date(@match.id, @match.owner_id, @match.user_ids, @match.min_time, @match.max_time, @match.max_date, @match.min_date = Date.today)
+
   end
 
   def new
@@ -22,7 +25,7 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     if @match.save
-      redirect_to matches_path
+      redirect_to match_path(@match)
     else
       render :new
     end
@@ -39,8 +42,7 @@ class MatchesController < ApplicationController
   end
 
   def destroy
-    @match.destroy
-    redirect_to matches_path
+
   end
 
   private
