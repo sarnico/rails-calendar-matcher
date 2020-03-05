@@ -23,7 +23,18 @@ class MatchesController < ApplicationController
   end
 
   def create
+    # 1. verifier s'il faut creer un groupe
+    if group_params[:create_group]
+      @group = Group.new
+      @group.name = group_params[:group_name]
+      @group.creater_id = current_user.id
+      @group.user_ids = match_params[:user_ids]
+      @group.save
+    end
+
+    # 2. creer le match
     @match = Match.new(match_params)
+    @match.owner_id = current_user.id
     if @match.save
       redirect_to match_path(@match)
     else
@@ -31,9 +42,7 @@ class MatchesController < ApplicationController
     end
   end
 
-
   def edit
-
   end
 
   def update
@@ -51,9 +60,13 @@ class MatchesController < ApplicationController
     params.require(:match).permit(:id, :title, :description, :location, :match_date, :min_date, :max_date, :min_time, :max_time, :state, :owner_id, :user_ids => [])
   end
 
+  def group_params
+    params.permit(:group_name, :create_group)
+  end
+
+
   def set_match
     @match = Match.find(params[:id])
   end
-
 
 end

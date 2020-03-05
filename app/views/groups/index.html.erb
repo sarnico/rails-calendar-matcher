@@ -1,0 +1,21 @@
+<div class="container">
+  <% if @my_groups == [] %>
+    <h1>You don't have any group yet</h1>
+  <% else %>
+
+    <h1>Here are all my groups :</h1>
+
+    <% @my_groups.uniq.each do |group| %>
+      <ul>
+        <li>
+          <p> Name : <%= group.name %></p>
+          <p> Admin of the group : <%= group.creater.email %></p>
+          <p> Members of the group : <% group.members.each do |user| %></p>
+            <ul>  <li><%= user.email %></li></ul>
+          <% end %>
+        </li>
+    </ul>
+    <% end %>
+
+  <% end %>
+</div>

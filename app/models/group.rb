@@ -3,4 +3,10 @@ class Group < ApplicationRecord
   belongs_to :creater, class_name: 'User'
 
   validates :name, presence: true
+
+  def members
+    user_ids.map do |user_id|
+     User.find(user_id)
+   end
+  end
 end

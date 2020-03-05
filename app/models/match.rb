@@ -10,6 +10,6 @@ class Match < ApplicationRecord
     user_ids.map do |user_id|
      User.find(user_id)
    end
- end
+  end
 
 end
