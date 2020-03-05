@@ -27,3 +27,12 @@
   </ul>
 <% end %>
 <%= link_to "Create an event", new_match_path %>
+
+<!-- can change the email in the link to get the right calendar directly from google -->
+<!-- <iframe src="https://calendar.google.com/calendar/embed?src=mrdifalko%40gmail.com&ctz=Europe%2FBrussels" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
+
+<div
+  id="calendar"
+  data-ids="<%= current_user.email %>"
+>
+</div>
