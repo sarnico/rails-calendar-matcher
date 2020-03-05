@@ -1,19 +1,21 @@
+<div class="container">
+  <div class="form mt-4 mb-4">
+    <h3>Create your event</h3>
+     <%= simple_form_for [@match] do |f| %>
+      <%= f.error_notification %>
+      <%= f.hidden_field :owner_id, value:current_user.id %>
+      <%= f.input :title, label: 'Give a title to your event', placeholder: 'The title' %>
+      <%= f.input :location, label: 'Address of the event', placeholder: 'The address' %>
+      <%= f.input :description, label: 'Description of the event', placeholder: 'The description' %>
+      <%= f.input :max_date, label: 'Pick a date before' %>
+      <%= f.input :min_time, label: 'Time Slot of the event, from :'%>
+      <%= f.input :max_time, label: 'to :'%>
 
-<div class="form">
-   <%= simple_form_for [@match] do |f| %>
-    <%= f.error_notification %>
-    <%= f.hidden_field :owner_id, value:current_user.id %>
-    <%= f.input :title, label: 'Give a title to your event', placeholder: 'The title' %>
-    <%= f.input :location, label: 'Address of the event', placeholder: 'The address' %>
-    <%= f.input :description, label: 'Description of the event', placeholder: 'The description' %>
-    <%= f.input :max_date, label: 'Pick a date before' %>
-    <%= f.input :min_time, label: 'Time Slot of the event'%>
-    <%= f.input :max_time, label: 'Time Slot of the event'%>
 
-
-    <%= f.association :users, collection: User.all, as: :check_boxes, label_method: :email %>
-    <%= f.button :submit, 'Create', class: "btn-primary" %>
-  <% end %>
+      <%= f.association :users, label: 'Attendees :', collection: User.all, as: :check_boxes, label_method: :email %>
+      <%= f.button :submit, 'Create event', class: "btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
 
