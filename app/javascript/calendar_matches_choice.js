@@ -26,7 +26,8 @@ var calendar_matches = () => {
     var calendar = new Calendar(calendarEl, {
       plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, googleCalendarPlugin ],
       googleCalendarApiKey: process.env.GOOGLE_API_KEY,
-      events: results
+      events: results,
+      eventColor: '#378006'
       // doc for the events : https://fullcalendar.io/docs/event-object
       // add an event : https://fullcalendar.io/docs/Calendar-addEvent
     });

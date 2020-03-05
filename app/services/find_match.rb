@@ -34,9 +34,9 @@ class FindMatch
         end
 
         {
-          available: users.size - count,
-          min_time: @timeslot_start,
-          max_time: @timeslot_end
+          title: users.size - count,
+          start: @timeslot_start,
+          end: @timeslot_end
         }
 
     end
