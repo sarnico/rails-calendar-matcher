@@ -9,6 +9,8 @@
     <%= f.input :max_date, label: 'Pick a date before' %>
     <%= f.input :min_time, label: 'Time Slot of the event'%>
     <%= f.input :max_time, label: 'Time Slot of the event'%>
+
+
     <%= f.association :users, collection: User.all, as: :check_boxes, label_method: :email %>
     <%= f.button :submit, 'Create', class: "btn-primary" %>
   <% end %>
