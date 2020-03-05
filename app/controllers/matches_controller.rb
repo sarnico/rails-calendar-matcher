@@ -4,7 +4,12 @@ class MatchesController < ApplicationController
 
 
   def index
-    @matchs = Match.all
+    @matches = Match.all
+    @events_owner = current_user.matches
+    @events_attendee = @matches.select { |m| m.attendees.include?(current_user) }
+
+    @my_events = @events_owner + @events_attendee
+
   end
 
   def show
