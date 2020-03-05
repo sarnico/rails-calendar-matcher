@@ -4,7 +4,6 @@ require "googleauth/stores/file_token_store"
 require "date"
 require "fileutils"
 
-
 class UserEventsController < ApplicationController
 
 

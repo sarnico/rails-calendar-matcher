@@ -17,7 +17,7 @@ var calendar = () => {
         // change the background color of the eventS
         // backgroundColor: "black",
         // borderColor: "black"
-      },
+      }
       // doc for the events : https://fullcalendar.io/docs/event-object
       // add an event : https://fullcalendar.io/docs/Calendar-addEvent
     });
@@ -25,11 +25,6 @@ var calendar = () => {
   });
 }
 
-// @client.execute(:api_method => @service.events.insert,
-//   :parameters => {'calendarId' => calendar_id,
-//     'sendNotifications' => true},
-//   :body => JSON.dump(event),
-//   :headers => {'Content-Type' => 'application/json'})
 
 
 export { calendar }
