@@ -1,5 +1,5 @@
 <h1>Matches down here</h1>
-<% @matchs.each do |match| %>
+<% @my_events.each do |match| %>
  <!--
   tryed to implement if statement for the statue of the event
 
@@ -12,18 +12,23 @@
   end
   -->
   <ul>
-    Title: <%= match.title %>
-    <br>
-    Description: <%= match.description %>
-    <br>
-    Location: <%= match.location %>
-    <br>
-    Date:<%= match.match_date %>
-    <br>
-    Hour: from <em><%= match.min_time %></em> until <em><%= match.max_time %></em>
-    <br>
-    organized by: <%= match.owner.email %>
-    <br>
-  </ul>
+    <li>
+      Title: <%= match.title %>
+      <br>
+      Description: <%= match.description %>
+      <br>
+      Location: <%= match.location %>
+      <br>
+      Date:<%= match.match_date %>
+      <br>
+      Hour: from <em><%= match.min_time.strftime("%H:%M") %></em> until <em><%= match.max_time.strftime("%H:%M") %></em>
+      <br>
+      organized by: <%= match.owner.email %>
+      <br>
+      Attendees : <% match.attendees.each do |user| %>
+        <ul>  <li><%= user.email %></li></ul>
+      <% end %>
+    </li>
+</ul>
 <% end %>
 <%= link_to "Create an event", new_match_path %>

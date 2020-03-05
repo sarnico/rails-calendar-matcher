@@ -5,4 +5,11 @@ class Match < ApplicationRecord
   validates :title, presence: true
   validates :max_date, presence: true
 
+
+  def attendees
+    user_ids.map do |user_id|
+     User.find(user_id)
+   end
+ end
+
 end
