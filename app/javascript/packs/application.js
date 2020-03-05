@@ -15,3 +15,21 @@ import { calendar } from "../calendar_matches"
 
 calendar();
 
+setTimeout( (e)  => {
+
+  const events = document.querySelectorAll(".fc-event-container");
+  console.log(events);
+
+  const prevent = (event) => {
+    console.log(event)
+    event.preventDefault();
+  }
+
+  events.forEach((eventOp) => {
+    eventOp.addEventListener("click", prevent)
+  });
+
+}, 1000)
+
+
+
