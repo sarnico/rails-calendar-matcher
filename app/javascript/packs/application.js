@@ -11,9 +11,11 @@ import '@fullcalendar/timegrid/main.css';
 import '@fullcalendar/list/main.css';
 
 import { calendar } from "../calendar_matches"
+import { calendar_matches } from "../calendar_matches_choice"
 
 
 calendar();
+calendar_matches();
 
 setTimeout( (e)  => {
 
