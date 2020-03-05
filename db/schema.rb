@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_131740) do
+ActiveRecord::Schema.define(version: 2020_03_05_142620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2020_03_04_131740) do
   create_table "google_calendar_wrappers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "creater_id"
+    t.index ["creater_id"], name: "index_groups_on_creater_id"
   end
 
   create_table "matches", force: :cascade do |t|
@@ -83,6 +91,18 @@ ActiveRecord::Schema.define(version: 2020_03_04_131740) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_groups", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_users_groups_on_group_id"
+    t.index ["user_id"], name: "index_users_groups_on_user_id"
+  end
+
+  add_foreign_key "groups", "users", column: "creater_id"
   add_foreign_key "tokens", "users"
   add_foreign_key "user_events", "users"
+  add_foreign_key "users_groups", "groups"
+  add_foreign_key "users_groups", "users"
 end
