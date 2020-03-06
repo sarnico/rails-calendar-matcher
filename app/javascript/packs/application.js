@@ -14,7 +14,12 @@ import { calendar } from "../calendar_matches"
 import { calendar_matches } from "../calendar_matches_choice"
 
 
+
+if(document.getElementById('calendar')){
+
 calendar();
+}
+if(document.getElementById('calendar_matches'))
 calendar_matches();
 
 setTimeout( (e)  => {
