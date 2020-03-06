@@ -19,7 +19,10 @@ before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def create
     @group = Group.new(group_params)
+    @group.creater_id = current_user.id
+    @group.user_ids = group_params[:user_ids]
     @group.save
+    redirect_to groups_path
   end
 
   def update
@@ -35,7 +38,7 @@ before_action :set_group, only: [:show, :edit, :update, :destroy]
   private
 
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, user_ids: [])
   end
 
   def set_group
