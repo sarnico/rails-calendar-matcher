@@ -34,9 +34,9 @@ class FindMatch
         end
 
         {
-          title: users.size - count,
+          title: "✅#{users.size - count}",
           start: @timeslot_start,
-          end: @timeslot_end
+          end: @timeslot_end,
         }
 
     end

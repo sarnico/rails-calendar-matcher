@@ -11,3 +11,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.fc-today{
+  background-color: #f4f4f4 !important;
+  border: solid;
+
+}
+
+.fc-title{
+  color: #77b255;
+  font-size: 50px;
+  margin: 0 auto;
+}
+
+.fc-content{
+  display: flex;
+}
+
+
+

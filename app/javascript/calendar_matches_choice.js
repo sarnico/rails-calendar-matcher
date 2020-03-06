@@ -27,13 +27,25 @@ var calendar_matches = () => {
       plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, googleCalendarPlugin ],
       googleCalendarApiKey: process.env.GOOGLE_API_KEY,
       events: results,
-      eventColor: '#378006'
-      // doc for the events : https://fullcalendar.io/docs/event-object
-      // add an event : https://fullcalendar.io/docs/Calendar-addEvent
+      eventRender: function(event, element) {
+        if(event.icon){
+          element.find(".fc-title").prepend("<i class='fas fa-"+event.icon+"'></i>");
+        }
+      },
+      // displayEventStart: false,
+      // displayEventEnd: false,
+      displayEventTime: false,
+
+      eventColor: "#f4f4f4",
+      eventTimeFormat:{
+        hour: '2-digit',
+        minute: '2-digit'
+      },
+
     });
     calendar.render();
   });
-}
+};
 
 
 
