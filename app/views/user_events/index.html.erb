@@ -1,14 +1,17 @@
-<h1>Your Personnal EVENTS from your very own Google Calendar</h1>
-<ul>
-<% @userevents.each do |event| %>
-<li>
-<%= "#{event.summary} - #{event.start_time} - #{event.end_time}" %>
-</li>
-<% end %>
-</ul>
+<!-- <h1>Your Personnal EVENTS from your very own Google Calendar</h1> -->
 
-<div
-  id="calendar"
-  data-ids="<%= current_user.email %>"
->
+<!-- Your events are down here. Don't forget to put pe and er on "end" -->
+<!-- <ul>
+@userevents.each do |event|
+<li>
+"#{event.summary} - #{event.start_time} - #{event.end_time}"
+</li>
+end
+</ul> -->
+<div class="container my-calendar">
+  <div
+    id="calendar"
+    data-ids="<%= current_user.email %>"
+  >
+  </div>
 </div>
