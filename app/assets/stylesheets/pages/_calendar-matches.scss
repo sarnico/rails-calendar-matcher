@@ -1,0 +1,20 @@
+#calendar_matches{
+  margin-top: 25px;
+  width: 750px;
+
+  .fc-today{
+  background-color: #f4f4f4 !important;
+  // border: solid;
+  }
+
+  .fc-title{
+    color: #77b255;
+    font-size: 25px;
+  }
+
+  .fc-content{
+    text-align: center;
+
+  }
+}
+
