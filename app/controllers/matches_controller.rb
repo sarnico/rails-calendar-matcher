@@ -20,9 +20,12 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
+    group = Group.find_by_id(params['group_id'])
+    @group_user_ids = group.present? ? group.users.map(&:id) : []
   end
 
   def create
+
     # 1. verifier s'il faut creer un groupe
     if group_params[:create_group]
       @group = Group.new

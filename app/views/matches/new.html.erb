@@ -9,7 +9,7 @@
       <%= f.input :max_date, label: 'Pick a date before' %>
       <%= f.input :min_time, label: 'Time Slot of the event, from :'%>
       <%= f.input :max_time, label: 'to :'%>
-      <%= f.association :users, label: 'Attendees :', collection: User.all, as: :check_boxes, label_method: :email %>
+      <%= f.input :users, label: 'Select the attendees from all CM users :', collection: User.all, as: :check_boxes, checked: @group_user_ids,label_method: :email %>
       <%= check_box_tag "create_group", 'create_group' %>
       <%= label_tag "You want to create a new group ? Give it a name : " %>
       <%= text_field_tag :group_name %>

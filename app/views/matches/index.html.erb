@@ -4,7 +4,7 @@
     <%= link_to "Create an event", new_match_path %>
   <% else %>
 
-    <h1>Your events :</h1>
+    <h1>My events :</h1>
     <% @my_events.uniq.each do |match| %>
      <!--
       tryed to implement if statement for the statue of the event
@@ -37,7 +37,7 @@
         </li>
     </ul>
     <% end %>
-    <%= link_to "Create an event", new_match_path %>
+    <%= link_to "+ Create a new event", new_match_path %>
 
   <% end %>
 

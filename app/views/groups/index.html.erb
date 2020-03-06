@@ -1,6 +1,7 @@
 <div class="container">
   <% if @my_groups == [] %>
     <h1>You don't have any group yet</h1>
+    <p><%= link_to "+ Create your first group", new_group_path %></p>
   <% else %>
 
     <h1>Here are all my groups :</h1>
@@ -17,7 +18,7 @@
           <p> <b>Members : </b><% group.members.each do |user| %></p>
             <ul>  <li><%= user.email %></li></ul>
           <% end %>
-          <p><%= link_to "Edit group", edit_group_path(group) %> - <%= link_to "Delete group", group_path(group), method: :delete, data: { confirm: "Are you sure?" } %></p>
+          <p><%= link_to "Create an event", new_match_path(group_id: group.id) %> - <%= link_to "Edit group", edit_group_path(group) %> - <%= link_to "Delete group", group_path(group), method: :delete, data: { confirm: "Are you sure?" } %></p>
           <br>
         </li>
     </ul>
