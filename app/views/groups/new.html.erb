@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Create here your new group</h1>
+
+<%= simple_form_for @group do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name, label: "Give a name to your group" %>
+      <%= f.association :users, label: 'Select the members of the group in all CM users :', collection: User.all, as: :check_boxes, label_method: :email %>
+      <%= f.button :submit, 'Create group', class: "btn-primary" %>
+    <% end %>
+
+</div>

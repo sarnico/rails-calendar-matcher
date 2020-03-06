@@ -4,18 +4,25 @@
   <% else %>
 
     <h1>Here are all my groups :</h1>
+    <br>
+
+    <p><%= link_to "+ Create a new group", new_group_path %></p>
+    <br>
 
     <% @my_groups.uniq.each do |group| %>
       <ul>
         <li>
-          <p> Name : <%= group.name %></p>
-          <p> Admin of the group : <%= group.creater.email %></p>
-          <p> Members of the group : <% group.members.each do |user| %></p>
+          <p> <b>Name of the group : </b><%= group.name %></p>
+          <p> <b>Admin : </b><%= group.creater.email %></p>
+          <p> <b>Members : </b><% group.members.each do |user| %></p>
             <ul>  <li><%= user.email %></li></ul>
           <% end %>
+          <p><%= link_to "Edit group", edit_group_path(group) %> - <%= link_to "Delete group", group_path(group), method: :delete, data: { confirm: "Are you sure?" } %></p>
+          <br>
         </li>
     </ul>
     <% end %>
 
   <% end %>
 </div>
+
