@@ -21,12 +21,25 @@
 .fc-title{
   color: #77b255;
   font-size: 50px;
-  margin: 0 auto;
+  // display: flex;
+  // justify-content: center;
+  // align-content: center;
 }
 
 .fc-content{
-  display: flex;
+  text-align: center;
+  // vertical-align: middle;
+  position: absolute;
+  top: 25px;
+  // display: flex;
+  // align: justify;
 }
 
+.fc-event-container {
+  // display: flex;
+  // align-self: center;
+}
 
-
+// .fc-day {
+//   display: grid;
+// }
