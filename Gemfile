@@ -5,7 +5,6 @@ ruby '2.6.5'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client', require: 'google/apis/calendar_v3'
-gem 'jquery-rails'
 # gem 'google-api-client', '~> 0.11.1'
 # gem 'google-api-client', require: 'google/api_client'
 # the end
