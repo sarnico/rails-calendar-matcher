@@ -1,4 +1,5 @@
 #calendar_matches{
+
   margin-top: 25px;
   width: 750px;
 
@@ -16,7 +17,9 @@
     text-align: center;
 
   }
-  .fc-day-grid-event {
+
+  .fc-day-grid-event{
+    z-index:-1 !important;
     margin-top: -4px;
   }
 }

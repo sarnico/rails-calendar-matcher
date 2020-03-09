@@ -1,3 +1,8 @@
+<% possible_users = (User.all - [current_user]) %>
+
+<div id='possible_users' data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
+
+
 <div class="container">
   <div class="form mt-4 mb-4">
     <h3>Create your event</h3>
@@ -6,19 +11,22 @@
       <%= f.input :title, label: 'Give a title to your event', placeholder: 'The title' %>
       <%= f.input :location, label: 'Address of the event', placeholder: 'The address' %>
       <%= f.input :description, label: 'Description of the event', placeholder: 'The description' %>
+      <%= f.input :min_date, label: 'Pick a "starting" date for your match' %>
       <%= f.input :max_date, label: 'Pick a date before' %>
       <%= f.input :min_time, label: 'Time Slot of the event, from :'%>
       <%= f.input :max_time, label: 'to :'%>
-      <%= f.input :users, label: 'Select the attendees from all CM users :', collection: User.all, as: :check_boxes, checked: @group_user_ids,label_method: :email %>
+       <%= f.input :user_ids, label: 'Select the attendees from all CM users :' %>
       <%= check_box_tag "create_group", 'create_group' %>
       <%= label_tag "You want to create a new group ? Give it a name : " %>
       <%= text_field_tag :group_name %>
       <br>
+
       <%= f.button :submit, 'Create event', class: "btn-primary" %>
+
     <% end %>
+
   </div>
 </div>
 
 <!-- select users when selecting a group ? -->
 <!-- key up resarch for attendees ? -->
-

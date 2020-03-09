@@ -7,7 +7,6 @@ class MatchesController < ApplicationController
     @matches = Match.all
     @events_owner = current_user.matches
     @events_attendee = @matches.select { |m| m.attendees.include?(current_user) }
-
     @my_events = @events_owner + @events_attendee
 
   end
@@ -38,7 +37,7 @@ class MatchesController < ApplicationController
     # 2. creer le match
     @match = Match.new(match_params)
     @match.owner_id = current_user.id
-    if @match.save
+     if @match.save
       redirect_to match_path(@match)
     else
       render :new

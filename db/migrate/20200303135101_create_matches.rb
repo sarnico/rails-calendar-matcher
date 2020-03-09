@@ -5,10 +5,11 @@ class CreateMatches < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :location
       t.datetime :match_date
-      t.datetime :min_date
-      t.datetime :max_date
+      t.date :min_date
+      t.date :max_date
+      t.time :min_time
+      t.time :max_time
       t.string :state
-
       t.timestamps
     end
   end
