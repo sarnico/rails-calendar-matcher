@@ -5,9 +5,11 @@ class MatchesController < ApplicationController
 
   def index
     @matches = Match.all
-    @events_owner = current_user.matches
+    # @events_owner = current_user.matches
+    @events_owner = Match.where(owner_id: current_user.id)
     @events_attendee = @matches.select { |m| m.attendees.include?(current_user) }
-    @my_events = @events_owner + @events_attendee
+    @events = @events_owner + @events_attendee
+    @my_events = @events.sort
 
   end
 
