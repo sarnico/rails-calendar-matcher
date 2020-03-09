@@ -2,10 +2,11 @@
 
   margin-top: 25px;
   width: 750px;
+  background-color: white;
+  padding: 20px;
 
   .fc-today{
-  background-color: #f4f4f4 !important;
-  // border: solid;
+  // background-color: white !important;
   }
 
   .fc-title{
@@ -15,12 +16,18 @@
 
   .fc-content{
     text-align: center;
-
+    // background-color: white;
   }
 
   .fc-day-grid-event{
-    z-index:-1 !important;
+    z-index: -1 !important;
     margin-top: -4px;
+    background-color: transparent !important;
+    border: none;
+  }
+
+  .fc-event-container:hover {
+    cursor: pointer;
   }
 }
 

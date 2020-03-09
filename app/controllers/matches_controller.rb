@@ -1,19 +1,18 @@
 class MatchesController < ApplicationController
 
   before_action :set_match, only: [:show, :edit, :update, :destroy]
-  # protect_from_forgery with: :null_session
 
   def index
     @matches = Match.all
-    @events_owner = current_user.matches
+    @events_owner = Match.where(owner_id: current_user.id)
     @events_attendee = @matches.select { |m| m.attendees.include?(current_user) }
-    @my_events = @events_owner + @events_attendee
+    @events = @events_owner + @events_attendee
+    @my_events = @events.sort
+
   end
 
   def show
-
-    @results = FindMatch.date(@match.id, @match.owner_id, @match.user_ids, @match.min_time, @match.max_time, @match.max_date, @match.min_date = Date.today)
-
+    @results = FindMatch.date(@match.id, @match.owner_id, @match.user_ids, @match.min_time, @match.max_time, @match.max_date, @match.min_date)
   end
 
   def new
@@ -55,7 +54,8 @@ class MatchesController < ApplicationController
   end
 
   def destroy
-
+    @match.destroy
+    redirect_to matches_path
   end
 
   private
