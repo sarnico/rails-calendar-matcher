@@ -25,6 +25,10 @@
     background-color: transparent !important;
     border: none;
   }
+
+  .fc-event-container:hover {
+    cursor: pointer;
+  }
 }
 
 @media all and (max-width: 760px) {
