@@ -1,5 +1,4 @@
 <% possible_users = (User.all - [current_user]) %>
-
 <div id='possible_users' data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
 
 
@@ -11,10 +10,15 @@
       <%= f.input :title, label: 'Give a title to your event', placeholder: 'The title' %>
       <%= f.input :location, label: 'Address of the event', placeholder: 'The address' %>
       <%= f.input :description, label: 'Description of the event', placeholder: 'The description' %>
+
+                    <div class="d-flex">
       <%= f.input :min_date, as: :date, html5: true, label: 'Pick a "starting" date for your match' %>
       <%= f.input :max_date, as: :date, html5: true, label: 'Pick a date before' %>
+    </div>
+  <div class="d-flex">
       <%= f.input :min_time, label: 'Time Slot of the event, from :'%>
       <%= f.input :max_time, label: 'to :'%>
+  </div>
       <%#= f.input :user_ids, label: 'Select the attendees from all CM users :', collection: User.all-[current_user], input_html: { class: 'multiselectuser', multiple: true},label_method: :email  %>
       <%= f.input :user_ids, as: :hidden %>
       <div class="form-group">
@@ -28,12 +32,15 @@
         <% end %>
       </div>
       </div>
+
+      
+
       <%= check_box_tag "create_group", 'create_group' %>
       <%= label_tag "You want to create a new group ? Give it a name : " %>
       <%= text_field_tag :group_name %>
       <br>
 
-      <%= f.button :submit, 'Create event', class: "btn-primary" %>
+      <%= f.button :submit, 'Find the match !', class: "btn-primary" %>
 
     <% end %>
 

@@ -114,22 +114,3 @@ console.log(users)
   usersAll.forEach((user) => {
     user.addEventListener("click", clickSelectUser)
   })
-
-
-
-  // userSearchResults.addEventListener("click", (event) => {
-  //   // const user = filteredUsers[0]
-  //   // console.log(event.currentTarget)
-  //   const user = document.querySelector("#user_search_results p").dataset.userId
-  //   console.log(user)
-  //   if (selectedUsers.indexOf(user) === -1) {
-  //     selectedUsers.push(user)
-  //     const paragraph = document.createElement('p')
-  //     paragraph.appendChild( document.createTextNode(user.email) );
-  //     paragraph.classList.add('user-chip')
-  //     selectedUsersDiv.appendChild(paragraph)
-  //     hiddenUsersInput.value = JSON.stringify(selectedUsers.map(user => user.id))
-  //   event.preventDefault()
-  // }
-// })
-
