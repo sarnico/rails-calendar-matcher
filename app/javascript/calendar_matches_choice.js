@@ -24,6 +24,8 @@ var calendar_matches = () => {
         if(event.icon){
           element.find(".fc-title").prepend("<i class='fas fa-"+event.icon+"'></i>");
         }
+        console.log(event)
+        // console.log(element)
       },
 
       displayEventTime: false,
@@ -68,14 +70,15 @@ var calendar_matches = () => {
           const matchingDateStartDate = matchingDateFormatingStart.toDateString()
 
           // concatenatin part is gonna be long
-          const startTime = matchingDateStartHours + ':' + matchingDateStartMins + ':' + matchingDateStartSecs
-          const endTime = matchingDateEndHours + ':' + matchingDateEndMins + ':' + matchingDateEndSecs
+          const startTime = matchingDateStartHours + ':' + matchingDateStartMins
+          const endTime = matchingDateEndHours + ':' + matchingDateEndMins
 
           // date to import in match view
-          const matchDate = matchingDateStartDate + ' from ' + startTime + ' until ' + endTime
+          const matchDate = matchingDateStartDate
+          console.log(matchDate)
 
           // alert box message if selected a possible date
-          const firstMessage = 'Are you sure you want to make your event happen on\n' + matchingDateStartDate + '\n' + startTime + ' until ' + endTime
+          const firstMessage = 'Are you sure you want to make your event happen on\n' + matchingDateStartDate + '\nfrom ' + startTime + ' until ' + endTime
 
           const ok = confirm(firstMessage)
 
