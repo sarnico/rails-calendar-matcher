@@ -16,5 +16,23 @@
     text-align: center;
 
   }
+  .fc-day-grid-event {
+    margin-top: -4px;
+  }
 }
 
+@media all and (max-width: 760px) {
+  #calendar_matches {
+    .fc-day-grid-event {
+      margin-top: -10px;
+    }
+  }
+}
+
+@media all and (max-width: 575px) {
+  #calendar_matches {
+    .fc-day-grid-event {
+      margin-top: -4px;
+    }
+  }
+}
