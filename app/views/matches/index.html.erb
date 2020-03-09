@@ -19,28 +19,31 @@
         <p>[pending]</p>
       end
       -->
+
       <ul>
         <li>
-          Title: <%= match.title %>
+          <b>Title :</b> <%= match.title %>
           <br>
-          Description: <%= match.description %>
+          <b>Description :</b> <%= match.description %>
           <br>
-          Location: <%= match.location %>
+          <b>Location :</b> <%= match.location %>
           <br>
-          Date: <% if match.match_date == nil %>
+          <b>Date :</b> <% if match.match_date == nil %>
                   Still looking for a match
                 <% else %>
                   <%= match.match_date %>
                 <% end %>
           <br>
-          Hour: from <em><%= match.min_time.strftime("%H:%M") %></em> until <em><%= match.max_time.strftime("%H:%M") %></em>
+          <b>Hour :</b> from <em><%= match.min_time.strftime("%H:%M") %></em> until <em><%= match.max_time.strftime("%H:%M") %></em>
           <br>
-          organized by: <%= match.owner.email %>
+          <b>Organized by :</b> <%= match.owner.email %>
           <br>
-          Attendees : <% match.attendees.each do |user| %>
+          <b>Attendees :</b> <% match.attendees.each do |user| %>
             <ul>  <li><%= user.email %></li></ul>
           <% end %>
-          <p><%= link_to "Edit event", edit_match_path(match) %> - <%= link_to "Delete event", match_path(match), method: :delete, data: { confirm: "Are you sure?" } %></p>
+          <% if match.owner_id == current_user.id  %>
+            <p><%= link_to "Edit event", edit_match_path(match) %> - <%= link_to "Delete event", match_path(match), method: :delete, data: { confirm: "Are you sure?" } %></p>
+          <% end %>
         </li>
     </ul>
     <% end %>
