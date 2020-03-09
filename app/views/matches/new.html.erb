@@ -11,9 +11,9 @@
       <%= f.input :title, label: 'Give a title to your event', placeholder: 'The title' %>
       <%= f.input :location, label: 'Address of the event', placeholder: 'The address' %>
       <%= f.input :description, label: 'Description of the event', placeholder: 'The description' %>
-      <%= f.input :min_date, label: 'Pick a "starting" date for your match' %>
+      <%= f.input :min_date, label: 'Pick a date from' %>
       <%= f.input :max_date, label: 'Pick a date before' %>
-      <%= f.input :min_time, label: 'Time Slot of the event, from :'%>
+      <%= f.input :min_time, label: 'Timeslot of the event, from :'%>
       <%= f.input :max_time, label: 'to :'%>
       <%= f.input :user_ids, label: 'Select the attendees from all CM users :', collection: User.all-[current_user], input_html: { class: 'multiselectuser', multiple: true},label_method: :email  %>
       <%= check_box_tag "create_group", 'create_group' %>
