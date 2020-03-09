@@ -31,7 +31,7 @@
           <b>Date :</b> <% if match.match_date == nil %>
                   Still looking for a match
                 <% else %>
-                  <%= match.match_date %>
+                  <%= match.match_date.strftime("%a %d %B %Y") %>
                 <% end %>
           <br>
           <b>Hour :</b> from <em><%= match.min_time.strftime("%H:%M") %></em> until <em><%= match.max_time.strftime("%H:%M") %></em>
