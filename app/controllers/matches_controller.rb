@@ -1,14 +1,13 @@
 class MatchesController < ApplicationController
 
   before_action :set_match, only: [:show, :edit, :update, :destroy]
-
+  # protect_from_forgery with: :null_session
 
   def index
     @matches = Match.all
     @events_owner = current_user.matches
     @events_attendee = @matches.select { |m| m.attendees.include?(current_user) }
     @my_events = @events_owner + @events_attendee
-
   end
 
   def show
@@ -48,8 +47,11 @@ class MatchesController < ApplicationController
   end
 
   def update
-    @match.update(match_params)
-    redirect_to matches_path
+    if @match.update(match_params)
+      respond_to do |format|
+         format.json { render json: {} }
+      end
+    end
   end
 
   def destroy

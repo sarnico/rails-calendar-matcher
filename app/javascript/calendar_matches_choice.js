@@ -71,16 +71,36 @@ var calendar_matches = () => {
           const startTime = matchingDateStartHours + ':' + matchingDateStartMins + ':' + matchingDateStartSecs
           const endTime = matchingDateEndHours + ':' + matchingDateEndMins + ':' + matchingDateEndSecs
 
+          // date to import in match view
+          const matchDate = matchingDateStartDate + ' from ' + startTime + ' until ' + endTime
+
           // alert box message if selected a possible date
           const firstMessage = 'Are you sure you want to make your event happen on\n' + matchingDateStartDate + '\n' + startTime + ' until ' + endTime
 
           const ok = confirm(firstMessage)
+
+          const matchid = JSON.parse(document
+            .getElementById("calendar_matches")
+            .dataset
+            .matchid
+            );
+
           if (ok == true) {
-
-            console.log('u pressed ok')
-            console.log(matchingDate)
+            fetch(`/matches/${matchid}`, {
+              method: 'put',
+              body: JSON.stringify({match: {
+                match_date: matchDate
+              }}),
+              headers: {
+                "Accept": 'application/json',
+                "Content-Type": 'application/json',
+                "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+              }
+            })
+            .then(res => {
+              window.location.href = '/matches'
+            }).catch(err => alert(err))
           }
-
         } else {
           alert('No match possible on that day \nPick another date please!')
         }
