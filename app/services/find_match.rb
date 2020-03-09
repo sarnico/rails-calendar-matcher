@@ -20,8 +20,8 @@ class FindMatch
 
       count = users.count do |u|
         User.find(u).user_events.any? do |e|
-          event_start = e.start_time + 60 * 60
-          event_end = e.end_time + 60 * 60
+          event_start = e.start_time
+          event_end = e.end_time
           @timeslot_end = tp_final.change day: dp.day, month: dp.month, year: dp.year
           @timeslot_start = tp_initial.change day: dp.day, month: dp.month, year:dp.year
           # schedule << [timeslot_start, timeslot_end] if !(event_start..event_end).overlaps?(@timeslot_start..@timeslot_end)
