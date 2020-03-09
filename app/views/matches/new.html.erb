@@ -15,7 +15,7 @@
       <%= f.input :max_date, label: 'Pick a date before' %>
       <%= f.input :min_time, label: 'Time Slot of the event, from :'%>
       <%= f.input :max_time, label: 'to :'%>
-       <%= f.input :user_ids, label: 'Select the attendees from all CM users :' %>
+      <%= f.input :user_ids, label: 'Select the attendees from all CM users :', collection: User.all-[current_user], input_html: { class: 'multiselectuser', multiple: true},label_method: :email  %>
       <%= check_box_tag "create_group", 'create_group' %>
       <%= label_tag "You want to create a new group ? Give it a name : " %>
       <%= text_field_tag :group_name %>
