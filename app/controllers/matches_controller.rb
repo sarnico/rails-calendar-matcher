@@ -3,11 +3,14 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
   def index
+    @match = Match.new
     @matches = Match.all
     @events_owner = Match.where(owner_id: current_user.id)
     @events_attendee = @matches.select { |m| m.attendees.include?(current_user) }
     @events = @events_owner + @events_attendee
-    @my_events = @events.sort
+    @my_events = @events.sort { |a, b| b.match_date <=> a.match_date }
+    # @my_events = @events.sort_by { |event| event.match_date }
+    # @my_events = @events.sort_by(@match.match_date)
 
   end
 
