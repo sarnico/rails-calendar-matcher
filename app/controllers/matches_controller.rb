@@ -46,8 +46,11 @@ class MatchesController < ApplicationController
   end
 
   def update
-    @match.update(match_params)
-    redirect_to matches_path
+    if @match.update(match_params)
+      respond_to do |format|
+         format.json { render json: {} }
+      end
+    end
   end
 
   def destroy

@@ -27,7 +27,11 @@
           <br>
           Location: <%= match.location %>
           <br>
-          Date:<%= match.match_date %>
+          Date: <% if match.match_date == nil %>
+                  Still looking for a match
+                <% else %>
+                  <%= match.match_date %>
+                <% end %>
           <br>
           Hour: from <em><%= match.min_time.strftime("%H:%M") %></em> until <em><%= match.max_time.strftime("%H:%M") %></em>
           <br>

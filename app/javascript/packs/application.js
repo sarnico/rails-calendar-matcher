@@ -40,22 +40,20 @@ setTimeout( (e)  => {
 }, 1000)
 
 
-const add_attendees = document.getElementById("match_user_ids");
-const usersBox = document.getElementById('possible_users')
-const users = JSON.parse(usersBox.dataset.users)
-console.log(users)
+// const add_attendees = document.getElementById("match_user_ids");
+// const usersBox = document.getElementById('possible_users')
+// // const users = JSON.parse(usersBox.dataset.users)
+// // console.log(users)
 
 
 
 
-  add_attendees.addEventListener("keyup", (event) => {
-    let insertedValue = event.currentTarget.value;
-    console.log(insertedValue)
-    console.log(users)
-    users.forEach(user => console.log(user.email))
+//   add_attendees.addEventListener("keyup", (event) => {
+//     let insertedValue = event.currentTarget.value;
+//     users.forEach(user => console.log(user.email))
 
-    // if user.start_with?('insertedValue')){
-    //   return "Yeah";
-    // };
-  });
+//     // if user.start_with?('insertedValue')){
+//     //   return "Yeah";
+//     // };
+//   });
 

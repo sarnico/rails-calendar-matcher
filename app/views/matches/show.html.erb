@@ -1,9 +1,9 @@
 <div class="container cal">
-
   <div
     id="calendar_matches"
     data-ids="<%= current_user.email %>"
     data-results="<%= @results.to_json %>"
+    data-matchid="<%= @match.id.to_json%>"
     class="container"
   >
   </div>
