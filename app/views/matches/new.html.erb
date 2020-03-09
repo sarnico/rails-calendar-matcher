@@ -11,10 +11,12 @@
       <%= f.input :title, label: 'Give a title to your event', placeholder: 'The title' %>
       <%= f.input :location, label: 'Address of the event', placeholder: 'The address' %>
       <%= f.input :description, label: 'Description of the event', placeholder: 'The description' %>
+      <div class="d-flex">
       <%= f.input :min_date, label: 'Pick a date from' %>
-      <%= f.input :max_date, label: 'Pick a date before' %>
+      <%= f.input :max_date, label: 'Pick a date before' %></div>
+      <div class="d-flex">
       <%= f.input :min_time, label: 'Timeslot of the event, from :'%>
-      <%= f.input :max_time, label: 'to :'%>
+      <%= f.input :max_time, label: 'to :'%></div>
       <%= f.input :user_ids, label: 'Select the attendees from all CM users :', collection: User.all-[current_user], input_html: { class: 'multiselectuser', multiple: true},label_method: :email  %>
       <%= check_box_tag "create_group", 'create_group' %>
       <%= label_tag "You want to create a new group ? Give it a name : " %>
