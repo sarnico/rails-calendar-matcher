@@ -22,8 +22,25 @@ var calendar = () => {
       // add an event : https://fullcalendar.io/docs/Calendar-addEvent
     });
     calendar.render();
+
   });
 }
+
+//PreventDefault on google events
+setTimeout( (e)  => {
+
+  const events = document.querySelectorAll(".fc-event-container");
+
+  const prevent = (event) => {
+    console.log(event)
+    event.preventDefault();
+  }
+
+  events.forEach((eventOp) => {
+    eventOp.addEventListener("click", prevent)
+  });
+
+}, 500)
 
 
 

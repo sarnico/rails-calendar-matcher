@@ -16,44 +16,9 @@ import { calendar_matches } from "../calendar_matches_choice"
 
 
 if(document.getElementById('calendar')){
-
-calendar();
+  calendar();
 }
-if(document.getElementById('calendar_matches'))
-calendar_matches();
 
-
-setTimeout( (e)  => {
-
-  const events = document.querySelector(".fc-event-container");
-  console.log(events);
-
-  const prevent = (event) => {
-    console.log(event)
-    event.preventDefault();
-  }
-
-  events.forEach((eventOp) => {
-    eventOp.addEventListener("click", prevent)
-  });
-
-}, 1000)
-
-
-// const add_attendees = document.getElementById("match_user_ids");
-// const usersBox = document.getElementById('possible_users')
-// // const users = JSON.parse(usersBox.dataset.users)
-// // console.log(users)
-
-
-
-
-//   add_attendees.addEventListener("keyup", (event) => {
-//     let insertedValue = event.currentTarget.value;
-//     users.forEach(user => console.log(user.email))
-
-//     // if user.start_with?('insertedValue')){
-//     //   return "Yeah";
-//     // };
-//   });
-
+if(document.getElementById('calendar_matches')){
+  calendar_matches();
+}
