@@ -16,27 +16,9 @@ import { calendar_matches } from "../calendar_matches_choice"
 
 
 if(document.getElementById('calendar')){
-
-calendar();
+  calendar();
 }
-if(document.getElementById('calendar_matches'))
-calendar_matches();
 
-
-setTimeout( (e)  => {
-
-  const events = document.querySelectorAll(".fc-event-container");
-  console.log(events);
-
-  const prevent = (event) => {
-    console.log(event)
-    event.preventDefault();
-  }
-
-  events.forEach((eventOp) => {
-    eventOp.addEventListener("click", prevent)
-  });
-
-}, 1000)
-
-
+if(document.getElementById('calendar_matches')){
+  calendar_matches();
+}
