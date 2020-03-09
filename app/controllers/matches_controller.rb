@@ -2,10 +2,8 @@ class MatchesController < ApplicationController
 
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @matches = Match.all
-    # @events_owner = current_user.matches
     @events_owner = Match.where(owner_id: current_user.id)
     @events_attendee = @matches.select { |m| m.attendees.include?(current_user) }
     @events = @events_owner + @events_attendee
@@ -14,9 +12,7 @@ class MatchesController < ApplicationController
   end
 
   def show
-
-    @results = FindMatch.date(@match.id, @match.owner_id, @match.user_ids, @match.min_time, @match.max_time, @match.max_date, @match.min_date = Date.today)
-
+    @results = FindMatch.date(@match.id, @match.owner_id, @match.user_ids, @match.min_time, @match.max_time, @match.max_date, @match.min_date)
   end
 
   def new
