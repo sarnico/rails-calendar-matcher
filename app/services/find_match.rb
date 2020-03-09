@@ -20,8 +20,8 @@ class FindMatch
 
       count = users.count do |u|
         User.find(u).user_events.any? do |e|
-          event_start = e.start_time + 60 * 60
-          event_end = e.end_time  + 60 * 60
+          event_start = e.start_time
+          event_end = e.end_time
           @timeslot_end = tp_final.change day: dp.day, month: dp.month, year: dp.year
           @timeslot_start = tp_initial.change day: dp.day, month: dp.month, year:dp.year
           # schedule << [timeslot_start, timeslot_end] if !(event_start..event_end).overlaps?(@timeslot_start..@timeslot_end)
@@ -34,14 +34,18 @@ class FindMatch
       nb_attendees = users.size - count
 
       if nb_attendees != 0
-        # Coline : redéfinir ces valeurs ici vu qu'il ne les connait pas ?
-        # @timeslot_start = tp_initial.change day: dp.day, month: dp.month, year:dp.year
-        # @timeslot_end = tp_final.change day: dp.day, month: dp.month, year: dp.year
         {
           title: "✅#{users.size - count}",
           start: @timeslot_start -1,
           end: @timeslot_end + 1,
         }
+      else
+        {
+          title: "",
+          start: @timeslot_start -1,
+          end: @timeslot_end + 1,
+        }
+
       end
 
     end
