@@ -1,9 +1,7 @@
 class FindMatch
   def self.date (id, owner, users, min_time, max_time, max_date, min_date = Date.today)
 
-
     set_match = Match.find(id)
-
     users = set_match.user_ids << set_match.owner_id
 
 
@@ -21,7 +19,6 @@ class FindMatch
     @a = (dp_initial..dp_final).map do |dp|
 
       count = users.count do |u|
-
         User.find(u).user_events.any? do |e|
           event_start = e.start_time + 60 * 60
           event_end = e.end_time  + 60 * 60
@@ -32,16 +29,21 @@ class FindMatch
               occupied << { start: event_start,end: event_end, description: e.summary, user_occ:User.find(u).email}
             end
         end
-
       end
+
       nb_attendees = users.size - count
+
       if nb_attendees != 0
+        # Coline : redéfinir ces valeurs ici vu qu'il ne les connait pas ?
+        # @timeslot_start = tp_initial.change day: dp.day, month: dp.month, year:dp.year
+        # @timeslot_end = tp_final.change day: dp.day, month: dp.month, year: dp.year
         {
           title: "✅#{users.size - count}",
           start: @timeslot_start -1,
           end: @timeslot_end + 1,
         }
       end
+
     end
   end
 end

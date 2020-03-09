@@ -55,7 +55,8 @@ class MatchesController < ApplicationController
   end
 
   def destroy
-
+    @match.destroy
+    redirect_to matches_path
   end
 
   private
