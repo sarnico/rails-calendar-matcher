@@ -18,7 +18,9 @@
           <p> <b>Members : </b><% group.members.each do |user| %></p>
             <ul>  <li><%= user.email %></li></ul>
           <% end %>
-          <p><%= link_to "Create an event", new_match_path(group_id: group.id) %> - <%= link_to "Edit group", edit_group_path(group) %> - <%= link_to "Delete group", group_path(group), method: :delete, data: { confirm: "Are you sure?" } %></p>
+          <% if group.creater_id == current_user.id %>
+            <p><%= link_to "Create an event", new_match_path(group_id: group.id) %> - <%= link_to "Edit group", edit_group_path(group) %> - <%= link_to "Delete group", group_path(group), method: :delete, data: { confirm: "Are you sure?" } %></p>
+          <% end %>
           <br>
         </li>
     </ul>
