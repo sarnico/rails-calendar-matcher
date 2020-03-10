@@ -19,3 +19,49 @@
   margin: 4px;
   padding: 4px;
 }
+
+.inactif{
+  display: none;
+
+}
+
+#shown_user_ids{
+  position: relative;
+  width:400px;
+}
+
+#user_search_results{
+  position:absolute;
+  left: 600px;
+  border: solid 1px #9b9b9b;
+  border-radius: 5px 5px 5px 5px;
+  background-color:#ffffff;
+  padding: 20px;
+}
+
+.d-flex{
+  display:flex;
+  justify-content: space-between;
+}
+.min_date{
+  width:45%;
+}
+
+.max_date{
+  width:50%;
+}
+
+.min_time{
+  width:45%;
+}
+
+.max_time{
+  width:50%;
+}
+
+#user_search_results > p:hover {
+  background-color:#f4f4f4;
+  padding:3px;
+  border-radius:5px;
+
+}

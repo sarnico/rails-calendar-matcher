@@ -56,7 +56,54 @@ if(usersBox) {
     search()
   }
 
+// if (event.key === "q") {
+//     player1.classList.remove("active");
+//     if (player1.nextElementSibling) {
+//       player1.nextElementSibling.classList.add("active");
+//     } else {
+//       alert("Player 1 you WON ! CONGRATS !!!");
+//       window.location.reload();
+//     }
+//   }
+//   if (event.key === "p") {
+//     player2.classList.remove("active");
+//     if (player2.nextElementSibling) {
+//       player2.nextElementSibling.classList.add("active");
+//     } else {
+//       alert("Player 2 you WON ! CONGRATS !!!");
+//       window.location.reload();
+//     }
+//   }
+// });
+
+
+
+  if (userSearchInput.addEventListener('mouseover')){
+
+    user_search_results.classList.remove("inactif")
+  }
+
+  // console.log('FOCUS!')
+  // }, true)){
+  //   ;
+
+  // if (userSearchInput.addEventListener('mouseover',function(e){
+  //   user_search_results.classList.remove("inactif")
+
+  // console.log('FOCUS!')
+  // }, true)){
+  //   ;
+
+  // window.addEventListener('blur',function(e){
+  //   user_search_results.classList.add("inactif")
+  // console.log('windows UNFOCUS!')
+  // }, true);
+
   userSearchInput.addEventListener("input", search);
+
+
+
+
 
   userSearchInput.addEventListener("keypress", (event) => {
     if (event.key === 'Enter') {
