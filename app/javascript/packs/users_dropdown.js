@@ -76,18 +76,33 @@ if(usersBox) {
 //   }
 // });
 
+const debileDisplay = (e) => {
+  userSearchResults.classList.toggle("inactif")
+  userSearchResults.children[0].classList.add("fancy-hover")
+}
+
+const boxHover = (e) => {
+  userSearchResults.childNodes.forEach((child) =>{
+    if (child.classList){
+      child.classList.remove("fancy-hover")
+    }
+  })
+  e.currentTarget.classList.toggle("fancy-hover")
+}
 
 
-  if (userSearchInput.addEventListener('mouseover')){
+userSearchInput.addEventListener('click', debileDisplay )
+userSearchResults.addEventListener('click', debileDisplay )
 
-    user_search_results.classList.remove("inactif")
-  }
 
-  // console.log('FOCUS!')
-  // }, true)){
-  //   ;
 
-  // if (userSearchInput.addEventListener('mouseover',function(e){
+userSearchResults.childNodes.forEach((child) =>{
+  child.addEventListener('mouseover', boxHover)
+})
+
+
+
+  // userSearchInput.addEventListener('mouseover',function(e){
   //   user_search_results.classList.remove("inactif")
 
   // console.log('FOCUS!')
