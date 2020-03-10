@@ -9,23 +9,26 @@
 
     <p><%= link_to "+ Create a new group", new_group_path %></p>
     <br>
+    <div class="group-layout">
 
     <% @my_groups.uniq.each do |group| %>
       <ul>
-        <li>
+        <li class="card-group-index">
           <p> <b>Name of the group : </b><%= group.name %></p>
           <p> <b>Admin : </b><%= group.creater.email %></p>
-          <p> <b>Members : </b><% group.members.each do |user| %></p>
-            <ul>  <li><%= user.email %></li></ul>
-          <% end %>
+          <p> <b>Members : </b></p>
+          <div class="group-member-layout">
+            <% group.members.each do |user| %>
+              <ul>  <li><%= user.email %></li></ul>
+            <% end %>
+          </div>
           <% if group.creater_id == current_user.id %>
-            <p><%= link_to "Create an event", new_match_path(group_id: group.id) %> - <%= link_to "Edit group", edit_group_path(group) %> - <%= link_to "Delete group", group_path(group), method: :delete, data: { confirm: "Are you sure?" } %></p>
+            <p class="group-links"><%= link_to "Create an event", new_match_path(group_id: group.id) %> - <%= link_to "Edit group", edit_group_path(group) %> - <%= link_to "Delete group", group_path(group), method: :delete, data: { confirm: "Are you sure?" } %></p>
           <% end %>
-          <br>
         </li>
     </ul>
     <% end %>
-
+</div>
   <% end %>
 </div>
 
