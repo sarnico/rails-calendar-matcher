@@ -8,7 +8,11 @@ class MatchesController < ApplicationController
     @events_owner = Match.where(owner_id: current_user.id)
     @events_attendee = @matches.select { |m| m.attendees.include?(current_user) }
     @events = @events_owner + @events_attendee
-    @my_events = @events.sort { |a, b| b.match_date <=> a.match_date }
+    @my_events = @events.sort { |a, b|
+      a_match_date = a.match_date.nil? ? DateTime.now :  a.match_date
+      b_match_date = b.match_date.nil? ? DateTime.now :  b.match_date
+      b_match_date <=> a_match_date
+    }
     # @my_events = @events.sort_by { |event| event.match_date }
     # @my_events = @events.sort_by(@match.match_date)
 
@@ -63,9 +67,10 @@ class MatchesController < ApplicationController
   private
 
   def match_params
-    params
+    returned_params  = params
       .require(:match).permit(:id, :title, :description, :location, :match_date, :min_date, :max_date, :min_time, :max_time, :state, :owner_id)
-      .merge(user_ids: JSON.parse(params[:match][:user_ids]))
+    returned_params =  returned_params.merge(user_ids: JSON.parse(params[:match][:user_ids])) if params[:match][:user_ids].present?
+    returned_params
   end
 
   def group_params

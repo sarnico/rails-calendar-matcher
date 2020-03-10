@@ -36,13 +36,13 @@ class FindMatch
       if nb_attendees != 0
         {
           title: "✅#{users.size - count}",
-          start: @timeslot_start -1,
+          start: @timeslot_start - 1,
           end: @timeslot_end + 1,
         }
       else
         {
           title: "",
-          start: @timeslot_start -1,
+          start: @timeslot_start - 1,
           end: @timeslot_end + 1,
         }
       end
