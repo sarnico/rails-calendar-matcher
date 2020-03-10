@@ -3,12 +3,17 @@ const dropdown = () => {
   const usersBox = document.getElementById('possible_users')
 
   if(usersBox) {
-    const users = JSON.parse(usersBox.dataset.users)
-
+    let users = JSON.parse(usersBox.dataset.users)
     const hiddenUsersInput = document.querySelector("#match_user_ids")
     const userSearchInput = document.querySelector('#shown_user_ids')
     const selectedUsersDiv = document.querySelector('#selected_user_ids')
+    const groupMembers = JSON.parse(selectedUsersDiv.dataset.group)
+    console.log(groupMembers)
+    console.log(users)
+
+
     const userSearchResults = document.querySelector('#user_search_results')
+
 
     let filteredUsers = []
     let selectedUsers = []
@@ -23,6 +28,7 @@ const dropdown = () => {
         hiddenUsersInput.value = JSON.stringify(selectedUsers.map(user => user.id))
       }
     }
+
 
     const clickSelectUser = (event) => {
       const userId = event.currentTarget.dataset.userId
@@ -40,6 +46,8 @@ const dropdown = () => {
         child.remove()
       }
 
+
+
       users.forEach(user => {
         if (!user.email.includes(query)) return
         if (selectedUsers.indexOf(user) != -1) return
@@ -56,6 +64,22 @@ const dropdown = () => {
       userSearchInput.value = ""
       search()
     }
+
+    const prefillForm = () => {
+      groupMembers.forEach((userId) => {
+        const user = users.find(item => item.id === userId)
+        console.log(users)
+        users.splice(users.indexOf(user), 1)
+        console.log(users)
+        selectUser(user)
+        resetSearch()
+      })
+    }
+
+    prefillForm()
+
+
+
 
   // if (event.key === "q") {
   //     player1.classList.remove("active");
