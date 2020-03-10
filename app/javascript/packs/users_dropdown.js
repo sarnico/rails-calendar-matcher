@@ -1,10 +1,11 @@
 
+console.log('javascript/packs/users_dropdown.js LOADED')
 const usersBox = document.getElementById('possible_users')
 
 if(usersBox) {
   const users = JSON.parse(usersBox.dataset.users)
 
-  const hiddenUsersInput = document.querySelector("#match_user_ids")
+  const hiddenUsersInput = document.querySelector(`#${usersBox.dataset.inputId}`)
   const userSearchInput = document.querySelector('#shown_user_ids')
   const selectedUsersDiv = document.querySelector('#selected_user_ids')
   const userSearchResults = document.querySelector('#user_search_results')
@@ -89,7 +90,6 @@ userSearchInput.addEventListener("focus", search);
 
   userSearchInput.addEventListener("keypress", (event) => {
     if (event.key === 'Enter') {
-      console.log("ENTER")
       const user = filteredUsers[0]
       selectUser(user)
       resetSearch()
