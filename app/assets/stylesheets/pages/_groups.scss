@@ -1,0 +1,33 @@
+.card-group-index {
+  background-color:
+white;
+
+margin: 2px;
+
+padding: 18px;
+
+list-style: none;
+
+box-shadow: aqua 6px;
+
+box-shadow: 0 0 15px rgba(0,0,0,0.2);
+ border-radius: 2px;
+ max-height:  40vh;
+ b {
+  color: gray;
+ }
+ .group-links {
+   margin-top:  32px;
+   margin-bottom: -4px;
+ }
+ .group-member-layout {
+    max-height: 89px;
+    line-height: 2.5em;
+    overflow-y: scroll;
+
+ }
+}
+.group-layout{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
