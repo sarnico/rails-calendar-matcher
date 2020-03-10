@@ -7,30 +7,30 @@
     <h3>Create your event</h3>
     <%= simple_form_for @match do |f| %>
       <%= f.error_notification %>
-      <%= f.input :title, label: 'Give a title to your event', placeholder: 'The title' %>
-      <%= f.input :location, label: 'Address of the event', placeholder: 'The address' %>
-      <%= f.input :description, label: 'Description of the event', placeholder: 'The description' %>
+      <%= f.input :title, label: 'Give a title to your event :', placeholder: 'The title' %>
+      <%= f.input :location, label: 'Address of the event :', placeholder: 'The address' %>
+      <%= f.input :description, label: 'Description :', placeholder: 'The description' %>
       <div class="d-flex">
         <div class="min_date">
-          <%= f.input :min_date, as: :date, html5: true, label: 'Pick a "starting" date for your match' %>
+          <%= f.input :min_date, as: :date, html5: true, label: 'You want your event to happen between :' %>
         </div>
         <div class="max_date">
-          <%= f.input :max_date, as: :date, html5: true, label: 'Pick a date before' %>
+          <%= f.input :max_date, as: :date, html5: true, label: 'and :' %>
         </div>
       </div>
       <div class="d-flex">
         <div class="min_time">
-          <%= f.input :min_time, label: 'Time Slot of the event, from :'%>
+          <%= f.input :min_time, label: 'Your event will start at :'%>
         </div>
         <div class="max_time">
-          <%= f.input :max_time, label: 'to :'%>
+          <%= f.input :max_time, label: 'and end at :'%>
         </div>
       </div>
       <%= f.input :user_ids, as: :hidden %>
 
       <div class="custom-dropdown">
         <div class="form-group ">
-          <label for="shown_user_ids">Select the attendees from all CM users :</label>
+          <label for="shown_user_ids">Select the attendees :</label>
           <input type="text" id="shown_user_ids" autocomplete="off">
         </div>
         <div id="user_search_results" class="inactif">
