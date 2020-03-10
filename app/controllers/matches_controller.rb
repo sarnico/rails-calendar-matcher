@@ -3,19 +3,9 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
   def index
-    @match = Match.new
-    @matches = Match.all
-    @events_owner = Match.where(owner_id: current_user.id)
-    @events_attendee = @matches.select { |m| m.attendees.include?(current_user) }
-    @events = @events_owner + @events_attendee
-    @my_events = @events.sort { |a, b|
-      a_match_date = a.match_date.nil? ? DateTime.now :  a.match_date
-      b_match_date = b.match_date.nil? ? DateTime.now :  b.match_date
-      b_match_date <=> a_match_date
-    }
-    # @my_events = @events.sort_by { |event| event.match_date }
-    # @my_events = @events.sort_by(@match.match_date)
-
+    @my_events = Match.joins(:users).where(owner_id: current_user.id).or(
+      Match.joins(:users).where('users.id': current_user.id)
+    ).where.not(match_date: nil).order(match_date: :desc).distinct
   end
 
   def show
