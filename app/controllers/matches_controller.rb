@@ -15,7 +15,7 @@ class MatchesController < ApplicationController
   def new
     @match = Match.new
     group = Group.find_by_id(params['group_id'])
-    @group_user_ids = group.present? ? group.users.map(&:id) : []
+    @group_user_ids = group.present? ? group.users.where.not(id: current_user.id).ids : []
   end
 
   def create
