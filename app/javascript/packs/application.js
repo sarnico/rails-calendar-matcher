@@ -14,7 +14,6 @@ import { calendar } from "../calendar_matches"
 import { calendar_matches } from "../calendar_matches_choice"
 import { dropdown } from "../packs/users_dropdown"
 
-
 if(document.getElementById('calendar')){
   calendar();
 }
@@ -26,3 +25,5 @@ if(document.getElementById('calendar_matches')){
 if(document.getElementById('create-event')){
   dropdown();
 }
+
+
