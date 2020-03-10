@@ -1,10 +1,13 @@
 <% possible_users = (User.all - [current_user]) %>
 <div id='possible_users' data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
 
-
 <div class="container" id='create-event'>
   <div class="form mt-4 mb-4">
-    <h3>Create your event</h3>
+    <% if group = Group.find_by_id(params['group_id']) %>
+      <h3>Create an event for group : <%= group.name %></h3>
+    <% else %>
+      <h3>Create your event</h3>
+    <% end %>
     <%= simple_form_for @match do |f| %>
       <%= f.error_notification %>
       <%= f.input :title, label: 'Give a title to your event :', placeholder: 'The title' %>
@@ -26,26 +29,35 @@
           <%= f.input :max_time, label: 'and end at :'%>
         </div>
       </div>
-      <%= f.input :user_ids, as: :hidden %>
 
-      <div class="custom-dropdown">
-        <div class="form-group ">
-          <label for="shown_user_ids">Select the attendees :</label>
-          <input type="text" id="shown_user_ids" autocomplete="off">
+      <% if group = Group.find_by_id(params['group_id']) %>
+      <% else %>
+        <%= f.input :user_ids, as: :hidden %>
+
+        <div class="custom-dropdown">
+          <div class="form-group ">
+            <label for="shown_user_ids">Select the attendees :</label>
+            <input type="text" id="shown_user_ids" autocomplete="off">
+          </div>
+          <div id="user_search_results" class="inactif">
+              <% possible_users.each do |user| %>
+              <p class='user' data-user-id="<%= user.id %>"><%= user.email %></p>
+              <% end %>
+          </div>
         </div>
-        <div id="user_search_results" class="inactif">
-            <% possible_users.each do |user| %>
-            <p class='user' data-user-id="<%= user.id %>"><%= user.email %></p>
-            <% end %>
+      <% end %>
+
+        <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;" data-group="<%= @group_user_ids.to_json %>">
         </div>
-      </div>
 
-      <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;" data-group="<%= @group_user_ids.to_json %>">
-      </div>
+      <% if group = Group.find_by_id(params['group_id']) %>
+      <% else %>
 
-      <%= check_box_tag "create_group", 'create_group' %>
-      <%= label_tag "You want to create a new group ? Give it a name : " %>
-      <%= text_field_tag :group_name %>
+        <%= check_box_tag "create_group", 'create_group' %>
+        <%= label_tag "You want to create a new group ? Give it a name : " %>
+        <%= text_field_tag :group_name %>
+      <% end %>
+
       <br>
 
       <%= f.button :submit, 'Find the match !', class: "btn-primary" %>
