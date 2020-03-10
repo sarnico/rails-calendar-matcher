@@ -21,8 +21,11 @@ var calendar_matches = () => {
         if(event.icon){
           element.find(".fc-title").prepend("<i class='fas fa-"+event.icon+"'></i>");
         }
-        console.log(event)
-        // console.log(element)
+      },
+
+
+      eventMouseEnter: function(event) {
+        console.log("helloooooo")
       },
 
       displayEventTime: false,
@@ -103,34 +106,23 @@ var calendar_matches = () => {
         } else {
           alert('No match possible on that day \nPick another date please!')
         }
-
-                // var selDate = new Date(start);
-                // add your function
       },
-
-      // select: function(info) {
-      // a = fc-title
-      // console.log(fc-title.results)
-      //   // if (info.start > Date.now()) {
-      //   //   var eventTitle = prompt("Provide your name:");
-
-      //   //   calendar.addEvent({
-      //   //     title: eventTitle,
-      //   //     start: info.start,
-      //   //     end: info.end
-      //   //   });
-
-      //   //   let input_time = document.querySelector('#booking_time_slot')
-      //   //   input_time.value = info.start
-      //   //   document.querySelector('#new_booking').submit()
-      //   //   alert('Buddy time booked on: ' + info.start.toUTCString());
-      //   // } else {
-      //   //   alert('Cannot book an appointment in the past');
-      //   },
 
     });
     calendar.render();
+
+
   });
 };
+
+
+
+
+// test.forEach((u) => {
+
+//   u.currentTarget.addEventListener('mouseover', event => {
+//     console.log("mouse in");
+//   });
+// });
 
 export { calendar_matches }
