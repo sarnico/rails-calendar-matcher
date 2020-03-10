@@ -7,7 +7,6 @@ class GoogleRefresh
     service = Google::Apis::CalendarV3::CalendarService.new
     service.authorization = authorization
 
-    # Fetch the next 10 events for the user
     calendar_id = "primary"
 
     if max_date == nil
