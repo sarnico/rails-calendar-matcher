@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 2020_03_09_110210) do
     t.datetime "match_date"
     t.date "min_date"
     t.date "max_date"
+    t.time "min_time"
+    t.time "max_time"
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "owner_id"
-    t.time "max_time"
-    t.time "min_time"
     t.index ["owner_id"], name: "index_matches_on_owner_id"
   end
 
@@ -100,20 +100,9 @@ ActiveRecord::Schema.define(version: 2020_03_09_110210) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "users_groups", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_users_groups_on_group_id"
-    t.index ["user_id"], name: "index_users_groups_on_user_id"
-  end
-
   add_foreign_key "groups", "users", column: "creater_id"
   add_foreign_key "groups_users", "groups"
   add_foreign_key "groups_users", "users"
   add_foreign_key "tokens", "users"
   add_foreign_key "user_events", "users"
-  add_foreign_key "users_groups", "groups"
-  add_foreign_key "users_groups", "users"
 end
