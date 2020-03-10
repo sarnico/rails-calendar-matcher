@@ -12,9 +12,6 @@ var calendar_matches = () => {
 
     var results = JSON.parse(calendarEl.dataset.results)
 
-
-
-
     var calendar = new Calendar(calendarEl, {
       plugins: [ dayGridPlugin, interactionPlugin ],
       selectable: true,
@@ -36,7 +33,6 @@ var calendar_matches = () => {
         hour: '2-digit',
         minute: '2-digit'
       },
-
 
       select: function(info) {
         var theDate = new Date(info.start);
@@ -107,8 +103,6 @@ var calendar_matches = () => {
         } else {
           alert('No match possible on that day \nPick another date please!')
         }
-
-
 
                 // var selDate = new Date(start);
                 // add your function

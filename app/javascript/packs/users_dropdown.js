@@ -104,5 +104,3 @@ userSearchInput.addEventListener("focus", search);
     user.addEventListener("click", clickSelectUser)
   })
 }
-
-
