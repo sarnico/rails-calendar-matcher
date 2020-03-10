@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  padding: 7px 30px;
+  padding: 7px 90px;
   background-color: #FCF7F8;
 
 }
@@ -15,16 +15,18 @@
 }
 
 .nav-link {
-  margin-right: 30px;
+  margin-right: 90px;
   color: #4A6C6F !important;
   border-bottom: solid 1px #FCF7F8;
   transition: 0.5s;
+  padding-right: 0px;
 }
 
 .nav-link:hover {
   border-bottom: solid 1px #A1CDA8;
   color: #4A6C6F !important;
-  margin-right: 30px;
+  margin-right: 90px;
+  padding-right: 0px;
 }
 
 .avatar {
