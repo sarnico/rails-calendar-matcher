@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;">
+      <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;" data-group="<%= @group_user_ids.to_json %>">
       </div>
 
       <%= check_box_tag "create_group", 'create_group' %>
