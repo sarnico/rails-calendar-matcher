@@ -12,7 +12,7 @@ import '@fullcalendar/list/main.css';
 
 import { calendar } from "../calendar_matches"
 import { calendar_matches } from "../calendar_matches_choice"
-import { dropdown } from "../packs/users_dropdown"
+import { dropdown } from "./users_dropdown"
 
 
 if(document.getElementById('calendar')){
@@ -23,6 +23,6 @@ if(document.getElementById('calendar_matches')){
   calendar_matches();
 }
 
-if(document.getElementById('create-event')){
+if(document.getElementById('possible_users')){
   dropdown();
 }

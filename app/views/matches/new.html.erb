@@ -1,5 +1,5 @@
 <% possible_users = (User.all - [current_user]) %>
-<div id='possible_users' data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
+<div id='possible_users' data-input-id="match_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
 
 <div class="container" id='create-event'>
   <div class="form mt-4 mb-4">
@@ -65,8 +65,6 @@
 
   </div>
 </div>
-
-<%= javascript_pack_tag 'users_dropdown' %>
 
 <!-- select users when selecting a group ? -->
 <!-- key up resarch for attendees ? -->

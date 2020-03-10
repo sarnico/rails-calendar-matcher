@@ -1,24 +1,24 @@
-const dropdown = () =>{
-
+const dropdown = () => {
+  console.log('javascript/packs/users_dropdown.js LOADED')
   const usersBox = document.getElementById('possible_users')
 
   if(usersBox) {
     let users = JSON.parse(usersBox.dataset.users)
-    const hiddenUsersInput = document.querySelector("#match_user_ids")
+    const hiddenUsersInput = document.querySelector(`#${usersBox.dataset.inputId}`)
     const userSearchInput = document.querySelector('#shown_user_ids')
     const selectedUsersDiv = document.querySelector('#selected_user_ids')
     const userSearchResults = document.querySelector('#user_search_results')
-    const groupMembers = JSON.parse(selectedUsersDiv.dataset.group)
+    const groupMembers = JSON.parse(selectedUsersDiv.dataset.group || "[]")
 
     let filteredUsers = []
     let selectedUsers = []
 
 
     const selectUser = (user) => {
+      if (!user) return
       if (selectedUsers.indexOf(user) === -1) {
         selectedUsers.push(user)
         const paragraph = document.createElement('p')
-        console.log(user.email)
         paragraph.appendChild( document.createTextNode(user.email) );
         paragraph.classList.add('user-chip')
         selectedUsersDiv.appendChild(paragraph)
@@ -103,7 +103,6 @@ const dropdown = () =>{
     userSearchInput.addEventListener("keypress", (event) => {
       if (event.key === 'Enter') {
         const user = filteredUsers[0]
-
         selectUser(user)
         resetSearch()
         debileDisplay()
