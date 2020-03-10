@@ -14,10 +14,12 @@
 
 
 .user-chip {
-  background-color: green;
+  background-color:#71c6c4;
   border-radius: 5px;
   margin: 4px;
-  padding: 4px;
+  padding: 8px;
+  font-weight: initial;
+  color:#f6f6f6;
 }
 
 .inactif{
@@ -32,11 +34,13 @@
 
 #user_search_results{
   position:absolute;
-  left: 600px;
   border: solid 1px #9b9b9b;
   border-radius: 5px 5px 5px 5px;
   background-color:#ffffff;
   padding: 20px;
+  left: 0;
+  width: 400px;
+  top: 73px;
 }
 
 .d-flex{
@@ -59,9 +63,17 @@
   width:50%;
 }
 
-#user_search_results > p:hover {
+.fancy-hover {
   background-color:#f4f4f4;
   padding:3px;
   border-radius:5px;
+
+}
+.custom-dropdown {
+  position: relative;
+  .form-group{
+    display: flex;
+    flex-direction: column;
+  }
 
 }

@@ -27,15 +27,18 @@
         </div>
       </div>
       <%= f.input :user_ids, as: :hidden %>
-      <div class="form-group">
-        <label for="shown_user_ids">Select the attendees from all CM users :</label>
-        <input type="text" id="shown_user_ids" autocomplete="off">
+      <div class="custom-dropdown">
+        <div class="form-group ">
+          <label for="shown_user_ids">Select the attendees from all CM users :</label>
+          <input type="text" id="shown_user_ids" autocomplete="off">
+        </div>
+        <div id="user_search_results" class="inactif">
+            <% possible_users.each do |user| %>
+            <p class='user' data-user-id="<%= user.id %>"><%= user.email %></p>
+            <% end %>
+        </div>
       </div>
-      <div id="user_search_results" class="inactif">
-          <% possible_users.each do |user| %>
-          <p class='user' data-user-id="<%= user.id %>"><%= user.email %></p>
-          <% end %>
-      </div>
+
       <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;">
       </div>
 
