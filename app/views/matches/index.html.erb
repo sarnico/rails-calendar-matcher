@@ -1,5 +1,5 @@
 <div class="container">
-  <% if @my_events == nil  %>
+  <% if @my_events == []  %>
     <h1>You don't have any event yet</h1>
     <%= link_to "Create an event", new_match_path %>
   <% else %>
