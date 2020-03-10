@@ -4,53 +4,56 @@
     <%= link_to "Create an event", new_match_path %>
   <% else %>
 
-    <h1>My events :</h1>
+    <h1>My events</h1>
 
-    <% @my_events.uniq.each do |match| %>
+    <div class="myevents-container">
+      <% @my_events.uniq.each do |match| %>
 
-     <!--
-      tryed to implement if statement for the statue of the event
+       <!--
+        tryed to implement if statement for the statue of the event
 
-      if match.state = "cancel"
-        <p>[canceled]</p>
-      elsif match.state = "done"
-        <p>[done]</p>
-      else
-        <p>[pending]</p>
-      end
-      -->
+        if match.state = "cancel"
+          <p>[canceled]</p>
+        elsif match.state = "done"
+          <p>[done]</p>
+        else
+          <p>[pending]</p>
+        end
+        -->
 
-      <ul>
-        <li>
-          <b>Title :</b> <%= match.title %>
-          <br>
-          <b>Description :</b> <%= match.description %>
-          <br>
-          <b>Location :</b> <%= match.location %>
-          <br>
-          <b>Date :</b> <% if match.match_date == nil %>
-                  Still looking for a match
-                <% else %>
-                  <%= match.match_date.strftime("%a %d %B %Y") %>
-                <% end %>
-          <br>
-          <b>Hour :</b> from <em><%= match.min_time.strftime("%H:%M") %></em> until <em><%= match.max_time.strftime("%H:%M") %></em>
-          <br>
-          <b>Organized by :</b> <%= match.owner.email %>
-          <br>
-          <b>Attendees :</b> <% match.attendees.each do |user| %>
-            <ul>  <li><%= user.email %></li></ul>
-          <% end %>
-          <% if match.owner_id == current_user.id  %>
-            <p><%= link_to "Edit event", edit_match_path(match) %> - <%= link_to "Delete event", match_path(match), method: :delete, data: { confirm: "Are you sure?" } %></p>
-          <% end %>
-        </li>
-    </ul>
+
+          <div class="myevent">
+            <ul>
+              <li class="title"><%= match.title %></li>
+              <li><% if match.description %>
+                  <b>Description : </b><%= match.description %>
+                  <% end %></li>
+              <li><% if match.location %>
+                  <b>Location :</b> <%= match.location %>
+                  <% end %></li>
+              <li><b>Date :</b> <% if match.match_date == nil %>
+                      Still looking for a match
+                    <% else %>
+                      <%= match.match_date.strftime("%a %d %B %Y") %>
+                    <% end %></li>
+              <li><b>Hour :</b> from <em><%= match.min_time.strftime("%H:%M") %></em> until <em><%= match.max_time.strftime("%H:%M") %></em></li>
+              <li><b>Organized by :</b> <%= match.owner.email %></li>
+              <li><b>Attendees :</b> <% match.attendees.each do |user| %>
+                <ul><li><%= user.email %></li></ul>
+              <% end %></li>
+            </ul>
+            <div class="actionbuttons">
+              <% if match.owner_id == current_user.id  %>
+                <p><%= link_to "Edit event", edit_match_path(match) %> - <%= link_to "Delete event", match_path(match), method: :delete, data: { confirm: "Are you sure?" } %></p>
+              <% end %>
+            </div>
+          </div>
+
+      <% end %>
+      <%= link_to "+ Create a new event", new_match_path %>
+
     <% end %>
-    <%= link_to "+ Create a new event", new_match_path %>
-
-  <% end %>
-
+  </div>
 </div>
 
 <!-- can change the email in the link to get the right calendar directly from google -->
