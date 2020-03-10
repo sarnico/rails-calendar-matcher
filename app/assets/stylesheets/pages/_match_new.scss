@@ -1,0 +1,67 @@
+.user-chip {
+  background-color:#71c6c4;
+  border-radius: 5px;
+  margin: 4px;
+  padding: 8px;
+  font-weight: initial;
+  color:#f6f6f6;
+}
+
+.inactif{
+  display: none;
+
+}
+
+#shown_user_ids{
+  position: relative;
+  width:400px;
+}
+
+#user_search_results{
+  position:absolute;
+  border: solid 1px #9b9b9b;
+  border-radius: 5px 5px 5px 5px;
+  background-color:#ffffff;
+  padding: 20px;
+  left: 0;
+  width: 400px;
+  top: 73px;
+
+  p {
+    cursor: pointer;
+  }
+}
+
+.d-flex{
+  display:flex;
+  justify-content: space-between;
+}
+.min_date{
+  width:45%;
+}
+
+.max_date{
+  width:50%;
+}
+
+.min_time{
+  width:45%;
+}
+
+.max_time{
+  width:50%;
+}
+
+.fancy-hover {
+  background-color:#f4f4f4;
+  padding:3px;
+  border-radius:5px;
+
+}
+.custom-dropdown {
+  position: relative;
+  .form-group{
+    display: flex;
+    flex-direction: column;
+  }
+}
