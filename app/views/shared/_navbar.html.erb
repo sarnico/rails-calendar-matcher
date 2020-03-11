@@ -1,6 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGN_9u3-OrlG8RPQhgTo3b0ssjlAeUzRMzzoXGSd3TagY8THce" %>
+  <%= link_to root_path, class: "navbar-brand-button" do %>
+    <div class="root-navbar-button">
+      <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQGN_9u3-OrlG8RPQhgTo3b0ssjlAeUzRMzzoXGSd3TagY8THce" %>
+    </div>
+  <% end %>
+  <%= link_to root_path, class: "navbar-brand-title" do %>
+    <div class="root-navbar-title">
+      <h1>Calendar Matcher</h1>
+    </div>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +19,12 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Create an event", new_match_path, class: "nav-link" %>
+            <div class="navigation-links">
+              <%= link_to "Create an event", new_match_path, class: "nav-link-create" %>
+              <%= link_to "My calendar", user_events_path, class: "nav-link" %>
+              <%= link_to "My groups", groups_path, class: "nav-link" %>
+              <%= link_to "My events", matches_path, class: "nav-link" %>
+            </div>
           </li>
           <li class="nav-item dropdown">
             <% if current_user.avatar != nil %>
@@ -23,9 +35,6 @@
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "My account", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "My calendar", user_events_path, class: "dropdown-item" %>
-              <%= link_to "My groups", groups_path, class: "dropdown-item" %>
-              <%= link_to "My events", matches_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
