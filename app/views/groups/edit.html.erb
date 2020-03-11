@@ -1,13 +1,5 @@
 <div class="container">
-  <h1>Edit here your group</h1>
-
-  <%= simple_form_for @group do |f| %>
-        <%= f.error_notification %>
-        <%= f.input :name, label: "Change the name of your group :" %>
-        <%= f.association :users, label: 'Select the members of the group :', collection: User.all, as: :check_boxes, label_method: :email %>
-        <%= f.button :submit, 'Update group', class: "btn-primary" %>
-      <% end %>
-
+  <h3>Edit here your group - soon</h3>
   <p><%= link_to "Back to my groups", groups_path %></p>
 
 </div>
