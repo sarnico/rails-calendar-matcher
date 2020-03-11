@@ -1,8 +1,5 @@
+
 <div id="homepage">
-  <div class="container landing-header">
-    <h1>Calendar Matcher</h1>
-    <h4>The automated event scheduling manager</h4>
-  </div>
 
   <div class="landing-main container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -42,9 +39,17 @@
     </div>
   </div>
 
-  <div class="container landing-footer">
+  <div class="container landing-header">
+    <h4>The automated event scheduling manager</h4>
+  </div>
+
+  <div class="container">
+    <%= link_to "Create an event", new_match_path, class: "nav-link" %>
+  </div>
+
+<!--   <div class="container landing-footer">
     <h4>"Thanks to CM we plan girls night easily now" - ⭐️⭐️⭐️⭐️⭐️</h4>
     <p>Maria, 35 y.o.</p>
-  </div>
+  </div> -->
 </div>
 
