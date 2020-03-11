@@ -35,7 +35,7 @@
 .group-layout{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-bottom: 15px;
+  padding-bottom: 15px;
 }
 
 .member_each{
@@ -85,8 +85,6 @@
 
 .icon:hover{
   color: #D3D0CB;
-  font-size:20px;
-  letter-spacing: 10px;
 }
 
 .add-something{
@@ -106,6 +104,7 @@
   color: #D3D0CB;
   a{
     color: #D3D0CB;
+    text-decoration: none;
   }
 }
 
@@ -114,8 +113,8 @@
 }
 
 .landing-main-groups {
-  margin-top: -325px;
-  border: solid 1px #D3D0CB;
+  margin-top: -350px;
+  // border: solid 1px #D3D0CB;
   border-radius: 5px;
-  background-color: white;
+  // background-color: #FCF7F8;
 }
