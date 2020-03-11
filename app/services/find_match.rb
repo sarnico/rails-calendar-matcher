@@ -33,13 +33,19 @@ class FindMatch
 
       nb_attendees = users.size - count
 
-      if nb_attendees != 0
+      if nb_attendees == users.size
         {
           title: "✅#{users.size - count}",
           start: @timeslot_start - 1,
           end: @timeslot_end + 1,
         }
-      else
+      elsif nb_attendees > 0 && nb_attendees < users.size
+        {
+          title: "☑️#{users.size - count}",
+          start: @timeslot_start - 1,
+          end: @timeslot_end + 1,
+        }
+      elsif nb_attendees = 0
         {
           title: "",
           start: @timeslot_start - 1,
