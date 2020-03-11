@@ -51,11 +51,12 @@
 
 
 
-
-        <%= check_box_tag "create_group", 'create_group' %>
-        <%= label_tag "You want to create a new group ? Give it a name : " %>
-        <%= text_field_tag :group_name %>
-
+        <% if group %>
+        <% else %>
+          <%= check_box_tag "create_group", 'create_group' %>
+          <%= label_tag "You want to create a new group ? Give it a name : " %>
+          <%= text_field_tag :group_name %>
+        <% end %>
 
       <br>
 
