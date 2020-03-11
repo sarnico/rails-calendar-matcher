@@ -3,78 +3,75 @@
   <div class="white-background">
   </div>
   <div class="landing-main-events container">
-    <div class="container">
-      <% if @my_events == [] %>
-        <h1>You don't have any event yet</h1>
-        <div class="add-something">
-          <%= link_to new_match_path do %>
-            <i class="fas fa-plus"> Create your first event</i>
-            <% end %>
-        </div>
-
-      <% else %>
-
-        <div class="add-something">
-          <%= link_to new_match_path do %>
-            <p><i class="icon fas fa-plus"></i> Add a new event</p>
-            <% end %>
-        </div>
-
-        <div class="group-layout">
-          <% @my_events.each do |match| %>
-
-            <div class="card-group-index">
-
-              <div class="top">
-                <h3><%= match.title.capitalize %></h3>
-                <img src="<%= match.owner.avatar %>" class="card-trip-user avatar-bordered" />
-              </div>
-
-              <div>
-                <% if match.match_date == nil %>
-                  <p>Still looking for a match</p>
-                <% else %>
-                  <p><%= "#{match.match_date.strftime("%a %d %B %Y")} from #{match.min_time.strftime("%H:%M")} until #{match.max_time.strftime("%H:%M")}" %></p>
-                <% end %>
-
-                <% if match.location != "" %>
-                  <p><b>Location :</b> <%= match.location %></p>
-                <% end %>
-
-                <% if match.description != "" %>
-                  <p><b>Description : </b><%= match.description %></p>
-                  <% end %>
-
-                <p><b>Attendees :</b></p>
-              </div>
-
-
-              <div class="medium">
-                <div class="group-member-layout">
-
-                  <% match.attendees.each do |user| %>
-                    <p class="size-review"><%= user.email %></p>
-                  <% end %>
-                </div>
-              </div>
-
-              <div class="bottom">
-                <% if match.owner_id == current_user.id  %>
-                  <%= link_to edit_match_path(match) do %>
-                    <i class="icon fas fa-pencil-alt"></i>
-                  <% end %>
-                  <%= link_to match_path(match), method: :delete, data: { confirm: "Are you sure?" } do %>
-                    <i class="icon fas fa-trash-alt"></i>
-                  <% end %>
-                <% end %>
-              </div>
-
-            </div>
+    <% if @my_events == [] %>
+      <h1>You don't have any event yet</h1>
+      <div class="add-something">
+        <%= link_to new_match_path do %>
+          <i class="fas fa-plus"> Create your first event</i>
           <% end %>
-        </div>
+      </div>
 
-      <% end %>
-    </div>
+    <% else %>
+
+      <div class="add-something">
+        <%= link_to new_match_path do %>
+          <p><i class="icon fas fa-plus"></i> Add a new event</p>
+          <% end %>
+      </div>
+
+      <div class="group-layout">
+        <% @my_events.each do |match| %>
+
+          <div class="card-group-index">
+
+            <div class="top">
+              <h3><%= match.title.capitalize %></h3>
+              <img src="<%= match.owner.avatar %>" class="card-trip-user avatar-bordered" />
+            </div>
+
+            <div>
+              <% if match.match_date == nil %>
+                <p>Still looking for a match</p>
+              <% else %>
+                <p><%= "#{match.match_date.strftime("%a %d %B %Y")} from #{match.min_time.strftime("%H:%M")} until #{match.max_time.strftime("%H:%M")}" %></p>
+              <% end %>
+
+              <% if match.location != "" %>
+                <p><b>Location :</b> <%= match.location %></p>
+              <% end %>
+
+              <% if match.description != "" %>
+                <p><b>Description : </b><%= match.description %></p>
+                <% end %>
+
+              <p><b>Attendees :</b></p>
+            </div>
+
+
+            <div class="medium">
+              <div class="group-member-layout">
+
+                <% match.attendees.each do |user| %>
+                  <p class="size-review"><%= user.email %></p>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <% if match.owner_id == current_user.id  %>
+                <%= link_to edit_match_path(match) do %>
+                  <i class="icon fas fa-pencil-alt"></i>
+                <% end %>
+                <%= link_to match_path(match), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <i class="icon fas fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+            </div>
+
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 
