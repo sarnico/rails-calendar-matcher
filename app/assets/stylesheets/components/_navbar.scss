@@ -20,24 +20,26 @@
 }
 
 .navbar-lewagon .navbar-brand-button img {
-  width: 40px;
-  height: 45px;
+  width: 45px;
+  height: 50px;
   margin-right: 8px;
   transition: .2s;
 }
 
 .navbar-lewagon .navbar-brand-button img:hover {
-  width: 40px;
-  height: 45px;
+  width: 45px;
+  height: 50px;
   margin-right: 8px;
   transform: scale(1.12);
 }
 
 .navbar-lewagon .navbar-brand-title {
-  height: 40px;
+  height: 45px;
   text-decoration: none;
   margin-left: -285px;
   // color
+  display: flex;
+
 }
 
 .navbar-lewagon .navbar-brand-title h1 {
@@ -52,6 +54,7 @@
   border-bottom: solid 1px #FCF7F8;
   transition: 0.3s;
   padding-right: 0px;
+  padding: 0.8rem 1rem;
 }
 
 .nav-link:hover {
@@ -95,6 +98,7 @@
 .navigation-links {
   display: flex;
   justify-content: center;
+  height: 50px;
 }
 
 .dropdown-menu {
