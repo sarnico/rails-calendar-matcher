@@ -115,7 +115,12 @@ const dropdown = () => {
     usersAll.forEach((user) => {
       user.addEventListener("click", clickSelectUser)
     })
+
+
   }
+
+
 }
+
 
 export { dropdown }
