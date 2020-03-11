@@ -1,13 +1,20 @@
 <div class="container">
   <% if @my_groups == [] %>
     <h1>You don't have any group yet</h1>
-    <p><%= link_to "+ Create your first group", new_group_path %></p>
+
+    <p><%= link_to new_group_path do %>
+      <i class="fas fa-plus"> Create your first group</i>
+      <% end %>
+    </p>
+
   <% else %>
 
     <h1>Here are all my groups :</h1>
     <br>
+    <%= link_to new_group_path do %>
+    <i class="fas fa-plus"> Add a new group</i>
+    <% end %>
 
-    <p><%= link_to "+ Create a new group", new_group_path %></p>
     <br>
     <div class="group-layout">
 
@@ -19,7 +26,10 @@
           <p> <b>Members : </b></p>
           <div class="group-member-layout">
             <% group.members.each do |user| %>
-              <ul>  <li><%= user.email %></li></ul>
+              <div class="member_each">
+                <p><%= user.email %></p>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              </div>
             <% end %>
           </div>
           <% if group.creater_id == current_user.id %>
