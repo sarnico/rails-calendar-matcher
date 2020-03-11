@@ -1,6 +1,7 @@
-class MatchesController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_match, only: [:show, :edit, :update, :destroy]
+class MatchesController < ApplicationController
+  before_action :set_match, only: %i[show edit update destroy]
 
   def index
     @my_events = Match.joins(:users).where(owner_id: current_user.id).or(
@@ -38,13 +39,12 @@ class MatchesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @match.update(match_params)
       respond_to do |format|
-         format.json { render json: {} }
+        format.json { render json: {} }
       end
     end
   end
@@ -57,9 +57,11 @@ class MatchesController < ApplicationController
   private
 
   def match_params
-    returned_params  = params
-      .require(:match).permit(:id, :title, :description, :location, :match_date, :min_date, :max_date, :min_time, :max_time, :state, :owner_id)
-    returned_params =  returned_params.merge(user_ids: JSON.parse(params[:match][:user_ids])) if params[:match][:user_ids].present?
+    returned_params = params
+                      .require(:match).permit(:id, :title, :description, :location, :match_date, :min_date, :max_date, :min_time, :max_time, :state, :owner_id)
+    if params[:match][:user_ids].present?
+      returned_params = returned_params.merge(user_ids: JSON.parse(params[:match][:user_ids]))
+    end
     returned_params
   end
 
@@ -67,9 +69,7 @@ class MatchesController < ApplicationController
     params.permit(:group_name, :create_group)
   end
 
-
   def set_match
     @match = Match.find(params[:id])
   end
-
 end
