@@ -1,71 +1,77 @@
-<% possible_users = (User.all - [current_user]) %>
-<div id='possible_users' data-input-id="match_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
+<div class="green-bottom-background">
 
-<div class="container" id='create-event'>
-  <div class="form mt-4 mb-4">
-    <% if group = Group.find_by_id(params['group_id']) %>
-      <h3>Create an event for group : <%= group.name %></h3>
-    <% else %>
-      <h3>Create your event</h3>
-    <% end %>
-    <%= simple_form_for @match do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :title, label: 'Give a title to your event :', placeholder: 'The title' %>
-      <%= f.input :location, label: 'Address of the event :', placeholder: 'The address' %>
-      <%= f.input :description, label: 'Description :', placeholder: 'The description' %>
-      <div class="d-flex">
-        <div class="min_date">
-          <%= f.input :min_date, as: :date, html5: true, label: 'You want your event to happen between :' %>
-        </div>
-        <div class="max_date">
-          <%= f.input :max_date, as: :date, html5: true, label: 'and :' %>
-        </div>
-      </div>
-      <div class="d-flex">
-        <div class="min_time">
-          <%= f.input :min_time, label: 'Your event will start at :'%>
-        </div>
-        <div class="max_time">
-          <%= f.input :max_time, label: 'and end at :'%>
-        </div>
-      </div>
+  <div class="white-top-background">
+  </div>
+  <div class="container content-main">
+    <% possible_users = (User.all - [current_user]) %>
+    <div id='possible_users' data-input-id="match_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
 
-
-        <%= f.input :user_ids, as: :hidden %>
-
-        <div class="custom-dropdown">
-          <div class="form-group ">
-            <label for="shown_user_ids">Select the attendees :</label>
-            <input type="text" id="shown_user_ids" autocomplete="off">
-          </div>
-          <div id="user_search_results" class="inactif">
-              <% possible_users.each do |user| %>
-              <p class='user' data-user-id="<%= user.id %>"><%= user.email %></p>
-              <% end %>
-          </div>
-        </div>
-
-
-          <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;" data-group="<%= @group_user_ids.to_json %>">
-          </div>
-
-
-
-        <% if group %>
+    <div class="container" id='create-event'>
+      <div class="form mt-4 mb-4">
+        <% if group = Group.find_by_id(params['group_id']) %>
+          <h3>Create an event for group : <%= group.name %></h3>
         <% else %>
-          <%= check_box_tag "create_group", 'create_group' %>
-          <%= label_tag "You want to create a new group ? Give it a name : " %>
-          <%= text_field_tag :group_name %>
+          <h3>Create your event</h3>
+        <% end %>
+        <%= simple_form_for @match do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :title, label: 'Give a title to your event :', placeholder: 'The title' %>
+          <%= f.input :location, label: 'Address of the event :', placeholder: 'The address' %>
+          <%= f.input :description, label: 'Description :', placeholder: 'The description' %>
+          <div class="d-flex">
+            <div class="min_date">
+              <%= f.input :min_date, as: :date, html5: true, label: 'You want your event to happen between :' %>
+            </div>
+            <div class="max_date">
+              <%= f.input :max_date, as: :date, html5: true, label: 'and :' %>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="min_time">
+              <%= f.input :min_time, label: 'Your event will start at :'%>
+            </div>
+            <div class="max_time">
+              <%= f.input :max_time, label: 'and end at :'%>
+            </div>
+          </div>
+
+
+            <%= f.input :user_ids, as: :hidden %>
+
+            <div class="custom-dropdown">
+              <div class="form-group ">
+                <label for="shown_user_ids">Select the attendees :</label>
+                <input type="text" id="shown_user_ids" autocomplete="off">
+              </div>
+              <div id="user_search_results" class="inactif">
+                  <% possible_users.each do |user| %>
+                  <p class='user' data-user-id="<%= user.id %>"><%= user.email %></p>
+                  <% end %>
+              </div>
+            </div>
+
+
+              <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;" data-group="<%= @group_user_ids.to_json %>">
+              </div>
+
+
+
+            <% if group %>
+            <% else %>
+              <%= check_box_tag "create_group", 'create_group' %>
+              <%= label_tag "You want to create a new group ? Give it a name : " %>
+              <%= text_field_tag :group_name %>
+            <% end %>
+
+          <br>
+
+          <%= f.button :submit, 'Find the match !', class: "btn-primary" %>
+
         <% end %>
 
-      <br>
-
-      <%= f.button :submit, 'Find the match !', class: "btn-primary" %>
-
-    <% end %>
-
+      </div>
+    </div>
   </div>
 </div>
-
 <!-- select users when selecting a group ? -->
 <!-- key up resarch for attendees ? -->
