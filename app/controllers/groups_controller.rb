@@ -18,9 +18,10 @@ before_action :set_group, only: [:show, :edit, :update, :destroy]
   end
 
   def create
+
     @group = Group.new(group_params)
     @group.creater_id = current_user.id
-    @group.user_ids = group_params[:user_ids]
+
     @group.save
     redirect_to groups_path
   end
@@ -38,7 +39,10 @@ before_action :set_group, only: [:show, :edit, :update, :destroy]
   private
 
   def group_params
-    params.require(:group).permit(:name, user_ids: [])
+            returned_params  = params
+      .require(:group).permit(:name)
+    returned_params =  returned_params.merge(user_ids: JSON.parse(params[:group][:user_ids])) if params[:group][:user_ids].present?
+    returned_params
   end
 
   def set_group
