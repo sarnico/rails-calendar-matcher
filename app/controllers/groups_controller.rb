@@ -1,6 +1,7 @@
-class GroupsController < ApplicationController
+# frozen_string_literal: true
 
-before_action :set_group, only: [:show, :edit, :update, :destroy]
+class GroupsController < ApplicationController
+  before_action :set_group, only: %i[show edit update destroy]
 
   def index
     @groups = Group.all
@@ -10,15 +11,13 @@ before_action :set_group, only: [:show, :edit, :update, :destroy]
     @my_groups = @groups_creater + @groups_member
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @group = Group.new
   end
 
   def create
-
     @group = Group.new(group_params)
     @group.creater_id = current_user.id
 
@@ -39,14 +38,15 @@ before_action :set_group, only: [:show, :edit, :update, :destroy]
   private
 
   def group_params
-            returned_params  = params
-      .require(:group).permit(:name)
-    returned_params =  returned_params.merge(user_ids: JSON.parse(params[:group][:user_ids])) if params[:group][:user_ids].present?
+    returned_params = params
+                      .require(:group).permit(:name)
+    if params[:group][:user_ids].present?
+      returned_params = returned_params.merge(user_ids: JSON.parse(params[:group][:user_ids]))
+end
     returned_params
   end
 
   def set_group
     @group = Group.find(params[:id])
   end
-
 end

@@ -1,5 +1,6 @@
-class GoogleRefresh
+# frozen_string_literal: true
 
+class GoogleRefresh
   def self.refresh_all(current_user, min_date = DateTime.now.rfc3339, max_date = nil)
     current_user.user_events.destroy_all
 
@@ -7,21 +8,21 @@ class GoogleRefresh
     service = Google::Apis::CalendarV3::CalendarService.new
     service.authorization = authorization
 
-    calendar_id = "primary"
+    calendar_id = 'primary'
 
-    if max_date == nil
-      @response = service.list_events(calendar_id,
-                                max_results:   20,
-                                single_events: true,
-                                order_by:      "startTime",
-                                time_min:      min_date)
-    else
-      @response = service.list_events(calendar_id,
+    @response = if max_date.nil?
+                  service.list_events(calendar_id,
+                                      max_results: 20,
                                       single_events: true,
-                                      order_by:      "startTime",
-                                      time_min:      min_date,
-                                      time_max:      max_date)
-    end
+                                      order_by: 'startTime',
+                                      time_min: min_date)
+                else
+                  service.list_events(calendar_id,
+                                      single_events: true,
+                                      order_by: 'startTime',
+                                      time_min: min_date,
+                                      time_max: max_date)
+                end
 
     if @response.items.any?
       @response.items.each do |event|
@@ -31,9 +32,7 @@ class GoogleRefresh
       end
     end
   end
-
 end
-
 
 # class GoogleRefresh
 
@@ -47,13 +46,11 @@ end
 #     # Fetch the next 10 events for the user
 #     calendar_id = "primary"
 
-
 #     @response = service.list_events(calendar_id,
 #                                     max_results:   20,
 #                                     single_events: true,
 #                                     order_by:      "startTime",
 #                                     time_min:      DateTime.now.rfc3339)
-
 
 #     if @response.items.any?
 #       @response.items.each do |event|
