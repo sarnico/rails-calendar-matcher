@@ -8,11 +8,6 @@
 
     <div class="container" id='create-event'>
       <div class="form mt-4 mb-4">
-        <% if group = Group.find_by_id(params['group_id']) %>
-          <h3>Create an event for group : <%= group.name %></h3>
-        <% else %>
-          <h3>Create your event</h3>
-        <% end %>
         <%= simple_form_for @match do |f| %>
           <%= f.error_notification %>
           <%= f.input :title, label: 'Give a title to your event :', placeholder: 'The title' %>
@@ -56,7 +51,7 @@
 
 
 
-            <% if group %>
+            <% if group = Group.find_by_id(params['group_id']) %>
             <% else %>
               <%= check_box_tag "create_group", 'create_group' %>
               <%= label_tag "You want to create a new group ? Give it a name : " %>
