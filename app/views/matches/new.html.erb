@@ -2,7 +2,7 @@
 
   <div class="white-top-background">
   </div>
-  <div class="container content-main">
+  <div class="container box-new content-main">
     <% possible_users = (User.all - [current_user]) %>
     <div id='possible_users' data-input-id="match_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
 

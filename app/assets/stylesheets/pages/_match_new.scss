@@ -56,14 +56,28 @@
   background-color:#f4f4f4;
   padding:3px;
   border-radius:5px;
-
 }
+
 .custom-dropdown {
   position: relative;
   .form-group{
     display: flex;
     flex-direction: column;
   }
+}
+
+.form {
+  background: white;
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: solid 1px #9b9b9b;
+}
+
+.box-new {
+  background: none;
+  border: none;
 }
 
 
