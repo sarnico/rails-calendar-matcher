@@ -48,6 +48,20 @@
   transition: 0.2s;
 }
 
+.nav-link-my-events {
+  margin-right: 43px;
+  color: #4A6C6F !important;
+  border-bottom: solid 1px #A1CDA8;
+  transition: 0.3s;
+  padding-right: 0px;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+}
+
+.nav-link-my-events:hover {
+  text-decoration: none;
+}
+
 .nav-link {
   margin-right: 43px;
   color: #4A6C6F !important;
@@ -120,4 +134,4 @@
   color: #4A6C6F !important;
   margin-right: 43px;
   padding-right: 0px;
-  }
+}
