@@ -29,7 +29,7 @@
                 <%= link_to "My Calendar", user_events_path, class: "nav-link login_hover #{controller.controller_name == "user_events" ? "active_nav" : "nothing"}"  %>
                 <%= link_to "My Groups", groups_path, class: "nav-link active-nav login_hover #{controller.controller_name == "groups" ? "active_nav" : "nothing"}" %>
                 <% if current_page?(matches_path) %>
-                  <%= link_to "My events", matches_path, class: "nav-link-my-events" %>
+                  <%= link_to "My events", matches_path, class: "nav-link nav-link-my-events active-nav" %>
                 <% else %>
                   <%= link_to "My events", matches_path, class: "nav-link active-nav" %>
                 <% end %>
