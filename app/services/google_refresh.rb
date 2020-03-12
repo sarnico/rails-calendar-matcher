@@ -1,40 +1,10 @@
-# frozen_string_literal: true
-
-#     def self.connect_service
-#       @client = auth_client
-#       service = ::Google::Apis::CalendarV3::CalendarService.new
-#       service.authorization = @client
-#       service
-#     end
-
-
-
-#     def self.auth_client
-#       Signet::OAuth2::Client.new(
-#         client_id: CLIENT_ID,
-#         client_secret: CLIENT_SECRET,
-#         token_credential_uri: GOOGLE_TOKEN_CREDENTIAL,
-#         scope: SCOPE,
-#         state: "account_id=#{@account.id}",
-#         access_token: @account.google_token&.access_token,
-#         refresh_token: @account.google_token&.refresh_token
-#       )
-#     end
-
 class GoogleRefresh
-
   def self.to_params(current_user)
     { 'refresh_token' => current_user.refresh_token,
       'client_id'     => ENV['GOOGLE_CLIENT_ID'],
       'client_secret' => ENV['GOOGLE_CLIENT_SECRET'],
       'grant_type'    => 'refresh_token'}
   end
-
-#     SCOPE = Rails.application.config.google_calendar_scope_uri
-#     CLIENT_ID = Rails.application.secrets.google_oauth_client_id
-#     CLIENT_SECRET = Rails.application.secrets.google_oauth_client_secret
-#     GOOGLE_TOKEN_CREDENTIAL = Rails.application.config.google_token_credential_uri
-#     MAX_RESULTS = 75
 
   def self.request_token_from_google(current_user)
     url = URI("https://accounts.google.com/o/oauth2/token")
@@ -49,8 +19,6 @@ class GoogleRefresh
     binding.pry
   end
 
-
-
   def self.connect_service
     @client = auth_client
     service = ::Google::Apis::CalendarV3::CalendarService.new
@@ -59,7 +27,6 @@ class GoogleRefresh
   end
 
   def self.auth_client(current_user)
-
     Signet::OAuth2::Client.new(
       client_id: ENV['GOOGLE_CLIENT_ID'],
       client_secret:  ENV['GOOGLE_CLIENT_SECRET'],
@@ -69,6 +36,7 @@ class GoogleRefresh
       grant_type: "authorization_code"
     )
   end
+
   def self.refresh_all(current_user, min_date = DateTime.now.rfc3339, max_date = nil)
     begin
       current_user.user_events.destroy_all
@@ -76,10 +44,7 @@ class GoogleRefresh
       authorization = auth_client(current_user)
       service = Google::Apis::CalendarV3::CalendarService.new
       service.authorization = authorization
-
-
       calendar_id = 'primary'
-
       @response = if max_date.nil?
                     service.list_events(calendar_id,
                                         max_results: 20,
@@ -93,7 +58,6 @@ class GoogleRefresh
                                         time_min: min_date,
                                         time_max: max_date)
                   end
-
       if @response.items.any?
         @response.items.each do |event|
           start = event.start.date || event.start.date_time
@@ -101,9 +65,8 @@ class GoogleRefresh
           UserEvent.create!(user: current_user, start_time: start, end_time: ended, summary: event.summary)
         end
       end
-
     rescue ::Google::Apis::AuthorizationError => e
-  #       puts "Couldn't get calendars_list due to and error from Google API : #{e.message}; Retrying..."
+      # puts "Couldn't get calendars_list due to and error from Google API : #{e.message}; Retrying..."
       response = authorization.refresh!
       current_user.token = response["access_token"]
       current_user.refresh_token = response["refresh_token"]
