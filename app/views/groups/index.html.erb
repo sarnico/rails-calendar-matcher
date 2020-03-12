@@ -24,6 +24,7 @@
               <img src="<%= group.creater.avatar %>" class="card-trip-user avatar-bordered" />
             </div>
 
+
             <div class="medium">
               <div class="group-member-layout">
                 <% group.members.each do |user| %>
@@ -39,16 +40,16 @@
             <div class="bottom">
               <% if group.creater_id == current_user.id %>
                 <p class="group-links">
-                  <%= link_to new_match_path(group_id: group.id) do %>
-                    <i class="icon far fa-calendar-check"></i>
+                  <%= link_to new_match_path(group_id: group.id), class: "icon" do %>
+                    <i class="far fa-calendar-check"></i>
                   <% end %>
 
-                  <%= link_to edit_group_path(group) do %>
-                    <i class="icon fas fa-user-edit"></i>
+                  <%= link_to edit_group_path(group), class: "icon" do %>
+                    <i class="fas fa-user-edit"></i>
                   <% end %>
 
-                  <%= link_to group_path(group), method: :delete, data: { confirm: "Are you sure?" } do %>
-                    <i class="icon fas fa-trash-alt"></i>
+                  <%= link_to group_path(group), method: :delete, data: { confirm: "Are you sure?" }, class: "icon" do %>
+                    <i class="fas fa-trash-alt"></i>
                   <% end %>
                 </p>
               <% end %>
