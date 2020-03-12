@@ -11,3 +11,13 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.errspan {
+  float: right;
+  top: 27px;
+  right: -371px;
+  position: relative;
+  z-index: 2;
+  color: grey;
+
+}
