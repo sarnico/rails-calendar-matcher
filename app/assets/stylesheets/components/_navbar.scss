@@ -7,6 +7,18 @@
   // border-bottom: solid 1px black;
 }
 
+.brand-button {
+  display: flex;
+  align-items: center;
+  color: #2c363e;
+  transition: .2s;
+}
+
+.brand-button:hover {
+  text-decoration: none;
+  color: #2c363e;
+}
+
 .dropdown-menu {
   z-index: 30;
 }
@@ -19,18 +31,25 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand-button img {
+.navbar-lewagon .brand-button img {
   width: 50px;
   height: 50px;
   margin-right: 15px;
   transition: .2s;
 }
 
-.navbar-lewagon .navbar-brand-button img:hover {
+.navbar-lewagon .brand-button img:hover {
+  transform: scale(1.12);
   width: 50px;
   height: 50px;
   margin-right: 15px;
+}
+
+.logo-hovered {
   transform: scale(1.12);
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
 }
 
 .navbar-lewagon .navbar-brand-title {
@@ -103,6 +122,11 @@
 .root-navbar-button {
   display: flex;
   justify-content: center;
+}
+
+.root-navbar-title h1 {
+  margin: 0;
+  font-size: 3.2vw;
 }
 
 .navigation-links {

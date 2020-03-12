@@ -1,11 +1,9 @@
 <% if user_signed_in? %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <%= link_to root_path, class: "navbar-brand-button" do %>
+    <%= link_to root_path, class: "brand-button" do %>
       <div class="root-navbar-button">
-        <%= image_tag "CalendarMatcher.svg", :class => "icon-cm"%>
+        <%= image_tag "CalendarMatcher.svg", :class => "icon-cm", :id => "logo-image"%>
       </div>
-    <% end %>
-    <%= link_to root_path, class: "navbar-brand-title" do %>
       <div class="root-navbar-title">
         <h1>Calendar Matcher</h1>
       </div>
