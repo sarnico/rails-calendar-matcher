@@ -1,6 +1,6 @@
 .user-chip {
   background-color:#A1CDA8;
-  border-radius: 5px;
+  border-radius: 3px;
   margin: 4px;
   padding: 8px;
   font-weight: initial;
@@ -70,9 +70,9 @@
   background: white;
   margin-top: 25px;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 3px;
   margin-bottom: 20px;
-  border: solid 1px #9b9b9b;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .box-new {
