@@ -1,5 +1,5 @@
-
 <div id="homepage">
+
   <div class="white-background">
   </div>
   <div class="landing-main-events container">
@@ -73,9 +73,23 @@
       </div>
     <% end %>
   </div>
+  <% if @validated %>
+    <div id="backpopup" class="backpopup"></div>
+    <div class="clickme flash flash-success alert alert-dismissible fade show" role="alert">
+      <span>🎉🎉🎉 <strong>Yay!</strong> 🎉🎉🎉 </br> You successfully created an event for <%= @validated.title %> ! </br> All the invitations have been send to the attendeess. </br> ENJOY!</span>
+      <a data-dismiss="alert" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+  <% end %>
 </div>
 
-
+<script>
+  document.querySelector('.clickme').addEventListener("click", (e) => {
+    e.preventDefault()
+    document.querySelector('#backpopup').classList.remove("backpopup")
+  })
+</script>
 
        <!--
         tryed to implement if statement for the statue of the event

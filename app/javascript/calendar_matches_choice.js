@@ -100,9 +100,15 @@ var calendar_matches = () => {
               }
             })
             .then(res => {
-              window.location.href = '/matches'
-            }).catch(err => alert(err))
+              return res.json()
+            }).then(match => {
+              window.location.href = `/matches?validated_id=${match.id}`
+            })
+
           }
+          // const matcheCreated = document.querySelector('.flash')
+          // console.log(matcheCreated)
+
         } else {
           alert('No match possible on that day \nPick another date please!')
         }

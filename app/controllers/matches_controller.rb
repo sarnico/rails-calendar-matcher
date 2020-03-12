@@ -4,6 +4,7 @@ class MatchesController < ApplicationController
   before_action :set_match, only: %i[show edit update destroy]
 
   def index
+    @validated = Match.find_by(id: params[:validated_id])
     @my_events = Match.joins(:users).where(owner_id: current_user.id).or(
       Match.joins(:users).where('users.id': current_user.id)
     ).where.not(match_date: nil).order(match_date: :desc).distinct
@@ -45,7 +46,7 @@ class MatchesController < ApplicationController
   def update
     if @match.update(match_params)
       respond_to do |format|
-        format.json { render json: {} }
+        format.json { render json: @match.as_json }
       end
     end
   end
