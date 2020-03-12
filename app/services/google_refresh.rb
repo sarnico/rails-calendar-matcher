@@ -40,6 +40,8 @@ class GoogleRefresh
     authorization = auth_client(current_user)
     service = Google::Apis::CalendarV3::CalendarService.new
     service.authorization = authorization
+
+
     calendar_id = "primary"
     if max_date == nil
       @response = service.list_events(calendar_id,
@@ -54,6 +56,17 @@ class GoogleRefresh
                                       time_min:      min_date,
                                       time_max:      max_date)
     end
+rescue ::Google::Apis::AuthorizationError => e
+      authorization.grant_type  = "refresh_token"
+      authorization.access_token = current_user.token
+      authorization.refresh_token = current_user.refresh_token
+      response = authorization.refresh!
+      current_user.token = response["access_token"]
+      current_user.save#
+
+    retry
+    end
+
 
     if @response.items.any?
       @response.items.each do |event|
@@ -63,12 +76,5 @@ class GoogleRefresh
       end
     end
 
-    rescue ::Google::Apis::AuthorizationError => e
-      response = authorization.refresh!
-      current_user.token = response["access_token"]
-      current_user.refresh_token = response["refresh_token"]
-      current_user.save#
-    retry
-    end
   end
 end
