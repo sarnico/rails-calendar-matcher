@@ -35,6 +35,7 @@
 .group-layout{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding-bottom: 15px;
 }
 
 .member_each{
@@ -84,17 +85,16 @@
 
 .icon:hover{
   color: #D3D0CB;
-  font-size:20px;
-  letter-spacing: 10px;
-  transform:scale(1.3);
 }
+
 .add-something{
   color:#2C3637;
   font-size: 20px;
   text-align: right;
+
   padding-top: 5px;
-  margin-bottom: 5px;
-  margin-top: 50px;
+  margin-bottom: 10px;
+  margin-top: 15px;
   letter-spacing: 2px;
     a{
       color:#2C3637;
@@ -104,5 +104,17 @@
   color: #D3D0CB;
   a{
     color: #D3D0CB;
+    text-decoration: none;
   }
+}
+
+.add-something p {
+  margin: 0px;
+}
+
+.landing-main-groups {
+  margin-top: -350px;
+  // border: solid 1px #D3D0CB;
+  border-radius: 5px;
+  // background-color: #FCF7F8;
 }
