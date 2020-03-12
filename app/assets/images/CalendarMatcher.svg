@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW Home & Student X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="101.122mm" height="104.622mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 5956 6162"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:gray;stroke-width:11.7805}
+    .str1 {stroke:#DCE4E7;stroke-width:11.7805}
+    .fil4 {fill:none}
+    .fil1 {fill:#A1CDA8}
+    .fil3 {fill:#C8D6DB}
+    .fil2 {fill:#DCE4E7}
+    .fil0 {fill:#A1CDA8;fill-opacity:0.800000}
+   ]]>
+  </style>
+ </defs>
+ <g id="Plan_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M6 2326l5943 0 0 -818c0,-474 -388,-862 -862,-862l-4220 0c-473,0 -861,388 -861,862l0 818z"/>
+  <path class="fil1" d="M2915 4334c-235,-111 -571,-396 -810,-526 -797,-433 -230,671 229,1058 264,222 458,315 619,305 421,-25 1878,-2460 1346,-2605 -456,-125 -1252,1416 -1384,1768z"/>
+  <path class="fil2" d="M118 2333c-34,540 -4,1650 -4,2292 -1,255 -28,522 85,672 269,357 725,278 1258,278l3073 0c519,0 995,61 1258,-278 139,-179 85,-1156 85,-1438 0,-479 29,-1063 -5,-1526l-5750 0zm2216 2533c-459,-387 -1026,-1491 -229,-1058 239,130 575,415 810,526 132,-352 928,-1893 1384,-1768 532,145 -925,2580 -1346,2605 -161,10 -355,-83 -619,-305z"/>
+  <path class="fil3" d="M4530 5575l-3073 0c-533,0 -989,79 -1258,-278 -113,-150 -86,-417 -85,-672 0,-642 -30,-1752 4,-2292l5750 0c34,463 5,1047 5,1526 0,282 54,1259 -85,1438 -263,339 -739,278 -1258,278zm1419 -3249l-5943 0 0 2969c0,474 388,862 861,862l4220 0c474,0 862,-388 862,-862l0 -2969z"/>
+  <rect class="fil4 str0" x="6" y="646" width="5943" height="5510" rx="842" ry="862"/>
+  <g id="_557833568">
+   <rect class="fil2 str1" x="3881" y="6" width="861" height="1217" rx="3534" ry="3262"/>
+   <rect class="fil2 str1" x="1213" y="6" width="861" height="1217" rx="3534" ry="3262"/>
+  </g>
+  <line class="fil4 str0" x1="6" y1="2326" x2="5956" y2= "2326" />
+ </g>
+</svg>
