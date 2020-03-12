@@ -13,6 +13,8 @@ import '@fullcalendar/list/main.css';
 import { calendar } from "../calendar_matches"
 import { calendar_matches } from "../calendar_matches_choice"
 import { dropdown } from "./users_dropdown"
+import { titleHover } from "./icon_bigger_hover"
+
 
 if(document.getElementById('calendar')){
   calendar();
@@ -24,6 +26,10 @@ if(document.getElementById('calendar_matches')){
 
 if(document.getElementById('possible_users')){
   dropdown();
+}
+
+if(document.getElementById("logo-image")){
+  titleHover();
 }
 
 
