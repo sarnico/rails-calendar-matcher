@@ -1,44 +1,62 @@
-<div class="container">
-  <% if @my_groups == [] %>
+<div id="homepage">
+  <div class="white-background">
+  </div>
+  <div class="landing-main-groups container">
+    <% if @my_groups == [] %>
     <h1>You don't have any group yet</h1>
-
-    <p><%= link_to new_group_path do %>
-      <i class="fas fa-plus"> Create your first group</i>
-      <% end %>
-    </p>
-
-  <% else %>
-
-    <h1>Here are all my groups :</h1>
-    <br>
-    <%= link_to new_group_path do %>
-    <i class="fas fa-plus"> Add a new group</i>
-    <% end %>
-
-    <br>
-    <div class="group-layout">
-
-    <% @my_groups.uniq.each do |group| %>
-      <ul>
-        <li class="card-group-index">
-          <p> <b>Name of the group : </b><%= group.name %></p>
-          <p> <b>Admin : </b><%= group.creater.email %></p>
-          <p> <b>Members : </b></p>
-          <div class="group-member-layout">
-            <% group.members.each do |user| %>
-              <div class="member_each">
-                <p><%= user.email %></p>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-              </div>
-            <% end %>
-          </div>
-          <% if group.creater_id == current_user.id %>
-            <p class="group-links"><%= link_to "Create an event", new_match_path(group_id: group.id) %> - <%= link_to "Edit group", edit_group_path(group) %> - <%= link_to "Delete group", group_path(group), method: :delete, data: { confirm: "Are you sure?" } %></p>
+      <div class="add-something">
+        <%= link_to new_group_path do %>
+          <i class="fas fa-plus"> Create your first group</i>
           <% end %>
-        </li>
-    </ul>
-    <% end %>
-</div>
-  <% end %>
-</div>
+      </div>
+    <% else %>
+      <div class="add-something">
+      <%= link_to new_group_path do %>
+        <p><i class="icon fas fa-plus"></i> Add a new group</p>
+        <% end %>
+      </div>
+      <div class="group-layout">
+        <% @my_groups.uniq.each do |group| %>
+          <div class="card-group-index">
 
+            <div class="top">
+              <h3><%= group.name.capitalize %></h3>
+              <img src="<%= group.creater.avatar %>" class="card-trip-user avatar-bordered" />
+            </div>
+
+            <div class="medium">
+              <div class="group-member-layout">
+                <% group.members.each do |user| %>
+                  <div class="member_each">
+
+                    <img src="<%= user.avatar %>" class="card-trip-user avatar-bordered" />
+                    <p><%= user.email %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="bottom">
+              <% if group.creater_id == current_user.id %>
+                <p class="group-links">
+                  <%= link_to new_match_path(group_id: group.id) do %>
+                    <i class="icon far fa-calendar-check"></i>
+                  <% end %>
+
+                  <%= link_to edit_group_path(group) do %>
+                    <i class="icon fas fa-user-edit"></i>
+                  <% end %>
+
+                  <%= link_to group_path(group), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="icon fas fa-trash-alt"></i>
+                  <% end %>
+                </p>
+              <% end %>
+            </div>
+
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,14 +1,15 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.6.5'
 
 # Add by the Dream Team
 gem 'devise'
-gem 'omniauth-google-oauth2'
 gem 'google-api-client', require: 'google/apis/calendar_v3'
+gem 'omniauth-google-oauth2'
 # gem 'google-api-client', '~> 0.11.1'
 # gem 'google-api-client', require: 'google/api_client'
 # the end
-
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
@@ -29,10 +30,10 @@ group :development do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
+  gem 'listen', '~> 3.0.5'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'dotenv-rails'
 end

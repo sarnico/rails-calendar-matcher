@@ -7,10 +7,11 @@
 #homepage {
   margin-top: -375px;
   background-color: #A1CDA8;
+  padding-bottom: 20px;
   // opacity: 0.5;
   // background-image: url("yann.jpg");
   // background-size: cover;
-  height: 1200px;
+  // height: 1200px;
 
   #carouselExampleIndicators {
     z-index: 20;
@@ -25,7 +26,12 @@
 
   .landing-header {
     h4 {
-      margin: 0px;
+      margin: 0px auto;
+      color: #2C363F;
+      text-align: center;
+    }
+    p {
+      margin: 0px auto;
       color: #2C363F;
       text-align: center;
     }
@@ -41,7 +47,7 @@
     .image-caption {
       height: 600px;
       object-fit: cover;
-      border: solid 1px #2C363F;
+      // border: solid 1px #2C363F;
       // border-radius: 2px;
       // box-shadow: 0px 0px 150px rgba(44, 54, 63, 0.6);
     }
@@ -54,10 +60,6 @@
       color: white;
       text-shadow: 0px 0px 1px black;
     }
-  }
-
-  .landing-footer {
-
   }
 
 }

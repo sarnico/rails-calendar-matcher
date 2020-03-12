@@ -1,12 +1,13 @@
-require "google/apis/calendar_v3"
+# frozen_string_literal: true
+
+require 'google/apis/calendar_v3'
 
 class GoogleCalendarWrapper < ApplicationRecord
-
   def initialize(current_user)
     configure_client(current_user)
   end
 
-  def configure_client(current_user)
+  def configure_client(_current_user)
     @client = Google::Apis::CalendarV3::CalendarService.new
     # @client.authorization.access_token = current_user.token
     # @client.authorization.refresh_token = current_user.refresh_token
@@ -19,12 +20,10 @@ class GoogleCalendarWrapper < ApplicationRecord
   end
 
   def post_event
-    @client.execute(:api_method => @service.events.insert,
-      :parameters => {'calendarId' => current_user.email,
-        'sendNotifications' => true},
-      :body => JSON.dump(event),
-      :headers => {'Content-Type' => 'application/json'}
-      )
+    @client.execute(api_method: @service.events.insert,
+                    parameters: { 'calendarId' => current_user.email,
+                                  'sendNotifications' => true },
+                    body: JSON.dump(event),
+                    headers: { 'Content-Type' => 'application/json' })
   end
-
 end

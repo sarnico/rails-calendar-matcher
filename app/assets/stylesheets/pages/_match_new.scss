@@ -1,5 +1,5 @@
 .user-chip {
-  background-color:#71c6c4;
+  background-color:#A1CDA8;
   border-radius: 5px;
   margin: 4px;
   padding: 8px;
@@ -56,8 +56,8 @@
   background-color:#f4f4f4;
   padding:3px;
   border-radius:5px;
-
 }
+
 .custom-dropdown {
   position: relative;
   .form-group{
@@ -65,3 +65,20 @@
     flex-direction: column;
   }
 }
+
+.form {
+  background: white;
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: solid 1px #9b9b9b;
+}
+
+.box-new {
+  background: none;
+  border: none;
+}
+
+
+

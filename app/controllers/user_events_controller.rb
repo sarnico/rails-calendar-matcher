@@ -1,26 +1,21 @@
-require "google/apis/calendar_v3"
-require "googleauth"
-require "googleauth/stores/file_token_store"
-require "date"
-require "fileutils"
+# frozen_string_literal: true
+
+require 'google/apis/calendar_v3'
+require 'googleauth'
+require 'googleauth/stores/file_token_store'
+require 'date'
+require 'fileutils'
 
 class UserEventsController < ApplicationController
-
-
-  def events_google_calendar()
-      # binding.pry
-      GoogleRefresh.refresh_all(current_user)
+  def events_google_calendar
+    # binding.pry
+    GoogleRefresh.refresh_all(current_user)
   end
 
   def index
     events_google_calendar
     @userevents = current_user.reload.user_events
   end
-
-
-
-
-
 end
 
 # class UserEventsController < ApplicationController
@@ -32,11 +27,11 @@ end
 #     # Fetch the next 10 events for the user
 #     calendar_id = "primary"
 
-    # @response = service.list_events(calendar_id,
-    #                                 max_results:   20,
-    #                                 single_events: true,
-    #                                 order_by:      "startTime",
-    #                                 time_min:      DateTime.now.rfc3339)
+# @response = service.list_events(calendar_id,
+#                                 max_results:   20,
+#                                 single_events: true,
+#                                 order_by:      "startTime",
+#                                 time_min:      DateTime.now.rfc3339)
 
 #     if @response.items.any?
 #       @response.items.each do |event|
