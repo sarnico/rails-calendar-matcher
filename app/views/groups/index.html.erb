@@ -3,10 +3,10 @@
   </div>
   <div class="landing-main-groups container">
     <% if @my_groups == [] %>
-    <h1>You don't have any group yet</h1>
+    <h3 class="mt-3">You don't have any group yet</h3>
       <div class="add-something">
         <%= link_to new_group_path do %>
-          <i class="fas fa-plus"> Create your first group</i>
+          <p><i class="fas fa-plus"></i> Create your first group</p>
           <% end %>
       </div>
     <% else %>
