@@ -20,6 +20,7 @@ class MatchesController < ApplicationController
   end
 
   def create
+
     # 1. verifier s'il faut creer un groupe
     if group_params[:create_group]
       @group = Group.new

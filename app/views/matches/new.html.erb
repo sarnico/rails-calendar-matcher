@@ -20,6 +20,7 @@
             <div class="max_date">
               <%= f.input :max_date, as: :date, html5: true, label: 'and :' %>
             </div>
+
           </div>
           <div class="d-flex">
             <div class="min_time">
@@ -32,10 +33,11 @@
 
 
             <%= f.input :user_ids, as: :hidden %>
-
+        
             <div class="custom-dropdown">
               <div class="form-group ">
                 <label for="shown_user_ids">Select the attendees :</label>
+                <span class="fa fa-user errspan"></span>
                 <input type="text" id="shown_user_ids" autocomplete="off">
               </div>
               <div id="user_search_results" class="inactif">
