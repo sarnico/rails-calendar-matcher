@@ -74,12 +74,12 @@ var calendar_matches = () => {
 
           // date to import in match view
           const matchDate = matchingDateStartDate
-          console.log(matchDate)
+
 
           // alert box message if selected a possible date
-          const firstMessage = 'Are you sure you want to make your event happen on\n' + matchingDateStartDate + '\nfrom ' + startTime + ' until ' + endTime
+          // const firstMessage = 'Are you sure you want to make your event happen on\n' + matchingDateStartDate + '\nfrom ' + startTime + ' until ' + endTime
 
-          const ok = confirm(firstMessage)
+          // const ok = confirm(firstMessage)
 
           const matchid = JSON.parse(document
             .getElementById("calendar_matches")
@@ -87,7 +87,8 @@ var calendar_matches = () => {
             .matchid
             );
 
-          if (ok == true) {
+          // if (ok == true) {
+          if (matchingDate) {
             fetch(`/matches/${matchid}`, {
               method: 'put',
               body: JSON.stringify({match: {
