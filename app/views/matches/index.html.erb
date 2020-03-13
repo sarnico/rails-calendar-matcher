@@ -7,9 +7,9 @@
         <div>
           <h3>You don't have any event yet</h3>
         </div>
-        <div class="add-something">
-          <%= link_to new_match_path do %>
-            <p><i class="fas fa-plus"></i> Create your first event</p>
+        <div>
+          <%= link_to new_match_path, class: "add-something" do %>
+            <i class="fas fa-plus"></i> Create your first event
           <% end %>
         </div>
       </div>

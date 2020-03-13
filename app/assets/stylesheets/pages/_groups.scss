@@ -1,3 +1,28 @@
+// if empty
+.landing-main-groups-empty {
+  margin-top: -250px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h3 {
+    margin: 0px 0px 20px 0px;
+  }
+
+  p {
+    margin: 0px;
+  }
+}
+
+
+
+
+
+
+
+
+// if events
 .card-group-index {
   display: flex;
   flex-direction: column;
@@ -103,10 +128,7 @@
 }
 .add-something:hover {
   color: #D3D0CB;
-  a{
-    color: #D3D0CB;
-    text-decoration: none;
-  }
+  text-decoration: none;
 }
 
 .add-something p {
