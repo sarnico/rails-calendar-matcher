@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_and_belongs_to_many :matches
   has_many :user_events
 
+  has_one_attached :photo
+
   def self.find_for_google_oauth2(auth)
     data = auth.info
     user = User.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
