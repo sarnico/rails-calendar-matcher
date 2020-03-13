@@ -33,7 +33,7 @@
 
 
             <%= f.input :user_ids, as: :hidden %>
-        
+
             <div class="custom-dropdown">
               <div class="form-group ">
                 <label for="shown_user_ids">Select the attendees :</label>
@@ -42,13 +42,13 @@
               </div>
               <div id="user_search_results" class="inactif">
                   <% possible_users.each do |user| %>
-                  <p class='user' data-user-id="<%= user.id %>"><%= user.email %></p>
+                  <p class='user' data-user-id="<%= user.id %>"><%= user.email%> <i class="fas fa-plus"></i></p>
                   <% end %>
               </div>
             </div>
 
 
-              <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;" data-group="<%= @group_user_ids.to_json %>">
+              <div id="selected_user_ids" style="display: flex; flex-wrap: wrap; margin-bottom: 18px" data-group="<%= @group_user_ids.to_json %>">
               </div>
 
 
