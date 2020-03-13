@@ -1,3 +1,25 @@
+// if no event
+
+.landing-main-events-empty {
+  margin-top: -250px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  text-align: center;
+}
+
+.no-event {
+  h3 {
+    margin: 0px 0px 20px 0px;
+  }
+  p {
+    margin: 0px;
+  }
+}
+
+// if event
+
 h1 {
   margin: 20px 0;
 }
