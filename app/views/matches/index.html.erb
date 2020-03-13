@@ -1,18 +1,21 @@
 <div id="homepage">
-
   <div class="white-background">
   </div>
-  <div class="landing-main-events container">
-    <% if @my_events == [] %>
-      <h3 class="mt-3">You don't have any event yet</h3>
-      <div class="add-something">
-        <%= link_to new_match_path do %>
-          <p><i class="fas fa-plus"></i> Create your first event</p>
+  <% if @my_events == [] %>
+    <div class="landing-main-events-empty container">
+      <div class="no-event">
+        <div>
+          <h3>You don't have any event yet</h3>
+        </div>
+        <div>
+          <%= link_to new_match_path, class: "add-something" do %>
+            <i class="fas fa-plus"></i> Create your first event
           <% end %>
+        </div>
       </div>
-
-    <% else %>
-
+    </div>
+  <% else %>
+    <div class="landing-main-events container">
       <div class="add-something">
         <%= link_to new_match_path do %>
           <p><i class="icon fas fa-plus"></i> Add a new event</p>
@@ -71,8 +74,8 @@
           </div>
         <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
   <% if @validated %>
     <div id="backpopup" class="backpopup"></div>
     <div class="flash flash-success alert alert-dismissible fade show" role="alert">

@@ -1,3 +1,28 @@
+// if empty
+.landing-main-groups-empty {
+  margin-top: -250px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h3 {
+    margin: 0px 0px 20px 0px;
+  }
+
+  p {
+    margin: 0px;
+  }
+}
+
+
+
+
+
+
+
+
+// if events
 .card-group-index {
   display: flex;
   flex-direction: column;
@@ -93,8 +118,6 @@
 .add-something {
   color:#2C3637;
   font-size: 20px;
-  text-align: right;
-
   padding-top: 5px;
   margin-bottom: 10px;
   margin-top: 15px;
@@ -105,10 +128,7 @@
 }
 .add-something:hover {
   color: #D3D0CB;
-  a{
-    color: #D3D0CB;
-    text-decoration: none;
-  }
+  text-decoration: none;
 }
 
 .add-something p {

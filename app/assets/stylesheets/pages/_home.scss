@@ -12,8 +12,7 @@
   // background-image: url("yann.jpg");
   // background-size: cover;
   // height: 1200px;
-  min-height: 100vh;
-
+  min-height: calc(100vh + 20px);
   #carouselExampleIndicators {
     z-index: 20;
     margin-top: -375px;
