@@ -40,16 +40,20 @@ const dropdown = () => {
       if (selectedUsers.indexOf(user) === -1) {
         selectedUsers.push(user)
         const paragraph = document.createElement('p')
-        paragraph.appendChild( document.createTextNode(user.email) )
+        paragraph.appendChild( document.createTextNode(`${user.email}  `) )
+        let cross = document.createElement('i')
+        cross.classList.add('fas')
+        cross.classList.add('fa-trash')
+        paragraph.appendChild(cross)
         paragraph.classList.add('user-chip')
         selectedUsersDiv.appendChild(paragraph)
-        paragraph.addEventListener("click", unSelectUser)
+        cross.addEventListener("click", unSelectUser)
         hiddenUsersInput.value = JSON.stringify(selectedUsers.map(user => user.id))
       }
     }
 
     const unSelectUser = (event) => {
-      const paragraph = event.originalTarget
+      const paragraph = event.originalTarget.parentNode
       const emailToRemove = paragraph.firstChild.nodeValue
       selectedUsersDiv.removeChild(paragraph)
       const indexToRemove = selectedUsers.findIndex(item => item.email === emailToRemove)
