@@ -78,7 +78,19 @@
 .box-new {
   background: none;
   border: none;
+  max-width: 720px !important;
 }
 
+.max_date {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.min_date {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
 
