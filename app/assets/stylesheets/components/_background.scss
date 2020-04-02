@@ -1,0 +1,28 @@
+//
+.white-top-background {
+  margin-top: 150px;
+  background-color: #FCF7F8;
+  height: 560px;
+}
+
+.green-bottom-background {
+  margin-top: -375px;
+  background-color: #A1CDA8;
+  // min-height: 100vh;
+
+  min-height: calc(100vh + 25px );
+}
+
+.content-main {
+  margin-top: -325px;
+  border: solid 1px #D3D0CB;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: white;
+}
+
+
+
+// color green clair : #A1CDA8
+// color crème : #FCF7F8
+// color green foncé / écriture : #2C363F

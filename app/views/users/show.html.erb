@@ -1,0 +1,15 @@
+<div id="homepage">
+  <div class="white-background">
+  </div>
+  <div class="container content-main-my-account">
+      <% if current_user.avatar != nil %>
+        <%= image_tag "#{current_user.avatar}", class: "avatar-bordered-my-account"%>
+      <% end %>
+      <p><strong>Google Account :</strong> <%= "#{current_user.email}" %></p>
+
+    <!-- à mettre en cornet de glace pour mettre le lien edit -->
+    <!-- <p> link_to "Edit", root_path </p> -->
+  </div>
+</div>
+
+
