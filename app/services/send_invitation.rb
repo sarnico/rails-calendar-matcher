@@ -1,5 +1,25 @@
 class SendInvitation
-  def self.new(params)
+
+
+
+  def self.new(params,current_user)
+
+        client = Google::Apis::CalendarV3::CalendarService.new
+    # return unless (current_user.present? && current_user.access_token.present? && current_user.refresh_token.present?)
+    # secrets = Google::APIClient::ClientSecrets.new({
+    #   "web" => {
+    #     "access_token" => current_user.access_token,
+    #     "refresh_token" => current_user.refresh_token,
+    #     "client_id" => ENV["GOOGLE_API_KEY"],
+    #     "client_secret" => ENV["GOOGLE_API_SECRET"]
+    #   }
+    # })
+    # begin
+    #   client.authorization = secrets.to_authorization
+    #   client.authorization.grant_type = "refresh_token"
+
+
+
 
     event = Google::Apis::CalendarV3::Event.new(
       summary: 'Google I/O 2015',
@@ -38,7 +58,6 @@ class SendInvitation
         ]
       )
     )
-
     result = client.insert_event('primary', event)
     puts "Event created: #{result.html_link}"
   end
