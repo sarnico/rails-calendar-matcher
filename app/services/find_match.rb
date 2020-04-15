@@ -10,8 +10,8 @@ class FindMatch
     dp_final = set_match.max_date
 
     # Setting the time period TP of the research
-    tp_final = set_match.max_time
-    tp_initial = set_match.min_time
+    tp_final = set_match.max_time - 1
+    tp_initial = set_match.min_time + 1
     # pour éviter les overlap sur les heures... si fin à 16h et début à 16h, sans ça,
     # on entre dans la config d'overlap !
 
