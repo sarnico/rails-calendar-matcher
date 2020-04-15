@@ -8,7 +8,9 @@
 .green-bottom-background {
   margin-top: -375px;
   background-color: #A1CDA8;
-  min-height: 100vh;
+  // min-height: 100vh;
+
+  min-height: calc(100vh + 25px );
 }
 
 .content-main {
