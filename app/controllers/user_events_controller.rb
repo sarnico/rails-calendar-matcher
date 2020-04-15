@@ -8,7 +8,6 @@ require 'fileutils'
 
 class UserEventsController < ApplicationController
   def events_google_calendar
-    # binding.pry
     GoogleRefresh.refresh_all(current_user)
   end
 

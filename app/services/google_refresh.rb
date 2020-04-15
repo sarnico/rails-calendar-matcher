@@ -17,12 +17,13 @@ class GoogleRefresh
     current_user.save
   end
 
-  def self.connect_service
-    @client = auth_client
-    service = ::Google::Apis::CalendarV3::CalendarService.new
-    service.authorization = @client
-    service
-  end
+#Je ne pense pas que cette méthode serve à quelque chose ???
+  # def self.connect_service
+  #   @client = auth_client
+  #   service = ::Google::Apis::CalendarV3::CalendarService.new
+  #   service.authorization = @client
+  #   service
+  # end
 
   def self.auth_client(current_user)
     Signet::OAuth2::Client.new(
@@ -36,27 +37,28 @@ class GoogleRefresh
 
   def self.refresh_all(current_user, min_date = DateTime.now.rfc3339, max_date = nil)
     begin
-    current_user.user_events.destroy_all
-    authorization = auth_client(current_user)
-    service = Google::Apis::CalendarV3::CalendarService.new
-    service.authorization = authorization
+      current_user.user_events.destroy_all
+      authorization = auth_client(current_user)
+      service = Google::Apis::CalendarV3::CalendarService.new
+      service.authorization = authorization
 
 
-    calendar_id = "primary"
-    if max_date == nil
-      @response = service.list_events(calendar_id,
-                                max_results:   20,
-                                single_events: true,
-                                order_by:      "startTime",
-                                time_min:      min_date)
-    else
-      @response = service.list_events(calendar_id,
-                                      single_events: true,
-                                      order_by:      "startTime",
-                                      time_min:      min_date,
-                                      time_max:      max_date)
-    end
-rescue ::Google::Apis::AuthorizationError => e
+      calendar_id = "primary"
+      if max_date == nil
+        @response = service.list_events(calendar_id,
+                                  max_results:   20,
+                                  single_events: true,
+                                  order_by:      "startTime",
+                                  time_min:      min_date)
+      else
+        @response = service.list_events(calendar_id,
+                                        single_events: true,
+                                        order_by:      "startTime",
+                                        time_min:      min_date,
+                                        time_max:      max_date)
+      end
+
+    rescue ::Google::Apis::AuthorizationError => e
       authorization.grant_type  = "refresh_token"
       authorization.access_token = current_user.token
       authorization.refresh_token = current_user.refresh_token
@@ -75,6 +77,6 @@ rescue ::Google::Apis::AuthorizationError => e
         UserEvent.create!(user: current_user, start_time: start, end_time: ended, summary: event.summary)
       end
     end
-
   end
+
 end

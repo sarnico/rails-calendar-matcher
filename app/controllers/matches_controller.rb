@@ -35,6 +35,7 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @match.owner_id = current_user.id
     if @match.save
+
       SendInvitation.new(match_params, current_user)
       redirect_to match_path(@match)
     else
