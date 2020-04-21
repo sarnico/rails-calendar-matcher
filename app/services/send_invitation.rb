@@ -10,12 +10,6 @@ class SendInvitation
     attendeesList = Match.find(id=match_info.id).users.map{|user| Google::Apis::CalendarV3::EventAttendee.new(email: "#{user.email}")}
     attendeesList<<Google::Apis::CalendarV3::EventAttendee.new(email: "#{User.find(id=match_info.owner_id).email}")
 
-
-    # # List of attendees coming from the MATCH -- USING PARAMS DATA !!!
-    # attendeesList = params[:user_ids].map{|user_id| Google::Apis::CalendarV3::EventAttendee.new(email: "#{User.find(id=user_id).email}")}
-    # attendeesList<<Google::Apis::CalendarV3::EventAttendee.new(email: "#{current_user.email}")
-
-
     begin
       @client = GoogleRefresh.auth_client(current_user)
       service = ::Google::Apis::CalendarV3::CalendarService.new
@@ -35,7 +29,7 @@ class SendInvitation
 
 
       event = Google::Apis::CalendarV3::Event.new(
-        summary: match_info.title,
+        summary: "CalendarMatcher -#{match_info.title}",
         location: match_info.location,
         description: match_info.description,
         start: Google::Apis::CalendarV3::EventDateTime.new(
@@ -46,9 +40,11 @@ class SendInvitation
           date_time: end_time,
           time_zone: 'Europe/Brussels'
           ),
+        colorId: "12",
       # recurrence: [
       #   'RRULE:FREQ=DAILY;COUNT=2'
       # ],
+
       attendees:  attendeesList,
       reminders: Google::Apis::CalendarV3::Event::Reminders.new(
         use_default: false,

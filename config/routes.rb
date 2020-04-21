@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   root to: 'pages#home'
 
-  get "test", to: "pages#test"
+  # get "test", to: "pages#test"
 
   resources :users, only: [:show]
 
