@@ -17,6 +17,7 @@ class GoogleRefresh
     current_user.save
   end
 
+
 #Je ne pense pas que cette méthode serve à quelque chose ???
   # def self.connect_service
   #   @client = auth_client
@@ -37,6 +38,7 @@ class GoogleRefresh
 
   def self.refresh_all(current_user, min_date = DateTime.now.rfc3339, max_date = nil)
     begin
+
       current_user.user_events.destroy_all
       authorization = auth_client(current_user)
       service = Google::Apis::CalendarV3::CalendarService.new
@@ -59,6 +61,8 @@ class GoogleRefresh
       end
 
     rescue ::Google::Apis::AuthorizationError => e
+
+
       authorization.grant_type  = "refresh_token"
       authorization.access_token = current_user.token
       authorization.refresh_token = current_user.refresh_token
@@ -77,6 +81,7 @@ class GoogleRefresh
         UserEvent.create!(user: current_user, start_time: start, end_time: ended, summary: event.summary)
       end
     end
-  end
 
+
+  end
 end

@@ -25,6 +25,7 @@ var calendar_matches = () => {
 
 
       eventMouseEnter: function(event) {
+
       },
 
       displayEventTime: false,

@@ -8,6 +8,7 @@ require 'fileutils'
 
 class UserEventsController < ApplicationController
   def events_google_calendar
+
     GoogleRefresh.refresh_all(current_user)
   end
 

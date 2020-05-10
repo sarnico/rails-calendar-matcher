@@ -12,8 +12,7 @@ class PagesController < ApplicationController
   def home
   end
 
-  # def test
-  #   FindMatch.date
-  #   raise
-  # end
+  def test
+    FindMatch.date
+  end
 end

@@ -31,6 +31,7 @@ class MatchesController < ApplicationController
       @group.save
     end
 
+
     # 2. creer le match sans date finale !!!
     @match = Match.new(match_params)
     @match.owner_id = current_user.id
