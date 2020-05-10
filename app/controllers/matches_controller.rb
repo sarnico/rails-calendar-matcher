@@ -38,8 +38,7 @@ class MatchesController < ApplicationController
     if @match.save
 
       redirect_to match_path(@match)
-
-      # SendInvitation.new(match_params, current_user)
+      SendInvitation.new(match_params, current_user)
     else
       render :new
     end
