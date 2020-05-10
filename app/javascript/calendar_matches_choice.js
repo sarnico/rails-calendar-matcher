@@ -25,7 +25,7 @@ var calendar_matches = () => {
 
 
       eventMouseEnter: function(event) {
-        console.log("helloooooo")
+
       },
 
       displayEventTime: false,
