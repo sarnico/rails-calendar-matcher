@@ -4,6 +4,7 @@
   </div>
   <div class="container box-new content-main">
     <% possible_users = (User.all - [current_user]) %>
+    <%= raise %>
     <div id='possible_users' data-input-id="match_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
 
     <div class="container" id='create-event'>
