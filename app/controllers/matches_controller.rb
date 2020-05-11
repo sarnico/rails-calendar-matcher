@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'pry'
 class MatchesController < ApplicationController
   before_action :set_match, only: %i[show edit update destroy]
 
@@ -35,15 +35,16 @@ class MatchesController < ApplicationController
     # 2. creer le match sans date finale !!!
     @match = Match.new(match_params)
     @match.owner_id = current_user.id
+    # binding.pry
     if @match.save
-
       redirect_to match_path(@match)
     else
       render :new
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @match.update(match_params)

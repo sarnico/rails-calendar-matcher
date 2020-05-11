@@ -31,12 +31,9 @@
             </div>
           </div>
 
-
-            <%= f.input :user_ids, as: :hidden %>
-
             <div class="custom-dropdown">
               <div class="form-group ">
-                <label for="shown_user_ids">Select the attendees :</label>
+                <label for="shown_user_ids">Select the attendees : *</label>
                 <span class="fa fa-user errspan"></span>
                 <input type="text" id="shown_user_ids" autocomplete="off">
               </div>
@@ -46,7 +43,7 @@
                   <% end %>
               </div>
             </div>
-
+            <%= f.input :user_ids, as: :hidden, input_html: { name: 'hey'} %>
 
               <div id="selected_user_ids" style="display: flex; flex-wrap: wrap; margin-bottom: 18px" data-group="<%= @group_user_ids.to_json %>">
               </div>
