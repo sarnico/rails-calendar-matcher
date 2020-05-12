@@ -36,14 +36,14 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @match.owner_id = current_user.id
     if @match.save
-
       redirect_to match_path(@match)
     else
       render :new
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @match.update(match_params)

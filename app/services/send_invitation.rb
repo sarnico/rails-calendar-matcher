@@ -1,11 +1,16 @@
 class SendInvitation
   def self.new(match_info,current_user)
+    raise
+
+    #dans les arguments, il faudrait pouvoir envoyer la timezone des personnes qui font le  match
 
     match_date = match_info.match_date.strftime("%F")
     min_time = match_info.min_time.strftime("%T%:z")
     max_time = match_info.max_time.strftime("%T%:z")
     start_time = "#{match_date}T#{min_time}"
     end_time = "#{match_date}T#{max_time}"
+
+    minutes = ((start_time.to_time-Time.now) / 60).to_i
 
     attendeesList = Match.find(id=match_info.id).users.map{|user| Google::Apis::CalendarV3::EventAttendee.new(email: "#{user.email}")}
     attendeesList<<Google::Apis::CalendarV3::EventAttendee.new(email: "#{User.find(id=match_info.owner_id).email}")
@@ -51,8 +56,7 @@ class SendInvitation
         overrides: [
           Google::Apis::CalendarV3::EventReminder.new(
             reminder_method: 'email',
-            minutes: 3
-            # minutes: ((start_time.to_time-Time.now)/60000).to_i
+            minutes: minutes
             ),
           Google::Apis::CalendarV3::EventReminder.new(
             reminder_method: 'popup',
