@@ -21,7 +21,6 @@ class MatchesController < ApplicationController
   end
 
   def create
-
     # 1. verifier s'il faut creer un groupe
     if group_params[:create_group]
       @group = Group.new
@@ -31,11 +30,9 @@ class MatchesController < ApplicationController
       @group.save
     end
 
-
     # 2. creer le match sans date finale !!!
     @match = Match.new(match_params)
     @match.owner_id = current_user.id
-    # binding.pry
     if @match.save
       redirect_to match_path(@match)
     else

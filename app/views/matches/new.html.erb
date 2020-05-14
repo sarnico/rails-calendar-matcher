@@ -38,12 +38,13 @@
                 <input type="text" id="shown_user_ids" autocomplete="off">
               </div>
               <div id="user_search_results" class="inactif">
+              <%# require 'pry'; binding.pry %>
                   <% possible_users.each do |user| %>
                   <p class='user' data-user-id="<%= user.id %>"><%= user.email%> <i class="fas fa-plus"></i></p>
                   <% end %>
               </div>
             </div>
-            <%= f.input :user_ids, as: :hidden, input_html: { name: 'hey'} %>
+            <%= f.input :user_ids, as: :hidden %>
 
               <div id="selected_user_ids" style="display: flex; flex-wrap: wrap; margin-bottom: 18px" data-group="<%= @group_user_ids.to_json %>">
               </div>
@@ -68,4 +69,3 @@
   </div>
 </div>
 <!-- select users when selecting a group ? -->
-<!-- key up resarch for attendees ? -->
