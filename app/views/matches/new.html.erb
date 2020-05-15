@@ -44,6 +44,10 @@
                   <% end %>
               </div>
             </div>
+            <% if @match.errors.present? %>
+              <p class="attendee_error_msg"> <%= @match.errors[:user_ids][0] %> </p>
+            <% end %>
+
             <%= f.input :user_ids, as: :hidden %>
 
               <div id="selected_user_ids" style="display: flex; flex-wrap: wrap; margin-bottom: 18px" data-group="<%= @group_user_ids.to_json %>">
@@ -59,7 +63,7 @@
             <% end %>
 
 
-      <%= f.button :submit, 'Find the match !', class:"button" %>
+      <%= f.button :submit, 'Find the match !', class:"button", id:"button-find-the-match" %>
 
 
         <% end %>

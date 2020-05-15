@@ -8,6 +8,7 @@ const dropdown = () => {
         const userSearchInput = document.querySelector('#shown_user_ids')
         const selectedUsersDiv = document.querySelector('#selected_user_ids')
         const userSearchResults = document.querySelector('#user_search_results')
+        const findMatch = document.getElementById('button-find-the-match')
         const groupMembers = JSON.parse(selectedUsersDiv.dataset.group || "[]")
 
         let filteredUsers = []
@@ -124,6 +125,28 @@ const dropdown = () => {
                 event.preventDefault()
             }
         })
+
+        findMatch.addEventListener('click', event => {
+            console.log(event)
+        })
+
+        // const attendeeError = () => {
+        //     if (selectedUsers.length === 0) {
+        //         userSearchInput.style.border = 'solid 1px #FD0F15'
+        //         userSearchInput.style.borderRadius = '2px'
+        //     }
+        // }
+
+        // findMatch.addEventListener('click', attendeeError())
+
+        // const attendeeErrorNone = () => {
+        //     if (selectedUsers.length >= 1) {
+        //         userSearchInput.style.border = 'solid 1px #9b9b9b'
+        //         userSearchInput.style.borderRadius = '0px'
+        //     }
+        // }
+
+        // findMatch.addEventListener('click', attendeeErrorNone())
 
         const usersAll = document.querySelectorAll('.user')
 

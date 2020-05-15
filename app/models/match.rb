@@ -6,7 +6,7 @@ class Match < ApplicationRecord
 
   validates :title, presence: true
   validates :max_date, presence: true
-  validates_presence_of :user_ids, :message => 'Please Enter User Name.'
+  validates_presence_of :user_ids, :message => 'Please select at least one attendee'
 
   def attendees
     user_ids.map do |user_id|

@@ -19,7 +19,8 @@
 #user_search_results {
     position: absolute;
     border: solid 1px #9b9b9b;
-    border-radius: 5px 5px 5px 5px;
+    border-top: none;
+    border-radius: 0px 0px 2px 2px;
     background-color: #ffffff;
     padding: 20px;
     left: 0;
@@ -90,4 +91,13 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+}
+
+.attendee_error_msg {
+    color: #FD0F15;
+    font-size: 13px;
+}
+
+.match_user_ids .invalid-feedback {
+    display: none;
 }
