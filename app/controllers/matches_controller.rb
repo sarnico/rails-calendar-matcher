@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'pry'
 class MatchesController < ApplicationController
   before_action :set_match, only: %i[show edit update destroy]
 
@@ -21,7 +21,6 @@ class MatchesController < ApplicationController
   end
 
   def create
-
     # 1. verifier s'il faut creer un groupe
     if group_params[:create_group]
       @group = Group.new
@@ -30,7 +29,6 @@ class MatchesController < ApplicationController
       @group.user_ids = match_params[:user_ids]
       @group.save
     end
-
 
     # 2. creer le match sans date finale !!!
     @match = Match.new(match_params)

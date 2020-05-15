@@ -31,22 +31,24 @@
             </div>
           </div>
 
-
-            <%= f.input :user_ids, as: :hidden %>
-
             <div class="custom-dropdown">
               <div class="form-group ">
-                <label for="shown_user_ids">Select the attendees :</label>
+                <label for="shown_user_ids">Select the attendees : *</label>
                 <span class="fa fa-user errspan"></span>
                 <input type="text" id="shown_user_ids" autocomplete="off">
               </div>
               <div id="user_search_results" class="inactif">
+              <%# require 'pry'; binding.pry %>
                   <% possible_users.each do |user| %>
                   <p class='user' data-user-id="<%= user.id %>"><%= user.email%> <i class="fas fa-plus"></i></p>
                   <% end %>
               </div>
             </div>
+            <% if @match.errors.present? %>
+              <p class="attendee_error_msg"> <%= @match.errors[:user_ids][0] %> </p>
+            <% end %>
 
+            <%= f.input :user_ids, as: :hidden %>
 
               <div id="selected_user_ids" style="display: flex; flex-wrap: wrap; margin-bottom: 18px" data-group="<%= @group_user_ids.to_json %>">
               </div>
@@ -59,7 +61,8 @@
               <%= label_tag "You want to create a new group ? Give it a name : " %>
               <%= text_field_tag :group_name %>
             <% end %>
-             <%= f.button :submit, 'Find the match !', class:"button" %>
+
+      <%= f.button :submit, 'Find the match !', class:"button", id:"button-find-the-match" %>
 
         <% end %>
 
