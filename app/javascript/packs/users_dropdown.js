@@ -126,9 +126,9 @@ const dropdown = () => {
             }
         })
 
-        findMatch.addEventListener('click', event => {
-            console.log(event)
-        })
+        // findMatch.addEventListener('mouseover', event => {
+        //     console.log(event)
+        // })
 
         // const attendeeError = () => {
         //     if (selectedUsers.length === 0) {
