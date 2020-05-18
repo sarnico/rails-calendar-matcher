@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'pry'
 class FindMatch
   def self.date(id, _owner, users, _min_time, _max_time, _max_date, _min_date = Date.today)
+
     set_match = Match.find(id)
     users = set_match.user_ids << set_match.owner_id
 

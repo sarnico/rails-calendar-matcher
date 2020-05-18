@@ -7,7 +7,13 @@ Bundler.require(*Rails.groups)
 
 module RailsCalendarMatcher
   class Application < Rails::Application
-    config.time_zone = 'Europe/Brussels'
+
+
+
+    # config.time_zone = 'CET'
+    # config.active_record.default_timezone = :local
+
+
     config.generators do |generate|
           generate.assets false
           generate.helper false
