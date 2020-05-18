@@ -16,6 +16,14 @@ import { dropdown } from "./users_dropdown"
 import { titleHover } from "./icon_bigger_hover"
 
 
+// if(document.getElementById('set-timezone')){
+//   console.log('Ola')
+//   var moment = require('moment-timezone');
+//   const b=moment().tz("America/Los_Angeles").format();
+//   console.log(b)
+// }
+
+
 if(document.getElementById('calendar')){
   calendar();
 }

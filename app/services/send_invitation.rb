@@ -1,6 +1,5 @@
 class SendInvitation
   def self.new(match_info,current_user)
-    raise
 
     #dans les arguments, il faudrait pouvoir envoyer la timezone des personnes qui font le  match
 

@@ -37,7 +37,7 @@
               <% if match.match_date == nil %>
                 <p>Still looking for a match</p>
               <% else %>
-                <p><%= "#{match.match_date.strftime("%a %d %B %Y")} from #{match.min_time.strftime("%H:%M")} until #{match.max_time.strftime("%H:%M")}" %></p>
+                <p><%= "#{match.match_date.strftime("%a %d %B %Y")} from #{match.min_time.localtime.strftime("%H:%M")} until #{match.max_time.localtime.strftime("%H:%M")}" %></p>
               <% end %>
 
               <% if match.location != "" %>
@@ -81,7 +81,7 @@
     <%= SendInvitation.new(@validated,current_user) %>
     <div id="backpopup" class="backpopup"></div>
     <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-      <span class="confirmation-alert"> 🎉 <strong>Yay !</strong> 🎉 </br></br> You successfully created <b><%= @validated.title %></b></br> on the <b><%= @validated.match_date.strftime("%d-%m-%Y")  %></b> from <b><%= @validated.min_time.strftime("%H:%M") %></b> to <b><%= @validated.max_time.strftime("%H:%M") %></b> ! </br></br> Invitations have been sent to the attendees.</span>
+      <span class="confirmation-alert"> 🎉 <strong>Yay !</strong> 🎉 </br></br> You successfully created <b><%= @validated.title %></b></br> on the <b><%= @validated.match_date.strftime("%d-%m-%Y")  %></b> from <b><%= @validated.min_time.localtime.strftime("%H:%M") %></b> to <b><%= @validated.max_time.localtime.strftime("%H:%M") %></b> ! </br></br> Invitations have been sent to the attendees.</span>
       <a data-dismiss="alert" aria-label="Close">
         <i class="clickme fas fa-times"></i>
       </a>
