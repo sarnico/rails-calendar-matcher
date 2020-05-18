@@ -1,96 +1,103 @@
 .user-chip {
-  background-color:#A1CDA8;
-  border-radius: 3px;
-  margin: 4px;
-  padding: 8px;
-  font-weight: initial;
-  color:#f6f6f6;
+    background-color: #A1CDA8;
+    border-radius: 3px;
+    margin: 4px;
+    padding: 8px;
+    font-weight: initial;
+    color: #f6f6f6;
 }
 
-.inactif{
-  display: none;
-
+.inactif {
+    display: none;
 }
 
-#shown_user_ids{
-  position: relative;
-  width:400px;
+#shown_user_ids {
+    position: relative;
+    width: 400px;
 }
 
-#user_search_results{
-  position:absolute;
-  border: solid 1px #9b9b9b;
-  border-radius: 5px 5px 5px 5px;
-  background-color:#ffffff;
-  padding: 20px;
-  left: 0;
-  width: 400px;
-  top: 73px;
-
-  p {
-    cursor: pointer;
-  }
+#user_search_results {
+    position: absolute;
+    border: solid 1px #9b9b9b;
+    border-top: none;
+    border-radius: 0px 0px 2px 2px;
+    background-color: #ffffff;
+    padding: 20px;
+    left: 0;
+    width: 400px;
+    top: 73px;
+    p {
+        cursor: pointer;
+    }
 }
 
-.d-flex{
-  display:flex;
-  justify-content: space-between;
-}
-.min_date{
-  width:45%;
-}
-
-.max_date{
-  width:50%;
-}
-
-.min_time{
-  width:45%;
-}
-
-.max_time{
-  width:50%;
-}
-
-.fancy-hover {
-  background-color:#f4f4f4;
-  padding:3px;
-  border-radius:5px;
-}
-
-.custom-dropdown {
-  position: relative;
-  .form-group{
+.d-flex {
     display: flex;
-    flex-direction: column;
-  }
-}
-
-.form {
-  background: white;
-  margin-top: 25px;
-  padding: 20px;
-  border-radius: 3px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.box-new {
-  background: none;
-  border: none;
-  max-width: 720px !important;
-}
-
-.max_date {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .min_date {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+    width: 45%;
 }
 
+.max_date {
+    width: 50%;
+}
 
+.min_time {
+    width: 45%;
+}
+
+.max_time {
+    width: 50%;
+}
+
+.fancy-hover {
+    background-color: #f4f4f4;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.custom-dropdown {
+    position: relative;
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.form {
+    background: white;
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.box-new {
+    background: none;
+    border: none;
+    max-width: 720px !important;
+}
+
+.max_date {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.min_date {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.attendee_error_msg {
+    color: #FD0F15;
+    font-size: 13px;
+}
+
+.match_user_ids .invalid-feedback {
+    display: none;
+}
