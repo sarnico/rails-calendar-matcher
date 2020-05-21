@@ -27,16 +27,20 @@
             <p>Please put a maximum date</p>
           </div>
 
-          <div class="d-flex">
-            <div class="min_time d-flex align-items-end">
-              <%#= f.input :min_time, label: 'Your event will start at :' %>
-              <%= f.input :min_timeh, label: 'Your event will start at :', placeholder: "hh", input_html: { min: '0', max: '24', step: '1' }%>
-              <%= f.input :min_timem, label: false, placeholder:"mm", input_html: { min: '0', max: '59', step: '1' }%>
+          <div class="hours-container">
+            <div class="hours-container-1">
+              <p class="">Your event will start at :</p>
+              <div class="hours-container-2 align-items-end">
+                <%= f.input :min_timeh, label: false, placeholder: "hh", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-min-input' }%>
+                <p class="double-point" style="vertical-align:middle;">:</p>
+                <%= f.input :min_timem, label: false, placeholder:"mm", input_html: { min: '0', max: '59', step: '1' }, input_html: { class: 'min-min-input' }%>
+              </div>
             </div>
-            <div class="max_time d-flex align-items-end">
-              <%#= f.input :max_time, label: 'and end at :'%>
-              <%= f.input :max_timeh, label: 'and end at :', placeholder:"hh", input_html: { min: '0', max: '24', step: '1' } %>
-              <%= f.input :max_timem, label: false, placeholder:"mm", input_html: { min: '0', max: '24', step: '1' } %>
+            <div class="hours-container-1">
+              <div class="hours-container align-items-end">
+                <%= f.input :max_timeh, label: 'and end at :', placeholder:"hh :", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-max-input' } %>
+                <%= f.input :max_timem, label: false, placeholder:"mm", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'min-max-input' } %>
+              </div>
             </div>
           </div>
 

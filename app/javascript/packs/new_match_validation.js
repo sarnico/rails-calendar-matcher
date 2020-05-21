@@ -2,7 +2,6 @@ const newMatchValidation = () => {
     const findMatch = document.getElementById('button-find-the-match')
 
     findMatch.addEventListener('click', (e) => {
-
         // title
         const titleErrorHTML = document.querySelector(".title-error-message")
         const titleInput = document.querySelector(".title-input")
@@ -21,10 +20,6 @@ const newMatchValidation = () => {
         const dateMaxErrorHTML = document.querySelector(".date-max-error-message")
         const dateMinInput = document.querySelector(".date-min-input")
         const dateMaxInput = document.querySelector(".date-max-input")
-
-        console.log(dateMaxErrorHTML)
-        console.log(dateMinInput)
-        console.log(dateMaxInput)
         if (dateMaxInput.value === "") {
             event.preventDefault()
             dateMaxInput.style.border = 'solid 1px #FD0F15'
