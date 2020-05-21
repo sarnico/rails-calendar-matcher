@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_110210) do
+ActiveRecord::Schema.define(version: 2020_05_18_083022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,12 +44,16 @@ ActiveRecord::Schema.define(version: 2020_03_09_110210) do
     t.datetime "match_date"
     t.date "min_date"
     t.date "max_date"
-    t.time "min_time"
-    t.time "max_time"
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "owner_id"
+    t.integer "min_timem"
+    t.integer "min_timeh"
+    t.integer "max_timem"
+    t.integer "max_timeh"
+    t.datetime "min_time"
+    t.datetime "max_time"
     t.index ["owner_id"], name: "index_matches_on_owner_id"
   end
 
