@@ -34,6 +34,8 @@ const newMatchValidation = () => {
             dateMinInput.style.border = 'solid 1px #A7D930'
             dateMinInput.style.borderRadius = '2px'
         }
+
+        // for attendee validation, go have a look on user dropdown on the bottom
     })
 }
 
