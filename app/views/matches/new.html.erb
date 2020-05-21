@@ -9,19 +9,24 @@
     <div class="container" id='create-event'>
       <div class="form mt-4 mb-4">
         <%= simple_form_for @match do |f| %>
-          <%= f.error_notification %>
-          <%= f.input :title, label: 'Give a title to your event :', placeholder: 'The title' %>
+          <%= f.input :title, label: 'Title to your event :', placeholder: 'The title', input_html: { class: 'title-input' } %>
+          <div class="title-error-message">
+            <p>Please put a title</p>
+          </div>
           <%= f.input :location, label: 'Address of the event :', placeholder: 'The address' %>
           <%= f.input :description, label: 'Description :', placeholder: 'The description' %>
           <div class="d-flex">
             <div class="min_date">
-              <%= f.input :min_date, as: :date, html5: true, label: 'You want your event to happen between :' %>
+              <%= f.input :min_date, as: :date, html5: true, label: 'You want your event to happen between :', input_html: { class: 'date-min-input' } %>
             </div>
             <div class="max_date">
-              <%= f.input :max_date, as: :date, html5: true, label: 'and :' %>
+              <%= f.input :max_date, as: :date, html5: true, label: 'and :', input_html: { class: 'date-max-input' } %>
             </div>
-
           </div>
+          <div class="date-max-error-message">
+            <p>Please put a maximum date</p>
+          </div>
+
           <div class="d-flex">
             <div class="min_time d-flex align-items-end">
               <%#= f.input :min_time, label: 'Your event will start at :' %>
@@ -36,10 +41,13 @@
           </div>
 
             <div class="custom-dropdown">
-              <div class="form-group ">
+              <div id="attendee-div" class="form-group">
                 <label for="shown_user_ids">Select the attendees : *</label>
                 <span class="fa fa-user errspan"></span>
                 <input type="text" id="shown_user_ids" autocomplete="off">
+              </div>
+              <div class="attendee-error-message">
+                <p>Please select at least one friend</p>
               </div>
               <div id="user_search_results" class="inactif">
               <%# require 'pry'; binding.pry %>
@@ -48,6 +56,7 @@
                   <% end %>
               </div>
             </div>
+
             <% if @match.errors.present? %>
               <p class="attendee_error_msg"> <%= @match.errors[:user_ids][0] %> </p>
             <% end %>

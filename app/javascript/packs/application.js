@@ -14,30 +14,25 @@ import { calendar } from "../calendar_matches"
 import { calendar_matches } from "../calendar_matches_choice"
 import { dropdown } from "./users_dropdown"
 import { titleHover } from "./icon_bigger_hover"
+import { newMatchValidation } from "./new_match_validation"
 
 
-// if(document.getElementById('set-timezone')){
-//   console.log('Ola')
-//   var moment = require('moment-timezone');
-//   const b=moment().tz("America/Los_Angeles").format();
-//   console.log(b)
-// }
-
-
-if(document.getElementById('calendar')){
-  calendar();
+if (document.getElementById('calendar')) {
+    calendar();
 }
 
-if(document.getElementById('calendar_matches')){
-  calendar_matches();
+if (document.getElementById('calendar_matches')) {
+    calendar_matches();
 }
 
-if(document.getElementById('possible_users')){
-  dropdown();
+if (document.getElementById('possible_users')) {
+    dropdown();
 }
 
-if(document.getElementById("logo-image")){
-  titleHover();
+if (document.getElementById("logo-image")) {
+    titleHover();
 }
 
-
+if (document.getElementById("create-event")) {
+    newMatchValidation()
+}

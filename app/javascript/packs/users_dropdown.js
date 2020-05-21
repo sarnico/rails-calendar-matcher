@@ -127,27 +127,21 @@ const dropdown = () => {
             }
         })
 
-        // findMatch.addEventListener('mouseover', event => {
-        //     console.log(event)
-        // })
+        // validation & preventDefault for attendees
 
-        // const attendeeError = () => {
-        //     if (selectedUsers.length === 0) {
-        //         userSearchInput.style.border = 'solid 1px #FD0F15'
-        //         userSearchInput.style.borderRadius = '2px'
-        //     }
-        // }
-
-        // findMatch.addEventListener('click', attendeeError())
-
-        // const attendeeErrorNone = () => {
-        //     if (selectedUsers.length >= 1) {
-        //         userSearchInput.style.border = 'solid 1px #9b9b9b'
-        //         userSearchInput.style.borderRadius = '0px'
-        //     }
-        // }
-
-        // findMatch.addEventListener('click', attendeeErrorNone())
+        findMatch.addEventListener('click', (e) => {
+            const attendeeErrorHTML = document.querySelector(".attendee-error-message")
+            if (selectedUsers.length === 0) {
+                event.preventDefault()
+                userSearchInput.style.border = 'solid 1px #FD0F15'
+                userSearchInput.style.borderRadius = '2px'
+                attendeeErrorHTML.style.display = "contents"
+            } else if (selectedUsers.length >= 1) {
+                userSearchInput.style.border = 'solid 1px #A7D930'
+                userSearchInput.style.borderRadius = '2px'
+                attendeeErrorHTML.style.display = "none"
+            }
+        })
 
         const usersAll = document.querySelectorAll('.user')
 
