@@ -39,28 +39,6 @@ const newMatchValidation = () => {
             dateMinInput.style.border = 'solid 1px #A7D930'
             dateMinInput.style.borderRadius = '2px'
         }
-        // //hours
-        // const dateMaxErrorHTML = document.querySelector(".date-max-error-message")
-        // const dateMinInput = document.querySelector(".date-min-input")
-        // const dateMaxInput = document.querySelector(".date-max-input")
-
-        // console.log(dateMaxErrorHTML)
-        // console.log(dateMinInput)
-        // console.log(dateMaxInput)
-        // if (dateMaxInput.value === "") {
-        //     event.preventDefault()
-        //     dateMaxInput.style.border = 'solid 1px #FD0F15'
-        //     dateMaxInput.style.borderRadius = '2px'
-        //     dateMaxErrorHTML.style.display = "contents"
-        //     dateMinInput.style.border = 'solid 1px #A7D930'
-        //     dateMinInput.style.borderRadius = '2px'
-        // } else if (dateMaxInput.value !== "") {
-        //     dateMaxInput.style.border = 'solid 1px #A7D930'
-        //     dateMaxInput.style.borderRadius = '2px'
-        //     dateMaxErrorHTML.style.display = "none"
-        //     dateMinInput.style.border = 'solid 1px #A7D930'
-        //     dateMinInput.style.borderRadius = '2px'
-        // }
     })
 }
 
