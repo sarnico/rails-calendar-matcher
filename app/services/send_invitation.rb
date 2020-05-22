@@ -35,8 +35,10 @@ class SendInvitation
       event = Google::Apis::CalendarV3::Event.new(
         summary: "CalendarMatcher -#{match_info.title}",
         location: match_info.location,
-        description: match_info.description,
-        start: Google::Apis::CalendarV3::EventDateTime.new(
+        description: "Descritption: #{match_info.description}",
+
+
+         start: Google::Apis::CalendarV3::EventDateTime.new(
           date_time: start_time,
           time_zone: 'Europe/Brussels'
           ),
@@ -44,12 +46,9 @@ class SendInvitation
           date_time: end_time,
           time_zone: 'Europe/Brussels'
           ),
-        colorId: "12",
-      # recurrence: [
-      #   'RRULE:FREQ=DAILY;COUNT=2'
-      # ],
 
       attendees:  attendeesList,
+
       reminders: Google::Apis::CalendarV3::Event::Reminders.new(
         use_default: false,
         overrides: [
@@ -65,7 +64,8 @@ class SendInvitation
         )
       )
       result = service.insert_event('primary', event)
-      puts "Event created: #{result.html_link}"
+      # puts "Event created: #{result.html_link}"
+
     end
   end
 
