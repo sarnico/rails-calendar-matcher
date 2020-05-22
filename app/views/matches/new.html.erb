@@ -31,7 +31,7 @@
             <div class="hours-container-1">
               <p class="">Your event will start at :</p>
               <div class="hours-container-2 align-items-end">
-                <%= f.input :min_timeh, label: false, placeholder: "hh", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-min-input', :onkeyup => "hoursAutomaticallySkip()", maxlength: 2 }%>
+                <%= f.input :min_timeh, label: false, placeholder: "hh", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-min-input', maxlength: 2 }%>
                 <p class="double-point" style="vertical-align:middle;">:</p>
                 <%= f.input :min_timem, label: false, placeholder:"mm", input_html: { min: '0', max: '59', step: '1' }, input_html: { class: 'min-min-input', maxlength: 2 }%>
               </div>
@@ -84,17 +84,6 @@
         <% end %>
 
       </div>
-      <script>
-        const hoursAutomaticallySkip = function moveCursor(fromHours, toMins) {
-          fromHours = document.querySelector(".hour-min-input")
-          toMins = document.querySelector(".min-min-input")
-          const length = fromHours.value.length
-          const maxLength = fromHours.getAttribute("maxLength")
-          if (length == maxLength) {
-            toMins.focus()
-          }
-        }
-      </script>
     </div>
   </div>
 </div>

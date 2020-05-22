@@ -1,12 +1,16 @@
 const hoursAutomaticallySkip = (fromHours, toMins) => {
-    fromHours = document.querySelector(".hour-min-input")
-    toMins = document.querySelector(".min-min-input")
-    const length = fromHours.value.length
-    const maxLength = fromHours.getAttribute("maxLength")
+    const hoursMinInput = document.querySelector('.hour-min-input')
+    hoursMinInput.addEventListener('keyup', (e) => {
+        fromHours = document.querySelector(".hour-min-input");
+        toMins = document.querySelector(".min-min-input");
+        const length = fromHours.value.length;
+        const maxLength = fromHours.getAttribute("maxLength");
 
-    if (length == maxLength) {
-        toMins.focus()
-    }
+        if (length == maxLength) {
+            toMins.focus();
+        }
+
+    })
 }
 
-export { hoursAutomaticallySkip }
+export { hoursAutomaticallySkip };

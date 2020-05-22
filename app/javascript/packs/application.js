@@ -17,6 +17,9 @@ import { titleHover } from "./icon_bigger_hover"
 import { newMatchValidation } from "./new_match_validation"
 import { hoursAutomaticallySkip } from "./hours_automatically_skip";
 
+if (document.querySelector('.hour-min-input')) {
+    hoursAutomaticallySkip()
+}
 
 if (document.getElementById('calendar')) {
     calendar();
@@ -36,5 +39,4 @@ if (document.getElementById("logo-image")) {
 
 if (document.getElementById("create-event")) {
     newMatchValidation()
-    hoursAutomaticallySkip()
 }
