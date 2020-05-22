@@ -9,7 +9,7 @@
     <div class="container" id='create-event'>
       <div class="form mt-4 mb-4">
         <%= simple_form_for @match do |f| %>
-          <%= f.input :title, label: 'Title to your event :', placeholder: 'The title', input_html: { class: 'title-input' } %>
+          <%= f.input :title, label: 'Title of the event :', placeholder: 'The title', input_html: { class: 'title-input' } %>
           <div class="title-error-message">
             <p>Please put a title</p>
           </div>
@@ -32,14 +32,16 @@
               <p class="">Your event will start at :</p>
               <div class="hours-container-2 align-items-end">
                 <%= f.input :min_timeh, label: false, placeholder: "hh", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-min-input', maxlength: 2 }%>
-                <p class="double-point" style="vertical-align:middle;">:</p>
+                <p class="double-point">:</p>
                 <%= f.input :min_timem, label: false, placeholder:"mm", input_html: { min: '0', max: '59', step: '1' }, input_html: { class: 'min-min-input', maxlength: 2 }%>
               </div>
             </div>
             <div class="hours-container-1">
-              <div class="hours-container align-items-end">
-                <%= f.input :max_timeh, label: 'and end at :', placeholder:"hh :", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-max-input' } %>
-                <%= f.input :max_timem, label: false, placeholder:"mm", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'min-max-input' } %>
+              <p class="">and end at :</p>
+              <div class="hours-container-2 align-items-end">
+                <%= f.input :max_timeh, label: false, placeholder:"hh", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-max-input', maxlength: 2 } %>
+                <p class="double-point">:</p>
+                <%= f.input :max_timem, label: false, placeholder:"mm", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'min-max-input', maxlength: 2 } %>
               </div>
             </div>
           </div>

@@ -90,6 +90,21 @@ input[type=number] {
     text-align: center;
 }
 
+.hour-max-input {
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.min-max-input {
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    text-align: center;
+}
+
 .double-point {
     padding: 6px 0px;
     border-top: 1px solid #ced4da;
