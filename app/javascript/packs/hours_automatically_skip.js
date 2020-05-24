@@ -34,37 +34,124 @@ const hoursAutomaticallySkip = (fromHours, toMins) => {
 }
 
 const putRealTime = () => {
-    const hoursRangePattern = /^(2[0-3]|1[0-9]|[0-9])$/;
+
 
     document.querySelector(".hour-min-input").addEventListener("keypress", (e) => {
         if (e.which < 48 || e.which > 57) {
-            e.preventDefault();
-        }
-    });
-    document.querySelector(".hour-min-input").addEventListener("keypress", (e) => {
-        const eKey = parseInt(e.key)
-        console.log(e)
-        if (hoursRangePattern.test(eKey)) {
-            console.log(eKey)
             e.preventDefault()
         }
     })
+
+
+    document
+        .querySelector(".hour-min-input")
+        .addEventListener("keydown", (event) => {
+            const key = event.key
+            const value = event.target.value
+            const length = value.length
+
+            if (key === "Backspace") {
+                return
+            }
+
+            if (
+                (length === 0 && !/^[0-2]$/g.test(key)) ||
+                (length === 1 && Number(value) === 1 && !/^[0-9]$/g.test(key)) ||
+                (length === 1 && Number(value) === 2 && !/^[0-3]$/g.test(key)) ||
+                length >= 2
+            ) {
+                return event.preventDefault()
+            }
+        })
+
     document.querySelector(".min-min-input").addEventListener("keypress", (e) => {
         if (e.which < 48 || e.which > 57) {
             e.preventDefault()
         }
     })
+
+    document
+        .querySelector(".min-min-input")
+        .addEventListener("keydown", (event) => {
+            const key = event.key
+            const value = event.target.value
+            const length = value.length
+
+            if (key === "Backspace") {
+                return
+            }
+
+            if (
+                (length === 0 && !/^[0-5]$/g.test(key)) ||
+                (length === 1 && Number(value) === 1 && !/^[0-9]$/g.test(key)) ||
+                (length === 1 && Number(value) === 2 && !/^[0-9]$/g.test(key)) ||
+                (length === 1 && Number(value) === 3 && !/^[0-9]$/g.test(key)) ||
+                (length === 1 && Number(value) === 4 && !/^[0-9]$/g.test(key)) ||
+                (length === 1 && Number(value) === 5 && !/^[0-9]$/g.test(key)) ||
+                length >= 2
+            ) {
+                return event.preventDefault()
+            }
+        })
+
     document.querySelector(".hour-max-input").addEventListener("keypress", (e) => {
         if (e.which < 48 || e.which > 57) {
             e.preventDefault()
         }
     })
-    document.querySelector(".min-min-input").addEventListener("keypress", (e) => {
+
+    document
+        .querySelector(".hour-max-input")
+        .addEventListener("keydown", (event) => {
+
+            const key = event.key
+            const value = event.target.value
+            const length = value.length
+
+            if (key === "Backspace") {
+                return
+            }
+
+            if (
+                (length === 0 && !/^[0-2]$/g.test(key)) ||
+                (length === 1 && Number(value) === 1 && !/^[0-9]$/g.test(key)) ||
+                (length === 1 && Number(value) === 2 && !/^[0-3]$/g.test(key)) ||
+                length >= 2
+            ) {
+                return event.preventDefault()
+            }
+        })
+
+    document.querySelector(".min-max-input").addEventListener("keypress", (e) => {
         if (e.which < 48 || e.which > 57) {
             e.preventDefault()
         }
     })
+
+    document
+        .querySelector(".min-max-input")
+        .addEventListener("keydown", (event) => {
+            const key = event.key
+            const value = event.target.value
+            const length = value.length
+
+            if (key === "Backspace") {
+                return
+            }
+
+            if (
+                (length === 0 && !/^[0-2]$/g.test(key)) ||
+                (length === 1 && Number(value) === 1 && !/^[0-9]$/g.test(key)) ||
+                (length === 1 && Number(value) === 2 && !/^[0-3]$/g.test(key)) ||
+                (length === 1 && Number(value) === 3 && !/^[0-9]$/g.test(key)) ||
+                (length === 1 && Number(value) === 4 && !/^[0-9]$/g.test(key)) ||
+                (length === 1 && Number(value) === 5 && !/^[0-9]$/g.test(key)) ||
+                length >= 2
+            ) {
+                return event.preventDefault();
+            }
+        });
 }
 
 
-export { hoursAutomaticallySkip, putRealTime };
+export { hoursAutomaticallySkip, putRealTime }
