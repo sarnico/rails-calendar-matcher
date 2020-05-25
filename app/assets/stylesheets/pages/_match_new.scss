@@ -1,3 +1,13 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .user-chip {
     background-color: #A1CDA8;
     border-radius: 3px;
@@ -50,6 +60,61 @@
 
 .max_time {
     width: 50%;
+}
+
+.hours-container {
+    display: flex;
+}
+
+.hours-container-1 {
+    width: 50%;
+}
+
+.hours-container-2 {
+    display: flex;
+    width: 35%;
+}
+
+.hour-min-input {
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.min-min-input {
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    text-align: center;
+}
+
+.hour-max-input {
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.min-max-input {
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    text-align: center;
+}
+
+.double-point-min {
+    padding: 6px 0px;
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+}
+
+.double-point-max {
+    padding: 6px 0px;
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
 }
 
 .fancy-hover {
@@ -110,6 +175,13 @@
     margin: 0px;
 }
 
+.date-min-error-message {
+    display: none;
+    font-size: 13px;
+    color: #FFFFFF;
+    margin: 0px;
+}
+
 .date-max-error-message {
     display: none;
     font-size: 13px;
@@ -117,9 +189,18 @@
     margin: 0px;
 }
 
-.date-min-error-message {
+.hour-min-error-message {
     display: none;
-    margin-top: 19px;
+    font-size: 13px;
+    color: #FD0F15;
+    margin: 0px;
+}
+
+.hour-max-error-message {
+    display: none;
+    font-size: 13px;
+    color: #FD0F15;
+    margin: 0px;
 }
 
 .attendee-error-message {

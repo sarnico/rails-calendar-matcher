@@ -15,7 +15,13 @@ import { calendar_matches } from "../calendar_matches_choice"
 import { dropdown } from "./users_dropdown"
 import { titleHover } from "./icon_bigger_hover"
 import { newMatchValidation } from "./new_match_validation"
+import { hoursAutomaticallySkip } from "./hours_automatically_skip";
+import { putRealTime } from "./hours_automatically_skip";
 
+if (document.querySelector(".hours-container")) {
+    hoursAutomaticallySkip();
+    putRealTime();
+}
 
 if (document.getElementById('calendar')) {
     calendar();
