@@ -47,8 +47,9 @@ class GoogleRefresh
 
       calendar_id = "primary"
       if max_date == nil
+
         @response = service.list_events(calendar_id,
-                                  max_results:   20,
+                                  max_results:   100,
                                   single_events: true,
                                   order_by:      "startTime",
                                   time_min:      min_date)
