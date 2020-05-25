@@ -30,9 +30,7 @@ class SendInvitation
     retry
     end
 
-
-
-      event = Google::Apis::CalendarV3::Event.new(
+    event = Google::Apis::CalendarV3::Event.new(
         summary: "CalendarMatcher -#{match_info.title}",
         location: match_info.location,
         description: "Descritption: #{match_info.description}",
@@ -63,8 +61,54 @@ class SendInvitation
         ]
         )
       )
+
+
       result = service.insert_event('primary', event)
-      # puts "Event created: #{result.html_link}"
+
+
+      updated_event = Google::Apis::CalendarV3::Event.new(
+        conference_data: {
+          conference_id: 4,
+          create_request:{
+            request_id:7,
+            }
+        },
+        summary: "CalendarMatcher -#{match_info.title}",
+        location: match_info.location,
+        description: "Descritption: #{match_info.description}",
+
+
+         start: Google::Apis::CalendarV3::EventDateTime.new(
+          date_time: start_time,
+          time_zone: 'Europe/Brussels'
+          ),
+        end: Google::Apis::CalendarV3::EventDateTime.new(
+          date_time: end_time,
+          time_zone: 'Europe/Brussels'
+          ),
+
+      attendees:  attendeesList,
+
+      reminders: Google::Apis::CalendarV3::Event::Reminders.new(
+        use_default: false,
+        overrides: [
+          Google::Apis::CalendarV3::EventReminder.new(
+            reminder_method: 'email',
+            minutes: minutes
+            ),
+          Google::Apis::CalendarV3::EventReminder.new(
+            reminder_method: 'popup',
+            minutes: 30
+            )
+        ]
+        )
+      )
+
+      updated_result = service.update_event('primary', result.id, updated_event)
+
+      puts "Event created: #{updated_result.html_link}"
+
+
 
     end
   end
