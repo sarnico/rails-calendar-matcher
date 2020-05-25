@@ -49,9 +49,14 @@ const putRealTime = () => {
             const key = event.key
             const value = event.target.value
             const length = value.length
-
-            if (key === "Backspace") {
-                return
+            console.log(key)
+            if (
+                key === "Backspace" ||
+                key === "ArrowLeft" ||
+                key === "ArrowRight" ||
+                key === "Tab"
+            ) {
+                return;
             }
 
             if (
@@ -77,8 +82,13 @@ const putRealTime = () => {
             const value = event.target.value
             const length = value.length
 
-            if (key === "Backspace") {
-                return
+            if (
+                key === "Backspace" ||
+                key === "ArrowLeft" ||
+                key === "ArrowRight" ||
+                key === "Tab"
+            ) {
+                return;
             }
 
             if (
@@ -108,8 +118,13 @@ const putRealTime = () => {
             const value = event.target.value
             const length = value.length
 
-            if (key === "Backspace") {
-                return
+            if (
+                key === "Backspace" ||
+                key === "ArrowLeft" ||
+                key === "ArrowRight" ||
+                key === "Tab"
+            ) {
+                return;
             }
 
             if (
@@ -134,9 +149,13 @@ const putRealTime = () => {
             const key = event.key
             const value = event.target.value
             const length = value.length
-
-            if (key === "Backspace") {
-                return
+            if (
+                key === "Backspace" ||
+                key === "ArrowLeft" ||
+                key === "ArrowRight" ||
+                key === "Tab"
+            ) {
+                return;
             }
 
             if (
