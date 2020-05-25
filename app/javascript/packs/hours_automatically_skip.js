@@ -140,9 +140,9 @@ const putRealTime = () => {
             }
 
             if (
-                (length === 0 && !/^[0-2]$/g.test(key)) ||
+                (length === 0 && !/^[0-5]$/g.test(key)) ||
                 (length === 1 && Number(value) === 1 && !/^[0-9]$/g.test(key)) ||
-                (length === 1 && Number(value) === 2 && !/^[0-3]$/g.test(key)) ||
+                (length === 1 && Number(value) === 2 && !/^[0-9]$/g.test(key)) ||
                 (length === 1 && Number(value) === 3 && !/^[0-9]$/g.test(key)) ||
                 (length === 1 && Number(value) === 4 && !/^[0-9]$/g.test(key)) ||
                 (length === 1 && Number(value) === 5 && !/^[0-9]$/g.test(key)) ||

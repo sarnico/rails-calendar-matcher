@@ -105,7 +105,13 @@ input[type=number] {
     text-align: center;
 }
 
-.double-point {
+.double-point-min {
+    padding: 6px 0px;
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+}
+
+.double-point-max {
     padding: 6px 0px;
     border-top: 1px solid #ced4da;
     border-bottom: 1px solid #ced4da;
@@ -169,7 +175,28 @@ input[type=number] {
     margin: 0px;
 }
 
+.date-min-error-message {
+    display: none;
+    font-size: 13px;
+    color: #FFFFFF;
+    margin: 0px;
+}
+
 .date-max-error-message {
+    display: none;
+    font-size: 13px;
+    color: #FD0F15;
+    margin: 0px;
+}
+
+.hour-min-error-message {
+    display: none;
+    font-size: 13px;
+    color: #FD0F15;
+    margin: 0px;
+}
+
+.hour-max-error-message {
     display: none;
     font-size: 13px;
     color: #FD0F15;
