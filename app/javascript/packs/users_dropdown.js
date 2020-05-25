@@ -113,6 +113,18 @@ const dropdown = () => {
         userSearchInput.addEventListener('click', debileDisplay)
         userSearchResults.addEventListener('click', debileDisplay)
 
+
+        const bodySelection = document.getElementById('body')
+        const removeSelection = (e) => {
+            userSearchResults.classList.add("inactif")
+
+        }
+        console.log(userSearchResults.classList.contains("inactif"))
+        if (!userSearchResults.classList.contains("inactif")) {
+            console.log(userSearchResults.classList.contains("inactif"))
+            bodySelection.addEventListener('click', removeSelection)
+        }
+
         userSearchInput.addEventListener("input", search);
         userSearchInput.addEventListener("focus", search);
 
