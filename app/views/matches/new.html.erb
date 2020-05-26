@@ -72,16 +72,14 @@
               </div>
             </div>
 
+            <div id="selected_user_ids" style="display: flex; flex-wrap: wrap; margin-bottom: 18px" data-group="<%= @group_user_ids.to_json %>">
+            </div>
+
             <% if @match.errors.present? %>
               <p class="attendee_error_msg"> <%= @match.errors[:user_ids][0] %> </p>
             <% end %>
 
             <%= f.input :user_ids, as: :hidden %>
-
-              <div id="selected_user_ids" style="display: flex; flex-wrap: wrap; margin-bottom: 18px" data-group="<%= @group_user_ids.to_json %>">
-              </div>
-
-
 
             <% if group = Group.find_by_id(params['group_id']) %>
             <% else %>
