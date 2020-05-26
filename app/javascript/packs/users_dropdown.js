@@ -5,6 +5,8 @@ const dropdown = () => {
 
     if (usersBox) {
         let users = JSON.parse(usersBox.dataset.users)
+        const usersAll = document.querySelectorAll('.user')
+        const bodySelection = document.getElementById('body')
         const hiddenUsersInput = document.querySelector(`#${usersBox.dataset.inputId}`)
         const userSearchInput = document.querySelector('#shown_user_ids')
         const selectedUsersDiv = document.querySelector('#selected_user_ids')
@@ -85,33 +87,36 @@ const dropdown = () => {
             e.currentTarget.classList.toggle("fancy-hover")
         }
 
-
-
         const resetSearch = () => {
             userSearchInput.value = ""
             search()
         }
 
-        // Commenté les lignes suivantes car la séléction de personnes ne fonctionne pas lorqu'on render new.
+        const prefillForm = () => {
+            groupMembers.forEach((userId) => {
+                const user = users.find(item => item.id === userId)
+                selectUser(user)
+                users.splice(users.indexOf(user), 1)
+                resetSearch()
+            })
+        }
 
-        // const prefillForm = () => {
-        //     groupMembers.forEach((userId) => {
-        //         const user = users.find(item => item.id === userId)
-        //         selectUser(user)
-        //         users.splice(users.indexOf(user), 1)
-        //         resetSearch()
-        //     })
-        // }
-
-        // prefillForm()
+        prefillForm()
 
         const debileDisplay = (e) => {
             userSearchResults.classList.toggle("inactif")
             userSearchResults.children[0].classList.add("fancy-hover")
         }
+        const removeDebileDisplay = (e) => {
+            if (e.target.id !== 'shown_user_ids') {
+                userSearchResults.classList.add("inactif")
+                userSearchResults.children[0].classList.remove("fancy-hover")
+            }
+        }
 
         userSearchInput.addEventListener('click', debileDisplay)
         userSearchResults.addEventListener('click', debileDisplay)
+        bodySelection.addEventListener('click', removeDebileDisplay)
 
         userSearchInput.addEventListener("input", search);
         userSearchInput.addEventListener("focus", search);
@@ -143,16 +148,10 @@ const dropdown = () => {
             }
         })
 
-        const usersAll = document.querySelectorAll('.user')
-
         usersAll.forEach((user) => {
             user.addEventListener("click", clickSelectUser)
         })
-
-
     }
-
-
 }
 
 

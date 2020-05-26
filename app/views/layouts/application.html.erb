@@ -12,7 +12,7 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <%= favicon_link_tag asset_path('CalendarMatcher.svg') %>
   </head>
-  <body>
+  <body id="body">
     <%= render "shared/navbar" %>
     <%= yield %>
     <%= javascript_pack_tag 'application' %>

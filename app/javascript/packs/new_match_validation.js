@@ -59,6 +59,7 @@ const newMatchValidation = () => {
             hourMinInput.style.borderTop = "solid 1px #FD0F15";
             hourMinInput.style.borderBottom = "solid 1px #FD0F15";
             hourMinInput.style.borderRadiusLeft = "2px";
+            hourMinInput.style.outline = "none";
             minMinInput.style.borderRight = "solid 1px #FD0F15";
             minMinInput.style.borderTop = "solid 1px #FD0F15";
             minMinInput.style.borderBottom = "solid 1px #FD0F15";
