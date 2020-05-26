@@ -74,7 +74,6 @@ class GoogleRefresh
     retry
     end
 
-
     if @response.items.any?
       @response.items.each do |event|
         start = event.start.date || event.start.date_time

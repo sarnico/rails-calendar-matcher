@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
+  get 'after_sign_up', to: 'users#after_sign_up'
+
   resources :matches
 
   resources :user_events, only:[:index]
