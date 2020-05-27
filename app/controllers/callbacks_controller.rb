@@ -8,7 +8,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
       redirect_to ((current_user.sign_in_count == 0) ? after_sign_up_path : root_path )
       if (current_path == after_sign_up_path)
         if current_user.save
-          redirect_to root_path
+          redirect_to root_path, :notice => "Welcome on Calendar Matcher!"
         else
           render 'new'
         end

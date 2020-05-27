@@ -12,6 +12,11 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
+  validates :name, presence: true
+  validates :last_name, presence: true
+  validates :country, presence: true
+  validates :city, presence: true
+
   def self.find_for_google_oauth2(auth)
     data = auth.info
     user = User.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
