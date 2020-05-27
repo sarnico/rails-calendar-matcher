@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # get "test", to: "pages#test"
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :update]
 
   get 'after_sign_up', to: 'users#after_sign_up'
 
