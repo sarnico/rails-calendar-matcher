@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
+      raise
+      current_user.sign_in_count += 1
       redirect_to root_path, :notice => "Welcome on Calendar Matcher!"
     else
       render 'after_sign_up'
