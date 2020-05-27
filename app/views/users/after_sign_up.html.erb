@@ -6,8 +6,8 @@
     <div class="container" id='create-event'>
       <div class="form mt-4 mb-4">
         <h1 class="">Last step before getting started</h1>
-        <%= simple_form_for @user do |f| %>
-
+        <%= simple_form_for current_user do |f| %>
+          <%= f.input :name, label: 'First name', placeholder: 'First name', input_html: { class: 'title-input' } %>
         <% end %>
       </div>
     </div>
