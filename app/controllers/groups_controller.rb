@@ -42,7 +42,7 @@ class GroupsController < ApplicationController
                       .require(:group).permit(:name)
     if params[:group][:user_ids].present?
       returned_params = returned_params.merge(user_ids: JSON.parse(params[:group][:user_ids]))
-end
+    end
     returned_params
   end
 

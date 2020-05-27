@@ -8,18 +8,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.update(user_params)
-    if @user
-      raise
+    if current_user.update(user_params)
       redirect_to root_path, :notice => "Welcome on Calendar Matcher!"
     else
-      render 'new'
+      render 'after_sign_up'
     end
   end
 
   private
 
   def user_params
-    params.permit(:name, :last_name, :birthdate, :phone_number, :country, :city)
+    returned_params = params.require(:user).permit(:name, :last_name, :birthdate, :phone_number, :country, :city)
   end
 end
