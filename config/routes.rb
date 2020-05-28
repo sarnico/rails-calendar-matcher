@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # get "test", to: "pages#test"
 
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show]
 
-  get 'after_sign_up', to: 'users#after_sign_up'
+  get 'user_update', to: 'users#update'
 
   resources :matches
 

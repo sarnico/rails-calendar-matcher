@@ -5,7 +5,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
     if @user
       sign_in @user
       # redirect_to root_path
-      current_user.settings == false ? (redirect_to after_sign_up_path) : (redirect_to root_path)
+      current_user.settings == false ? (redirect_to user_update_path) : (redirect_to root_path)
     else
       redirect_to new_user_session_path, notice: 'Access Denied.'
     end
