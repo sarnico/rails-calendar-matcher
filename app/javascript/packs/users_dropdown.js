@@ -13,6 +13,7 @@ const dropdown = () => {
         const userSearchResults = document.querySelector('#user_search_results')
         const findMatch = document.getElementById('button-find-the-match')
         const groupMembers = JSON.parse(selectedUsersDiv.dataset.group || "[]")
+        const attendeesSelected = JSON.parse(selectedUsersDiv.dataset.attendees || "[]")
 
         let filteredUsers = []
         let selectedUsers = []
@@ -93,12 +94,22 @@ const dropdown = () => {
         }
 
         const prefillForm = () => {
+          if (groupMembers !="[]"){
             groupMembers.forEach((userId) => {
                 const user = users.find(item => item.id === userId)
                 selectUser(user)
                 users.splice(users.indexOf(user), 1)
                 resetSearch()
             })
+          }
+          if (attendeesSelected !="[]"){
+            groupMembers.forEach((userId) => {
+                const user = users.find(item => item.id === userId)
+                selectUser(user)
+                users.splice(users.indexOf(user), 1)
+                resetSearch()
+            })
+          }
         }
 
         prefillForm()

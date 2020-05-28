@@ -64,12 +64,12 @@ class GoogleRefresh
     rescue ::Google::Apis::AuthorizationError => e
 
 
-      authorization.grant_type  = "refresh_token"
+      authorization.grant_type  = 'refresh_token'
       authorization.access_token = current_user.token
       authorization.refresh_token = current_user.refresh_token
       response = authorization.refresh!
-      current_user.token = response["access_token"]
-      current_user.save#
+      current_user.token = response['access_token']
+      current_user.save
 
     retry
     end
