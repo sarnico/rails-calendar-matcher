@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      current_user.sign_in_count = true
+      current_user.settings = true
+      current_user.save
       redirect_to root_path
     else
       render 'after_sign_up'
@@ -19,6 +20,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    returned_params = params.require(:user).permit(:name, :last_name, :birthdate, :phone_number, :country, :city)
+    returned_params = params.require(:user).permit(:name, :last_name, :birthdate, :phone_number, :country, :city, :settings)
   end
 end

@@ -24,6 +24,8 @@
           <div class="city-error-message">
             <p>Please enter your city</p>
           </div>
+          <%# f.input :settings, as: :hidden, input_html: {value: true} %>
+
           <%= f.button :submit, 'Create my account', class:"button", id:"button-create-user" %>
         <% end %>
       </div>
