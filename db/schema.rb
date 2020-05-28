@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(version: 2020_05_27_070626) do
     t.boolean "expires"
     t.string "refresh_token"
     t.string "avatar"
-    t.integer "sign_in_count", default: 0, null: false
     t.string "name"
     t.string "last_name"
     t.date "birthdate"
