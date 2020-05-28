@@ -5,13 +5,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
   end
 
   def update
-    if @user.update(user_params)
-      @user.settings = true
-      @user.save
+    if current_user.update(user_params)
+      current_user.settings = true
+      current_user.save
       redirect_to root_path
     else
       render 'edit'
