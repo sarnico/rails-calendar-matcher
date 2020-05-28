@@ -9,7 +9,8 @@ class CallbacksController < Devise::OmniauthCallbacksController
       # else
       #   redirect_to root_path
       # end
-      redirect_to ((current_user.sign_in_count == 0) ? after_sign_up_path : root_path )
+      raise
+      redirect_to ((current_user.sign_in_count.nil?) ? after_sign_up_path : root_path )
     else
       redirect_to root_path, notice: 'Access Denied.'
     end
