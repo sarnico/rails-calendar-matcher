@@ -25,6 +25,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'country_select', '~> 4.0'
+gem "hashid-rails", "~> 1.0"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
