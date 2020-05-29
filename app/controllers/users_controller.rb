@@ -11,9 +11,13 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      current_user.settings = true
-      current_user.save
-      redirect_to root_path
+      if current_user.settings == false
+        current_user.settings = true
+        current_user.save
+        redirect_to root_path
+      else
+        redirect_to user_path
+      end
     else
       render 'edit'
     end

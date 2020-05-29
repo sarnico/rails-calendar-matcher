@@ -4,28 +4,35 @@
   <div class="container box-new content-main">
     <div class="container" id="create-user">
       <div class="form mt-4 mb-4">
-        <h1 class="">Last step before getting started</h1>
+        <% if current_user.settings == false %>
+          <h1 class="">Last step before getting started</h1>
+        <% else %>
+          <h1 class="">Modify my account</h1>
+        <% end %>
         <%= simple_form_for current_user do |f| %>
-          <%= f.input :name, label: 'First name', placeholder: 'Pierre', input_html: { class: 'first-name-input' } %>
+          <%= f.input :name, label: 'First name *', placeholder: 'Pierre', input_html: { class: 'first-name-input' }%>
           <div class="first-name-error-message">
             <p>Please enter your first name</p>
           </div>
-          <%= f.input :last_name, label: 'Last Name', placeholder: 'Dubois', input_html: { class: 'last-name-input' } %>
+          <%= f.input :last_name, label: 'Last Name *', placeholder: 'Dubois', input_html: { class: 'last-name-input' } %>
           <div class="last-name-error-message">
             <p>Please enter your last name</p>
           </div>
           <%= f.input :birthdate, as: :date, html5: true, label: 'Birthdate' %>
           <%= f.input :phone_number, label: 'Phone number', placeholder: '0476/61.42.21' %>
-          <%= f.input :country, priority: ["BE", "FR", "GB", "LU", "DE"], label: 'Country', input_html: { class: 'country-input' } %>
+          <%= f.input :country, priority: ["BE", "FR", "GB", "LU", "DE"], label: 'Country *', input_html: { class: 'country-input' } %>
           <div class="country-error-message">
             <p>Please select your country</p>
           </div>
-          <%= f.input :city, label: 'City', placeholder: 'Gand', input_html: { class: 'city-input' } %>
+          <%= f.input :city, label: 'City *', placeholder: 'Gand', input_html: { class: 'city-input' } %>
           <div class="city-error-message">
             <p>Please enter your city</p>
           </div>
-
-          <%= f.button :submit, 'Create my account', class:"button", id:"button-create-user" %>
+          <% if current_user.settings == false %>
+            <%= f.button :submit, 'Create my account', class:"button", id:"button-create-user" %>
+          <% else %>
+            <%= f.button :submit, 'Apply changes', class:"button", id:"button-create-user" %>
+          <% end %>
         <% end %>
       </div>
     </div>
