@@ -1,5 +1,6 @@
 const newUserValidation = () => {
     const findUser = document.getElementById('button-create-user')
+    const bodySelection = document.getElementById('body')
 
     findUser.addEventListener('click', (e) => {
         //first name
@@ -74,5 +75,28 @@ const newUserValidation = () => {
             cityError.style.display = "none"
         }
     })
+
+    const validateEntry = (e) => {
+        // console.log(e.target.id)
+        console.log(e.target)
+        if (
+            (e.target.id !== ('user_name' ||
+                'user_last_name' ||
+                'user_birthdate' ||
+                'user_phone_number' ||
+                'user_country' ||
+                'user_city' ||
+                'button-create-user')) ||
+            (e.target.href !== 'http://localhost:3000/users/sign_out')
+        ) {
+            // flash.alert = "hey"
+            event.preventDefault()
+        }
+    }
+
+    bodySelection.addEventListener('click', validateEntry)
 }
+
+
+
 export { newUserValidation }
