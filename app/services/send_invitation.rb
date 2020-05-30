@@ -62,9 +62,7 @@ class SendInvitation
         )
       )
 
-
       result = service.insert_event('primary', event)
-
 
       updated_event = Google::Apis::CalendarV3::Event.new(
         conference_data: {
@@ -107,8 +105,6 @@ class SendInvitation
       updated_result = service.update_event('primary', result.id, updated_event)
 
       puts "Event created: #{updated_result.html_link}"
-
-
 
     end
   end

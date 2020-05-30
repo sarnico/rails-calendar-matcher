@@ -1,4 +1,5 @@
 class GoogleRefresh
+
   def self.to_params(current_user)
     { 'refresh_token' => current_user.refresh_token,
       'client_id'     => ENV['GOOGLE_CLIENT_ID'],
@@ -16,15 +17,6 @@ class GoogleRefresh
     current_user.token = data['access_token']
     current_user.save
   end
-
-
-#Je ne pense pas que cette méthode serve à quelque chose ???
-  # def self.connect_service
-  #   @client = auth_client
-  #   service = ::Google::Apis::CalendarV3::CalendarService.new
-  #   service.authorization = @client
-  #   service
-  # end
 
   def self.auth_client(current_user)
     Signet::OAuth2::Client.new(
@@ -63,13 +55,12 @@ class GoogleRefresh
 
     rescue ::Google::Apis::AuthorizationError => e
 
-
       authorization.grant_type  = "refresh_token"
       authorization.access_token = current_user.token
       authorization.refresh_token = current_user.refresh_token
       response = authorization.refresh!
       current_user.token = response["access_token"]
-      current_user.save#
+      current_user.save
 
     retry
     end
@@ -81,7 +72,6 @@ class GoogleRefresh
         UserEvent.create!(user: current_user, start_time: start, end_time: ended, summary: event.summary)
       end
     end
-
 
   end
 end

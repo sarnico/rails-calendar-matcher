@@ -1,11 +1,9 @@
 <div class="green-bottom-background">
-
   <div class="white-top-background">
   </div>
   <div class="container box-new content-main">
     <% possible_users = (User.all - [current_user]) %>
     <div id='possible_users' data-input-id="match_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
-
     <div class="container" id='create-event'>
       <div class="form mt-4 mb-4">
         <%= simple_form_for @match do |f| %>
@@ -30,7 +28,6 @@
               </div>
             </div>
           </div>
-
           <div class="hours-container">
             <div class="hours-container-1">
               <p class="">Your event will start at :</p>
@@ -58,7 +55,6 @@
               </div>
             </div>
           </div>
-
             <div class="custom-dropdown">
               <div id="attendee-div" class="form-group">
                 <label for="shown_user">Select the attendees : *</label>
@@ -74,27 +70,20 @@
                   <% end %>
               </div>
             </div>
-
             <div id="selected_user_ids" style="display: flex; flex-wrap: wrap; margin-bottom: 18px" data-group="<%= @group_user_ids.to_json %>">
             </div>
-
             <% if @match.errors.present? %>
               <p class="attendee_error_msg"> <%= @match.errors[:user_ids][0] %> </p>
             <% end %>
-
             <%= f.input :user_ids, as: :hidden %>
-
             <% if group = Group.find_by_id(params['group_id']) %>
             <% else %>
               <%= check_box_tag "create_group", 'create_group' %>
               <%= label_tag "Create a new group ?" %>
               <%= text_field_tag :group_name, nil, placeholder: '  Family' %>
             <% end %>
-
             <%= f.button :submit, 'Find the match !', class:"button", id:"button-find-the-match" %>
-
         <% end %>
-
       </div>
     </div>
   </div>
