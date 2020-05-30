@@ -9,14 +9,15 @@
     <div class="container" id='create-event'>
       <div class="form mt-4 mb-4">
         <%= simple_form_for @match do |f| %>
-          <%= f.input :title, label: 'Title of the event :', placeholder: 'The title', input_html: { class: 'title-input' } %>
+          <%= f.input :title, label: 'Title of the event :', placeholder: 'Family diner', input_html: { class: 'title-input' } %>
           <div class="title-error-message">
             <p>Please put a title</p>
           </div>
-          <%= f.input :location, label: 'Address of the event :', placeholder: 'The address' %>
-          <%= f.input :description, label: 'Description :', placeholder: 'The description' %>
+          <%= f.input :location, label: 'Address of the event :', placeholder: '29 rue du bondinner' %>
+          <%= f.input :description, label: 'Description :', placeholder: "Bring some desserts and don't be late" %>
           <div class="d-flex">
             <div class="min_date">
+            <%# try to implement a placeholder here with "DateTime.now.strftime("%d/%m/%Y")" %>
               <%= f.input :min_date, as: :date, html5: true, label: 'You want your event to happen between :', input_html: { class: 'date-min-input' } %>
               <div class="date-min-error-message">
                 <p>Hey i'm Yann</p>
@@ -34,20 +35,20 @@
             <div class="hours-container-1">
               <p class="">Your event will start at :</p>
               <div class="hours-container-2 align-items-end">
-                <%= f.input :min_timeh, label: false, placeholder: "hh", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-min-input', maxlength: 2 }%>
+                <%= f.input :min_timeh, label: false, placeholder: "19", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-min-input', maxlength: 2 }%>
                 <p class="double-point-min">:</p>
-                <%= f.input :min_timem, label: false, placeholder:"mm", input_html: { min: '0', max: '59', step: '1' }, input_html: { class: 'min-min-input', maxlength: 2 }%>
+                <%= f.input :min_timem, label: false, placeholder:"30", input_html: { min: '0', max: '59', step: '1' }, input_html: { class: 'min-min-input', maxlength: 2 }%>
               </div>
               <div class="hour-min-error-message">
-                <p>Please put a valid minimum hour</p>
+                  <p>Please put a valid minimum hour</p>
               </div>
             </div>
             <div class="hours-container-1">
               <p class="">and end at :</p>
               <div class="hours-container-2 align-items-end">
-                <%= f.input :max_timeh, label: false, placeholder:"hh", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-max-input', maxlength: 2 } %>
+                <%= f.input :max_timeh, label: false, placeholder:"22", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-max-input', maxlength: 2 } %>
                 <p class="double-point-max">:</p>
-                <%= f.input :max_timem, label: false, placeholder:"mm", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'min-max-input', maxlength: 2 } %>
+                <%= f.input :max_timem, label: false, placeholder:"30", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'min-max-input', maxlength: 2 } %>
               </div>
               <div class="hour-max-error-message">
                 <p>Please put a valid maximum hour</p>
@@ -65,7 +66,6 @@
                 <p>Please select at least one friend</p>
               </div>
               <div id="user_search_results" class="inactif">
-              <%# require 'pry'; binding.pry %>
                   <% possible_users.each do |user| %>
                   <p class='user' data-user-id="<%= user.id %>"><%= user.email%> <i class="fas fa-plus"></i></p>
                   <% end %>
@@ -84,11 +84,11 @@
             <% if group = Group.find_by_id(params['group_id']) %>
             <% else %>
               <%= check_box_tag "create_group", 'create_group' %>
-              <%= label_tag "You want to create a new group ? Give it a name : " %>
-              <%= text_field_tag :group_name %>
+              <%= label_tag "Create a new group ?" %>
+              <%= text_field_tag :group_name, nil, placeholder: '  Family' %>
             <% end %>
 
-      <%= f.button :submit, 'Find the match !', class:"button", id:"button-find-the-match" %>
+            <%= f.button :submit, 'Find the match !', class:"button", id:"button-find-the-match" %>
 
         <% end %>
 

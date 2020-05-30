@@ -127,6 +127,7 @@ const putRealTime = () => {
                 return;
             }
 
+            // if () {
             if (
                 (length === 0 && !/^[0-2]$/g.test(key)) ||
                 (length === 1 && Number(value) === 1 && !/^[0-9]$/g.test(key)) ||
@@ -135,6 +136,8 @@ const putRealTime = () => {
             ) {
                 return event.preventDefault()
             }
+            // }
+
         })
 
     document.querySelector(".min-max-input").addEventListener("keypress", (e) => {

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  include Hashid::Rails
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
@@ -11,6 +12,11 @@ class User < ApplicationRecord
   has_many :user_events
 
   has_one_attached :photo
+
+  # validates :name, presence: true
+  # validates :last_name, presence: true
+  # validates :country, presence: true
+  # validates :city, presence: true
 
   def self.find_for_google_oauth2(auth)
     data = auth.info

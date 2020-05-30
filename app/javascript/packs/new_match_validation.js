@@ -47,12 +47,14 @@ const newMatchValidation = () => {
         const doublePointMax = document.querySelector(".double-point-max");
         const hourMaxInput = document.querySelector(".hour-max-input")
         const minMaxInput = document.querySelector(".min-max-input")
-        console.log(hourMinInput.value.length)
         if (
             hourMinInput.value.length === 0 ||
             minMinInput.value.length === 0 ||
             minMinInput.value.length > 2 ||
-            hourMinInput.value.length > 2
+            hourMinInput.value.length > 2 ||
+            hourMinInput.value > hourMaxInput.value ||
+            (minMinInput.value > minMaxInput.value && hourMinInput.value === hourMaxInput.value) ||
+            (minMinInput.value === minMaxInput.value && hourMinInput.value === hourMaxInput.value)
         ) {
             event.preventDefault();
             hourMinInput.style.borderLeft = "solid 1px #FD0F15";
