@@ -1,28 +1,17 @@
 // error messages
-.first-name-error-message {
+.error-message {
     display: none;
     font-size: 13px;
     color: #FD0F15;
     margin: 0px;
 }
 
-.last-name-error-message {
-    display: none;
-    font-size: 13px;
-    color: #FD0F15;
-    margin: 0px;
+.error-red {
+    border: solid 1px #FD0F15;
+    border-radius: 2px;
 }
 
-.country-error-message {
-    display: none;
-    font-size: 13px;
-    color: #FD0F15;
-    margin: 0px;
-}
-
-.city-error-message {
-    display: none;
-    font-size: 13px;
-    color: #FD0F15;
-    margin: 0px;
+.error-green {
+    border: solid 1px #A7D930;
+    border-radius: 2px;
 }

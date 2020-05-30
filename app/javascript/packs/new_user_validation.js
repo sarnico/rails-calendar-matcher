@@ -3,59 +3,75 @@ const newUserValidation = () => {
 
     findUser.addEventListener('click', (e) => {
         //first name
-        const firstNameErrorHTML = document.querySelector(".first-name-error-message")
+        const firstNameError = document.getElementById("first-name-error-message")
         const firstNameInput = document.querySelector(".first-name-input")
         if (firstNameInput.value === "") {
             event.preventDefault()
-            firstNameInput.style.border = 'solid 1px #FD0F15'
-            firstNameInput.style.borderRadius = '2px'
-            firstNameErrorHTML.style.display = "contents"
+            if (firstNameInput.classList.contains('error-green')) {
+                firstNameInput.classList.remove('error-green')
+            }
+            firstNameInput.classList.add('error-red')
+            firstNameError.style.display = "contents"
         } else if (firstNameInput.value !== "") {
-            firstNameInput.style.border = 'solid 1px #A7D930'
-            firstNameInput.style.borderRadius = '2px'
-            firstNameErrorHTML.style.display = "none"
+            if (firstNameInput.classList.contains('error-red')) {
+                firstNameInput.classList.remove('error-red')
+            }
+            firstNameInput.classList.add('error-green')
+            firstNameError.style.display = "none"
         }
 
         //last name
-        const lastNameErrorHTML = document.querySelector(".last-name-error-message")
+        const lastNameError = document.getElementById("last-name-error-message")
         const lastNameInput = document.querySelector(".last-name-input")
         if (lastNameInput.value === "") {
             event.preventDefault()
-            lastNameInput.style.border = 'solid 1px #FD0F15'
-            lastNameInput.style.borderRadius = '2px'
-            lastNameErrorHTML.style.display = "contents"
+            if (lastNameInput.classList.contains('error-green')) {
+                lastNameInput.classList.remove('error-green')
+            }
+            lastNameInput.classList.add('error-red')
+            lastNameError.style.display = "contents"
         } else if (lastNameInput.value !== "") {
-            lastNameInput.style.border = 'solid 1px #A7D930'
-            lastNameInput.style.borderRadius = '2px'
-            lastNameErrorHTML.style.display = "none"
+            if (lastNameInput.classList.contains('error-red')) {
+                lastNameInput.classList.remove('error-red')
+            }
+            lastNameInput.classList.add('error-green')
+            lastNameError.style.display = "none"
         }
 
         //country
-        const countryErrorHTML = document.querySelector(".country-error-message")
+        const countryError = document.getElementById("country-error-message")
         const countryInput = document.querySelector(".country-input")
         if (countryInput.value === "") {
             event.preventDefault()
-            countryInput.style.border = 'solid 1px #FD0F15'
-            countryInput.style.borderRadius = '2px'
-            countryErrorHTML.style.display = "contents"
+            if (countryInput.classList.contains('error-green')) {
+                countryInput.classList.remove('error-green')
+            }
+            countryInput.classList.add('error-red')
+            countryError.style.display = "contents"
         } else if (countryInput.value !== "") {
-            countryInput.style.border = 'solid 1px #A7D930'
-            countryInput.style.borderRadius = '2px'
-            countryErrorHTML.style.display = "none"
+            if (countryInput.classList.contains('error-red')) {
+                countryInput.classList.remove('error-red')
+            }
+            countryInput.classList.add('error-green')
+            countryError.style.display = "none"
         }
 
         //city
-        const cityErrorHTML = document.querySelector(".city-error-message")
+        const cityError = document.getElementById("city-error-message")
         const cityInput = document.querySelector(".city-input")
         if (cityInput.value === "") {
             event.preventDefault()
-            cityInput.style.border = 'solid 1px #FD0F15'
-            cityInput.style.borderRadius = '2px'
-            cityErrorHTML.style.display = "contents"
+            if (cityInput.classList.contains('error-green')) {
+                cityInput.classList.remove('error-green')
+            }
+            cityInput.classList.add('error-red')
+            cityError.style.display = "contents"
         } else if (cityInput.value !== "") {
-            cityInput.style.border = 'solid 1px #A7D930'
-            cityInput.style.borderRadius = '2px'
-            cityErrorHTML.style.display = "none"
+            if (cityInput.classList.contains('error-red')) {
+                cityInput.classList.remove('error-red')
+            }
+            cityInput.classList.add('error-green')
+            cityError.style.display = "none"
         }
     })
 }
