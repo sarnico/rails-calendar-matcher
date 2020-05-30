@@ -39,11 +39,11 @@
                 <p class="double-point-min">:</p>
                 <%= f.input :min_timem, label: false, placeholder:"30", input_html: { min: '0', max: '59', step: '1' }, input_html: { class: 'min-min-input', maxlength: 2 }%>
               </div>
-              <div class="hour-min-invalid-error-message">
+              <div id="invalid-hour" class="error-message">
                   <p>Please put a valid minimum hour</p>
               </div>
-              <div class="hour-min-below-error-message">
-                  <p>Please put a valid minimum hour</p>
+              <div id="right-hour" class="error-message">
+                  <p>Hour min must be lower than hour max</p>
               </div>
             </div>
             <div class="hours-container-1">
