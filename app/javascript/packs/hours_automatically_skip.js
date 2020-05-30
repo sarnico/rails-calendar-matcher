@@ -47,7 +47,6 @@ const putRealTime = () => {
             const key = event.key
             const value = event.target.value
             const length = value.length
-            console.log(key)
             if (
                 key === "Backspace" ||
                 key === "ArrowLeft" ||
