@@ -51,22 +51,10 @@ var calendar_matches = () => {
                     // Getting Hours, Mins and secs one by one
                     // start time
                     const matchingDateFormatingStart = new Date(matchingDate.start)
-                        // const matchingDateStartHours = matchingDateFormatingStart.getHours()
-                        // const matchingDateStartMins = matchingDateFormatingStart.getMinutes()
-
-                    // end time
-                    // const matchingDateFormatingEnd = new Date(matchingDate.end)
-                    // const matchingDateEndHours = matchingDateFormatingEnd.getHours()
-                    // const matchingDateEndMins = matchingDateFormatingEnd.getMinutes()
 
                     // get day date
                     const matchingDateStartDate = matchingDateFormatingStart.toDateString()
 
-                    // concatenatin part is gonna be long
-                    // const startTime = matchingDateStartHours + ':' + matchingDateStartMins
-                    // const endTime = matchingDateEndHours + ':' + matchingDateEndMins
-
-                    // date to import in match view
                     const matchDate = matchingDateStartDate
 
                     const matchid = JSON.parse(document
