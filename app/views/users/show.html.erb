@@ -23,9 +23,13 @@
       </div>
       <div class="main-my-account">
         <div>
-          <p><strong>Email :</strong> <%= "#{current_user.email}" %></p>
+            <p><strong>Email :</strong> <%= "#{current_user.email}" %></p>
+          <% if current_user.birthdate != nil %>
           <p><strong>Birthdate :</strong> <%= "#{current_user.birthdate}" %></p>
+          <% end %>
+          <% if current_user.phone_number != "" %>
           <p><strong>Phone number :</strong> <%= "#{current_user.phone_number}" %></p>
+          <% end %>
           <p><strong>Country :</strong> <%= "#{current_user.country}" %></p>
           <p><strong>City :</strong> <%= "#{current_user.city}" %></p>
         </div>
