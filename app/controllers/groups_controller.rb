@@ -7,7 +7,6 @@ class GroupsController < ApplicationController
     @groups = Group.all
     @groups_creater = Group.where(creater_id: current_user.id)
     @groups_member = @groups.select { |g| g.members.include?(current_user) }
-
     @my_groups = @groups_creater + @groups_member
   end
 

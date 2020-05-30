@@ -168,32 +168,51 @@ input[type=number] {
 }
 
 // error messages
-.title-error-message {
+.error-message {
     display: none;
     font-size: 13px;
     color: #FD0F15;
     margin: 0px;
+}
+
+.error-red {
+    border: solid 1px #FD0F15;
+    border-radius: 2px;
+}
+
+.error-green {
+    border: solid 1px #A7D930;
+    border-radius: 2px;
 }
 
 .date-min-error-message {
     display: none;
     font-size: 13px;
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 0px;
 }
 
-.date-max-error-message {
+//hours
+.hour-min-invalid-error-message {
     display: none;
     font-size: 13px;
     color: #FD0F15;
     margin: 0px;
 }
 
-.hour-min-error-message {
+.hour-min-below-error-message {
     display: none;
     font-size: 13px;
     color: #FD0F15;
     margin: 0px;
+}
+
+.hour-min-below-error-message-red {
+    border-left: solid 1px #FD0F15;
+    border-top: solid 1px #FD0F15;
+    border-bottom: solid 1px #FD0F15;
+    border-radius: 2px;
+    outline: none;
 }
 
 .hour-max-error-message {
