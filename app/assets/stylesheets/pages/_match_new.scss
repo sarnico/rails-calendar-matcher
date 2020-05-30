@@ -62,25 +62,10 @@ input[type=number] {
     width: 50%;
 }
 
-.hours-container {
-    display: flex;
-}
-
-.hours-container-1 {
-    width: 50%;
-}
-
-.hours-container-2 {
-    display: flex;
-    width: 35%;
-}
-
-.hour-min-input {
-    border-right: none;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    width: 100%;
-    text-align: center;
+.double-point {
+    padding: 6px 0px;
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
 }
 
 .min-min-input {
@@ -90,7 +75,7 @@ input[type=number] {
     text-align: center;
 }
 
-.hour-max-input {
+.hour-min-input {
     border-right: none;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -105,16 +90,25 @@ input[type=number] {
     text-align: center;
 }
 
-.double-point-min {
-    padding: 6px 0px;
-    border-top: 1px solid #ced4da;
-    border-bottom: 1px solid #ced4da;
+.hour-max-input {
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100%;
+    text-align: center;
 }
 
-.double-point-max {
-    padding: 6px 0px;
-    border-top: 1px solid #ced4da;
-    border-bottom: 1px solid #ced4da;
+.hours-container {
+    display: flex;
+}
+
+.hours-container-1 {
+    width: 50%;
+}
+
+.hours-container-2 {
+    display: flex;
+    width: 35%;
 }
 
 .fancy-hover {
@@ -158,54 +152,74 @@ input[type=number] {
     justify-content: flex-end;
 }
 
-.attendee_error_msg {
-    color: #FD0F15;
-    font-size: 13px;
-}
-
 .match_user_ids .invalid-feedback {
     display: none;
 }
 
 // error messages
-.title-error-message {
+.error-message {
     display: none;
     font-size: 13px;
     color: #FD0F15;
     margin: 0px;
+}
+
+.error-red {
+    border: solid 1px #FD0F15;
+    border-radius: 2px;
+}
+
+.error-green {
+    border: solid 1px #A7D930;
+    border-radius: 2px;
 }
 
 .date-min-error-message {
     display: none;
     font-size: 13px;
-    color: #FFFFFF;
+    color: #ffffff;
     margin: 0px;
 }
 
-.date-max-error-message {
-    display: none;
-    font-size: 13px;
-    color: #FD0F15;
-    margin: 0px;
+.hour-error-red {
+    border-left: solid 1px #FD0F15;
+    border-top: solid 1px #FD0F15;
+    border-bottom: solid 1px #FD0F15;
+    border-radius: 2px 0px 0px 2px;
+    outline: none;
 }
 
-.hour-min-error-message {
-    display: none;
-    font-size: 13px;
-    color: #FD0F15;
-    margin: 0px;
+.min-error-red {
+    border-right: solid 1px #FD0F15;
+    border-top: solid 1px #FD0F15;
+    border-bottom: solid 1px #FD0F15;
+    border-radius: 0px 2px 2px 0px;
 }
 
-.hour-max-error-message {
-    display: none;
-    font-size: 13px;
-    color: #FD0F15;
-    margin: 0px;
+.hour-error-green {
+    border-left: solid 1px #A7D930;
+    border-top: solid 1px #A7D930;
+    border-bottom: solid 1px #A7D930;
+    border-radius: 2px 0px 0px 2px;
+    outline: none;
 }
 
-.attendee-error-message {
-    display: none;
-    font-size: 13px;
-    color: #FD0F15;
-    margin: 0px;
+.min-error-green {
+    border-right: solid 1px #A7D930;
+    border-top: solid 1px #A7D930;
+    border-bottom: solid 1px #A7D930;
+    border-radius: 0px 2px 2px 0px;
+    outline: none;
+}
+
+.double-point-red {
+    padding: 6px 0px;
+    border-top: 1px solid #FD0F15;
+    border-bottom: 1px solid #FD0F15;
+}
+
+.double-point-green {
+    padding: 6px 0px;
+    border-top: 1px solid #A7D930;
+    border-bottom: 1px solid #A7D930;
 }

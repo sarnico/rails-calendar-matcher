@@ -1,4 +1,5 @@
 const hoursAutomaticallySkip = (fromHours, toMins) => {
+
     const hoursMinInput = document.querySelector('.hour-min-input')
     hoursMinInput.addEventListener('keyup', (e) => {
         fromHours = document.querySelector(".hour-min-input");
@@ -34,14 +35,11 @@ const hoursAutomaticallySkip = (fromHours, toMins) => {
 }
 
 const putRealTime = () => {
-
-
     document.querySelector(".hour-min-input").addEventListener("keypress", (e) => {
         if (e.which < 48 || e.which > 57) {
             e.preventDefault()
         }
     })
-
 
     document
         .querySelector(".hour-min-input")
@@ -49,7 +47,6 @@ const putRealTime = () => {
             const key = event.key
             const value = event.target.value
             const length = value.length
-            console.log(key)
             if (
                 key === "Backspace" ||
                 key === "ArrowLeft" ||
@@ -127,7 +124,6 @@ const putRealTime = () => {
                 return;
             }
 
-            // if () {
             if (
                 (length === 0 && !/^[0-2]$/g.test(key)) ||
                 (length === 1 && Number(value) === 1 && !/^[0-9]$/g.test(key)) ||
@@ -136,7 +132,6 @@ const putRealTime = () => {
             ) {
                 return event.preventDefault()
             }
-            // }
 
         })
 

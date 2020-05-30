@@ -1,7 +1,6 @@
 <div id="homepage">
   <div class="white-background">
   </div>
-
   <% if @my_events == [] %>
     <div class="landing-main-events-empty container">
       <div class="no-event">
@@ -22,45 +21,34 @@
           <p><i class="icon fas fa-plus"></i> Add a new event</p>
         <% end %>
       </div>
-
       <div class="group-layout">
         <% @my_events.each do |match| %>
-
           <div class="card-group-index">
-
             <div class="top">
               <h3><%= match.title.capitalize %></h3>
               <img src="<%= match.owner.avatar %>" class="card-trip-user avatar-bordered" />
             </div>
-
             <div>
               <% if match.match_date == nil %>
                 <p>Still looking for a match</p>
               <% else %>
                 <p><%= "#{match.match_date.strftime("%a %d %B %Y")} from #{match.min_time.localtime.strftime("%H:%M")} until #{match.max_time.localtime.strftime("%H:%M")}" %></p>
               <% end %>
-
               <% if match.location != "" %>
                 <p><b>Location :</b> <%= match.location %></p>
               <% end %>
-
               <% if match.description != "" %>
                 <p><b>Description : </b><%= match.description %></p>
-                <% end %>
-
+              <% end %>
               <p><b>Attendees :</b></p>
             </div>
-
-
             <div class="medium">
               <div class="group-member-layout">
-
                 <% match.attendees.each do |user| %>
                   <p class="size-review"><%= user.email %></p>
                 <% end %>
               </div>
             </div>
-
             <div class="bottom">
               <% if match.owner_id == current_user.id  %>
                 <%= link_to edit_match_path(match) do %>
@@ -71,7 +59,6 @@
                 <% end %>
               <% end %>
             </div>
-
           </div>
         <% end %>
       </div>
@@ -95,7 +82,4 @@
     document.querySelector('#backpopup').classList.remove("backpopup")
   })
 </script>
-
-<!-- can change the email in the link to get the right calendar directly from google -->
-<!-- <iframe src="https://calendar.google.com/calendar/embed?src=mrdifalko%40gmail.com&ctz=Europe%2FBrussels" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
 
