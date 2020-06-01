@@ -74,14 +74,22 @@ const newUserValidation = () => {
             cityError.style.display = "none"
         }
 
+        const birthdateError = document.getElementById("birthdate-error-message")
         const birthdateInput = document.querySelector(".birthdate-input")
-        console.log(birthdateInput.value)
-        console.log(Date.now())
-        if ((isNaN(birthdateInput.value) === true) && (birthdateInput.value <= Date.now)) {
+        const pickedDate = Date.parse(birthdateInput.value)
+        const dateNow = Date.now()
+        if ((isNaN(birthdateInput.value) === true) && ((pickedDate - dateNow) >= 0)) {
+            if (birthdateInput.classList.contains('error-green')) {
+                birthdateInput.classList.remove('error-green')
+            }
+            birthdateInput.classList.add('error-red')
+            birthdateError.style.display = "contents"
+        } else if ((isNaN(birthdateInput.value) === true) && ((pickedDate - dateNow) <= 0)) {
             if (birthdateInput.classList.contains('error-red')) {
                 birthdateInput.classList.remove('error-red')
             }
             birthdateInput.classList.add('error-green')
+            birthdateError.style.display = "none"
         }
 
         const phoneNumberError = document.getElementById("phone-number-error-message")

@@ -19,6 +19,9 @@
             <p>Please enter your last name</p>
           </div>
           <%= f.input :birthdate, as: :date, html5: true, label: 'Birthdate', input_html: { class: 'birthdate-input' } %>
+          <div id="birthdate-error-message" class="error-message">
+            <p>Please enter a valid birthdate</p>
+          </div>
           <%= f.input :phone_number, label: 'Phone number', placeholder: '0476614221', input_html: { class: 'phone-number-input' } %>
           <div id="phone-number-error-message" class="error-message">
             <p>Please enter a valid phone number</p>
