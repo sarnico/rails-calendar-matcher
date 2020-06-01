@@ -25,7 +25,7 @@
         <div>
           <p><strong>Email :</strong> <%= "#{current_user.email}" %></p>
           <% if current_user.birthdate != nil %>
-            <p><strong>Birthdate :</strong> <%= "#{current_user.birthdate}" %></p>
+            <p><strong>Birthdate :</strong> <%= "#{current_user.birthdate.strftime("%d/%m/%Y")}" %></p>
           <% end %>
           <% if current_user.phone_number != "" %>
             <p><strong>Phone number :</strong> <%= "#{current_user.phone_number}" %></p>
