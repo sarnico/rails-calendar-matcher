@@ -18,8 +18,11 @@
           <div id="last-name-error-message" class="error-message">
             <p>Please enter your last name</p>
           </div>
-          <%= f.input :birthdate, as: :date, html5: true, label: 'Birthdate' %>
-          <%= f.input :phone_number, label: 'Phone number', placeholder: '0476/61.42.21' %>
+          <%= f.input :birthdate, as: :date, html5: true, label: 'Birthdate', input_html: { class: 'birthdate-input' } %>
+          <%= f.input :phone_number, label: 'Phone number', placeholder: '0476614221', input_html: { class: 'phone-number-input' } %>
+          <div id="phone-number-error-message" class="error-message">
+            <p>Please enter a valid phone number</p>
+          </div>
           <%= f.input :country, priority: ["BE", "FR", "GB", "LU", "DE"], label: 'Country *', input_html: { class: 'country-input' } %>
           <div id="country-error-message" class="error-message">
             <p>Please select your country</p>
