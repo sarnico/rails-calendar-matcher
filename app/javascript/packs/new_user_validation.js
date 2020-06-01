@@ -95,16 +95,29 @@ const newUserValidation = () => {
         const phoneNumberError = document.getElementById("phone-number-error-message")
         const phoneNumberInput = document.querySelector(".phone-number-input")
         const regex = RegExp(/^\d{10}$/);
-        if (regex.test(phoneNumberInput.value) === false) {
+        console.log(isNaN(birthdateInput.value))
+        if (phoneNumberInput.value === "") {
+            if (phoneNumberInput.classList.contains('error-green')) {
+                phoneNumberInput.classList.remove('error-green')
+            } else if (phoneNumberInput.classList.contains('error-red')) {
+                phoneNumberInput.classList.remove('error-red')
+            }
+            phoneNumberInput.classList.add('original-border')
+            phoneNumberError.style.display = "none"
+        } else if (regex.test(phoneNumberInput.value) === false) {
             event.preventDefault()
             if (phoneNumberInput.classList.contains('error-green')) {
                 phoneNumberInput.classList.remove('error-green')
+            } else if (phoneNumberInput.classList.contains('original-border')) {
+                phoneNumberInput.classList.remove('original-border')
             }
             phoneNumberInput.classList.add('error-red')
             phoneNumberError.style.display = "contents"
         } else if (regex.test(phoneNumberInput.value) === true) {
             if (phoneNumberInput.classList.contains('error-red')) {
                 phoneNumberInput.classList.remove('error-red')
+            } else if (phoneNumberInput.classList.contains('original-border')) {
+                phoneNumberInput.classList.remove('original-border')
             }
             phoneNumberInput.classList.add('error-green')
             phoneNumberError.style.display = "none"
