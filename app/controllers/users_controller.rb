@@ -32,4 +32,5 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find_by_hashid(params[:id])
   end
+
 end

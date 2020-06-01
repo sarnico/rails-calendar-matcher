@@ -1,5 +1,6 @@
 const newUserValidation = () => {
     const findUser = document.getElementById('button-create-user')
+    const bodySelection = document.getElementById('body')
 
     findUser.addEventListener('click', (e) => {
         //first name
@@ -75,4 +76,7 @@ const newUserValidation = () => {
         }
     })
 }
+
+
+
 export { newUserValidation }
