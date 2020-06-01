@@ -79,6 +79,7 @@ const newUserValidation = () => {
         const pickedDate = Date.parse(birthdateInput.value)
         const dateNow = Date.now()
         if ((isNaN(birthdateInput.value) === true) && ((pickedDate - dateNow) >= 0)) {
+            event.preventDefault()
             if (birthdateInput.classList.contains('error-green')) {
                 birthdateInput.classList.remove('error-green')
             }
@@ -95,8 +96,8 @@ const newUserValidation = () => {
         const phoneNumberError = document.getElementById("phone-number-error-message")
         const phoneNumberInput = document.querySelector(".phone-number-input")
         const regex = RegExp(/^\d{10}$/);
-        console.log(isNaN(birthdateInput.value))
         if (phoneNumberInput.value === "") {
+            event.preventDefault()
             if (phoneNumberInput.classList.contains('error-green')) {
                 phoneNumberInput.classList.remove('error-green')
             } else if (phoneNumberInput.classList.contains('error-red')) {
