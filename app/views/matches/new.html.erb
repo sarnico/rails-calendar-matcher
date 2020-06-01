@@ -1,90 +1,179 @@
 <div class="green-bottom-background">
+
   <div class="white-top-background">
+
   </div>
+
   <div class="container box-new content-main">
+
     <% possible_users = (User.all - [current_user]) %>
+
     <div id='possible_users' data-input-id="match_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
+
     <div class="container" id='create-event'>
+
       <div class="form mt-4 mb-4">
+
         <%= simple_form_for @match do |f| %>
+
           <%= f.input :title, label: 'Title of the event :', placeholder: 'Family diner', input_html: { class: 'title-input' } %>
+
           <div id="title-error" class="error-message">
+
             <p>Please put a title</p>
+
           </div>
+
           <%= f.input :location, label: 'Address of the event :', placeholder: '29 rue du bondinner' %>
+
           <%= f.input :description, label: 'Description :', placeholder: "Bring some desserts and don't be late" %>
+
           <div class="d-flex">
+
             <div class="min_date">
+
             <%# try to implement a placeholder here with "DateTime.now.strftime("%d/%m/%Y")" %>
+
               <%= f.input :min_date, as: :date, html5: true, label: 'You want your event to happen between :', input_html: { class: 'date-min-input' } %>
+
               <div id="date-min-error" class="date-min-error-message">
+
                 <p>Hey i'm Yann</p>
+
               </div>
+
             </div>
+
             <div class="max_date">
+
               <%= f.input :max_date, as: :date, html5: true, label: 'and :', input_html: { class: 'date-max-input' } %>
+
               <div id="date-max-error" class="error-message">
+
                 <p>Please put a maximum date</p>
+
               </div>
+
             </div>
+
           </div>
+
           <div class="hours-container">
+
             <div class="hours-container-1">
+
               <p class="">Your event will start at :</p>
+
               <div class="hours-container-2 align-items-end">
+
                 <%= f.input :min_timeh, label: false, placeholder: "19", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-min-input', maxlength: 2 }%>
+
                 <p id="double-point-min" class="double-point">:</p>
+
                 <%= f.input :min_timem, label: false, placeholder:"30", input_html: { min: '0', max: '59', step: '1' }, input_html: { class: 'min-min-input', maxlength: 2 }%>
               </div>
+
+
               <div id="hour-min-invalid" class="error-message">
+
                   <p>Please put a valid minimum hour</p>
+
               </div>
+
               <div id="right-hour" class="error-message">
+
                   <p>Hour min must be lower than hour max</p>
+
               </div>
+
             </div>
+
             <div class="hours-container-1">
+
               <p class="">and end at :</p>
+
               <div class="hours-container-2 align-items-end">
+
                 <%= f.input :max_timeh, label: false, placeholder:"22", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-max-input', maxlength: 2 } %>
+
                 <p id="double-point-max" class="double-point">:</p>
+
                 <%= f.input :max_timem, label: false, placeholder:"30", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'min-max-input', maxlength: 2 } %>
+
               </div>
+
               <div id="hour-max-invalid" class="error-message">
+
                 <p>Please put a valid maximum hour</p>
+
               </div>
+
             </div>
+
           </div>
+
             <div class="custom-dropdown">
+
               <div id="attendee-div" class="form-group">
+
                 <label for="shown_user">Select the attendees : *</label>
+
                 <span class="fa fa-user errspan"></span>
+
                 <input type="text" id="shown_user_ids" autocomplete="off">
+
               </div>
+
               <div id="attendee-error-message" class="error-message">
+
                 <p>Please select at least one friend</p>
+
               </div>
+
               <div id="user_search_results" class="inactif">
+
                   <% possible_users.each do |user| %>
+
                   <p class='user' data-user-id="<%= user.id %>"><%= user.email%> <i class="fas fa-plus"></i></p>
+
                   <% end %>
+
               </div>
+
             </div>
+
             <div id="selected_user_ids" style="display: flex; flex-wrap: wrap; margin-bottom: 18px" data-group="<%= @group_user_ids.to_json %>">
+
             </div>
+
             <% if @match.errors.present? %>
+
               <p class="attendee_error_msg"> <%= @match.errors[:user_ids][0] %> </p>
+
             <% end %>
+
             <%= f.input :user_ids, as: :hidden %>
+
             <% if group = Group.find_by_id(params['group_id']) %>
+
             <% else %>
+
               <%= check_box_tag "create_group", 'create_group' %>
+
               <%= label_tag "Create a new group ?" %>
+
               <%= text_field_tag :group_name, nil, placeholder: '  Family' %>
+
             <% end %>
+
             <%= f.button :submit, 'Find the match !', class:"button", id:"button-find-the-match" %>
+
         <% end %>
+
       </div>
+
     </div>
+
   </div>
+
 </div>
