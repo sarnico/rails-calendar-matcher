@@ -1,6 +1,5 @@
 const newUserValidation = () => {
     const findUser = document.getElementById('button-create-user')
-    const bodySelection = document.getElementById('body')
 
     findUser.addEventListener('click', (e) => {
         //first name
@@ -74,9 +73,43 @@ const newUserValidation = () => {
             cityInput.classList.add('error-green')
             cityError.style.display = "none"
         }
+
+        const birthdateError = document.getElementById("birthdate-error-message")
+        const birthdateInput = document.querySelector(".birthdate-input")
+        const pickedDate = Date.parse(birthdateInput.value)
+        const dateNow = Date.now()
+        if ((isNaN(birthdateInput.value) === true) && ((pickedDate - dateNow) >= 0)) {
+            if (birthdateInput.classList.contains('error-green')) {
+                birthdateInput.classList.remove('error-green')
+            }
+            birthdateInput.classList.add('error-red')
+            birthdateError.style.display = "contents"
+        } else if ((isNaN(birthdateInput.value) === true) && ((pickedDate - dateNow) <= 0)) {
+            if (birthdateInput.classList.contains('error-red')) {
+                birthdateInput.classList.remove('error-red')
+            }
+            birthdateInput.classList.add('error-green')
+            birthdateError.style.display = "none"
+        }
+
+        const phoneNumberError = document.getElementById("phone-number-error-message")
+        const phoneNumberInput = document.querySelector(".phone-number-input")
+        const regex = RegExp(/^\d{10}$/);
+        if (regex.test(phoneNumberInput.value) === false) {
+            event.preventDefault()
+            if (phoneNumberInput.classList.contains('error-green')) {
+                phoneNumberInput.classList.remove('error-green')
+            }
+            phoneNumberInput.classList.add('error-red')
+            phoneNumberError.style.display = "contents"
+        } else if (regex.test(phoneNumberInput.value) === true) {
+            if (phoneNumberInput.classList.contains('error-red')) {
+                phoneNumberInput.classList.remove('error-red')
+            }
+            phoneNumberInput.classList.add('error-green')
+            phoneNumberError.style.display = "none"
+        }
     })
 }
-
-
 
 export { newUserValidation }
