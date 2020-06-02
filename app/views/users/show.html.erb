@@ -26,7 +26,11 @@
 
             <% if current_user.avatar != nil %>
 
-              <%= image_tag "#{current_user.avatar}", class: "avatar-bordered-my-account"%>
+              <%= image_tag "#{current_user.avatar}", class: "avatar-bordered-my-account" %>
+
+            <% else %>
+
+              <%= image_tag "empty-avatar.png", class: "avatar-bordered-my-account" %>
 
             <% end %>
 
