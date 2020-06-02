@@ -9,6 +9,7 @@ var calendar = () => {
         var calendar = new Calendar(calendarEl, {
             plugins: [dayGridPlugin, googleCalendarPlugin],
             googleCalendarApiKey: process.env.GOOGLE_API_KEY,
+            firstDay: 1,
             events: {
                 googleCalendarId: user_id,
             }

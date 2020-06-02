@@ -27,6 +27,8 @@ var calendar_matches = () => {
 
             },
 
+            firstDay: 1,
+
             displayEventTime: false,
 
             eventColor: "#f4f4f4",
