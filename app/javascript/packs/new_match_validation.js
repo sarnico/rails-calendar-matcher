@@ -1,5 +1,6 @@
 const newMatchValidation = () => {
     const findMatch = document.getElementById('button-find-the-match')
+    document.querySelector(".date-min-input").valueAsDate = new Date();
 
     findMatch.addEventListener('click', (e) => {
         // title
@@ -21,6 +22,7 @@ const newMatchValidation = () => {
         }
 
         // //dates
+        console.log(e.target)
         const dateMinError = document.getElementById("date-min-error")
         const dateMaxError = document.getElementById("date-max-error")
         const dateMinInput = document.querySelector(".date-min-input")
