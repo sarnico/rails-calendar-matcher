@@ -22,9 +22,10 @@ const newMatchValidation = () => {
         }
 
         // //dates
-        console.log(e.target)
         const dateMinError = document.getElementById("date-min-error")
+        const dateMinError2 = document.getElementById("date-min-error-2")
         const dateMaxError = document.getElementById("date-max-error")
+        const dateMaxError2 = document.getElementById("date-max-error-2")
         const dateMinInput = document.querySelector(".date-min-input")
         const dateMaxInput = document.querySelector(".date-max-input")
         if (dateMaxInput.value === "") {
@@ -35,6 +36,7 @@ const newMatchValidation = () => {
             }
             dateMaxInput.classList.add("error-red")
             dateMaxError.style.display = "contents"
+            dateMaxError2.style.display = "none"
             dateMinError.style.display = "contents"
         } else if (dateMaxInput.value !== "") {
             dateMinInput.classList.add("error-green")
@@ -43,7 +45,46 @@ const newMatchValidation = () => {
             }
             dateMaxInput.classList.add('error-green')
             dateMaxError.style.display = "none"
+            dateMaxError2.style.display = "none"
             dateMinError.style.display = "none"
+        }
+        if ((dateMaxInput.value < dateMinInput.value) && dateMaxInput.value !== "") {
+            event.preventDefault()
+            dateMinInput.classList.add("error-green")
+            if (dateMaxInput.classList.contains('error-green')) {
+                dateMaxInput.classList.remove('error-green')
+            }
+            dateMaxInput.classList.add("error-red")
+            dateMaxError2.style.display = "contents"
+            dateMaxError.style.display = "none"
+            dateMinError.style.display = "contents"
+        }
+
+        let today = new Date();
+        let dd = today.getDate();
+
+        let mm = today.getMonth() + 1;
+        const yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = `0${dd}`;
+        }
+
+        if (mm < 10) {
+            mm = `0${mm}`;
+        }
+        today = `${yyyy}-${mm}-${dd}`
+        console.log(today)
+        console.log(dateMinInput.value)
+        if (dateMinInput.value < today) {
+            event.preventDefault()
+            if (dateMinInput.classList.contains('error-green')) {
+                dateMinInput.classList.remove('error-green')
+            }
+            dateMinInput.classList.add("error-red")
+            dateMinError.style.display = "none"
+            dateMinError2.style.display = "contents"
+        } else {
+            dateMinError2.style.display = "none"
         }
 
         // //hours
