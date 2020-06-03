@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+require 'pry'
 class FindMatch
   def self.date(id, _owner, users, _min_time, _max_time, _max_date, _min_date = Date.today)
 
@@ -16,13 +18,13 @@ class FindMatch
     # on entre dans la config d'overlap !
 
     occupied = []
-    @a = (dp_initial..dp_final).map do |dp|
+    (dp_initial..dp_final).map do |dp|
       count = users.count do |u|
+        @timeslot_end = tp_final.change day: dp.day, month: dp.month, year: dp.year
+        @timeslot_start = tp_initial.change day: dp.day, month: dp.month, year: dp.year
         User.find(u).user_events.any? do |e|
           event_start = e.start_time
           event_end = e.end_time
-          @timeslot_end = tp_final.change day: dp.day, month: dp.month, year: dp.year
-          @timeslot_start = tp_initial.change day: dp.day, month: dp.month, year: dp.year
           # schedule << [timeslot_start, timeslot_end] if !(event_start..event_end).overlaps?(@timeslot_start..@timeslot_end)
           if (event_start..event_end).overlaps?(@timeslot_start..@timeslot_end)
             occupied << { start: event_start, end: event_end, description: e.summary, user_occ: User.find(u).email }
@@ -31,6 +33,7 @@ class FindMatch
       end
 
       nb_attendees = users.size - count
+
       if nb_attendees == users.size
         {
           title: "✅#{users.size - count}",

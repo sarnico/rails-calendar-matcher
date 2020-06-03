@@ -97,7 +97,6 @@ const newUserValidation = () => {
         const phoneNumberInput = document.querySelector(".phone-number-input")
         const regex = RegExp(/^\d{10}$/);
         if (phoneNumberInput.value === "") {
-            event.preventDefault()
             if (phoneNumberInput.classList.contains('error-green')) {
                 phoneNumberInput.classList.remove('error-green')
             } else if (phoneNumberInput.classList.contains('error-red')) {
