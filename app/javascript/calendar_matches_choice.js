@@ -12,6 +12,8 @@ var calendar_matches = () => {
 
         var results = JSON.parse(calendarEl.dataset.results)
 
+        console.log(results)
+
         var calendar = new Calendar(calendarEl, {
             plugins: [dayGridPlugin, interactionPlugin],
             selectable: true,
@@ -20,8 +22,11 @@ var calendar_matches = () => {
             eventRender: function(event, element) {
                 if (event.icon) {
                     element.find(".fc-title").prepend("<i class='fas fa-" + event.icon + "'></i>");
+                    console.log(event)
+                    console.log(element)
                 }
             },
+
 
             eventMouseEnter: function(event) {
 
