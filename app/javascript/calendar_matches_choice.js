@@ -12,8 +12,6 @@ var calendar_matches = () => {
 
         var results = JSON.parse(calendarEl.dataset.results)
 
-        console.log(results)
-
         var calendar = new Calendar(calendarEl, {
             plugins: [dayGridPlugin, interactionPlugin],
             selectable: true,
