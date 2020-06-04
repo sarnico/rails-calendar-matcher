@@ -30,15 +30,6 @@
 
       <%= yield %>
 
-      <%# This refresh all the events of the user so he doesnt need to go in his calendar to refresh them %>
-
-      <% if current_user != nil %>
-
-       <% GoogleRefresh.refresh_all(current_user) %>
-       <% @userevents = current_user.reload.user_events %>
-
-      <% end %>
-
       <%= javascript_pack_tag 'application' %>
 
       <%= stylesheet_pack_tag 'application'  %>
