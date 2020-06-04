@@ -30,14 +30,14 @@
 
       <%= yield %>
 
-      <div class="calendar-hidden">
+      <%# This refresh all the events of the user so he doesnt need to go in his calendar to refresh them %>
 
-        <div
-          id="calendar"
-          data-ids="<%= current_user.email %>"
-        >
+      <% if current_user != nil %>
 
-      </div>
+       <% GoogleRefresh.refresh_all(current_user) %>
+       <% @userevents = current_user.reload.user_events %>
+
+      <% end %>
 
       <%= javascript_pack_tag 'application' %>
 
