@@ -26,13 +26,22 @@
 
   <body id="body">
 
-    <%= render "shared/navbar" %>
+      <%= render "shared/navbar" %>
 
-    <%= yield %>
+      <%= yield %>
 
-    <%= javascript_pack_tag 'application' %>
+      <div class="calendar-hidden">
 
-    <%= stylesheet_pack_tag 'application'  %>
+        <div
+          id="calendar"
+          data-ids="<%= current_user.email %>"
+        >
+
+      </div>
+
+      <%= javascript_pack_tag 'application' %>
+
+      <%= stylesheet_pack_tag 'application'  %>
 
   </body>
 

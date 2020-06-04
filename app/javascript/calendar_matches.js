@@ -17,7 +17,6 @@ var calendar = () => {
             // add an event : https://fullcalendar.io/docs/Calendar-addEvent
         });
         calendar.render();
-
     });
 }
 
