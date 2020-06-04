@@ -1,3 +1,14 @@
+<%# Refresh events of everybody on creation of a match %>
+
+<% @users = User.all %>
+
+  <% @users.each do |user| %>
+
+  <% GoogleRefresh.refresh_all(user) %>
+
+<% end %>
+
+
 <div class="green-bottom-background">
 
   <div class="white-top-background">

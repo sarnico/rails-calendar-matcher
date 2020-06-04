@@ -11,6 +11,13 @@ class UserEventsController < ApplicationController
     GoogleRefresh.refresh_all(current_user)
   end
 
+  def events_google_calendar_all
+    @users = User.all
+    @users.each do |user|
+      GoogleRefresh.refresh_all(user)
+    end
+  end
+
   def index
     events_google_calendar
     @userevents = current_user.reload.user_events
