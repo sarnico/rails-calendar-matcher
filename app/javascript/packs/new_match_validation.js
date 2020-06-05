@@ -73,8 +73,6 @@ const newMatchValidation = () => {
             mm = `0${mm}`;
         }
         today = `${yyyy}-${mm}-${dd}`
-        console.log(today)
-        console.log(dateMinInput.value)
         if (dateMinInput.value < today) {
             event.preventDefault()
             if (dateMinInput.classList.contains('error-green')) {
