@@ -20,11 +20,8 @@ var calendar_matches = () => {
             eventRender: function(event, element) {
                 if (event.icon) {
                     element.find(".fc-title").prepend("<i class='fas fa-" + event.icon + "'></i>");
-                    console.log(event)
-                    console.log(element)
                 }
             },
-
 
             eventMouseEnter: function(event) {
 
@@ -41,6 +38,7 @@ var calendar_matches = () => {
                 minute: '2-digit'
             },
 
+
             select: function(info) {
                 var theDate = new Date(info.start);
                 var theMyDate = theDate.toLocaleDateString();
@@ -52,9 +50,6 @@ var calendar_matches = () => {
                     return myDate === theMyDate
                 })
 
-                // if (matchingDate.title=="") {
-                //   console.log("yeah")
-                // }
 
                 if (matchingDate && matchingDate.title!="") {
 

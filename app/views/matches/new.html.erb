@@ -1,12 +1,7 @@
-<%# Refresh events of everybody on creation of a match %>
+<%# Refresh my events on creation of a match %>
+<% GoogleRefresh.refresh_all(current_user) %>
 
-<% @users = User.all %>
-
-  <% @users.each do |user| %>
-
-  <% GoogleRefresh.refresh_all(user) %>
-
-<% end %>
+<% current_user.reload.user_events %>
 
 
 <div class="green-bottom-background">

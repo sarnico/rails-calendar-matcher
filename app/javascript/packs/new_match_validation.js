@@ -73,8 +73,6 @@ const newMatchValidation = () => {
             mm = `0${mm}`;
         }
         today = `${yyyy}-${mm}-${dd}`
-        console.log(today)
-        console.log(dateMinInput.value)
         if (dateMinInput.value < today) {
             event.preventDefault()
             if (dateMinInput.classList.contains('error-green')) {
@@ -208,5 +206,20 @@ const newMatchValidation = () => {
         // for attendee validation, go have a look on user dropdown on the bottom
     })
 }
+
+// const emptyChoiceOnMatch = () => {
+//     const emptyChoice = document.querySelectorAll(".fc-title")
+//     console.log(emptyChoice)
+//     emptyChoice.forEach(choice => {
+//         console.log
+//             // prevent click on empty day
+//         choice.addEventListener('click', (e) => {
+//             event.preventDefault()
+//         })
+//         event.preventDefault()
+//         console.log(e)
+//             // if ()
+//     })
+// }
 
 export { newMatchValidation }
