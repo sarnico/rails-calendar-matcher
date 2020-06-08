@@ -17,21 +17,23 @@ import { titleHover } from "./icon_bigger_hover"
 import { newMatchValidation } from "./new_match_validation"
 import { hoursAutomaticallySkip } from "./hours_automatically_skip";
 import { putRealTime } from "./hours_automatically_skip";
+import { newUserValidation } from "./new_user_validation";
+
 
 if (document.querySelector(".hours-container")) {
     hoursAutomaticallySkip();
     putRealTime();
 }
 
-if (document.getElementById('calendar')) {
+if (document.getElementById("calendar")) {
     calendar();
 }
 
-if (document.getElementById('calendar_matches')) {
+if (document.getElementById("calendar_matches")) {
     calendar_matches();
 }
 
-if (document.getElementById('possible_users')) {
+if (document.getElementById("possible_users")) {
     dropdown();
 }
 
@@ -41,4 +43,8 @@ if (document.getElementById("logo-image")) {
 
 if (document.getElementById("create-event")) {
     newMatchValidation()
+}
+
+if (document.getElementById("create-user")) {
+    newUserValidation()
 }

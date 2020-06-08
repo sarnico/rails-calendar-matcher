@@ -1,6 +1,5 @@
 const dropdown = () => {
 
-    // console.log('javascript/packs/users_dropdown.js LOADED')
     const usersBox = document.getElementById('possible_users')
 
     if (usersBox) {
@@ -146,16 +145,20 @@ const dropdown = () => {
         // validation & preventDefault for attendees
 
         findMatch.addEventListener('click', (e) => {
-            const attendeeErrorHTML = document.querySelector(".attendee-error-message")
+            const attendeeError = document.getElementById("attendee-error-message")
             if (selectedUsers.length === 0) {
                 event.preventDefault()
-                userSearchInput.style.border = 'solid 1px #FD0F15'
-                userSearchInput.style.borderRadius = '2px'
-                attendeeErrorHTML.style.display = "contents"
+                if (userSearchInput.classList.contains('error-green')) {
+                    userSearchInput.classList.remove('error-green')
+                }
+                userSearchInput.classList.add('error-red')
+                attendeeError.style.display = "contents"
             } else if (selectedUsers.length >= 1) {
-                userSearchInput.style.border = 'solid 1px #A7D930'
-                userSearchInput.style.borderRadius = '2px'
-                attendeeErrorHTML.style.display = "none"
+                if (userSearchInput.classList.contains('error-red')) {
+                    userSearchInput.classList.remove('error-red')
+                }
+                userSearchInput.classList.add('error-green')
+                attendeeError.style.display = "none"
             }
         })
 

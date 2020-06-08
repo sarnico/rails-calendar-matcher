@@ -1,0 +1,22 @@
+// error messages
+.error-message {
+    display: none;
+    font-size: 13px;
+    color: #FD0F15;
+    margin: 0px;
+}
+
+.error-red {
+    border: solid 1px #FD0F15;
+    border-radius: 2px;
+}
+
+.error-green {
+    border: solid 1px #A7D930;
+    border-radius: 2px;
+}
+
+.original-border {
+    border: solid 1px #ced4da;
+    border-radius: 2px;
+}

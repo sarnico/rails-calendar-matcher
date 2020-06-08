@@ -7,7 +7,6 @@ class GroupsController < ApplicationController
     @groups = Group.all
     @groups_creater = Group.where(creater_id: current_user.id)
     @groups_member = @groups.select { |g| g.members.include?(current_user) }
-
     @my_groups = @groups_creater + @groups_member
   end
 
@@ -42,7 +41,7 @@ class GroupsController < ApplicationController
                       .require(:group).permit(:name)
     if params[:group][:user_ids].present?
       returned_params = returned_params.merge(user_ids: JSON.parse(params[:group][:user_ids]))
-end
+    end
     returned_params
   end
 
