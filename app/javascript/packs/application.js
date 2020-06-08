@@ -20,7 +20,6 @@ import { hoursAutomaticallySkip } from "./hours_automatically_skip";
 import { putRealTime } from "./hours_automatically_skip";
 import { newUserValidation } from "./new_user_validation";
 
-
 if (document.querySelector(".hours-container")) {
     hoursAutomaticallySkip();
     putRealTime();
