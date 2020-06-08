@@ -20,11 +20,8 @@ var calendar_matches = () => {
             eventRender: function(event, element) {
                 if (event.icon) {
                     element.find(".fc-title").prepend("<i class='fas fa-" + event.icon + "'></i>");
-                    console.log(event)
-                    console.log(element)
                 }
             },
-
 
             eventMouseEnter: function(event) {
 
@@ -40,6 +37,7 @@ var calendar_matches = () => {
                 hour: '2-digit',
                 minute: '2-digit'
             },
+
 
             select: function(info) {
                 var theDate = new Date(info.start);
@@ -67,7 +65,6 @@ var calendar_matches = () => {
                         .dataset
                         .matchid
                     );
-
                     if (matchingDate) {
                         fetch(`/matches/${matchid}`, {
                                 method: 'put',
