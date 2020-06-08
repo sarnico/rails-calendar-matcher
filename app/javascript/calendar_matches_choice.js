@@ -46,12 +46,17 @@ var calendar_matches = () => {
                 var theMyDate = theDate.toLocaleDateString();
 
                 const matchingDate = results.find(result => {
+                    const title= result.title
                     const date = new Date(result.start)
                     const myDate = date.toLocaleDateString()
                     return myDate === theMyDate
                 })
 
-                if (matchingDate) {
+                // if (matchingDate.title=="") {
+                //   console.log("yeah")
+                // }
+
+                if (matchingDate && matchingDate.title!="") {
 
                     // Getting Hours, Mins and secs one by one
                     // start time
@@ -68,7 +73,6 @@ var calendar_matches = () => {
                         .matchid
                     );
 
-                    if (matchingDate) {
                         fetch(`/matches/${matchid}`, {
                                 method: 'put',
                                 body: JSON.stringify({
@@ -87,7 +91,6 @@ var calendar_matches = () => {
                             }).then(match => {
                                 window.location.href = `/matches?validated_id=${match.id}`
                             })
-                    }
                 } else {
                     alert('No match possible on that day \nPick another date please!')
                 }

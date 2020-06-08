@@ -53,7 +53,6 @@ class SendInvitation
           )
         )
 
-
         result = service.insert_event('primary', event)
 
         puts "Event created: #{updated_result.html_link}"
