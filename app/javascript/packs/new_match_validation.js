@@ -207,4 +207,19 @@ const newMatchValidation = () => {
     })
 }
 
+// const emptyChoiceOnMatch = () => {
+//     const emptyChoice = document.querySelectorAll(".fc-title")
+//     console.log(emptyChoice)
+//     emptyChoice.forEach(choice => {
+//         console.log
+//             // prevent click on empty day
+//         choice.addEventListener('click', (e) => {
+//             event.preventDefault()
+//         })
+//         event.preventDefault()
+//         console.log(e)
+//             // if ()
+//     })
+// }
+
 export { newMatchValidation }

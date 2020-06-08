@@ -1,4 +1,4 @@
-<%# Refresh events of everybody on creation of a match %>
+<%# Refresh my events on creation of a match %>
 <% GoogleRefresh.refresh_all(current_user) %>
 
 <% current_user.reload.user_events %>
