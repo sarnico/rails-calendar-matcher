@@ -19,7 +19,7 @@ class SendInvitation
       attendeesList = Match.find(id=match_info.id).users.map{|user| Google::Apis::CalendarV3::EventAttendee.new(email: "#{user.email}")}
       attendeesList<<Google::Apis::CalendarV3::EventAttendee.new(email: "#{User.find(id=match_info.owner_id).email}")
 
-      result = service.insert_event('primary', event)
+
 
       event = Google::Apis::CalendarV3::Event.new(
           summary: "CalendarMatcher -#{match_info.title}",
@@ -55,7 +55,7 @@ class SendInvitation
 
         result = service.insert_event('primary', event)
 
-        puts "Event created: #{updated_result.html_link}"
+        puts "Event created: #{result.html_link}"
 
       rescue ::Google::Apis::AuthorizationError => e
       authorization.grant_type = 'refresh_token'

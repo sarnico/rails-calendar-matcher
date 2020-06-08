@@ -4,6 +4,13 @@ require 'pry'
 class FindMatch
   def self.date(id, _owner, users, _min_time, _max_time, _max_date, _min_date = Date.today)
 
+    # Refresh the events of everybody before looking for match
+    GoogleRefresh.refresh_all(User.find(_owner))
+
+    users.each do |user|
+      GoogleRefresh.refresh_all(User.find(user))
+    end
+
     set_match = Match.find(id)
     users = set_match.user_ids << set_match.owner_id
 
