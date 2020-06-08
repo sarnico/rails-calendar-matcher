@@ -8,6 +8,9 @@ require 'fileutils'
 
 class UserEventsController < ApplicationController
   def events_google_calendar
+
+    # Methode pour effacer les anciens events du calendrier Google afin de les recharger.
+
     GoogleRefresh.refresh_all(current_user)
   end
 
