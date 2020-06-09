@@ -8,55 +8,25 @@
 
       <% if current_page?(user_edit_path) && current_user.settings == false %>
 
-        <div class="brand-button">
+        <div class="nav-bar-top">
 
-          <div class="root-navbar-button">
+          <div class="brand-button">
 
-            <%= image_tag "CalendarMatcher.svg", :class => "icon-cm", :id => "logo-image"%>
+            <div class="root-navbar-button">
+
+              <%= image_tag "CalendarMatcher.svg", :class => "icon-cm", :id => "logo-image"%>
+
+            </div>
+
+            <div class="root-navbar-title">
+
+              <h1>Calendar Matcher</h1>
+
+            </div>
 
           </div>
 
-          <div class="root-navbar-title">
-
-            <h1>Calendar Matcher</h1>
-
-          </div>
-
-        </div>
-
-          <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item active">
-
-              <div class="navigation-links">
-
-                <% if request.path_info.include?('matches/')  %>
-
-                  <%= link_to "Create an event", new_match_path, class: "if-create-path" %>
-
-                <% else %>
-
-                  <div class="nav-link-create">Create an event</div>
-
-                <% end %>
-
-                <div class="nav-link login_hover">My Calendar</div>
-
-                <div class="nav-link active-nav login_hover">My Groups</div>
-
-                <% if current_page?(matches_path) %>
-
-                  <%= link_to "My events", matches_path, class: "nav-link nav-link-my-events active-nav" %>
-
-                <% else %>
-
-                  <div class="nav-link active-nav">My events</div>
-
-                <% end %>
-
-              </div>
-
-            </li>
+          <ul class="navbar-nav my-account-dropdown">
 
             <li class="nav-item dropdown">
 
@@ -84,6 +54,42 @@
 
         </div>
 
+        <ul class="navbar-nav navigator">
+
+          <li class="nav-item active">
+
+            <div class="navigation-links">
+
+              <% if request.path_info.include?('matches/')  %>
+
+                <%= link_to "Create an event", new_match_path, class: "if-create-path" %>
+
+              <% else %>
+
+                <div class="nav-link-create">Create an event</div>
+
+              <% end %>
+
+              <div class="nav-link login_hover">My Calendar</div>
+
+              <div class="nav-link active-nav login_hover">My Groups</div>
+
+              <% if current_page?(matches_path) %>
+
+                <%= link_to "My events", matches_path, class: "nav-link nav-link-my-events active-nav" %>
+
+              <% else %>
+
+                <div class="nav-link active-nav">My events</div>
+
+              <% end %>
+
+            </div>
+
+          </li>
+
+        </ul>
+
 
 <%# Here is the after update session %>
 
@@ -92,55 +98,25 @@
 
 
 
-        <%= link_to root_path, class: "brand-button" do %>
+        <div class="nav-bar-top">
 
-          <div class="root-navbar-button">
+          <%= link_to root_path, class: "brand-button" do %>
 
-            <%= image_tag "CalendarMatcher.svg", :class => "icon-cm", :id => "logo-image"%>
+            <div class="root-navbar-button">
 
-          </div>
+              <%= image_tag "CalendarMatcher.svg", :class => "icon-cm", :id => "logo-image"%>
 
-          <div class="root-navbar-title">
+            </div>
 
-            <h1>Calendar Matcher</h1>
+            <div class="root-navbar-title">
 
-          </div>
+              <h1>Calendar Matcher</h1>
 
-        <% end %>
+            </div>
 
-          <ul class="navbar-nav mr-auto">
+          <% end %>
 
-            <li class="nav-item active">
-
-              <div class="navigation-links">
-
-                <% if request.path_info.include?('matches/')  %>
-
-                  <%= link_to "Create an event", new_match_path, class: "if-create-path" %>
-
-                <% else %>
-
-                  <%= link_to "Create an event", new_match_path, class: "nav-link-create" %>
-
-                <% end %>
-
-                <%= link_to "My Calendar", user_events_path, class: "nav-link login_hover #{controller.controller_name == "user_events" ? "active_nav" : "nothing"}"  %>
-
-                <%= link_to "My Groups", groups_path, class: "nav-link active-nav login_hover #{controller.controller_name == "groups" ? "active_nav" : "nothing"}" %>
-
-                <% if current_page?(matches_path) %>
-
-                  <%= link_to "My events", matches_path, class: "nav-link nav-link-my-events active-nav" %>
-
-                <% else %>
-
-                  <%= link_to "My events", matches_path, class: "nav-link active-nav" %>
-
-                <% end %>
-
-              </div>
-
-            </li>
+          <ul class="navbar-nav my-account-dropdown">
 
             <li class="nav-item dropdown">
 
@@ -167,6 +143,42 @@
           </ul>
 
         </div>
+
+        <ul class="navbar-nav navigator">
+
+          <li class="nav-item active">
+
+            <div class="navigation-links">
+
+              <% if request.path_info.include?('matches/')  %>
+
+                <%= link_to "Create an event", new_match_path, class: "if-create-path" %>
+
+              <% else %>
+
+                <%= link_to "Create an event", new_match_path, class: "nav-link-create" %>
+
+              <% end %>
+
+              <%= link_to "My Calendar", user_events_path, class: "nav-link login_hover #{controller.controller_name == "user_events" ? "active_nav" : "nothing"}"  %>
+
+              <%= link_to "My Groups", groups_path, class: "nav-link active-nav login_hover #{controller.controller_name == "groups" ? "active_nav" : "nothing"}" %>
+
+              <% if current_page?(matches_path) %>
+
+                <%= link_to "My events", matches_path, class: "nav-link nav-link-my-events active-nav" %>
+
+              <% else %>
+
+                <%= link_to "My events", matches_path, class: "nav-link active-nav" %>
+
+              <% end %>
+
+            </div>
+
+          </li>
+
+        </ul>
 
       <% end %>
 

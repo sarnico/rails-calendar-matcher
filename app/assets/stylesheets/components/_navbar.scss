@@ -7,33 +7,39 @@
     }
     .navbar-lewagon {
         width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        background: white;
         padding: 10px 20px 10px 20px;
         background-color: #FCF7F8;
-        // border-bottom: solid 1px black;
     }
     #logo-image {
         width: 5vw;
     }
-    .brand-button {
+    .brand-button,
+    .brand-button:hover,
+    .brand-button:active,
+    .brand-button:visited,
+    .brand-button:focus {
         display: flex;
         align-items: center;
         color: #2c363e;
         transition: .2s;
+        text-decoration: none;
+        color: #2C363F;
     }
     .root-navbar-button {
         display: flex;
         justify-content: center;
         margin-right: 2vw;
     }
-    .root-navbar-title h1 {
+    .root-navbar-title h1,
+    .root-navbar-title h1:hover,
+    .root-navbar-title h1:active,
+    .root-navbar-title h1:visited,
+    .root-navbar-title h1:focus {
         display: flex;
         align-self: center;
         margin: 0;
         font-size: 3.2vw;
+        color: #2C363F;
     }
 }
 
