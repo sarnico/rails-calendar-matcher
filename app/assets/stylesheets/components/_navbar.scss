@@ -51,30 +51,20 @@
             }
             .my-account-dropdown {
                 list-style-type: none;
+                margin: 0;
                 .dropdown-item {
-                    font-size: 3vw;
+                    font-size: 4vw;
+                }
+                .dropdown-item:hover,
+                .dropdown-item:active,
+                .dropdown-item:visited,
+                .dropdown-item:focus {
+                    background-color: #9FCCA6;
                 }
                 .dropdown-menu {
                     min-width: 0;
                 }
             }
-            // .dropdown {
-            //     position: relative;
-            // }
-            // .dropdown-toggle {
-            // position: fixed;
-            // }
-            // .dropdown-menu {
-            //     border-color: #D3D0CB;
-            //     background-color: #FCF7F8;
-            // }
-            // .dropdown-menu a {
-            //     color: #2C363F;
-            // }
-            // .dropdown-menu a:hover {
-            //     color: #FCF7F8;
-            //     background-color: #9FCCA6;
-            // }
         }
         .navigator {
             margin-top: 5vh;
