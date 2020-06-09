@@ -6,40 +6,95 @@
         display: none;
     }
     .navbar-lewagon {
+        justify-content: space-between;
         width: 100%;
-        padding: 10px 20px 10px 20px;
+        padding: 2vh 6vw 4vh 6vw;
         background-color: #FCF7F8;
     }
-    #logo-image {
-        width: 5vw;
-    }
-    .brand-button,
-    .brand-button:hover,
-    .brand-button:active,
-    .brand-button:visited,
-    .brand-button:focus {
-        display: flex;
-        align-items: center;
-        color: #2c363e;
-        transition: .2s;
-        text-decoration: none;
-        color: #2C363F;
-    }
-    .root-navbar-button {
+    .navbar-iphone {
         display: flex;
         justify-content: center;
-        margin-right: 2vw;
-    }
-    .root-navbar-title h1,
-    .root-navbar-title h1:hover,
-    .root-navbar-title h1:active,
-    .root-navbar-title h1:visited,
-    .root-navbar-title h1:focus {
-        display: flex;
-        align-self: center;
-        margin: 0;
-        font-size: 3.2vw;
-        color: #2C363F;
+        .navbar-top {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            #logo-image {
+                width: 5vw;
+            }
+            .brand-button,
+            .brand-button:hover,
+            .brand-button:active,
+            .brand-button:visited,
+            .brand-button:focus {
+                display: flex;
+                align-items: center;
+                color: #2c363e;
+                transition: .2s;
+                text-decoration: none;
+                color: #2C363F;
+            }
+            .root-navbar-button {
+                display: flex;
+                justify-content: center;
+                margin-right: 2vw;
+            }
+            .root-navbar-title h1,
+            .root-navbar-title h1:hover,
+            .root-navbar-title h1:active,
+            .root-navbar-title h1:visited,
+            .root-navbar-title h1:focus {
+                display: flex;
+                align-self: center;
+                margin: 0;
+                font-size: 3.2vw;
+                color: #2C363F;
+            }
+            .my-account-dropdown {
+                list-style-type: none;
+                .dropdown-item {
+                    font-size: 3vw;
+                }
+                .dropdown-menu {
+                    min-width: 0;
+                }
+            }
+            // .dropdown {
+            //     position: relative;
+            // }
+            // .dropdown-toggle {
+            // position: fixed;
+            // }
+            // .dropdown-menu {
+            //     border-color: #D3D0CB;
+            //     background-color: #FCF7F8;
+            // }
+            // .dropdown-menu a {
+            //     color: #2C363F;
+            // }
+            // .dropdown-menu a:hover {
+            //     color: #FCF7F8;
+            //     background-color: #9FCCA6;
+            // }
+        }
+        .navigator {
+            margin-top: 5vh;
+            .nav-link-create {
+                padding: 0.5vh 3vw;
+                color: rgba(252, 247, 248, 1) !important;
+                background-color: #2C363F;
+                border: solid 1px #2C363F;
+                border-radius: 30px;
+                transition: 0.3s;
+                text-decoration: none;
+            }
+            .nav-link-create:hover {
+                border: solid 1px #2C363F;
+                border-radius: 30px;
+                color: #2C363F !important;
+                background-color: rgba(252, 247, 248, 1);
+                text-decoration: none;
+            }
+        }
     }
 }
 
