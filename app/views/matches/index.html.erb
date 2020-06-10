@@ -155,13 +155,13 @@
 
 <script>
 
-  document.querySelector('.clickme').addEventListener("click", (e) => {
+  if (document.querySelector('.clickme')){
+    document.querySelector('.clickme').addEventListener("click", (e) => {
 
-    e.preventDefault()
+      e.preventDefault()
 
-    document.querySelector('#backpopup').classList.remove("backpopup")
-
-  })
-
+      document.querySelector('#backpopup').classList.remove("backpopup")
+    })
+  }
 </script>
 
