@@ -1,109 +1,125 @@
 
-<div id="homepage">
+<div id="wrapper" class="background-green-white">
 
-  <div class="white-background">
+  <div id="homepage" class="background-green-white">
 
-  </div>
+    <div class="landing-main container">
 
-  <div class="landing-main container">
+      <div class="devise-cm">
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <p class="devise-cm-up">The automated event scheduler</p>
 
-      <ol class="carousel-indicators">
-
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-
-      </ol>
-
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-
-          <%= image_tag "calendar.jpg", :class => "d-block w-100 image-caption"%>
-
-          <div class="filter"></div>
-
-          <div class="carousel-caption d-none d-md-block">
-
-            <h4 class="caption-sentence">The automated event scheduling manager</h4>
-
-          </div>
-
-        </div>
-
-        <div class="carousel-item">
-
-          <%= image_tag "friends.jpg", :class => "d-block w-100 image-caption"%>
-
-          <div class="filter"></div>
-
-          <div class="carousel-caption d-none d-md-block">
-
-            <h4 class="caption-sentence">Make plans with your friends</h4>
-
-          </div>
-
-        </div>
-
-        <div class="carousel-item image">
-
-          <%= image_tag "business.jpg", :class => "d-block w-100 image-caption"%>
-
-          <div class="filter"></div>
-
-          <div class="carousel-caption d-none d-md-block">
-
-            <h4 class="caption-sentence">Schedule business meetings</h4>
-
-          </div>
-
-        </div>
-
-        <div class="carousel-item">
-
-          <%= image_tag "family.jpg", :class => "d-block w-100 image-caption"%>
-
-          <div class="filter"></div>
-
-          <div class="carousel-caption d-none d-md-block">
-
-            <h4 class="caption-sentence">Organize family dinners</h4>
-
-          </div>
-
-        </div>
+        <p class="devise-cm-down">save time by creating time</p>
 
       </div>
 
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <ol class="carousel-indicators">
 
-        <span class="sr-only">Previous</span>
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 
-      </a>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 
-        <span class="sr-only">Next</span>
+        </ol>
 
-      </a>
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+
+            <%= image_tag "calendar.jpg", :class => "d-block image-caption"%>
+
+            <div class="filter"></div>
+
+            <div class="carousel-caption d-none d-md-block">
+
+              <h4 class="caption-sentence">The automated event scheduling manager</h4>
+
+            </div>
+
+          </div>
+
+          <div class="carousel-item">
+
+            <%= image_tag "friends.jpg", :class => "d-block image-caption"%>
+
+            <div class="filter"></div>
+
+            <div class="carousel-caption d-none d-md-block">
+
+              <h4 class="caption-sentence">Make plans with your friends</h4>
+
+            </div>
+
+          </div>
+
+          <div class="carousel-item image">
+
+            <%= image_tag "business.jpg", :class => "d-block image-caption"%>
+
+            <div class="filter"></div>
+
+            <div class="carousel-caption d-none d-md-block">
+
+              <h4 class="caption-sentence">Schedule business meetings</h4>
+
+            </div>
+
+          </div>
+
+          <div class="carousel-item">
+
+            <%= image_tag "family.jpg", :class => "d-block image-caption"%>
+
+            <div class="filter"></div>
+
+            <div class="carousel-caption d-none d-md-block">
+
+              <h4 class="caption-sentence">Organize family dinners</h4>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+          <span class="sr-only">Previous</span>
+
+        </a>
+
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+          <span class="sr-only">Next</span>
+
+        </a>
+
+      </div>
 
     </div>
 
-  </div>
+    <div class="create-event-button">
 
-  <div class="container landing-header mt-5">
+      <%= link_to "Create an event", new_match_path, class: "nav-link-create" %>
 
-    <h4>"Thanks to CM we can easily plan our girls nights" - ⭐️⭐️⭐️⭐️⭐️</h4>
+    </div>
 
-    <p>Maria, 35 y.o.</p>
+    <div class="container landing-header mt-5">
+
+      <h4>"Thanks to CM we can easily plan our girls nights" - ⭐️⭐️⭐️⭐️⭐️</h4>
+
+      <p>Maria, 35 y.o.</p>
+
+    </div>
 
   </div>
 

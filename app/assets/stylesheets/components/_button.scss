@@ -29,4 +29,20 @@
     .if-create-path:hover {
         text-decoration: none;
     }
+    .nav-link-create {
+        padding: 0.5vh 3vw;
+        color: rgba(252, 247, 248, 1) !important;
+        background-color: #2C363F;
+        border: solid 1px #2C363F;
+        border-radius: 30px;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+    .nav-link-create:hover {
+        border: solid 1px #2C363F;
+        border-radius: 30px;
+        color: #2C363F !important;
+        background-color: rgba(252, 247, 248, 1);
+        text-decoration: none;
+    }
 }
