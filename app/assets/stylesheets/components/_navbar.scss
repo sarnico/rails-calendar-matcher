@@ -74,15 +74,9 @@
                 }
             }
         }
-    }
-    .nav-link-create {
-        padding: 0.5vh 3vw;
-        color: rgba(252, 247, 248, 1) !important;
-        background-color: #2C363F;
-        border: solid 1px #2C363F;
-        border-radius: 30px;
-        transition: 0.3s;
-        text-decoration: none;
+        .navigation-link {
+            margin: 4vh 0 1vh 0;
+        }
     }
 }
 

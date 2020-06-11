@@ -3,14 +3,9 @@
 
 <% current_user.reload.user_events %>
 
+<div id="wrapper" class="background-green-white new-event">
 
-<div class="green-bottom-background">
-
-  <div class="white-top-background">
-
-  </div>
-
-  <div class="container box-new content-main">
+  <div class="container">
 
     <% possible_users = (User.all - [current_user]) %>
 
@@ -18,7 +13,7 @@
 
     <div class="container" id='create-event'>
 
-      <div class="form mt-4 mb-4">
+      <div class="form">
 
         <%= simple_form_for @match do |f| %>
 
@@ -34,13 +29,15 @@
 
           <%= f.input :description, label: 'Description :', placeholder: "Bring some desserts and don't be late" %>
 
-          <div class="d-flex">
+          <p class="date-label">You want your event to happen between :</p>
+
+          <div class="date-container">
 
             <div class="min_date">
 
             <%# try to implement a placeholder here with "DateTime.now.strftime("%d/%m/%Y")" %>
 
-              <%= f.input :min_date, as: :date, placeholder:"Date of birth", html5: true, label: 'You want your event to happen between :', input_html: { class: 'date-min-input' } %>
+              <%= f.input :min_date, as: :date, html5: true, label: 'Min date *', input_html: { class: 'date-min-input' } %>
 
               <div id="date-min-error" class="date-min-error-message">
 
@@ -58,7 +55,7 @@
 
             <div class="max_date">
 
-              <%= f.input :max_date, as: :date, html5: true, label: 'and :', input_html: { class: 'date-max-input' } %>
+              <%= f.input :max_date, as: :date, html5: true, label: 'Max date', input_html: { class: 'date-max-input' } %>
 
               <div id="date-max-error" class="error-message">
 
@@ -78,11 +75,13 @@
 
           <div class="hours-container">
 
+            <p class="hours-label">You want your event to happen from :</p>
+
             <div class="hours-container-1">
 
-              <p class="">Your event will start at :</p>
+              <p class="hours-label-1">Min hour *</p>
 
-              <div class="hours-container-2 align-items-end">
+              <div class="hours-mins-container-1">
 
                 <%= f.input :min_timeh, label: false, placeholder: "19", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-min-input', maxlength: 2 }%>
 
@@ -106,11 +105,11 @@
 
             </div>
 
-            <div class="hours-container-1">
+            <div class="hours-container-2">
 
-              <p class="">and end at :</p>
+              <p class="hours-label-2">Max hour *</p>
 
-              <div class="hours-container-2 align-items-end">
+              <div class="hours-mins-container-2">
 
                 <%= f.input :max_timeh, label: false, placeholder:"22", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-max-input', maxlength: 2 } %>
 
@@ -136,7 +135,11 @@
 
                 <label for="shown_user">Select the attendees : *</label>
 
-                <span class="fa fa-user errspan"></span>
+                <div>
+
+                  <span class="fa fa-user errspan"></span>
+
+                </div>
 
                 <input type="text" id="shown_user_ids" autocomplete="off">
 
@@ -184,7 +187,11 @@
 
             <% end %>
 
-            <%= f.button :submit, 'Find the match !', class:"button", id:"button-find-the-match" %>
+            <div class="button-create-match">
+
+              <%= f.button :submit, 'Match us', class:"button", id:"button-find-the-match" %>
+
+            </div>
 
         <% end %>
 

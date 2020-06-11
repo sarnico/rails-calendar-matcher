@@ -1,35 +1,5 @@
 @media all and (max-width: 600px) {
     .button {
-        margin-right: 43px;
-        padding: 10px 15px;
-        color: rgba(252, 247, 248, 1) !important;
-        background-color: #2C363F;
-        border: solid 1px #2C363F;
-        border-radius: 30px;
-        transition: 0.3s;
-        text-decoration: none;
-        display: flex;
-        align-self: center;
-    }
-    .button:hover {
-        border: solid 1px #2C363F;
-        border-radius: 30px;
-        color: #2C363F !important;
-        background-color: rgba(252, 247, 248, 1);
-        margin-right: 43px;
-        text-decoration: none;
-    }
-    .if-create-path {
-        color: #4A6C6F !important;
-        border-bottom: solid 1px #A1CDA8;
-        transition: 0.3s;
-        padding: 1.5vh 2vw;
-        text-decoration: none;
-    }
-    .if-create-path:hover {
-        text-decoration: none;
-    }
-    .nav-link-create {
         padding: 0.5vh 3vw;
         color: rgba(252, 247, 248, 1) !important;
         background-color: #2C363F;
@@ -38,14 +8,38 @@
         transition: 0.3s;
         text-decoration: none;
     }
-    .nav-link-create:hover {
+    .button:hover {
         text-decoration: none;
     }
-    // .nav-link-create:hover {
-    //     border: solid 1px #2C363F;
-    //     border-radius: 30px;
-    //     color: #2C363F !important;
-    //     background-color: rgba(252, 247, 248, 1);
-    //     text-decoration: none;
-    // }
+    .what-path-i-am-on {
+        color: #4A6C6F !important;
+        border-bottom: solid 1px #A1CDA8;
+        transition: 0.3s;
+        padding: 0 2vw 1vh 2vw;
+        text-decoration: none;
+    }
+    .what-path-i-am-on:hover {
+        text-decoration: none;
+    }
+    .create-event-btn {
+        padding: 0.5vh 3vw;
+        color: rgba(252, 247, 248, 1) !important;
+        background-color: #2C363F;
+        border: solid 1px #2C363F;
+        border-radius: 30px;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+    .create-event-btn:hover {
+        text-decoration: none;
+    }
 }
+
+// .button:hover {
+//     border: solid 1px #2C363F;
+//     border-radius: 30px;
+//     color: #2C363F !important;
+//     background-color: rgba(252, 247, 248, 1);
+//     margin-right: 43px;
+//     text-decoration: none;
+// }
