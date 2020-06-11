@@ -156,28 +156,6 @@
 
         </div>
 
-        <ul class="navbar-nav navigator">
-
-          <li class="nav-item active">
-
-            <div class="navigation-links">
-
-              <% if request.path_info.include?('matches/')  %>
-
-                <%= link_to "Create an event", new_match_path, class: "if-create-path" %>
-
-              <% else %>
-
-                <%#= link_to "Create an event", new_match_path, class: "nav-link-create" %>
-
-              <% end %>
-
-            </div>
-
-          </li>
-
-        </ul>
-
       <% end %>
 
     </div>
