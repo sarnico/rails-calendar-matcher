@@ -159,6 +159,10 @@ const dropdown = () => {
                 userSearchInput.classList.add('error-red')
                 attendeeError.style.display = "contents"
             } else if (selectedUsers.length >= 1) {
+                if (userIcon.classList.contains('user-icon-on-error')) {
+                    userIcon.classList.remove('user-icon-on-error')
+                    userIcon.classList.add('user-icon')
+                }
                 if (userSearchInput.classList.contains('error-red')) {
                     userSearchInput.classList.remove('error-red')
                 }
