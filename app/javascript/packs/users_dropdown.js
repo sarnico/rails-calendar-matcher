@@ -114,7 +114,7 @@ const dropdown = () => {
         prefillForm()
 
         const debileDisplay = (e) => {
-          userSearchResults.classList.toggle("inactif")
+            userSearchResults.classList.toggle("inactif")
             userSearchResults.children[0].classList.add("fancy-hover")
         }
         const removeDebileDisplay = (e) => {
