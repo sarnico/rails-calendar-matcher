@@ -86,15 +86,15 @@ const newMatchValidation = () => {
         }
 
         // //hours
-        const hourMinError = document.getElementById("hour-min-invalid")
-        const doublePointMin = document.getElementById("double-point-min");
         const hourMinInput = document.querySelector(".hour-min-input")
+        const doublePointMin = document.getElementById("double-point-min");
         const minMinInput = document.querySelector(".min-min-input")
+        const hourMinError = document.getElementById("hour-min-invalid")
 
-        const hourMaxError = document.getElementById("hour-max-invalid")
         const doublePointMax = document.getElementById("double-point-max");
         const hourMaxInput = document.querySelector(".hour-max-input")
         const minMaxInput = document.querySelector(".min-max-input")
+        const hourMaxError = document.getElementById("hour-max-invalid")
             // hour minimum
         if (
             hourMinInput.value.length === 0 ||
@@ -114,6 +114,7 @@ const newMatchValidation = () => {
             }
             hourMinInput.classList.add('hour-error-red')
             minMinInput.classList.add('min-error-red')
+            doublePointMin.classList.remove('double-point')
             doublePointMin.classList.add('double-point-red')
             hourMinError.style.display = "contents";
         } else {
@@ -128,6 +129,7 @@ const newMatchValidation = () => {
             }
             hourMinInput.classList.add('hour-error-green')
             minMinInput.classList.add('min-error-green')
+            doublePointMin.classList.remove('double-point')
             doublePointMin.classList.add('double-point-green')
             hourMinError.style.display = "none";
         }
@@ -161,7 +163,7 @@ const newMatchValidation = () => {
             ) {
                 hourMaxInput.classList.remove('hour-error-red')
                 minMaxInput.classList.remove('min-error-red')
-                doublePointMax.classList.remove('double-point-green')
+                doublePointMax.classList.remove('double-point-red')
             }
             hourMaxInput.classList.add('hour-error-green')
             minMaxInput.classList.add('min-error-green')
@@ -183,7 +185,7 @@ const newMatchValidation = () => {
             )) {
             event.preventDefault()
             if (rightHour.classList.contains("error-green")) {
-                rightHour.classList.remove("error-red")
+                rightHour.classList.remove("error-green")
             }
             rightHour.classList.add("error-red")
             if (
@@ -197,6 +199,7 @@ const newMatchValidation = () => {
             }
             hourMinInput.classList.add('hour-error-red')
             minMinInput.classList.add('min-error-red')
+            doublePointMin.classList.remove('double-point')
             doublePointMin.classList.add('double-point-red')
             rightHour.style.display = "contents";
         } else {
@@ -206,20 +209,5 @@ const newMatchValidation = () => {
         // for attendee validation, go have a look on user dropdown on the bottom
     })
 }
-
-// const emptyChoiceOnMatch = () => {
-//     const emptyChoice = document.querySelectorAll(".fc-title")
-//     console.log(emptyChoice)
-//     emptyChoice.forEach(choice => {
-//         console.log
-//             // prevent click on empty day
-//         choice.addEventListener('click', (e) => {
-//             event.preventDefault()
-//         })
-//         event.preventDefault()
-//         console.log(e)
-//             // if ()
-//     })
-// }
 
 export { newMatchValidation }
