@@ -93,22 +93,22 @@ const dropdown = () => {
         }
 
         const prefillForm = () => {
-          if (groupMembers !="[]"){
-            groupMembers.forEach((userId) => {
-                const user = users.find(item => item.id === userId)
-                selectUser(user)
-                users.splice(users.indexOf(user), 1)
-                resetSearch()
-            })
-          }
-          if (attendeesSelected !="[]"){
-            groupMembers.forEach((userId) => {
-                const user = users.find(item => item.id === userId)
-                selectUser(user)
-                users.splice(users.indexOf(user), 1)
-                resetSearch()
-            })
-          }
+            if (groupMembers != "[]") {
+                groupMembers.forEach((userId) => {
+                    const user = users.find(item => item.id === userId)
+                    selectUser(user)
+                    users.splice(users.indexOf(user), 1)
+                    resetSearch()
+                })
+            }
+            if (attendeesSelected != "[]") {
+                groupMembers.forEach((userId) => {
+                    const user = users.find(item => item.id === userId)
+                    selectUser(user)
+                    users.splice(users.indexOf(user), 1)
+                    resetSearch()
+                })
+            }
         }
 
         prefillForm()
@@ -146,8 +146,13 @@ const dropdown = () => {
 
         findMatch.addEventListener('click', (e) => {
             const attendeeError = document.getElementById("attendee-error-message")
+            const userIcon = document.getElementById("user-icon")
             if (selectedUsers.length === 0) {
                 event.preventDefault()
+                if (userIcon.classList.contains('user-icon')) {
+                    userIcon.classList.remove('user-icon')
+                    userIcon.classList.add('user-icon-on-error')
+                }
                 if (userSearchInput.classList.contains('error-green')) {
                     userSearchInput.classList.remove('error-green')
                 }
