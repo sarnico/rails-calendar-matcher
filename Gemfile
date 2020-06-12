@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 ruby '2.6.5'
 
 # Add by the Dream Team
+gem 'pry'
 gem 'devise'
 gem 'google-api-client', require: 'google/apis/calendar_v3'
 gem 'omniauth-google-oauth2'
