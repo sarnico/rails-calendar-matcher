@@ -17,11 +17,15 @@
 
         <%= simple_form_for @match do |f| %>
 
-          <%= f.input :title, label: 'Title of the event :', placeholder: 'Family diner', input_html: { class: 'title-input' } %>
+          <div class="title-container">
 
-          <div id="title-error" class="error-message">
+            <%= f.input :title, label: 'Title of the event :', placeholder: 'Family diner', input_html: { class: 'title-input' } %>
 
-            <p>Please put a title</p>
+            <div id="title-error" class="error-message">
+
+              <p>Please put a title</p>
+
+            </div>
 
           </div>
 
@@ -73,9 +77,9 @@
 
           </div>
 
-          <div class="hours-container">
+          <p class="hours-label">You want your event to happen from :</p>
 
-            <p class="hours-label">You want your event to happen from :</p>
+          <div class="hours-container">
 
             <div class="hours-container-1">
 
@@ -107,23 +111,27 @@
 
             <div class="hours-container-2">
 
-              <p class="hours-label-2">Max hour *</p>
+                <div>
 
-              <div class="hours-mins-container-2">
+                  <p class="hours-label-2">Max hour *</p>
 
-                <%= f.input :max_timeh, label: false, placeholder:"22", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-max-input', maxlength: 2 } %>
+                </div>
 
-                <p id="double-point-max" class="double-point">:</p>
+                <div class="hours-mins-container-2">
 
-                <%= f.input :max_timem, label: false, placeholder:"30", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'min-max-input', maxlength: 2 } %>
+                  <%= f.input :max_timeh, label: false, placeholder:"22", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'hour-max-input', maxlength: 2 } %>
 
-              </div>
+                  <p id="double-point-max" class="double-point">:</p>
 
-              <div id="hour-max-invalid" class="error-message">
+                  <%= f.input :max_timem, label: false, placeholder:"30", input_html: { min: '0', max: '24', step: '1' }, input_html: { class: 'min-max-input', maxlength: 2 } %>
 
-                <p>Please put a valid maximum hour</p>
+                </div>
 
-              </div>
+                <div id="hour-max-invalid" class="error-message">
+
+                  <p>Please put a valid maximum hour</p>
+
+                </div>
 
             </div>
 

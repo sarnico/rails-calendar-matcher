@@ -33,6 +33,10 @@ input[type=number] {
     padding: 2%;
     font-size: 0.8em;
     color: #FCF7F8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
 }
 
 .inactif {
@@ -143,7 +147,7 @@ input[type=number] {
     border-bottom: 1px solid #A7D930;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 599px) {
     #create-event {
         padding: 3vh 2vw;
         .form {
@@ -179,25 +183,36 @@ input[type=number] {
                 font-size: 0.8em;
             }
             .date-container {
-                // margin-left: 5%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
                 .min_date {
                     width: 100%;
+                    max-width: 170px;
+                    @media all and (min-width: 444px) {
+                        margin-right: 10%;
+                    }
                     #match_min_date {
-                        margin: 0;
+                        margin-bottom: 1rem;
                     }
                 }
                 .max_date {
                     width: 100%;
+                    max-width: 170px;
+                    #match_max_date {
+                        margin-bottom: 1rem;
+                    }
                 }
+            }
+            .hours-label {
+                font-size: 1em;
+                color: #2C363F;
+                margin: 0;
             }
             .hours-container {
                 display: flex;
-                flex-direction: column;
-                .hours-label {
-                    font-size: 1em;
-                    color: #2C363F;
-                    margin-bottom: 0.5em;
-                }
+                justify-content: space-between;
+                flex-wrap: wrap;
                 .double-point {
                     padding: 6px 0px;
                     border-top: 1px solid #ced4da;
@@ -206,17 +221,14 @@ input[type=number] {
                     text-align: center;
                     margin: 0;
                 }
-                .hours-label-1 {
-                    color: #2C363F;
-                }
-                .hours-label-2 {
-                    color: #2C363F;
-                }
                 .hours-container-1 {
-                    // height: 50px;
+                    width: 100%;
+                    max-width: 140px;
+                    .hours-label-1 {
+                        color: #2C363F;
+                    }
                     .hours-mins-container-1 {
                         display: flex;
-                        width: 40%;
                         .min-min-input {
                             border-left: none;
                             border-top-left-radius: 0px;
@@ -231,24 +243,39 @@ input[type=number] {
                             text-align: center;
                             padding: 0;
                         }
+                        #hour-min-invalid {
+                            white-space: wrap;
+                        }
                     }
                 }
-                .hours-mins-container-2 {
-                    display: flex;
-                    width: 40%;
-                    .min-max-input {
-                        border-left: none;
-                        border-top-left-radius: 0px;
-                        border-bottom-left-radius: 0px;
-                        text-align: center;
-                        padding: 0;
+                .hours-container-2 {
+                    width: 100%;
+                    max-width: 140px;
+                    .hours-label-2 {
+                        color: #2C363F;
                     }
-                    .hour-max-input {
-                        border-right: none;
-                        border-top-right-radius: 0px;
-                        border-bottom-right-radius: 0px;
-                        text-align: center;
-                        padding: 0;
+                    .hours-mins-container-2 {
+                        display: flex;
+                        align-self: flex-end;
+                        max-width: 140px;
+                        .min-max-input {
+                            border-left: none;
+                            border-top-left-radius: 0px;
+                            border-bottom-left-radius: 0px;
+                            text-align: center;
+                            padding: 0;
+                        }
+                        .hour-max-input {
+                            border-right: none;
+                            border-top-right-radius: 0px;
+                            border-bottom-right-radius: 0px;
+                            text-align: center;
+                            padding: 0;
+                        }
+                    }
+                    #hour-max-invalid p {
+                        display: flex;
+                        flex-wrap: wrap;
                     }
                 }
             }
@@ -289,23 +316,35 @@ input[type=number] {
                 justify-content: center;
             }
             //spacing
-            .match_title {
-                margin-bottom: 12%;
+            .error-message p {
+                margin-bottom: 0;
+            }
+            .title-container {
+                margin-bottom: 8%;
+                #match_title {
+                    margin-bottom: 1rem;
+                }
             }
             .match_location {
-                margin-bottom: 12%;
+                margin-bottom: 8%;
             }
             .match_description {
-                margin-bottom: 12%;
+                margin-bottom: 8%;
+            }
+            .date-label {
+                margin: 0;
             }
             .date-container {
-                margin-bottom: 12%;
+                margin-bottom: 8%;
                 label {
                     margin: 0.4rem 0;
                 }
             }
             .hours-container {
-                margin-bottom: 12%;
+                margin-bottom: 8%;
+                .hours-label {
+                    margin: 0;
+                }
                 .hours-label-1 {
                     margin: 0.4rem 0;
                 }
@@ -314,10 +353,10 @@ input[type=number] {
                 }
             }
             #selected_user_ids {
-                margin-bottom: 12%;
+                margin-bottom: 8%;
             }
             #group_name {
-                margin-bottom: 12%;
+                margin-bottom: 8%;
             }
         }
     }

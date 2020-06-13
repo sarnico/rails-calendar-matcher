@@ -54,6 +54,7 @@
             display: flex;
             justify-content: center;
             margin-top: 9vh;
+            padding-bottom: 9vh;
         }
     }
     @media all and (min-height: 800px) {
@@ -72,6 +73,7 @@
                 }
                 .create-event-button {
                     margin-top: 12vh;
+                    padding-bottom: 12vh;
                 }
             }
         }
