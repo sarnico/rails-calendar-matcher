@@ -1,4 +1,4 @@
-<div id="wrapper" class="background-green-white my-groups">
+<div id="wrapper" class="background-green-white">
 
   <div class="container my-groups-page-container">
 
@@ -24,77 +24,43 @@
 
       <% else %>
 
-        <div class="landing-main-groups container">
+        <div class="add-something-when-groups">
 
-          <div class="add-something">
+          <%= link_to new_group_path, class: "add-something" do %>
 
-            <%= link_to new_group_path do %>
+            New group <i class="fas fa-plus"></i>
 
-              <p><i class="icon fas fa-plus"></i> Add a new group</p>
+          <% end %>
 
-            <% end %>
+        </div>
 
-          </div>
+        <div class="card-index">
 
-          <div class="group-layout">
+          <% @my_groups.uniq.each do |group| %>
 
-            <% @my_groups.uniq.each do |group| %>
+            <div class="group-card">
 
-              <div class="card-group-index">
+              <div class="top">
 
-                <div class="top">
+                <h3><%= group.name.capitalize %></h3>
 
-                  <h3><%= group.name.capitalize %></h3>
+                <img src="<%= group.creater.avatar %>" class="card-trip-user" />
 
-                  <img src="<%= group.creater.avatar %>" class="card-trip-user avatar-bordered" />
+              </div>
 
-                </div>
+              <div class="medium">
 
-                <div class="medium">
+                <div class="group-member-layout">
 
-                  <div class="group-member-layout">
+                  <% group.members.each do |user| %>
 
-                    <% group.members.each do |user| %>
+                    <div class="member_each">
 
-                      <div class="member_each">
+                      <img src="<%= user.avatar %>" class="card-trip-user" />
 
-                        <img src="<%= user.avatar %>" class="card-trip-user avatar-bordered" />
+                      <p><%= user.email %></p>
 
-                        <p><%= user.email %></p>
-
-                      </div>
-
-                    <% end %>
-
-                  </div>
-
-                </div>
-
-                <div class="bottom">
-
-                  <% if group.creater_id == current_user.id %>
-
-                    <p class="group-links">
-
-                      <%= link_to new_match_path(group_id: group.id), class: "icon" do %>
-
-                        <i class="far fa-calendar-check"></i>
-
-                      <% end %>
-
-                      <%= link_to edit_group_path(group), class: "icon" do %>
-
-                        <i class="fas fa-user-edit"></i>
-
-                      <% end %>
-
-                      <%= link_to group_path(group), method: :delete, data: { confirm: "Are you sure?" }, class: "icon" do %>
-
-                        <i class="fas fa-trash-alt"></i>
-
-                      <% end %>
-
-                    </p>
+                    </div>
 
                   <% end %>
 
@@ -102,9 +68,39 @@
 
               </div>
 
-            <% end %>
+              <div class="bottom">
 
-          </div>
+                <% if group.creater_id == current_user.id %>
+
+                  <p class="group-links">
+
+                    <%= link_to new_match_path(group_id: group.id), class: "icon" do %>
+
+                      <i class="far fa-calendar-check"></i>
+
+                    <% end %>
+
+                    <%= link_to edit_group_path(group), class: "icon" do %>
+
+                      <i class="fas fa-user-edit"></i>
+
+                    <% end %>
+
+                    <%= link_to group_path(group), method: :delete, data: { confirm: "Are you sure?" }, class: "icon" do %>
+
+                      <i class="fas fa-trash-alt"></i>
+
+                    <% end %>
+
+                  </p>
+
+                <% end %>
+
+              </div>
+
+            </div>
+
+          <% end %>
 
         </div>
 
