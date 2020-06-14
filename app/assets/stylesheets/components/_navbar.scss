@@ -1,4 +1,4 @@
-@media all and (max-width: 600px) {
+@media all and (max-width: 599px) {
     #mobile-size {
         display: contents;
     }
@@ -11,7 +11,7 @@
         padding: 2vh 6vw 2vh 6vw;
         background-color: #FCF7F8;
     }
-    @media all and (min-height: 800px) and (max-height: 1000px) {
+    @media all and (min-height: 800px) and (max-height: 999px) {
         .navbar-lewagon {
             justify-content: space-between;
             width: 100%;
@@ -80,7 +80,7 @@
     }
 }
 
-@media all and (min-width: 601px) and (max-width: 1024px) {}
+@media all and (min-width: 600px) and (max-width: 1024px) {}
 
 @media all and (min-width: 1025px) {
     .navbar-lewagon {

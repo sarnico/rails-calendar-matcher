@@ -2,7 +2,7 @@
 // color green clair : #A1CDA8
 // color crème : #FCF7F8
 // color green foncé / écriture : #2C363F
-@media all and (max-width: 600px) {
+@media all and (max-width: 599px) {
     #homepage {
         padding-top: 9.3vh;
         .landing-main {
@@ -58,7 +58,7 @@
         }
     }
     @media all and (min-height: 800px) {
-        @media all and (max-height: 1000px) {
+        @media all and (max-height: 999px) {
             #homepage {
                 .landing-main {
                     .devise-cm {

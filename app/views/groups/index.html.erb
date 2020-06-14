@@ -1,30 +1,22 @@
-<div id="wrapper" class="background-green-white">
+<div id="wrapper" class="background-green-white my-groups">
 
-  <div class="container">
+  <div class="container my-groups-page-container">
 
     <div class="my-groups-page">
 
       <% if @my_groups == [] %>
 
-        <div class="landing-main-groups-empty container">
+        <div class="no-group">
 
-          <div class="no-event">
+          <h3>You don't have any group yet</h3>
 
-            <div>
+          <div>
 
-              <h3>You don't have any group yet</h3>
+            <%= link_to new_group_path, class: "add-something" do %>
 
-            </div>
+              <i class="fas fa-plus"></i> Create your first group
 
-            <div>
-
-              <%= link_to new_group_path, class: "add-something" do %>
-
-                <i class="fas fa-plus"></i> Create your first group
-
-              <% end %>
-
-            </div>
+            <% end %>
 
           </div>
 
