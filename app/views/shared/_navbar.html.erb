@@ -166,9 +166,21 @@
 
                 <div class="what-path-i-am-on">Create an event</div>
 
-              <% else %>
+              <% elsif request.path_info.include?('user_events') %>
 
-                <%#= link_to "Create an event", new_match_path, class: "nav-link-create" %>
+                <div class="what-path-i-am-on">My calendar</div>
+
+              <% elsif request.path_info.include?('groups') %>
+
+                <div class="what-path-i-am-on">My groups</div>
+
+              <% elsif request.path_info.include?('matches') %>
+
+                <div class="what-path-i-am-on">My events</div>
+
+              <% elsif request.path_info.include?('users/') %>
+
+                <div class="what-path-i-am-on">My account</div>
 
               <% end %>
 
