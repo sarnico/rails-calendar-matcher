@@ -24,77 +24,101 @@
 
       <% else %>
 
-        <div class="landing-main-events container">
+        <div class="add-something-when-events">
 
-          <div class="add-something">
+          <%= link_to new_match_path, class: "add-something" do %>
 
-            <%= link_to new_match_path do %>
+            <i class="fas fa-plus"></i> Create your first event
 
-              <p><i class="icon fas fa-plus"></i> Add a new event</p>
+          <% end %>
 
-            <% end %>
+        </div>
 
-          </div>
+        <div class="card-index">
 
-          <div class="group-layout">
+          <% @my_events.each do |match| %>
 
-            <% @my_events.each do |match| %>
+            <div class="event-card">
 
-              <div class="card-group-index">
+              <div class="top">
 
-                <div class="top">
+                <h3><%= match.title.capitalize %></h3>
 
-                  <h3><%= match.title.capitalize %></h3>
+                <img src="<%= match.owner.avatar %>" class="card-trip-user avatar-bordered" />
 
-                  <img src="<%= match.owner.avatar %>" class="card-trip-user avatar-bordered" />
+              </div>
 
-                </div>
+              <div class="event-info">
 
-                <div>
+                <% if match.match_date == nil %>
 
-                  <% if match.match_date == nil %>
+                  <p class="event-date-not-found">Still looking for a match</p>
 
-                    <p>Still looking for a match</p>
+                <% else %>
 
-                  <% else %>
+                  <div class="event-date">
 
-                    <p><%= "#{match.match_date.strftime("%a %d %B %Y")} from #{match.min_time.localtime.strftime("%H:%M")} until #{match.max_time.localtime.strftime("%H:%M")}" %></p>
+                    <p><%= "#{match.match_date.strftime("%a %d %B %Y")}" %></p>
 
-                  <% end %>
-
-                  <% if match.location != "" %>
-
-                    <p><b>Location :</b> <%= match.location %></p>
-
-                  <% end %>
-
-                  <% if match.description != "" %>
-
-                    <p><b>Description : </b><%= match.description %></p>
-
-                  <% end %>
-
-                  <p><b>Attendees :</b></p>
-
-                </div>
-
-                <div class="medium">
-
-                  <div class="group-member-layout">
-
-                    <% match.attendees.each do |user| %>
-
-                      <p class="size-review"><%= user.email %></p>
-
-                    <% end %>
+                    <p><%= " from #{match.min_time.localtime.strftime("%H:%M")} until #{match.max_time.localtime.strftime("%H:%M")}" %></p>
 
                   </div>
 
+                <% end %>
+
+                <% if match.location != "" %>
+
+                  <div class="event-location">
+
+                    <p><b>Location :</b></p>
+
+                    <p><%= match.location %></p>
+
+                  </div>
+
+                <% end %>
+
+                <% if match.description != "" %>
+
+                  <div class="event-description">
+
+                    <p><b>Description :</b></p>
+
+                    <p><%= match.description %></p>
+
+                  </div>
+
+                <% end %>
+
+              </div>
+
+              <div class="medium">
+
+                <div class="event-member-layout">
+
+                  <p><b>Attendees :</b></p>
+
+                  <% match.attendees.each do |user| %>
+
+                    <div class="member_each">
+
+                      <img src="<%= user.avatar %>" class="card-trip-user" />
+
+                      <p><%= user.email %></p>
+
+                    </div>
+
+                  <% end %>
+
                 </div>
 
-                <div class="bottom">
+              </div>
 
-                  <% if match.owner_id == current_user.id  %>
+              <div class="bottom">
+
+                <% if match.owner_id == current_user.id  %>
+
+                  <p class="group-links">
 
                     <%= link_to edit_match_path(match) do %>
 
@@ -108,15 +132,15 @@
 
                     <% end %>
 
-                  <% end %>
+                  </p>
 
-                </div>
+                <% end %>
 
               </div>
 
-            <% end %>
+            </div>
 
-          </div>
+          <% end %>
 
         </div>
 
