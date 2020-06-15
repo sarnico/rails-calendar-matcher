@@ -54,8 +54,13 @@ class MatchesController < ApplicationController
 
   def update
     if @match.update(match_params)
-      respond_to do |format|
-        format.json { render json: @match.as_json }
+      if request.env["HTTP_REFERER"]=="http://localhost:3000/matches/#{@match.id}/edit" || request.env["HTTP_REFERER"]=="www.calendarmatcher.com/matches/#{@match.id}/edit"
+        SendInvitation.update_google_event(@match, current_user)
+        redirect_to matches_path
+      else
+        respond_to do |format|
+          format.json { render json: @match.as_json }
+        end
       end
     end
   end
