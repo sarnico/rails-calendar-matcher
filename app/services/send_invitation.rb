@@ -10,6 +10,7 @@ class SendInvitation
 
       google_event = create_calendar_event(match_info)
       updated_google_event = update_calendar_event(match_info,google_event)
+      match_info.update_attribute(:google_id, updated_google_event.id)
 
     rescue ::Google::Apis::AuthorizationError => e
       authorization.grant_type = 'refresh_token'
