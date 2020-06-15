@@ -120,7 +120,15 @@
 
               <% if request.path_info.exclude?('matches/new') %>
 
-                <%= link_to "new match", new_match_path, class: "create-event-button-exclude-home-and-new-match" %>
+                <% if !current_page?(matches_path) %>
+
+                  <%= link_to new_match_path, class: "navbar-new-event-top-right" do %>
+
+                    <i class="fas fa-plus create-event-button-exclude-home-and-new-match"></i>
+
+                  <% end %>
+
+                <% end %>
 
               <% end %>
 

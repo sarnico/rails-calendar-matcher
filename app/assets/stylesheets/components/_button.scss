@@ -34,17 +34,15 @@
         text-decoration: none;
     }
     .create-event-button-exclude-home-and-new-match {
-        padding: 0.5vh 3vw;
         color: rgba(252, 247, 248, 1) !important;
         background-color: #2C363F;
         border: solid 1px #2C363F;
-        border-radius: 30px;
+        border-radius: 4px;
         transition: 0.3s;
         font-size: 3vw;
-        white-space: nowrap;
-        overflow: hidden;
+        height: 7vw;
+        width: 7vw;
         text-decoration: none;
-        width: min-content;
     }
     .create-event-button-exclude-home-and-new-match:hover {
         text-decoration: none;
