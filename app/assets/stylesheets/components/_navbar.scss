@@ -57,20 +57,30 @@
                 font-size: 4vw;
                 color: #2C363F;
             }
-            .my-account-dropdown {
-                list-style-type: none;
-                margin: 0;
-                .dropdown-item {
-                    font-size: 4vw;
-                }
-                .dropdown-item:hover,
-                .dropdown-item:active,
-                .dropdown-item:visited,
-                .dropdown-item:focus {
-                    background-color: #9FCCA6;
-                }
-                .dropdown-menu {
-                    min-width: 0;
+            .navbar-top-right {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                .my-account-dropdown {
+                    list-style-type: none;
+                    margin: 0;
+                    padding-left: 5vw;
+                    li {
+                        display: flex;
+                        align-items: center;
+                    }
+                    .dropdown-item {
+                        font-size: 4vw;
+                    }
+                    .dropdown-item:hover,
+                    .dropdown-item:active,
+                    .dropdown-item:visited,
+                    .dropdown-item:focus {
+                        background-color: #9FCCA6;
+                    }
+                    .dropdown-menu {
+                        min-width: 0;
+                    }
                 }
             }
         }
