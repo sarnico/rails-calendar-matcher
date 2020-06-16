@@ -7,9 +7,25 @@
             padding: 7%;
             border-radius: 3px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-            // p {
-            //     margin: 0;
-            // }
+            label {
+                font-size: 1em;
+                color: #2C363F;
+            }
+             ::placeholder {
+                /* Firefox, Chrome, Opera */
+                color: #D3D3D3;
+                font-size: 0.8em;
+            }
+             :-ms-input-placeholder {
+                /* Internet Explorer 10-11 */
+                color: #D3D3D3;
+                font-size: 0.8em;
+            }
+             ::-ms-input-placeholder {
+                /* Microsoft Edge */
+                color: #D3D3D3;
+                font-size: 0.8em;
+            }
             .name-container {
                 margin-bottom: 8%;
             }

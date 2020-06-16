@@ -196,9 +196,13 @@
 
                 <div class="what-path-i-am-on">My groups</div>
 
-              <% elsif request.path_info.include?('groups/new') %>
+              <% elsif current_page?(new_group_path) %>
 
                 <div class="what-path-i-am-on">New group</div>
+
+              <% elsif request.path_info.include?('groups/') %>
+
+                <div class="what-path-i-am-on">Edit my group</div>
 
               <% elsif request.path_info.include?('matches') %>
 
