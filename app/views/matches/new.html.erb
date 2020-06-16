@@ -153,12 +153,6 @@
 
               </div>
 
-              <div id="attendee-error-message" class="error-message">
-
-                <p>Please select at least one friend</p>
-
-              </div>
-
               <div id="user_search_results" class="inactif">
 
                   <% possible_users.each do |user| %>
@@ -166,6 +160,12 @@
                   <p class='user' data-user-id="<%= user.id %>"><%= user.email%> <i class="fas fa-plus"></i></p>
 
                   <% end %>
+
+              </div>
+
+              <div id="attendee-error-message" class="error-message">
+
+                <p>Please select at least one friend</p>
 
               </div>
 

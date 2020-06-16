@@ -152,6 +152,7 @@ const dropdown = () => {
                 if (userIcon.classList.contains('user-icon')) {
                     userIcon.classList.remove('user-icon')
                     userIcon.classList.add('user-icon-on-error')
+                    userSearchResults.style.top = "68%"
                 }
                 if (userSearchInput.classList.contains('error-green')) {
                     userSearchInput.classList.remove('error-green')
@@ -162,6 +163,7 @@ const dropdown = () => {
                 if (userIcon.classList.contains('user-icon-on-error')) {
                     userIcon.classList.remove('user-icon-on-error')
                     userIcon.classList.add('user-icon')
+                    userSearchResults.style.top = "96%"
                 }
                 if (userSearchInput.classList.contains('error-red')) {
                     userSearchInput.classList.remove('error-red')

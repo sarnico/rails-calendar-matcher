@@ -93,8 +93,8 @@ input[type=number] {
 }
 
 .error-green {
-    border: solid 1px #A7D930;
-    border-radius: 2px;
+    border: solid 1px #A7D930 !important;
+    border-radius: 2px !important;
 }
 
 .date-min-error-message {

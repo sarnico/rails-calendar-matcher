@@ -64,11 +64,7 @@
                 .navbar-new-event-top-right {
                     display: flex;
                     justify-content: center;
-                    .create-event-button-exclude-home-and-new-match {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
+                    .create-event-button-exclude-home-and-new-match {}
                 }
                 .my-account-dropdown {
                     list-style-type: none;

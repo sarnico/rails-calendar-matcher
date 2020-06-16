@@ -27,7 +27,6 @@
         background-color: #2C363F;
         border: solid 1px #2C363F;
         border-radius: 30px;
-        transition: 0.3s;
         text-decoration: none;
     }
     .create-event-btn:hover {
@@ -36,12 +35,11 @@
     .create-event-button-exclude-home-and-new-match {
         color: rgba(252, 247, 248, 1) !important;
         background-color: #2C363F;
-        border: solid 1px #2C363F;
         border-radius: 4px;
-        transition: 0.3s;
-        font-size: 3vw;
-        height: 7vw;
-        width: 7vw;
+        padding: 1vw;
+        margin: 0 0.01vw;
+        height: 6.4vw;
+        width: 6.4vw;
         text-decoration: none;
     }
     .create-event-button-exclude-home-and-new-match:hover {
