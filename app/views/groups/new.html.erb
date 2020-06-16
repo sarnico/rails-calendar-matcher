@@ -2,46 +2,82 @@
 
 <div id='possible_users' data-input-id="group_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
 
-<div class="container">
+<div id="wrapper" class="background-green-white">
 
-  <h1>Create here your new group</h1>
+  <div class="container">
 
-  <%= simple_form_for @group do |f| %>
+    <div id='create-group'>
 
-    <%= f.error_notification %>
+      <%= simple_form_for @group do |f| %>
 
-    <%= f.input :name, label: "Give a name to your group" %>
+        <%= f.error_notification %>
 
-    <%= f.input :user_ids, as: :hidden %>
+        <div class="name-container">
 
-    <div class="custom-dropdown">
+          <%= f.input :name, label: "Name", placeholder: 'Family diner', input_html: { class: 'name-input' } %>
 
-      <div class="form-group ">
+          <div id="name-error" class="error-message">
 
-        <label for="shown_user_ids">Select the attendees :</label>
+            <p>Please put a name</p>
 
-        <input type="text" id="shown_user_ids" autocomplete="off">
+          </div>
 
-      </div>
+        </div>
 
-      <div id="user_search_results" class="inactif">
+        <div class="members-container">
 
-        <% possible_users.each do |user| %>
+          <%= f.input :user_ids, as: :hidden %>
 
-        <p class='user' data-user-id="<%= user.id %>"><%= user.email %></p>
+          <div class="custom-dropdown">
 
-        <% end %>
+            <div id="attendee-div" class="form-group">
 
-      </div>
+              <label for="shown_user">Select the members</label>
+
+              <div>
+
+                <span id="user-icon" class="fa fa-user user-icon"></span>
+
+              </div>
+
+              <input type="text" id="shown_user_ids" autocomplete="off">
+
+            </div>
+
+            <div id="user_search_results" class="inactif">
+
+              <% possible_users.each do |user| %>
+
+              <p class='user' data-user-id="<%= user.id %>"><%= user.email %> <i class="fas fa-plus"></i></p>
+
+              <% end %>
+
+            </div>
+
+            <div id="attendee-error-message" class="error-message">
+
+              <p>Please select at least one friend</p>
+
+            </div>
+
+          </div>
+
+          <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;">
+
+          </div>
+
+        </div>
+
+        <div class="button-create-group">
+
+          <%= f.button :submit, 'Create group', class: "button", id: "button-create-group" %>
+
+        </div>
+
+      <% end %>
 
     </div>
 
-    <div id="selected_user_ids" style="display: flex; flex-wrap: wrap; margin-bottom: 18px;">
-
-    </div>
-
-    <%= f.button :submit, 'Create group', class: "btn-primary" %>
-
-  <% end %>
+  </div>
 
 </div>

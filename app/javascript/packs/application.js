@@ -15,6 +15,7 @@ import { calendar_matches } from "../calendar_matches_choice"
 import { dropdown } from "./users_dropdown"
 import { titleHover } from "./icon_bigger_hover"
 import { newMatchValidation } from "./new_match_validation"
+import { newGroupValidation } from "./new_group_validation"
 import { hoursAutomaticallySkip } from "./hours_automatically_skip";
 import { putRealTime } from "./hours_automatically_skip";
 import { newUserValidation } from "./new_user_validation";
@@ -48,4 +49,8 @@ if (document.getElementById("create-event")) {
 if (document.getElementById("edit-user")) {
     newUserValidation();
     capitalizeLetter();
+}
+
+if (document.getElementById("create-group")) {
+    newGroupValidation()
 }
