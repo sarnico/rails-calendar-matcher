@@ -123,6 +123,27 @@ const newUserValidation = () => {
             phoneNumberError.style.display = "none"
         }
     })
+
 }
 
-export { newUserValidation }
+const capitalizeLetter = () => {
+    const editUser = document.getElementById("button-create-user");
+    editUser.addEventListener("click", (e) => {
+        const firstNameInput = document.querySelector(".first-name-input");
+        const lastNameInput = document.querySelector(".last-name-input");
+        const cityInput = document.querySelector(".city-input");
+        const firstNameCapitalized =
+            firstNameInput.value[0].toUpperCase() +
+            firstNameInput.value.slice(1).toLowerCase();
+        const lastNameCapitalized =
+            lastNameInput.value[0].toUpperCase() +
+            lastNameInput.value.slice(1).toLowerCase();
+        const cityCapitalized = cityInput.value[0].toUpperCase() +
+            cityInput.value.slice(1).toLowerCase()
+        firstNameInput.value = firstNameCapitalized
+        lastNameInput.value = lastNameCapitalized
+        cityInput.value = cityCapitalized
+    });
+};
+
+export { newUserValidation, capitalizeLetter };

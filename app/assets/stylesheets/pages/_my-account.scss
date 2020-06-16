@@ -13,6 +13,9 @@
                     margin: 0;
                 }
             }
+            .edit-my-account:focus {
+                text-decoration: none;
+            }
             .my-account-top {
                 // max-height: min-content;
                 display: flex;

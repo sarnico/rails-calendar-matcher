@@ -204,6 +204,10 @@
 
                 <div class="what-path-i-am-on">My account</div>
 
+              <% elsif request.path_info.include?('user_edit') %>
+
+                <div class="what-path-i-am-on">Edit my account</div>
+
               <% end %>
 
             </div>

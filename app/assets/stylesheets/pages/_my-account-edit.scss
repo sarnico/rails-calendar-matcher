@@ -1,0 +1,41 @@
+@media all and (max-width: 599px) {
+    #edit-user {
+        padding: 21vh 2vw 2vh 2vw;
+        height: 100%;
+        .form {
+            background: white;
+            padding: 7%;
+            border-radius: 3px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            .form-group {
+                margin-bottom: 1rem;
+            }
+            .input {
+                margin-bottom: 8%;
+            }
+            .button-edit-user {
+                display: flex;
+                justify-content: center;
+            }
+             ::placeholder {
+                /* Firefox, Chrome, Opera */
+                color: #D3D3D3;
+                font-size: 0.8em;
+            }
+             :-ms-input-placeholder {
+                /* Internet Explorer 10-11 */
+                color: #D3D3D3;
+                font-size: 0.8em;
+            }
+             ::-ms-input-placeholder {
+                /* Microsoft Edge */
+                color: #D3D3D3;
+                font-size: 0.8em;
+            }
+            label {
+                font-size: 1em;
+                color: #2C363F;
+            }
+        }
+    }
+}
