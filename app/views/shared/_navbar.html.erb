@@ -192,9 +192,13 @@
 
                 <div class="what-path-i-am-on">My calendar</div>
 
-              <% elsif request.path_info.include?('groups') %>
+              <% elsif current_page?(groups_path) %>
 
                 <div class="what-path-i-am-on">My groups</div>
+
+              <% elsif request.path_info.include?('groups/new') %>
+
+                <div class="what-path-i-am-on">New group</div>
 
               <% elsif request.path_info.include?('matches') %>
 
