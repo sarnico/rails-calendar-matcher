@@ -1,5 +1,7 @@
 class SendInvitation
 
+  # TO DO - Add the location with the google API ???
+
     def self.event_settings(match_info)
       # time of the event
       match_date = match_info.match_date.strftime("%F")
@@ -13,14 +15,12 @@ class SendInvitation
 
 
       @attendeesList = Match.find(id=match_info.id).users.map{|user| Google::Apis::CalendarV3::EventAttendee.new(email: "#{user.email}")}
-      @attendeesList<<Google::Apis::CalendarV3::EventAttendee.new(email: "#{User.find(id=match_info.owner_id).email}")
+      @attendeesList<<Google::Apis::CalendarV3::EventAttendee.new(email: "#{User.find(id=match_info.owner_id).email}", response_status: "accepted")
 
     end
 
     def self.create_calendar_event(match_info)
        @new_event_payload = Google::Apis::CalendarV3::Event.new(
-        summary: "summary",
-        description: "description",
         start: Google::Apis::CalendarV3::EventDateTime.new(
           date_time: Time.now.iso8601,
           time_zone: 'Europe/Brussels'
@@ -39,8 +39,10 @@ class SendInvitation
   def self.update_calendar_event(match_info,google_event)
     event_settings(match_info)
     update_event_payload = Google::Apis::CalendarV3::Event.new(
-      summary: "CalendarMatcher -#{match_info.title}",
+      summary: "CalendarMatcher 📅 - #{match_info.title}",
       description: "Descritption: #{match_info.description}",
+      location: "#{match_info.location}",
+      color_id:2,
       start: Google::Apis::CalendarV3::EventDateTime.new(
         date_time: @start_time,
         time_zone: 'Europe/Brussels'
