@@ -2,6 +2,7 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: %i[show edit update destroy]
 
+
   def index
     @validated = Match.find_by(id: params[:validated_id])
     @my_events = Match.joins(:users).where(owner_id: current_user.id).or(
@@ -18,6 +19,7 @@ class MatchesController < ApplicationController
 
     group = Group.find_by_id(params['group_id'])
     @group_user_ids = group.present? ? group.users.where.not(id: current_user.id).ids : []
+
   end
 
   def create
@@ -50,12 +52,18 @@ class MatchesController < ApplicationController
   end
 
   def edit
+     @group_user_ids =[]
   end
 
   def update
     if @match.update(match_params)
-      respond_to do |format|
-        format.json { render json: @match.as_json }
+      if request.env["HTTP_REFERER"]=="http://localhost:3000/matches/#{@match.id}/edit" || request.env["HTTP_REFERER"]=="www.calendarmatcher.com/matches/#{@match.id}/edit"
+        SendInvitation.update_google_event(@match, current_user)
+        redirect_to matches_path
+      else
+        respond_to do |format|
+          format.json { render json: @match.as_json }
+        end
       end
     end
   end
@@ -83,4 +91,5 @@ class MatchesController < ApplicationController
   def set_match
     @match = Match.find(params[:id])
   end
+
 end

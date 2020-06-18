@@ -4,15 +4,17 @@ const dropdown = () => {
 
     if (usersBox) {
         let users = JSON.parse(usersBox.dataset.users)
+
         const usersAll = document.querySelectorAll('.user')
         const bodySelection = document.getElementById('body')
         const hiddenUsersInput = document.querySelector(`#${usersBox.dataset.inputId}`)
         const userSearchInput = document.querySelector('#shown_user_ids')
-        const selectedUsersDiv = document.querySelector('#selected_user_ids')
+        const selectedUsersDiv = document.querySelector('#selected_user_ids' || "[]")
         const userSearchResults = document.querySelector('#user_search_results')
         const findMatch = document.getElementById('button-find-the-match')
         const createGroup = document.getElementById('button-create-group')
         const groupMembers = JSON.parse(selectedUsersDiv.dataset.group || "[]")
+        const matchAttendees = JSON.parse(selectedUsersDiv.dataset.attendees || "[]")
         const attendeesSelected = JSON.parse(selectedUsersDiv.dataset.attendees || "[]")
 
         let filteredUsers = []
@@ -100,7 +102,14 @@ const dropdown = () => {
                 groupMembers.forEach((userId) => {
                     const user = users.find(item => item.id === userId)
                     selectUser(user)
-                        // console.log(selectUser(user))
+                    users.splice(users.indexOf(user), 1)
+                    resetSearch()
+                })
+            }
+            if (matchAttendees != "[]") {
+                matchAttendees.forEach((userId) => {
+                    const user = users.find(item => item.id === userId)
+                    selectUser(user)
                     users.splice(users.indexOf(user), 1)
                     resetSearch()
                 })
