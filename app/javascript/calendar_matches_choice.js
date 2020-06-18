@@ -15,6 +15,7 @@ var calendar_matches = () => {
         var calendar = new Calendar(calendarEl, {
             plugins: [dayGridPlugin, interactionPlugin],
             selectable: true,
+            longPressDelay: 1000,
             events: results,
 
             eventRender: function(event, element) {
