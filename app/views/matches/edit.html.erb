@@ -5,7 +5,6 @@
   </div>
   <div class="container box-new content-main">
     <% possible_users = (User.all - [current_user]) %>
-    <!-- possible users à revoir User all - current user - ceux déjà choisis ??? -->
     <div id='possible_users' data-input-id="match_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
 
 
