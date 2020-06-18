@@ -148,14 +148,23 @@ const dropdown = () => {
 
         findMatch.addEventListener('click', (e) => {
             const attendeeError = document.getElementById("attendee-error-message")
+            const userIcon = document.getElementById("user-icon")
             if (selectedUsers.length === 0) {
                 event.preventDefault()
+                if (userIcon.classList.contains('user-icon')) {
+                    userIcon.classList.remove('user-icon')
+                    userIcon.classList.add('user-icon-on-error')
+                }
                 if (userSearchInput.classList.contains('error-green')) {
                     userSearchInput.classList.remove('error-green')
                 }
                 userSearchInput.classList.add('error-red')
                 attendeeError.style.display = "contents"
             } else if (selectedUsers.length >= 1) {
+                if (userIcon.classList.contains('user-icon-on-error')) {
+                    userIcon.classList.remove('user-icon-on-error')
+                    userIcon.classList.add('user-icon')
+                }
                 if (userSearchInput.classList.contains('error-red')) {
                     userSearchInput.classList.remove('error-red')
                 }
