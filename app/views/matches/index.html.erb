@@ -132,7 +132,7 @@
 
   <% if @validated %>
 
-    <%= SendInvitation.new(@validated,current_user) %>
+    <% SendInvitation.create_google_event(@validated,current_user) %>
 
     <div id="backpopup" class="backpopup"></div>
 
