@@ -93,19 +93,14 @@ const dropdown = () => {
             search()
         }
 
+        console.log(groupMembers)
+        console.log(attendeesSelected)
         const prefillForm = () => {
             if (groupMembers != "[]") {
                 groupMembers.forEach((userId) => {
                     const user = users.find(item => item.id === userId)
                     selectUser(user)
-                    users.splice(users.indexOf(user), 1)
-                    resetSearch()
-                })
-            }
-            if (attendeesSelected != "[]") {
-                groupMembers.forEach((userId) => {
-                    const user = users.find(item => item.id === userId)
-                    selectUser(user)
+                        // console.log(selectUser(user))
                     users.splice(users.indexOf(user), 1)
                     resetSearch()
                 })

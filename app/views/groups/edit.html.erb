@@ -1,12 +1,12 @@
-<% possible_users = (User.all - [current_user]) %>
-
-<div id='possible_users' data-input-id="group_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
-
 <div id="wrapper" class="background-green-white">
 
   <div class="container">
 
-    <div id='create-group'>
+    <% possible_users = (User.all - [current_user]) %>
+
+    <div id='possible_users' data-input-id="group_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
+
+    <div id='edit-group'>
 
       <%= simple_form_for @group do |f| %>
 
@@ -62,18 +62,16 @@
 
           </div>
 
-          <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;" data-group="<%= @group_user_ids.to_json %>">
+          <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;" data-group="<%= @group.user_ids.to_json%>">
 
           </div>
-
-                      <% raise %>
 
 
         </div>
 
         <div class="button-create-group">
 
-          <%= f.button :submit, 'Create group', class: "button", id: "button-create-group" %>
+          <%= f.button :submit, 'Edit my group', class: "button", id: "button-create-group" %>
 
         </div>
 
