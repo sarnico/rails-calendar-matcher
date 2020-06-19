@@ -1,8 +1,84 @@
-<div class="container">
+<div id="wrapper" class="background-green-white">
 
-  <h3>Edit here your group - soon</h3>
+  <div class="container">
 
-  <p><%= link_to "Back to my groups", groups_path %></p>
+    <% possible_users = (User.all - [current_user]) %>
+
+    <div id='possible_users' data-input-id="group_user_ids" data-users='<%= (possible_users).to_json %>'> <% possible_users %> </div>
+
+    <div id='edit-group'>
+
+      <%= simple_form_for @group do |f| %>
+
+        <%= f.error_notification %>
+
+        <div class="name-container">
+
+          <%= f.input :name, label: "Name", placeholder: 'Family diner', input_html: { class: 'name-input' } %>
+
+          <div id="name-error" class="error-message">
+
+            <p>Please put a name</p>
+
+          </div>
+
+        </div>
+
+        <div class="members-container">
+
+          <%= f.input :user_ids, as: :hidden %>
+
+          <div class="custom-dropdown">
+
+            <div id="attendee-div" class="form-group">
+
+              <label for="shown_user">Select the members</label>
+
+              <div>
+
+                <span id="user-icon" class="fa fa-user user-icon"></span>
+
+              </div>
+
+              <input type="text" id="shown_user_ids" autocomplete="off">
+
+            </div>
+
+            <div id="user_search_results" class="inactif">
+
+              <% possible_users.each do |user| %>
+
+              <p class='user' data-user-id="<%= user.id %>"><%= user.email %> <i class="fas fa-plus"></i></p>
+
+              <% end %>
+
+            </div>
+
+            <div id="attendee-error-message" class="error-message">
+
+              <p>Please select at least one friend</p>
+
+            </div>
+
+          </div>
+
+          <div id="selected_user_ids" style="display: flex; flex-wrap: wrap;" data-group="<%= @group.user_ids.to_json%>">
+
+          </div>
+
+
+        </div>
+
+        <div class="button-edit-group">
+
+          <%= f.button :submit, 'Edit', class: "button", id: "button-edit-group" %>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
 
 </div>
-

@@ -1,11 +1,11 @@
 @media all and (max-width: 599px) {
-    .my-events-page-container {
+    .my-groups-page-container {
         height: 100%;
-        .my-events-page {
+        .my-groups-page {
             padding: 18vh 2vw 2vh 2vw;
             height: 100%;
-            // if no event
-            .no-event {
+            // if empty
+            .no-group {
                 padding-top: 8vh;
                 display: flex;
                 flex-direction: column;
@@ -27,7 +27,7 @@
                 }
             }
             // if groups
-            .add-something-when-events {
+            .add-something-when-groups {
                 display: flex;
                 justify-content: flex-end;
                 color: #2C3637;
@@ -44,7 +44,7 @@
             .card-index {
                 display: grid;
                 grid-template-columns: 100%;
-                .event-card {
+                .group-card {
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -72,61 +72,31 @@
                             border: solid 1px white;
                         }
                     }
-                    .event-info {
-                        // margin: 1vh 0;
-                        p {
-                            margin: 0;
-                        }
-                        .event-date {
-                            margin: 1.5vh 0;
-                            p {
-                                font-size: 4vw;
-                            }
-                        }
-                        .event-location {
-                            margin: 1.5vh 0;
-                            p {
-                                font-size: 4.2vw;
-                            }
-                        }
-                        .event-description {
-                            margin: 1.5vh 0;
-                            p {
-                                font-size: 4.2vw;
-                            }
-                        }
-                    }
-                    .medium-event-title {
-                        .event-attendees {
-                            margin: 0;
-                            font-size: 4.2vw;
-                        }
-                        .medium {
-                            display: flex;
-                            justify-content: space-between;
-                            max-height: 21vh;
-                            overflow: scroll;
-                            .event-member-layout {
-                                width: 100%;
-                                line-height: 2.5em;
-                                overflow-y: scroll;
-                                scrollbar-width: thin;
-                                scrollbar-color: white;
-                                .member_each {
-                                    display: flex;
-                                    align-items: center;
-                                    margin-left: 4vw;
-                                    img {
-                                        width: 8vw;
-                                        height: 8vw;
-                                        border-radius: 50%;
-                                        object-fit: cover;
-                                    }
-                                    p {
-                                        margin: 0;
-                                        padding-left: 2vw;
-                                        font-size: 0.8em;
-                                    }
+                    .medium {
+                        display: flex;
+                        justify-content: space-between;
+                        max-height: 21vh;
+                        overflow: scroll;
+                        .group-member-layout {
+                            width: 100%;
+                            line-height: 2.5em;
+                            overflow-y: scroll;
+                            scrollbar-width: thin;
+                            scrollbar-color: white;
+                            .member_each {
+                                display: flex;
+                                align-items: center;
+                                margin-left: 4vw;
+                                img {
+                                    width: 8vw;
+                                    height: 8vw;
+                                    border-radius: 50%;
+                                    object-fit: cover;
+                                }
+                                p {
+                                    margin: 0;
+                                    padding-left: 2vw;
+                                    font-size: 0.8em;
                                 }
                             }
                         }

@@ -1,6 +1,7 @@
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
+@import "config/errors";
 @import "config/bootstrap_variables";
 @import "config/forms";
 @import "config/hidden_calendar";
@@ -11,47 +12,3 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-.flash {
-    z-index: 400;
-    left: 20%;
-    right: 20%;
-    top: 40%;
-    bottom: 40%;
-    position: fixed;
-    margin: -100px 0 0 0;
-    background-color: #fcf7f8;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-}
-
-.popup {
-    position: relative;
-}
-
-.backpopup {
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-    position: fixed;
-    z-index: 200;
-    position: fixed;
-    background-color: #2C363F;
-    opacity: 0.7;
-}
-
-.fa-times {
-    position: absolute;
-    top: 10%;
-    right: 5%;
-}
-
-.confirmation-alert {
-    position: relative;
-    text-align: center;
-    font-size: 20px;
-    margin: 0 auto;
-}

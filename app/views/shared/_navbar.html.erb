@@ -6,111 +6,41 @@
 
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-iphone">
 
-      <% if current_page?(user_edit_path) && current_user.settings == false %>
+      <div class="navbar-top">
 
-        <div class="navbar-top">
+        <%= link_to root_path, class: "brand-button" do %>
 
-          <div class="brand-button">
+          <div class="root-navbar-button">
 
-            <div class="root-navbar-button">
-
-              <%= image_tag "CalendarMatcher.svg", :class => "icon-cm", :id => "logo-image"%>
-
-            </div>
-
-            <div class="root-navbar-title">
-
-              <h1>Calendar Matcher</h1>
-
-            </div>
+            <%= image_tag "CalendarMatcher.svg", :class => "icon-cm", :id => "logo-image"%>
 
           </div>
 
-          <ul class="navbar-nav my-account-dropdown">
+          <div class="root-navbar-title">
 
-            <li class="nav-item dropdown">
+            <h1>Calendar Matcher</h1>
 
-              <% if current_user.avatar != nil %>
+          </div>
 
-                <%= image_tag "#{current_user.avatar}", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
 
-              <% else %>
+        <div class="navbar-top-right">
 
-                <%= image_tag "empty-avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if !current_page?(root_url) %>
 
-              <% end %>
+            <% if request.path_info.exclude?('matches/new') %>
 
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <% if !current_page?(matches_path) %>
 
-                <div class="dropdown-item">My account</div>
+                <%= link_to new_match_path, class: "navbar-new-event-top-right" do %>
 
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item",id: "log-out-button" %>
+                  <%= image_tag "plus.svg", class: "create-event-button-exclude-home-and-new-match" %>
 
-              </div>
-
-            </li>
-
-          </ul>
-
-        </div>
-
-        <ul class="navbar-nav navigator">
-
-          <li class="nav-item active">
-
-            <div class="navigation-links">
-
-              <% if request.path_info.include?('matches/')  %>
-
-                <%= link_to "Create an event", new_match_path, class: "if-create-path" %>
-
-              <% else %>
-
-                <div class="nav-link-create">Create an event</div>
+                <% end %>
 
               <% end %>
 
-              <div class="nav-link login_hover">My Calendar</div>
-
-              <div class="nav-link active-nav login_hover">My Groups</div>
-
-              <% if current_page?(matches_path) %>
-
-                <%= link_to "My events", matches_path, class: "nav-link nav-link-my-events active-nav" %>
-
-              <% else %>
-
-                <div class="nav-link active-nav">My events</div>
-
-              <% end %>
-
-            </div>
-
-          </li>
-
-        </ul>
-
-
-<%# Here is the after update session %>
-
-
-      <% else %>
-
-        <div class="navbar-top">
-
-          <%= link_to root_path, class: "brand-button" do %>
-
-            <div class="root-navbar-button">
-
-              <%= image_tag "CalendarMatcher.svg", :class => "icon-cm", :id => "logo-image"%>
-
-            </div>
-
-            <div class="root-navbar-title">
-
-              <h1>Calendar Matcher</h1>
-
-            </div>
+            <% end %>
 
           <% end %>
 
@@ -156,67 +86,83 @@
 
         </div>
 
-        <ul class="navbar-nav navigator">
+      </div>
 
-          <li class="nav-item active">
+      <ul class="navbar-nav navigator">
 
-            <div class="navigation-link">
+        <li class="nav-item active">
 
-              <% if request.path_info.include?('matches/new')  %>
+          <div class="navigation-link">
 
-                <div class="what-path-i-am-on">Create an event</div>
+            <% if current_page?(root_path) %>
 
-              <% else %>
+            <% elsif current_page?(new_match_path) %>
 
-                <%#= link_to "Create an event", new_match_path, class: "nav-link-create" %>
+              <div class="what-path-i-am-on">Create an event</div>
 
-              <% end %>
+            <% elsif current_page?(matches_path) %>
 
-            </div>
+              <div class="what-path-i-am-on">My events</div>
 
-          </li>
+            <% elsif current_page?(user_events_path) %>
 
-        </ul>
+              <div class="what-path-i-am-on">My calendar</div>
 
-      <% end %>
+            <% elsif current_page?(groups_path) %>
+
+              <div class="what-path-i-am-on">My groups</div>
+
+            <% elsif current_page?(new_group_path) %>
+
+              <div class="what-path-i-am-on">New group</div>
+
+            <% elsif request.path_info.include?('groups/') %>
+
+              <div class="what-path-i-am-on">Edit my group</div>
+
+            <% elsif request.path_info.include?('users/') %>
+
+              <div class="what-path-i-am-on">My account</div>
+
+            <% elsif request.path_info.include?('user_edit') && current_user.settings == false %>
+
+              <div class="what-path-i-am-on">Create my account</div>
+
+            <% elsif request.path_info.include?('user_edit') %>
+
+              <div class="what-path-i-am-on">Edit my account</div>
+
+            <% elsif request.path_info.include?("matches/#{@match.id}/edit") %>
+
+              <div class="what-path-i-am-on">Edit my event</div>
+
+            <% end %>
+
+          </div>
+
+        </li>
+
+      </ul>
 
     </div>
-
-
 
   <% else %>
 
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-lewagon-not-connected">
 
-      <%= link_to root_path, class: "navbar-brand-button-not-connected" do %>
+      <%= link_to root_path, class: "navbar-lewagon-not-connected-top-left" do %>
 
-        <div>
+        <%= image_tag "CalendarMatcher.svg", :class => "navbar-brand-button-not-connected"%>
 
-          <%= image_tag "CalendarMatcher.svg", :class => "icon-cm"%>
+        <div class="navbar-brand-title-not-connected">
+
+          <h1>Calendar Matcher</h1>
 
         </div>
 
       <% end %>
 
-      <%= link_to root_path, class: "navbar-brand-title-not-connected" do %>
-
-        <h1>Calendar Matcher</h1>
-
-      <% end %>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item-not-connected">
-
-              <%= link_to "Log in with Google", user_google_oauth2_omniauth_authorize_path, class: "nav-link-not-connected" %>
-
-            </li>
-
-        </ul>
-
-      </div>
+      <%= link_to "Log in with Google", user_google_oauth2_omniauth_authorize_path, class: "button-login" %>
 
     </div>
 

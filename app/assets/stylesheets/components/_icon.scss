@@ -1,6 +1,10 @@
 .i-inline-text {
-  height: 1rem;
-  margin-left: 1rem;
-  cursor: pointer;
-  font-weight: lighter;
+    height: 1rem;
+    cursor: pointer;
+    font-weight: lighter;
+}
+
+.icon:hover {
+    text-decoration: none;
+    border: none;
 }

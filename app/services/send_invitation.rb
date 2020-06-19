@@ -13,10 +13,8 @@ class SendInvitation
       #time fo the reminder
       @minutes = ((@start_time.to_time-Time.now) / 60).to_i
 
-
       @attendeesList = Match.find(id=match_info.id).users.map{|user| Google::Apis::CalendarV3::EventAttendee.new(email: "#{user.email}")}
       @attendeesList<<Google::Apis::CalendarV3::EventAttendee.new(email: "#{User.find(id=match_info.owner_id).email}", response_status: "accepted")
-
     end
 
     def self.create_calendar_event(match_info)
@@ -33,7 +31,6 @@ class SendInvitation
       new_event = @client.insert_event('primary',@new_event_payload)
       match_info.update_attribute(:google_id, new_event.id)
       @client.get_event('primary',new_event.id)
-
   end
 
   def self.update_calendar_event(match_info,google_event)
@@ -68,9 +65,7 @@ class SendInvitation
         ]
       )
     )
-
     updated_event = @client.update_event('primary',match_info.google_id,update_event_payload)
-
   end
 
   def self.google_authorization(current_user)

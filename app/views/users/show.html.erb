@@ -1,26 +1,22 @@
-<div class="green-bottom-background">
+<div id="wrapper" class="background-green-white">
 
-  <div class="white-top-background">
+  <div class="container my-account-page-container">
 
-  </div>
-
-  <div class="container box-new content-main">
-
-    <div class="form mt-4 mb-4">
+    <div class="my-account-page">
 
       <div>
 
-        <div class="edit-my-account">
+        <div>
 
-          <%= link_to user_edit_path do %>
+          <%= link_to user_edit_path, class: "icon" do %>
 
-            <p><i class="edit-my-account icon fas fa-pencil-alt"></i></p>
+            <p><i class="edit-my-account fas fa-pencil-alt"></i></p>
 
           <% end %>
 
         </div>
 
-        <div class="header-my-account">
+        <div class="my-account-top">
 
           <div>
 
@@ -36,43 +32,39 @@
 
           </div>
 
-          <div class="right-part-header">
+          <div class="my-account-name-last-name">
 
-            <div class="name-last-name-my-account">
+            <h1> <%= current_user.last_name %> </h1>
 
-              <h1> <%= current_user.last_name %> </h1>
-
-              <h2> <%= current_user.name %> </h2>
-
-            </div>
+            <h2> <%= current_user.name %> </h2>
 
           </div>
 
         </div>
 
-        <div class="main-my-account">
+      </div>
 
-          <div>
+      <div class="my-account-middle">
 
-            <p><strong>Email :</strong> <%= "#{current_user.email}" %></p>
+        <div>
 
-            <% if current_user.birthdate != nil %>
+          <p><strong>Email :</strong> <%= "#{current_user.email}" %></p>
 
-              <p><strong>Birthdate :</strong> <%= "#{current_user.birthdate.strftime("%d/%-m/%Y")}" %></p>
+          <% if current_user.birthdate != nil %>
 
-            <% end %>
+            <p><strong>Birthdate :</strong> <%= "#{current_user.birthdate.strftime("%d/%-m/%Y")}" %></p>
 
-            <% if current_user.phone_number != "" %>
+          <% end %>
 
-              <p><strong>Phone number :</strong> <%= "#{current_user.phone_number}" %></p>
+          <% if current_user.phone_number != "" %>
 
-            <% end %>
+            <p><strong>Phone number :</strong> <%= "#{current_user.phone_number}" %></p>
 
-            <p><strong>Country :</strong> <%= "#{current_user.country}" %></p>
+          <% end %>
 
-            <p><strong>City :</strong> <%= "#{current_user.city}" %></p>
+          <p><strong>Country :</strong> <%= "#{current_user.country}" %></p>
 
-          </div>
+          <p><strong>City :</strong> <%= "#{current_user.city}" %></p>
 
         </div>
 
@@ -83,3 +75,4 @@
   </div>
 
 </div>
+

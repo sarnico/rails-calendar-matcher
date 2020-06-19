@@ -1,10 +1,12 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "calendar-matches";
+@import "match-new-calendar";
 @import "my-calendar";
+@import "match-edit";
 @import "my-events";
-@import "match_new";
-@import "groups";
-@import "create_event_form";
+@import "match-new";
+@import "my-groups";
+@import "group-new";
+@import "group-edit";
 @import "my-account";
-@import "create-user";
+@import "my-account-edit";

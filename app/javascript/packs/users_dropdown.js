@@ -9,9 +9,10 @@ const dropdown = () => {
         const bodySelection = document.getElementById('body')
         const hiddenUsersInput = document.querySelector(`#${usersBox.dataset.inputId}`)
         const userSearchInput = document.querySelector('#shown_user_ids')
-        const selectedUsersDiv = document.querySelector('#selected_user_ids'|| "[]")
+        const selectedUsersDiv = document.querySelector('#selected_user_ids' || "[]")
         const userSearchResults = document.querySelector('#user_search_results')
         const findMatch = document.getElementById('button-find-the-match')
+        const createGroup = document.getElementById('button-create-group')
         const groupMembers = JSON.parse(selectedUsersDiv.dataset.group || "[]")
         const matchAttendees = JSON.parse(selectedUsersDiv.dataset.attendees || "[]")
         const attendeesSelected = JSON.parse(selectedUsersDiv.dataset.attendees || "[]")
@@ -95,28 +96,28 @@ const dropdown = () => {
         }
 
         const prefillForm = () => {
-          if (groupMembers !="[]"){
-            groupMembers.forEach((userId) => {
-                const user = users.find(item => item.id === userId)
-                selectUser(user)
-                users.splice(users.indexOf(user), 1)
-                resetSearch()
-            })
-          }
-          if (matchAttendees !="[]"){
-            matchAttendees.forEach((userId) => {
-                const user = users.find(item => item.id === userId)
-                selectUser(user)
-                users.splice(users.indexOf(user), 1)
-                resetSearch()
-            })
-          }
+            if (groupMembers != "[]") {
+                groupMembers.forEach((userId) => {
+                    const user = users.find(item => item.id === userId)
+                    selectUser(user)
+                    users.splice(users.indexOf(user), 1)
+                    resetSearch()
+                })
+            }
+            if (matchAttendees != "[]") {
+                matchAttendees.forEach((userId) => {
+                    const user = users.find(item => item.id === userId)
+                    selectUser(user)
+                    users.splice(users.indexOf(user), 1)
+                    resetSearch()
+                })
+            }
         }
 
         prefillForm()
 
         const debileDisplay = (e) => {
-          userSearchResults.classList.toggle("inactif")
+            userSearchResults.classList.toggle("inactif")
             userSearchResults.children[0].classList.add("fancy-hover")
         }
         const removeDebileDisplay = (e) => {
@@ -145,33 +146,67 @@ const dropdown = () => {
         })
 
         // validation & preventDefault for attendees
+        if (document.getElementById("create-event")) {
+            findMatch.addEventListener('click', (e) => {
+                const attendeeError = document.getElementById("attendee-error-message")
+                const userIcon = document.getElementById("user-icon")
+                if (selectedUsers.length === 0) {
+                    event.preventDefault()
+                    if (userIcon.classList.contains('user-icon')) {
+                        userIcon.classList.remove('user-icon')
+                        userIcon.classList.add('user-icon-on-error')
+                        userSearchResults.style.top = "68%"
+                    }
+                    if (userSearchInput.classList.contains('error-green')) {
+                        userSearchInput.classList.remove('error-green')
+                    }
+                    userSearchInput.classList.add('error-red')
+                    attendeeError.style.display = "contents"
+                } else if (selectedUsers.length >= 1) {
+                    if (userIcon.classList.contains('user-icon-on-error')) {
+                        userIcon.classList.remove('user-icon-on-error')
+                        userIcon.classList.add('user-icon')
+                        userSearchResults.style.top = "96%"
+                    }
+                    if (userSearchInput.classList.contains('error-red')) {
+                        userSearchInput.classList.remove('error-red')
+                    }
+                    userSearchInput.classList.add('error-green')
+                    attendeeError.style.display = "none"
+                }
+            })
+        }
 
-        findMatch.addEventListener('click', (e) => {
-            const attendeeError = document.getElementById("attendee-error-message")
-            const userIcon = document.getElementById("user-icon")
-            if (selectedUsers.length === 0) {
-                event.preventDefault()
-                if (userIcon.classList.contains('user-icon')) {
-                    userIcon.classList.remove('user-icon')
-                    userIcon.classList.add('user-icon-on-error')
+        if (document.getElementById("create-group")) {
+            createGroup.addEventListener('click', (e) => {
+                const attendeeError = document.getElementById("attendee-error-message")
+                const userIcon = document.getElementById("user-icon")
+                if (selectedUsers.length === 0) {
+                    event.preventDefault()
+                    if (userIcon.classList.contains('user-icon')) {
+                        userIcon.classList.remove('user-icon')
+                        userIcon.classList.add('user-icon-on-error')
+                        userSearchResults.style.top = "68%"
+                    }
+                    if (userSearchInput.classList.contains('error-green')) {
+                        userSearchInput.classList.remove('error-green')
+                    }
+                    userSearchInput.classList.add('error-red')
+                    attendeeError.style.display = "contents"
+                } else if (selectedUsers.length >= 1) {
+                    if (userIcon.classList.contains('user-icon-on-error')) {
+                        userIcon.classList.remove('user-icon-on-error')
+                        userIcon.classList.add('user-icon')
+                        userSearchResults.style.top = "96%"
+                    }
+                    if (userSearchInput.classList.contains('error-red')) {
+                        userSearchInput.classList.remove('error-red')
+                    }
+                    userSearchInput.classList.add('error-green')
+                    attendeeError.style.display = "none"
                 }
-                if (userSearchInput.classList.contains('error-green')) {
-                    userSearchInput.classList.remove('error-green')
-                }
-                userSearchInput.classList.add('error-red')
-                attendeeError.style.display = "contents"
-            } else if (selectedUsers.length >= 1) {
-                if (userIcon.classList.contains('user-icon-on-error')) {
-                    userIcon.classList.remove('user-icon-on-error')
-                    userIcon.classList.add('user-icon')
-                }
-                if (userSearchInput.classList.contains('error-red')) {
-                    userSearchInput.classList.remove('error-red')
-                }
-                userSearchInput.classList.add('error-green')
-                attendeeError.style.display = "none"
-            }
-        })
+            })
+        }
 
         usersAll.forEach((user) => {
             user.addEventListener("click", clickSelectUser)

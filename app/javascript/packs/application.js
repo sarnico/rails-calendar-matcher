@@ -15,9 +15,12 @@ import { calendar_matches } from "../calendar_matches_choice"
 import { dropdown } from "./users_dropdown"
 import { titleHover } from "./icon_bigger_hover"
 import { newMatchValidation } from "./new_match_validation"
+import { newGroupValidation } from "./new_group_validation"
 import { hoursAutomaticallySkip } from "./hours_automatically_skip";
 import { putRealTime } from "./hours_automatically_skip";
 import { newUserValidation } from "./new_user_validation";
+import { capitalizeLetter } from "./new_user_validation";
+import { removePopup } from "./new_match_popup";
 
 if (document.querySelector(".hours-container")) {
     hoursAutomaticallySkip();
@@ -44,6 +47,15 @@ if (document.getElementById("create-event")) {
     newMatchValidation()
 }
 
-if (document.getElementById("create-user")) {
-    newUserValidation()
+if (document.getElementById("edit-user")) {
+    newUserValidation();
+    capitalizeLetter();
+}
+
+if (document.getElementById("create-group")) {
+    newGroupValidation()
+}
+
+if (document.querySelector(".clickme")) {
+    removePopup();
 }

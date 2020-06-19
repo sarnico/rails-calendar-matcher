@@ -37,7 +37,9 @@ const newMatchValidation = () => {
             dateMaxInput.classList.add("error-red")
             dateMaxError.style.display = "contents"
             dateMaxError2.style.display = "none"
-            dateMinError.style.display = "contents"
+            if (window.matchMedia("(min-width: 600px)").matches) {
+                dateMinError.style.display = "contents"
+            }
         } else if (dateMaxInput.value !== "") {
             dateMinInput.classList.add("error-green")
             if (dateMaxInput.classList.contains('error-red')) {
@@ -57,7 +59,9 @@ const newMatchValidation = () => {
             dateMaxInput.classList.add("error-red")
             dateMaxError2.style.display = "contents"
             dateMaxError.style.display = "none"
-            dateMinError.style.display = "contents"
+            if (window.matchMedia("(min-width: 600px)").matches) {
+                dateMinError.style.display = "contents";
+            }
         }
 
         let today = new Date();

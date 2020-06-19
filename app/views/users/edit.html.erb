@@ -1,86 +1,99 @@
-<div class="green-bottom-background">
+<div id="wrapper" class="background-green-white">
+    <div class="container">
 
-  <div class="white-top-background">
+      <div id='edit-user'>
 
-  </div>
+        <div class="form">
 
-  <div class="container box-new content-main">
+          <%= simple_form_for current_user do |f| %>
 
-    <div class="container" id="create-user">
+            <div class="name-container input">
 
-      <div class="form mt-4 mb-4">
+              <%= f.input :name, label: 'First name *', placeholder: 'Pierre', input_html: { class: 'first-name-input' }%>
 
-        <% if current_user.settings == false %>
+              <div id="first-name-error-message" class="error-message">
 
-          <h1 class="">Last step before getting started</h1>
+                <p>Please enter your first name</p>
 
-        <% else %>
+              </div>
 
-          <h1 class="">Modify my account</h1>
+            </div>
 
-        <% end %>
+            <div class="last-name-container input">
 
-        <%= simple_form_for current_user do |f| %>
+              <%= f.input :last_name, label: 'Last Name *', placeholder: 'Dubois', input_html: { class: 'last-name-input' } %>
 
-          <%= f.input :name, label: 'First name *', placeholder: 'Pierre', input_html: { class: 'first-name-input' }%>
+              <div id="last-name-error-message" class="error-message">
 
-          <div id="first-name-error-message" class="error-message">
+                <p>Please enter your last name</p>
 
-            <p>Please enter your first name</p>
+              </div>
 
-          </div>
+            </div>
 
-          <%= f.input :last_name, label: 'Last Name *', placeholder: 'Dubois', input_html: { class: 'last-name-input' } %>
+            <div class="birthdate-container input">
 
-          <div id="last-name-error-message" class="error-message">
+              <%= f.input :birthdate, as: :date, html5: true, label: 'Birthdate', input_html: { class: 'birthdate-input' } %>
 
-            <p>Please enter your last name</p>
+              <div id="birthdate-error-message" class="error-message">
 
-          </div>
+                <p>Please enter a valid birthdate</p>
 
-          <%= f.input :birthdate, as: :date, html5: true, label: 'Birthdate', input_html: { class: 'birthdate-input' } %>
+              </div>
 
-          <div id="birthdate-error-message" class="error-message">
+            </div>
 
-            <p>Please enter a valid birthdate</p>
+            <div class="phone-number-container input">
 
-          </div>
+              <%= f.input :phone_number, label: 'Phone number', placeholder: '0476614221', input_html: { class: 'phone-number-input' } %>
 
-          <%= f.input :phone_number, label: 'Phone number', placeholder: '0476614221', input_html: { class: 'phone-number-input' } %>
+              <div id="phone-number-error-message" class="error-message">
 
-          <div id="phone-number-error-message" class="error-message">
+                <p>Please enter a valid phone number</p>
 
-            <p>Please enter a valid phone number</p>
+              </div>
 
-          </div>
+            </div>
 
-          <%= f.input :country, priority: ["BE", "FR", "GB", "LU", "DE"], label: 'Country *', input_html: { class: 'country-input' } %>
+            <div class="country-container input">
 
-          <div id="country-error-message" class="error-message">
+              <%= f.input :country, priority: ["BE", "FR", "GB", "LU", "DE"], label: 'Country *', input_html: { class: 'country-input' } %>
 
-            <p>Please select your country</p>
+              <div id="country-error-message" class="error-message">
 
-          </div>
+                <p>Please select your country</p>
 
-          <%= f.input :city, label: 'City *', placeholder: 'Gand', input_html: { class: 'city-input' } %>
+              </div>
 
-          <div id="city-error-message" class="error-message">
+            </div>
 
-            <p>Please enter your city</p>
+            <div class="city-container input">
 
-          </div>
+              <%= f.input :city, label: 'City *', placeholder: 'Gand', input_html: { class: 'city-input' } %>
 
-          <% if current_user.settings == false %>
+              <div id="city-error-message" class="error-message">
 
-            <%= f.button :submit, 'Create my account', class:"button", id:"button-create-user" %>
+                <p>Please enter your city</p>
 
-          <% else %>
+              </div>
 
-            <%= f.button :submit, 'Apply changes', class:"button", id:"button-create-user" %>
+            </div>
+
+            <div class="button-edit-user">
+
+              <% if current_user.settings == false %>
+
+                <%= f.button :submit, 'Create my account', class:"button", id:"button-create-user" %>
+
+              <% else %>
+
+                <%= f.button :submit, 'Edit', class:"button", id:"button-create-user" %>
+
+              <% end %>
+
+            </div>
 
           <% end %>
-
-        <% end %>
 
       </div>
 
