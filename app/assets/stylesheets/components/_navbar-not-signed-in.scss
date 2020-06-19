@@ -1,49 +1,68 @@
-
-.navbar-lewagon-not-connected {
-  background-color: #FCF7F8;
+@media all and (max-width: 599px) {
+    .navbar-lewagon-not-connected {
+        display: flex;
+        justify-content: space-between;
+        .navbar-lewagon-not-connected-top-left {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            .navbar-brand-button-not-connected {
+                width: 5vw;
+                margin-right: 2vw;
+            }
+            .navbar-brand-title-not-connected h1 {
+                font-size: 4vw;
+                color: #2C363F;
+                display: flex;
+                align-self: center;
+                margin: 0;
+            }
+        }
+        .navbar-lewagon-not-connected-top-left:hover {
+            text-decoration: none;
+        }
+    }
 }
 
-.nav-link-not-connected {
-  padding: 10px 15px;
-  color: rgba(252, 247, 248, 1) !important;
-  background-color: #2C363F;
-  border: solid 1px #2C363F;
-  border-radius: 30px;
-  transition: 0.3s;
-  text-decoration: none;
-  display: flex;
-  align-self: center;
-}
-
-.nav-link-not-connected:hover {
-  border: solid 1px #2C363F;
-  border-radius: 30px;
-  color: #2C363F !important;
-  background-color: rgba(252, 247, 248, 1);
-  text-decoration: none;
-}
-
-.navbar-lewagon-not-connected .navbar-brand-button-not-connected img {
-  width: 40px;
-  height: 45px;
-  transition: .2s;
-}
-
-.navbar-lewagon-not-connected .navbar-brand-button-not-connected img:hover {
-  width: 40px;
-  height: 45px;
-  transform: scale(1.12);
-}
-
-.navbar-lewagon .navbar-brand-title-not-connected {
-  height: 40px;
-  text-decoration: none;
-  z-index: 50;
-  margin-left: 140px;
-}
-
-.navbar-lewagon .navbar-brand-title-not-connected h1 {
-  margin: 0px;
-  color: #2C363F;
-  transition: 0.2s;
-}
+// .navbar-lewagon-not-connected {
+//     background-color: #FCF7F8;
+// }
+// .nav-link-not-connected {
+//     padding: 10px 15px;
+//     color: rgba(252, 247, 248, 1) !important;
+//     background-color: #2C363F;
+//     border: solid 1px #2C363F;
+//     border-radius: 30px;
+//     transition: 0.3s;
+//     text-decoration: none;
+//     display: flex;
+//     align-self: center;
+// }
+// .nav-link-not-connected:hover {
+//     border: solid 1px #2C363F;
+//     border-radius: 30px;
+//     color: #2C363F !important;
+//     background-color: rgba(252, 247, 248, 1);
+//     text-decoration: none;
+// }
+// .navbar-lewagon-not-connected .navbar-brand-button-not-connected img {
+//     width: 40px;
+//     height: 45px;
+//     transition: .2s;
+// }
+// .navbar-lewagon-not-connected .navbar-brand-button-not-connected img:hover {
+//     width: 40px;
+//     height: 45px;
+//     transform: scale(1.12);
+// }
+// .navbar-lewagon .navbar-brand-title-not-connected {
+//     height: 40px;
+//     text-decoration: none;
+//     z-index: 50;
+//     margin-left: 140px;
+// }
+// .navbar-lewagon .navbar-brand-title-not-connected h1 {
+//     margin: 0px;
+//     color: #2C363F;
+//     transition: 0.2s;
+// }

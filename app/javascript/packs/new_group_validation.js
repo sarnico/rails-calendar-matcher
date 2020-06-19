@@ -6,7 +6,6 @@ const newGroupValidation = () => {
         const nameError = document.getElementById("name-error");
         const nameInput = document.querySelector(".name-input");
         event.preventDefault()
-        console.log(nameInput)
         if (nameInput.value === "") {
             event.preventDefault();
             if (nameInput.classList.contains("error-green")) {

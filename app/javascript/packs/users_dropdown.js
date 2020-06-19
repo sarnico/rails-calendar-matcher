@@ -95,8 +95,6 @@ const dropdown = () => {
             search()
         }
 
-        console.log(groupMembers)
-        console.log(attendeesSelected)
         const prefillForm = () => {
             if (groupMembers != "[]") {
                 groupMembers.forEach((userId) => {

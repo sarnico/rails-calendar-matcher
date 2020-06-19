@@ -5,12 +5,6 @@
 
         <div class="form">
 
-          <% if current_user.settings == false %>
-
-            <h1 class="">Last step before getting started</h1>
-
-          <% end %>
-
           <%= simple_form_for current_user do |f| %>
 
             <div class="name-container input">
@@ -93,7 +87,7 @@
 
               <% else %>
 
-                <%= f.button :submit, 'Apply changes', class:"button", id:"button-create-user" %>
+                <%= f.button :submit, 'Edit', class:"button", id:"button-create-user" %>
 
               <% end %>
 
