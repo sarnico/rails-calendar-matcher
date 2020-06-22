@@ -2,6 +2,11 @@ import { Calendar } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction'; // for selectable
 import dayGridPlugin from '@fullcalendar/daygrid'; // for dayGridMonth view
 
+  const testSARA = (e) => {
+    console.log("yeaj")
+    console.log(e)
+        }
+
 var calendar_matches = () => {
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -15,8 +20,9 @@ var calendar_matches = () => {
         var calendar = new Calendar(calendarEl, {
             plugins: [dayGridPlugin, interactionPlugin],
             selectable: true,
-            longPressDelay: 1000,
+            selectLongPressDelay: 500,
             events: results,
+
 
             eventRender: function(event, element) {
                 if (event.icon) {
@@ -39,8 +45,8 @@ var calendar_matches = () => {
                 minute: '2-digit'
             },
 
-
             select: function(info) {
+                console.log(info)
                 var theDate = new Date(info.start);
                 var theMyDate = theDate.toLocaleDateString();
 
