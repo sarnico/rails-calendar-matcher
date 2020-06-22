@@ -20,7 +20,7 @@ var calendar_matches = () => {
         var calendar = new Calendar(calendarEl, {
             plugins: [dayGridPlugin, interactionPlugin],
             selectable: true,
-            selectLongPressDelay: 100,
+            selectLongPressDelay: 1,
             events: results,
 
 
@@ -47,6 +47,7 @@ var calendar_matches = () => {
 
             select: function(info) {
                 console.log(info)
+
                 var theDate = new Date(info.start);
                 var theMyDate = theDate.toLocaleDateString();
 
