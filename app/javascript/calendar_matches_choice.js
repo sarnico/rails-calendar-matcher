@@ -20,7 +20,7 @@ var calendar_matches = () => {
         var calendar = new Calendar(calendarEl, {
             plugins: [dayGridPlugin, interactionPlugin],
             selectable: true,
-            selectLongPressDelay: 500,
+            selectLongPressDelay: 100,
             events: results,
 
 
