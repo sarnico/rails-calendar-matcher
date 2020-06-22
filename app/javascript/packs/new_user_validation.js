@@ -1,5 +1,17 @@
 const newUserValidation = () => {
     const findUser = document.getElementById('button-create-user')
+    const safariDateProblem = document.getElementById('dateInput')
+    window.onload = (e) => {
+        const isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+        const iOS =
+            /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        if (isSafari && iOS) {
+            // alert("You are using Safari on iOS!");
+        } else if (isSafari) {
+            console.log(e)
+            e.target.placeholder = "10/12/1997";
+        }
+    };
 
     findUser.addEventListener('click', (e) => {
         //first name
@@ -74,6 +86,7 @@ const newUserValidation = () => {
             cityError.style.display = "none"
         }
 
+        //birthdate
         const birthdateError = document.getElementById("birthdate-error-message")
         const birthdateInput = document.querySelector(".birthdate-input")
         const pickedDate = Date.parse(birthdateInput.value)
@@ -93,6 +106,7 @@ const newUserValidation = () => {
             birthdateError.style.display = "none"
         }
 
+        //phone number
         const phoneNumberError = document.getElementById("phone-number-error-message")
         const phoneNumberInput = document.querySelector(".phone-number-input")
         const regex = RegExp(/^\d{10}$/);

@@ -22,12 +22,14 @@
     .navbar-iphone {
         display: flex;
         justify-content: center;
+        flex-direction: column;
         .navbar-top {
             display: flex;
             justify-content: space-between;
             width: 100%;
             #logo-image {
                 width: 5vw;
+                height: 5vw;
             }
             .brand-button,
             .brand-button:hover,
@@ -74,9 +76,7 @@
                         display: flex;
                         align-items: center;
                     }
-                    .dropdown-item {
-                        font-size: 4vw;
-                    }
+                    .dropdown-item {}
                     .dropdown-item:hover,
                     .dropdown-item:active,
                     .dropdown-item:visited,

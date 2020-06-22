@@ -3,7 +3,7 @@
 
   <div id="homepage">
 
-    <div class="landing-main container">
+    <div class="landing-main">
 
       <div class="devise-cm">
 
@@ -107,11 +107,25 @@
 
     </div>
 
-    <div class="create-event-button">
+    <% if user_signed_in? %>
 
-      <%= link_to "Create an event", new_match_path, class: "button" %>
+      <div class="create-event-button">
 
-    </div>
+        <%= link_to "Create an event", new_match_path, class: "button" %>
+
+      </div>
+
+      <% else %>
+
+      <div class="create-event-button">
+
+        <%#= link_to "Create an event", new_match_path, class: "button" %>
+        <div class="button">How it works</div>
+
+
+      </div>
+
+    <% end %>
 
     <%#  <div class="container landing-header mt-5">
 

@@ -6,16 +6,6 @@
 
       <div>
 
-        <div>
-
-          <%= link_to user_edit_path, class: "icon" do %>
-
-            <p><i class="edit-my-account fas fa-pencil-alt"></i></p>
-
-          <% end %>
-
-        </div>
-
         <div class="my-account-top">
 
           <div>
@@ -39,6 +29,12 @@
             <h2> <%= current_user.name %> </h2>
 
           </div>
+
+          <%= link_to user_edit_path, class: "icon" do %>
+
+            <i class="edit-my-account fas fa-pencil-alt"></i>
+
+          <% end %>
 
         </div>
 

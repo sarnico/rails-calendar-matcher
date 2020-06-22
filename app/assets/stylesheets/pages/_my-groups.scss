@@ -15,15 +15,19 @@
                     text-align: center;
                     margin-bottom: 2vh;
                     width: 100%;
-                    font-size: 6vw;
+                    font-size: 2em;
                 }
                 .add-something {
                     color: #2C3637;
-                    font-size: 5vw;
+                    font-size: 1.5em;
                     letter-spacing: 1px;
                     a {
                         color: #2C3637;
                     }
+                }
+                .add-something:hover {
+                    text-decoration: none;
+                    opacity: 0.7;
                 }
             }
             // if groups
@@ -31,14 +35,16 @@
                 display: flex;
                 justify-content: flex-end;
                 color: #2C3637;
-                font-size: 4vw;
+                font-size: 1em;
                 letter-spacing: 1px;
                 margin-bottom: 1.5vh;
                 a {
                     color: #2C3637;
                 }
-                a:focus {
+                a:focus,
+                a:hover {
                     text-decoration: none;
+                    opacity: 0.7;
                 }
             }
             .card-index {
