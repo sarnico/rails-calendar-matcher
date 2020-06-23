@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-#ajout de caractères débiles pour tenter de remettre sur heroku...
+
 class FindMatch
   def self.date(id, _owner, users, _min_time, _max_time, _max_date, _min_date = Date.today)
 
