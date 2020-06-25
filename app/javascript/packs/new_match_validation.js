@@ -1,6 +1,14 @@
 const newMatchValidation = () => {
     const findMatch = document.getElementById('button-find-the-match')
-    document.querySelector(".date-min-input").valueAsDate = new Date();
+        //date min = today's date on different browser than safari
+    const isSafari = !!navigator.userAgent.match(
+        /Version\/[\d\.]+.*Safari/
+    );
+    const iOS =
+        /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (!isSafari) {
+        document.querySelector(".date-min-input").valueAsDate = new Date();
+    }
 
     findMatch.addEventListener('click', (e) => {
         // title
@@ -21,13 +29,45 @@ const newMatchValidation = () => {
             titleError.style.display = "none"
         }
 
-        // //dates
+        //dates
         const dateMinError = document.getElementById("date-min-error")
         const dateMinError2 = document.getElementById("date-min-error-2")
         const dateMaxError = document.getElementById("date-max-error")
         const dateMaxError2 = document.getElementById("date-max-error-2")
         const dateMinInput = document.querySelector(".date-min-input")
         const dateMaxInput = document.querySelector(".date-max-input")
+
+        //birthdate error on safari
+        const isSafari = !!navigator.userAgent.match(
+            /Version\/[\d\.]+.*Safari/
+        );
+        if (isSafari) {
+            const dateRegex1 = RegExp(/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/);
+            const dateRegex2 = RegExp(/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/);
+            if (
+                dateRegex1.test(dateMinInput.value) === true ||
+                dateRegex2.test(dateMinInput.value) === true
+            ) {
+                if (dateMinInput.classList.contains("error-red")) {
+                    dateMinInput.classList.remove("error-red");
+                }
+                dateMinInput.classList.add("error-green");
+                dateMinError.style.display = "none";
+            } else if (
+                dateRegex1.test(dateMinInput.value) === false ||
+                dateRegex2.test(dateMinInput.value) === false
+            ) {
+
+                event.preventDefault();
+                // console.log(e);
+                if (dateMinInput.classList.contains("error-green")) {
+                    dateMinInput.classList.remove("error-green");
+                }
+                dateMinInput.classList.add("error-red");
+                dateMinError.style.display = "contents";
+            }
+        }
+
         if (dateMaxInput.value === "") {
             event.preventDefault()
             dateMinInput.classList.add("error-green")
@@ -209,7 +249,6 @@ const newMatchValidation = () => {
         } else {
             rightHour.style.display = "none";
         }
-
         // for attendee validation, go have a look on user dropdown on the bottom
     })
 }
