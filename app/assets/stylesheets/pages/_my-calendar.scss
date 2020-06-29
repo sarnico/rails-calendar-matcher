@@ -26,63 +26,31 @@
                 flex-wrap: wrap;
                 justify-content: flex-end;
                 align-items: center;
-                @media all and (max-height: 799px) {
-                    .fc-today-button {
-                        height: 4vh;
-                        font-size: 0.5em;
-                        display: flex;
-                        align-items: center;
-                    }
-                    .fc-button-group {
-                        .fc-prev-button {
-                            height: 4vh;
-                            width: 4vw;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            .fc-icon-chevron-left {
-                                font-size: 1em;
-                            }
-                        }
-                        .fc-next-button {
-                            height: 4vh;
-                            width: 4vw;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            .fc-icon-chevron-right {
-                                font-size: 1em;
-                            }
-                        }
-                    }
+                .fc-today-button {
+                    height: 3vh;
+                    font-size: 0.5em;
+                    display: flex;
+                    align-items: center;
                 }
-                @media all and (min-height: 800px) and (max-height: 999px) {
-                    .fc-today-button {
+                .fc-button-group {
+                    .fc-prev-button {
                         height: 3vh;
-                        font-size: 0.5em;
+                        width: 4vw;
                         display: flex;
                         align-items: center;
-                    }
-                    .fc-button-group {
-                        .fc-prev-button {
-                            height: 3vh;
-                            width: 2vw;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            .fc-icon-chevron-left {
-                                font-size: 1em;
-                            }
+                        justify-content: center;
+                        .fc-icon-chevron-left {
+                            font-size: 0.8em;
                         }
-                        .fc-next-button {
-                            height: 3vh;
-                            width: 2vw;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            .fc-icon-chevron-right {
-                                font-size: 1em;
-                            }
+                    }
+                    .fc-next-button {
+                        height: 3vh;
+                        width: 4vw;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .fc-icon-chevron-right {
+                            font-size: 0.8em;
                         }
                     }
                 }

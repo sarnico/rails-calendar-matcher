@@ -5,7 +5,6 @@ const newGroupValidation = () => {
     createGroup.addEventListener('click', (e) => {
         const nameError = document.getElementById("name-error");
         const nameInput = document.querySelector(".name-input");
-        event.preventDefault()
         if (nameInput.value === "") {
             event.preventDefault();
             if (nameInput.classList.contains("error-green")) {
