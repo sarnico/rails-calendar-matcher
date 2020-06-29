@@ -94,44 +94,6 @@ const newUserValidation = () => {
             birthdateError.style.display = "none"
         }
 
-        //birthdate error on safari
-        const isSafari = !!navigator.userAgent.match(
-            /Version\/[\d\.]+.*Safari/
-        );
-        const iOS =
-            /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        if (isSafari && iOS) {
-            // alert("You are using Safari on iOS!");
-        } else if (isSafari) {
-            const dateRegex1 = RegExp(/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/);
-            const dateRegex2 = RegExp(/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/);
-            if (
-                dateRegex1.test(birthdateInput.value) === true ||
-                dateRegex2.test(birthdateInput.value) === true ||
-                birthdateInput.value === ""
-            ) {
-                // console.log(e);
-                if (birthdateInput.classList.contains("error-red")) {
-                    birthdateInput.classList.remove("error-red");
-                }
-                birthdateInput.classList.add("error-green");
-                birthdateError.style.display = "none";
-            } else if (
-                dateRegex1.test(birthdateInput.value) === false ||
-                dateRegex2.test(birthdateInput.value) === false
-            ) {
-
-                console.log(birthdateInput.value);
-                event.preventDefault();
-                // console.log(e);
-                if (birthdateInput.classList.contains("error-green")) {
-                    birthdateInput.classList.remove("error-green");
-                }
-                birthdateInput.classList.add("error-red");
-                birthdateError.style.display = "contents";
-            }
-        }
-
         //phone number
         const phoneNumberError = document.getElementById("phone-number-error-message")
         const phoneNumberInput = document.querySelector(".phone-number-input")
