@@ -190,8 +190,8 @@ input[type=number] {
                 flex-wrap: wrap;
                 .min_date {
                     width: 100%;
-                    min-width: 140px;
-                    max-width: min-content;
+                    min-width: max-content;
+                    max-width: 250px;
                     @media all and (min-width: 250px) {
                         margin-right: 5%;
                     }
@@ -201,8 +201,8 @@ input[type=number] {
                 }
                 .max_date {
                     width: 100%;
-                    min-width: 140px;
-                    max-width: min-content;
+                    min-width: max-content;
+                    max-width: 250px;
                     #match_max_date {
                         margin-bottom: 1rem;
                     }
