@@ -25,6 +25,14 @@
                         color: #2C3637;
                     }
                 }
+                @media all and (max-height: 799px) {
+                    h3 {
+                        font-size: 1em;
+                    }
+                    .add-something {
+                        font-size: 1em;
+                    }
+                }
                 .add-something:hover {
                     text-decoration: none;
                     opacity: 0.7;
