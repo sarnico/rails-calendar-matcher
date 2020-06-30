@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_15_065423) do
+ActiveRecord::Schema.define(version: 2020_06_29_085212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "google_calendar_wrappers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -55,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_065423) do
     t.datetime "min_time"
     t.datetime "max_time"
     t.string "google_id"
+    t.integer "group_id"
     t.index ["owner_id"], name: "index_matches_on_owner_id"
   end
 

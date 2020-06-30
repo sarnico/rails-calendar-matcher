@@ -180,6 +180,8 @@
 
           <% if group = Group.find_by_id(params['group_id']) %>
 
+            <%= f.hidden_field :group_id, :value => group.id %>
+
           <% else %>
 
             <%= check_box_tag "create_group", 'create_group' %>

@@ -1,7 +1,5 @@
-# frozen_string_literal: true
 class MatchesController < ApplicationController
   before_action :set_match, only: %i[show edit update destroy]
-
 
   def index
     @validated = Match.find_by(id: params[:validated_id])
@@ -18,12 +16,13 @@ class MatchesController < ApplicationController
     @match = Match.new
 
     group = Group.find_by_id(params['group_id'])
-    @group_user_ids = group.present? ? group.users.where.not(id: current_user.id).ids : []
 
+    @group_user_ids = group.present? ? group.users.where.not(id: current_user.id).ids : []
   end
 
   def create
     # 1. verifier s'il faut creer un groupe
+
     if group_params[:create_group]
       @group = Group.new
       @group.name = group_params[:group_name]
@@ -42,6 +41,8 @@ class MatchesController < ApplicationController
     max_time_TZ = DateTime.new(Time.now.strftime("%Y").to_i,Time.now.strftime("%m").to_i,Time.now.strftime("%d").to_i,a["max_timeh"].to_i,a["max_timem"].to_i, 0 ,Time.now.zone)
     @match.min_time = min_time_TZ
     @match.max_time = max_time_TZ
+
+    @match.group_id = @group.id if @group
 
     @match.owner_id = current_user.id
     if @match.save
@@ -77,7 +78,10 @@ class MatchesController < ApplicationController
 
   def match_params
     returned_params = params
-                      .require(:match).permit(:id, :title, :description, :location, :match_date, :min_date, :max_date, :min_timeh, :min_timem, :max_timeh, :max_timem, :state, :owner_id)
+                      .require(:match).permit(:id, :title, :description,
+                        :location, :match_date, :min_date, :max_date,
+                        :min_timeh, :min_timem, :max_timeh, :max_timem,
+                        :state, :owner_id, :group_id)
     if params[:match][:user_ids].present?
       returned_params = returned_params.merge(user_ids: JSON.parse(params[:match][:user_ids]))
     end
