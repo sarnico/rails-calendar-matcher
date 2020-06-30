@@ -74,6 +74,7 @@ const newUserValidation = () => {
             cityError.style.display = "none"
         }
 
+        //birthdate
         const birthdateError = document.getElementById("birthdate-error-message")
         const birthdateInput = document.querySelector(".birthdate-input")
         const pickedDate = Date.parse(birthdateInput.value)
@@ -93,6 +94,7 @@ const newUserValidation = () => {
             birthdateError.style.display = "none"
         }
 
+        //phone number
         const phoneNumberError = document.getElementById("phone-number-error-message")
         const phoneNumberInput = document.querySelector(".phone-number-input")
         const regex = RegExp(/^\d{10}$/);

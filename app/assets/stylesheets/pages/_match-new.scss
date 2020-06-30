@@ -172,6 +172,7 @@ input[type=number] {
                 /* Firefox, Chrome, Opera */
                 color: #D3D3D3;
                 font-size: 0.8em;
+                line-height: 200%;
             }
              :-ms-input-placeholder {
                 /* Internet Explorer 10-11 */
@@ -189,9 +190,9 @@ input[type=number] {
                 flex-wrap: wrap;
                 .min_date {
                     width: 100%;
-                    max-width: 170px;
-                    @media all and (min-width: 444px) {
-                        margin-right: 10%;
+                    width: 160px;
+                    @media all and (min-width: 250px) {
+                        margin-right: 5%;
                     }
                     #match_min_date {
                         margin-bottom: 1rem;
@@ -199,7 +200,7 @@ input[type=number] {
                 }
                 .max_date {
                     width: 100%;
-                    max-width: 170px;
+                    width: 160px;
                     #match_max_date {
                         margin-bottom: 1rem;
                     }
@@ -225,6 +226,9 @@ input[type=number] {
                 .hours-container-1 {
                     width: 100%;
                     max-width: 140px;
+                    @media all and (min-width: 250px) {
+                        margin-right: 5%;
+                    }
                     .hours-label-1 {
                         color: #2C363F;
                     }
