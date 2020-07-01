@@ -24,4 +24,3 @@ class UserEventsController < ApplicationController
   #   @userevents = current_user.reload.user_events
   # end
 end
-

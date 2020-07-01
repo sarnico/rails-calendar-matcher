@@ -97,11 +97,12 @@
                     height: 100% !important;
                     .fc-event-container {
                         .fc-day-grid-event {
-                            background-color: transparent !important;
-                            border-color: transparent !important;
-                            display: flex;
-                            justify-content: center;
-                            margin: 0;
+                            .fc-content {
+                                overflow: auto;
+                                .fc-title {
+                                    font-size: auto;
+                                }
+                            }
                         }
                     }
                 }
