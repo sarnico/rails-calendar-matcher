@@ -33,6 +33,7 @@ class MatchesController < ApplicationController
 
     # 2. creer le match sans date finale !!!
     @match = Match.new(match_params)
+    raise
 
     # set min_time and max_time with the correct time zone of the user
     a = params[:match]
@@ -58,7 +59,9 @@ class MatchesController < ApplicationController
 
   def update
     if @match.update(match_params)
+      raise
       if request.env["HTTP_REFERER"]=="http://localhost:3000/matches/#{@match.id}/edit" || request.env["HTTP_REFERER"]=="www.calendarmatcher.com/matches/#{@match.id}/edit"
+        raise
         SendInvitation.update_google_event(@match, current_user)
         redirect_to matches_path
       else
