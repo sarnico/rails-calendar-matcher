@@ -1,0 +1,161 @@
+// Specific CSS for your home-page
+// color green clair : #A1CDA8
+// color crème : #FCF7F8
+// color green foncé / écriture : #2C363F
+@media all and (max-width: 599px) {
+    #homepage {
+        padding-top: 9.3vh;
+        .landing-main {
+            padding: 0;
+            .devise-cm {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0;
+                .devise-cm-up {
+                    margin: 0;
+                    text-align: center;
+                    font-size: 5vw;
+                    font-weight: 700;
+                    color: #2C363F;
+                }
+                .devise-cm-down {
+                    margin: 0;
+                    text-align: center;
+                    font-size: 4vw;
+                    color: #2C363F;
+                }
+            }
+            #carouselExampleIndicators {
+                margin-top: 10vh;
+                z-index: 0;
+                .filter {
+                    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                }
+                .caption-sentence {
+                    position: absolute;
+                    bottom: 20%;
+                    z-index: 1;
+                    color: white;
+                    margin: 0;
+                    width: 100%;
+                    font-size: 40px;
+                    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+                    font-size: 3.5vw;
+                    text-align: center;
+                }
+            }
+        }
+        .create-event-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 9vh;
+            // padding-bottom: 9vh;
+        }
+    }
+    @media all and (min-height: 800px) {
+        @media all and (max-height: 999px) {
+            #homepage {
+                .landing-main {
+                    .devise-cm {
+                        padding: 0;
+                        .devise-cm-down {
+                            margin-top: 2vh;
+                        }
+                    }
+                    #carouselExampleIndicators {
+                        margin-top: 12vh;
+                    }
+                }
+                .create-event-button {
+                    margin-top: 12vh;
+                    // padding-bottom: 12vh;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 199px) {
+    .carousel-item {
+        img {
+            height: 128px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media all and (min-width: 200px) {
+    .carousel-item {
+        img {
+            height: 158px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media all and (min-width: 250px) {
+    .carousel-item {
+        img {
+            height: 193px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media all and (min-width: 300px) {
+    .carousel-item {
+        img {
+            height: 216px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media all and (min-width: 350px) {
+    .carousel-item {
+        img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media all and (min-width: 400px) {
+    .carousel-item {
+        img {
+            height: 283px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media all and (min-width: 450px) {
+    .carousel-item {
+        img {
+            height: 316px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+@media all and (min-width: 500px) {
+    .carousel-item {
+        img {
+            height: 382px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}

@@ -1,0 +1,113 @@
+<div id="wrapper" class="background-green-white">
+
+  <div class="container my-groups-page-container">
+
+    <div class="my-groups-page">
+
+      <% if @my_groups == [] %>
+
+        <div class="no-group">
+
+          <h3>You don't have any group yet</h3>
+
+          <div>
+
+            <%= link_to new_group_path, class: "add-something" do %>
+
+              <i class="fas fa-plus"></i> Create your first group
+
+            <% end %>
+
+          </div>
+
+        </div>
+
+      <% else %>
+
+        <div class="add-something-when-groups">
+
+          <%= link_to new_group_path, class: "add-something" do %>
+
+            New group <i class="fas fa-plus"></i>
+
+          <% end %>
+
+        </div>
+
+        <div class="card-index">
+
+          <% @my_groups.uniq.each do |group| %>
+
+            <div class="group-card">
+
+              <div class="top">
+
+                <h3><%= group.name.capitalize %></h3>
+
+                <img src="<%= group.creater.avatar %>" class="card-trip-user" />
+
+              </div>
+
+              <div class="medium">
+
+                <div class="group-member-layout">
+
+                  <% group.members.each do |user| %>
+
+                    <div class="member_each">
+
+                      <img src="<%= user.avatar %>" class="card-trip-user" />
+
+                      <p><%= user.email %></p>
+
+                    </div>
+
+                  <% end %>
+
+                </div>
+
+              </div>
+
+              <div class="bottom">
+
+                <% if group.creater_id == current_user.id %>
+
+                  <p class="group-links">
+
+                    <%= link_to new_match_path(group_id: group.id), class: "icon" do %>
+
+                      <i class="far fa-calendar-check"></i>
+
+                    <% end %>
+
+                    <%= link_to edit_group_path(group), class: "icon" do %>
+
+                      <i class="fas fa-user-edit"></i>
+
+                    <% end %>
+
+                    <%= link_to group_path(group), method: :delete, data: { confirm: "Are you sure?" }, class: "icon" do %>
+
+                      <i class="fas fa-trash-alt"></i>
+
+                    <% end %>
+
+                  </p>
+
+                <% end %>
+
+              </div>
+
+            </div>
+
+          <% end %>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>

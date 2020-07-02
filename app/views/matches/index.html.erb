@@ -1,0 +1,175 @@
+<div id="wrapper" class="background-green-white">
+
+  <div class="container my-events-page-container">
+
+    <div class="my-events-page">
+
+      <% if @my_events == [] %>
+
+        <div class="no-event">
+
+          <h3>You don't have any event yet</h3>
+
+          <div>
+
+            <%= link_to new_match_path, class: "add-something" do %>
+
+              <i class="fas fa-plus"></i> Create your first event
+
+            <% end %>
+
+          </div>
+
+        </div>
+
+      <% else %>
+
+        <div class="add-something-when-events">
+
+          <%= link_to new_match_path, class: "add-something" do %>
+
+            New event <i class="fas fa-plus"></i>
+
+          <% end %>
+
+        </div>
+
+        <div class="card-index">
+
+          <% @my_events.each do |match| %>
+
+            <div class="event-card">
+
+              <div class="top">
+
+                <h3><%= match.title.capitalize %></h3>
+
+                <img src="<%= match.owner.avatar %>" class="card-trip-user avatar-bordered" />
+
+              </div>
+
+              <div class="event-info">
+
+                <% if match.match_date == nil %>
+
+                  <p class="event-date-not-found">Still looking for a match</p>
+
+                <% else %>
+
+                  <div class="event-date">
+
+                    <p><%= "#{match.match_date.strftime("%a %d %B %Y")}" %></p>
+
+                    <p><%= " from #{match.min_time.localtime.strftime("%H:%M")} until #{match.max_time.localtime.strftime("%H:%M")}" %></p>
+
+                  </div>
+
+                <% end %>
+
+                <% if match.location != "" %>
+
+                  <div class="event-location">
+
+                    <p><b>Location :</b></p>
+
+                    <p><%= match.location %></p>
+
+                  </div>
+
+                <% end %>
+
+                <% if match.description != "" %>
+
+                  <div class="event-description">
+
+                    <p><b>Description :</b></p>
+
+                    <p><%= match.description %></p>
+
+                  </div>
+
+                <% end %>
+
+              </div>
+
+              <div class="medium-event-title">
+
+                <p class="event-attendees"><b>Attendees :</b></p>
+
+                <div class="medium">
+
+                  <div class="event-member-layout">
+
+                    <% match.attendees.each do |user| %>
+
+                      <div class="member_each">
+
+                        <img src="<%= user.avatar %>" class="card-trip-user" />
+
+                        <p><%= user.email %></p>
+
+                      </div>
+
+                    <% end %>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="bottom">
+
+                <% if match.owner_id == current_user.id  %>
+
+                  <p class="group-links">
+
+                    <%= link_to edit_match_path(match) do %>
+
+                      <i class="icon fas fa-pencil-alt"></i>
+
+                    <% end %>
+
+                    <%= link_to match_path(match), method: :delete, data: { confirm: "Are you sure?" } do %>
+
+                      <i class="icon fas fa-trash-alt"></i>
+
+                    <% end %>
+
+                  </p>
+
+                <% end %>
+
+              </div>
+
+            </div>
+
+          <% end %>
+
+        </div>
+
+      <% end %>
+
+      <% if @validated %>
+
+        <% SendInvitation.create_google_event(@validated,current_user) %>
+
+        <div id="backpopup" class="backpopup"></div>
+
+        <div id="frontpopup" class="flash flash-successalert-dismissible fade show" role="alert">
+
+          <span id="frontpopupwrittings" class="confirmation-alert"> 🎉 <strong>Yay !</strong> 🎉 </br></br> You successfully created <b><%= @validated.title %></b></br> on the <b><%= @validated.match_date.strftime("%d-%m-%Y")  %></b> from <b><%= @validated.min_time.localtime.strftime("%H:%M") %></b> to <b><%= @validated.max_time.localtime.strftime("%H:%M") %></b> ! </br></br> Invitations have been sent to the attendees.</span>
+
+          <a data-dismiss="alert" aria-label="Close">
+
+            <i class="clickme fas fa-times"></i>
+
+          </a>
+
+        </div>
+
+      <% end %>
+
+</div>
+
+
