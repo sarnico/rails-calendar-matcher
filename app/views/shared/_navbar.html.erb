@@ -296,6 +296,10 @@
 
                       <% if current_page?(matches_path) %>
 
+                      <% elsif current_page?(new_match_path) %>
+
+                        <%= link_to "Create an event", new_match_path, class: "nav-link what-path-i-am-on" %>
+
                       <% else %>
 
                         <%= link_to "Create an event", new_match_path, class: "nav-link-create" %>

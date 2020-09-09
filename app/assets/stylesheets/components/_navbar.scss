@@ -201,6 +201,26 @@
         margin-right: 43px;
         text-decoration: none;
     }
+    .nav-link-create-home {
+        margin-right: 43px;
+        padding: 10px 15px;
+        color: rgba(252, 247, 248, 1) !important;
+        background-color: #2C363F;
+        border: solid 1px #2C363F;
+        border-radius: 30px;
+        transition: 0.3s;
+        text-decoration: none;
+        display: flex;
+        align-self: center;
+    }
+    .nav-link-create-home:hover {
+        border: solid 1px #2C363F;
+        border-radius: 30px;
+        color: #2C363F !important;
+        background-color: #A1CDA8;
+        margin-right: 43px;
+        text-decoration: none;
+    }
     .avatar {
         cursor: pointer;
         width: 75px;

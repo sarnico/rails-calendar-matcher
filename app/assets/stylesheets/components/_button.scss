@@ -71,6 +71,17 @@
         transition: 0.3s;
         text-decoration: none !important;
     }
+    .what-path-i-am-on {
+        width: max-content;
+        color: #4A6C6F !important;
+        border-bottom: solid 1px #A1CDA8;
+        transition: 0.3s;
+        padding: 10px 12px;
+        text-decoration: none;
+    }
+    .what-path-i-am-on:hover {
+        text-decoration: none;
+    }
 }
 
 // .button:hover {
