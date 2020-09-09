@@ -366,3 +366,223 @@ input[type=number] {
         }
     }
 }
+
+@media all and (min-width: 600px) {
+    #create-event {
+        padding: 19vh 2vw 2vh 2vw;
+        height: 100%;
+        .form {
+            background: white;
+            padding: 3%;
+            border-radius: 3px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            .form-group {
+                margin: 0;
+            }
+            label {
+                font-size: 1em;
+                color: #2C363F;
+            }
+            .date-label {
+                font-size: 1em;
+                color: #2C363F;
+                margin-bottom: 0.5em;
+            }
+             ::placeholder {
+                /* Firefox, Chrome, Opera */
+                color: #D3D3D3;
+                font-size: 0.8em;
+                line-height: 200%;
+            }
+             :-ms-input-placeholder {
+                /* Internet Explorer 10-11 */
+                color: #D3D3D3;
+                font-size: 0.8em;
+            }
+             ::-ms-input-placeholder {
+                /* Microsoft Edge */
+                color: #D3D3D3;
+                font-size: 0.8em;
+            }
+            .date-container {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                .min_date {
+                    width: 100%;
+                    width: 165px;
+                    @media all and (min-width: 250px) {
+                        margin-right: 5%;
+                    }
+                    #match_min_date {
+                        margin-bottom: 1rem;
+                    }
+                }
+                .max_date {
+                    width: 100%;
+                    width: 165px;
+                    #match_max_date {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+            .hours-label {
+                font-size: 1em;
+                color: #2C363F;
+                margin: 0;
+            }
+            .hours-container {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                .double-point {
+                    padding: 6px 0px;
+                    border-top: 1px solid #ced4da;
+                    width: 5%;
+                    border-bottom: 1px solid #ced4da;
+                    text-align: center;
+                    margin: 0;
+                }
+                .hours-container-1 {
+                    width: 100%;
+                    max-width: 140px;
+                    @media all and (min-width: 250px) {
+                        margin-right: 5%;
+                    }
+                    .hours-label-1 {
+                        color: #2C363F;
+                    }
+                    .hours-mins-container-1 {
+                        display: flex;
+                        .min-min-input {
+                            border-left: none;
+                            border-top-left-radius: 0px;
+                            border-bottom-left-radius: 0px;
+                            text-align: center;
+                            padding: 0;
+                        }
+                        .hour-min-input {
+                            border-right: none;
+                            border-top-right-radius: 0px;
+                            border-bottom-right-radius: 0px;
+                            text-align: center;
+                            padding: 0;
+                        }
+                        #hour-min-invalid {
+                            white-space: wrap;
+                        }
+                    }
+                }
+                .hours-container-2 {
+                    width: 100%;
+                    max-width: 140px;
+                    .hours-label-2 {
+                        color: #2C363F;
+                    }
+                    .hours-mins-container-2 {
+                        display: flex;
+                        align-self: flex-end;
+                        max-width: 140px;
+                        .min-max-input {
+                            border-left: none;
+                            border-top-left-radius: 0px;
+                            border-bottom-left-radius: 0px;
+                            text-align: center;
+                            padding: 0;
+                        }
+                        .hour-max-input {
+                            border-right: none;
+                            border-top-right-radius: 0px;
+                            border-bottom-right-radius: 0px;
+                            text-align: center;
+                            padding: 0;
+                        }
+                    }
+                    #hour-max-invalid p {
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+            .custom-dropdown {
+                #attendee-div {
+                    margin: 0;
+                }
+                #shown_user_ids {
+                    width: 100%;
+                    height: calc(1.5em + 0.75rem + 2px);
+                    border-radius: 2px;
+                }
+                .error-red {
+                    border: solid 1px #FD0F15;
+                    border-radius: 2px;
+                }
+                #user_search_results {
+                    font-size: 0.7em;
+                    width: 100%;
+                    .fancy-hover {
+                        background-color: #ffffff;
+                        padding: 0px;
+                        border-radius: 0px;
+                    }
+                }
+                #attendee-error-message p {
+                    margin-top: 1rem;
+                }
+            }
+            #group_name {
+                border: solid 1px #D3D3D3;
+                width: 100%;
+                height: calc(1.5em + 0.75rem + 2px);
+                border-radius: 2px;
+            }
+            .button-create-match {
+                display: flex;
+                justify-content: center;
+            }
+            //spacing
+            .error-message p {
+                margin-bottom: 0;
+            }
+            .title-container {
+                margin-bottom: 3%;
+                #match_title {
+                    margin-bottom: 1rem;
+                }
+            }
+            .match_location {
+                margin-bottom: 3%;
+            }
+            .match_description {
+                margin-bottom: 3%;
+            }
+            .date-label {
+                margin: 0;
+            }
+            .date-container {
+                margin-bottom: 2%;
+                label {
+                    margin: 0.4rem 0;
+                }
+            }
+            .hours-container {
+                margin-bottom: 3%;
+                .hours-label {
+                    margin: 0;
+                }
+                .hours-label-1 {
+                    margin: 0.4rem 0;
+                }
+                .hours-label-2 {
+                    margin: 0.4rem 0;
+                }
+            }
+            #selected_user_ids {
+                margin-bottom: 3%;
+            }
+            #group_name {
+                margin-bottom: 3%;
+            }
+        }
+    }
+}
