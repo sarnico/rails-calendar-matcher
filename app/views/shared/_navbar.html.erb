@@ -290,13 +290,17 @@
 
                   <div class="navigation-links">
 
-                    <% if request.path_info.include?('matches/')  %>
-
-                      <%= link_to "Create an event", new_match_path, class: "if-create-path" %>
+                    <% if current_page?(root_path) %>
 
                     <% else %>
 
-                      <%= link_to "Create an event", new_match_path, class: "nav-link-create" %>
+                      <% if current_page?(matches_path) %>
+
+                      <% else %>
+
+                        <%= link_to "Create an event", new_match_path, class: "nav-link-create" %>
+
+                      <% end %>
 
                     <% end %>
 

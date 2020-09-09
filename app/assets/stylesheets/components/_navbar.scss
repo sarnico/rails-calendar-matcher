@@ -95,9 +95,13 @@
     }
 }
 
-@media all and (min-width: 600px) and (max-width: 1024px) {}
-
-@media all and (min-width: 1025px) {
+@media all and (min-width: 600px) {
+    #mobile-size {
+        display: none;
+    }
+    #computer-size {
+        display: contents;
+    }
     .navbar-lewagon {
         justify-content: space-between;
         background: white;
@@ -199,6 +203,7 @@
     }
     .avatar {
         cursor: pointer;
+        width: 75px;
     }
     .root-navbar-button {
         display: flex;
@@ -208,11 +213,15 @@
         margin: 0;
         font-size: 3.2vw;
     }
-    .navigation-links {
+    .nav-item {
         display: flex;
-        justify-content: center;
-        height: 50px;
-        // margin-right: 10px;
+        align-items: center;
+        .navigation-links {
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            // margin-right: 10px;
+        }
     }
     .dropdown-menu {
         border-color: #D3D0CB;

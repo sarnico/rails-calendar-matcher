@@ -1,4 +1,4 @@
-@media all and (max-width: 600px) {
+@media all and (max-width: 599px) {
     .button {
         padding: 0.5vh 3vw;
         color: rgba(252, 247, 248, 1) !important;
@@ -58,6 +58,18 @@
     }
     .create-event-button-exclude-home-and-new-match:hover {
         text-decoration: none;
+    }
+}
+
+@media all and (min-width: 600px) {
+    .button {
+        padding: 10px 20px;
+        color: rgba(252, 247, 248, 1) !important;
+        background-color: #2C363F;
+        border: solid 1px #2C363F;
+        border-radius: 30px;
+        transition: 0.3s;
+        text-decoration: none !important;
     }
 }
 
