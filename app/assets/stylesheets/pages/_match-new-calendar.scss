@@ -14,6 +14,45 @@
     }
     //modifications on the calendar
     .fc {
+        .fc-content-skeleton {
+            table {
+                tr {
+                    background-color: transparent;
+                    td {}
+                }
+            }
+        }
+        .fc-view-container {
+            .fc-head {
+                .fc-day-header span {
+                    font-size: 0.9em !important;
+                }
+            }
+            .fc-body {
+                .fc-day-grid-container {
+                    height: 100% !important;
+                    .fc-event-container {
+                        background-color: transparent;
+                        .fc-event {
+                            border: none !important;
+                        }
+                        .fc-day-grid-event {
+                            margin: 0px;
+                            padding: 0px;
+                            z-index: -1;
+                            .fc-content {
+                                background-color: white;
+                                display: flex;
+                                justify-content: center;
+                                .fc-title {
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         @media all and (max-width: 599px) {
             .fc-toolbar {
                 .fc-left {
@@ -83,23 +122,6 @@
                                 .fc-icon-chevron-right {
                                     font-size: 1em;
                                 }
-                            }
-                        }
-                    }
-                }
-            }
-            .fc-view-container {
-                .fc-head {
-                    .fc-day-header span {
-                        font-size: 0.9em !important;
-                    }
-                }
-                .fc-body {
-                    .fc-day-grid-container {
-                        height: 100% !important;
-                        .fc-event-container {
-                            .fc-day-grid-event {
-                                z-index: -1;
                             }
                         }
                     }
