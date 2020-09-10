@@ -197,14 +197,14 @@ input[type=number] {
                     margin-right: 5%;
                 }
                 #match_min_date {
-                    margin-bottom: 1rem;
+                    margin-bottom: 10px;
                 }
             }
             .max_date {
                 width: 100%;
                 width: 165px;
                 #match_max_date {
-                    margin-bottom: 1rem;
+                    margin-bottom: 10px;
                 }
             }
         }
@@ -309,7 +309,7 @@ input[type=number] {
                 }
             }
             #attendee-error-message p {
-                margin-top: 1rem;
+                margin-top: 10px;
             }
         }
         #group_name {
@@ -329,7 +329,7 @@ input[type=number] {
         .title-container {
             margin-bottom: 8%;
             #match_title {
-                margin-bottom: 1rem;
+                margin-bottom: 10px;
             }
         }
         .match_location {
@@ -393,6 +393,12 @@ input[type=number] {
                 .hours-container-1 {
                     width: 100%;
                     max-width: 180px;
+                    .hours-mins-container-1 {
+                        margin-bottom: 10px;
+                        p {
+                            margin-bottom: 0px !important;
+                        }
+                    }
                 }
                 .hours-container-2 {
                     width: 100%;
@@ -402,8 +408,9 @@ input[type=number] {
                         align-self: flex-end;
                         width: 100%;
                         max-width: 180px;
+                        margin-bottom: 10px;
                         p {
-                            margin-bottom: 0px;
+                            margin-bottom: 0px !important;
                         }
                     }
                 }
