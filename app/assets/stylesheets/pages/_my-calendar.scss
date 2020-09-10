@@ -115,4 +115,26 @@
             }
         }
     }
+    @media all and (min-width: 600px) {
+        .fc-toolbar {
+            .fc-right {
+                .fc-today-button {
+                    height: 35px;
+                    font-size: 15px;
+                }
+                .fc-button-group {
+                    .fc-prev-button {
+                        height: 35px;
+                        width: 35px;
+                        .fc-icon-chevron-left {}
+                    }
+                    .fc-next-button {
+                        height: 35px;
+                        width: 35px;
+                        .fc-icon-chevron-right {}
+                    }
+                }
+            }
+        }
+    }
 }
