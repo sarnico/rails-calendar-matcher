@@ -1,17 +1,20 @@
-@media all and (max-width: 599px) {
-    .new-match-calendar {
-        padding: 21vh 2vw 2vh 2vw;
+.new-match-calendar {
+    padding: 21vh 2vw 2vh 2vw;
+    @media all and (min-width: 600px) {
+        padding: 19vh 2vw 2vh 2vw;
+    }
+    height: 100%;
+    .my-calendar {
+        background: white;
+        width: 100%;
+        padding: 1.5vh 3vw;
+        border-radius: 3px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         height: 100%;
-        .my-calendar {
-            background: white;
-            width: 100%;
-            padding: 1.5vh 3vw;
-            border-radius: 3px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            height: 100%;
-        }
-        //modifications on the calendar
-        .fc {
+    }
+    //modifications on the calendar
+    .fc {
+        @media all and (max-width: 599px) {
             .fc-toolbar {
                 .fc-left {
                     h2 {
@@ -98,6 +101,28 @@
                             .fc-day-grid-event {
                                 z-index: -1;
                             }
+                        }
+                    }
+                }
+            }
+        }
+        @media all and (min-width: 600px) {
+            .fc-toolbar {
+                .fc-right {
+                    .fc-today-button {
+                        height: 35px;
+                        font-size: 15px;
+                    }
+                    .fc-button-group {
+                        .fc-prev-button {
+                            height: 35px;
+                            width: 35px;
+                            .fc-icon-chevron-left {}
+                        }
+                        .fc-next-button {
+                            height: 35px;
+                            width: 35px;
+                            .fc-icon-chevron-right {}
                         }
                     }
                 }
