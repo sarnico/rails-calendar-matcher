@@ -34,7 +34,15 @@
 
         </div>
 
-        <div class="card-index">
+        <% if @my_events.count == 1 %>
+
+          <div class="card-index-alone">
+
+        <% else %>
+
+          <div class="card-index">
+
+        <% end %>
 
           <% @my_events.each do |match| %>
 
