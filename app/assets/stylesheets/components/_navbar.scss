@@ -120,10 +120,10 @@
         color: #2c363e;
     }
     .dropdown-menu {
-        z-index: 30;
+        z-index: 2;
     }
     .dropdown-toggle {
-        z-index: 30;
+        z-index: 2;
     }
     .navbar-lewagon .navbar-collapse {
         flex-grow: 0;
@@ -202,7 +202,6 @@
         text-decoration: none;
     }
     .nav-link-create-home {
-        margin-right: 43px;
         padding: 10px 15px;
         color: rgba(252, 247, 248, 1) !important;
         background-color: #2C363F;
@@ -218,7 +217,6 @@
         border-radius: 30px;
         color: #2C363F !important;
         background-color: #A1CDA8;
-        margin-right: 43px;
         text-decoration: none;
     }
     .avatar {

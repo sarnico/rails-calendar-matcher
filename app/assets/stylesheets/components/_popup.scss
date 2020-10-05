@@ -1,44 +1,45 @@
-@media all and (max-width: 599px) {
-    .backpopup {
-        left: 0%;
-        right: 0%;
-        top: 0%;
-        bottom: 0%;
-        position: fixed;
-        z-index: 1;
-        background-color: #2C363F;
-        opacity: 0.7;
-        width: 100%;
-    }
-    .flash {
-        z-index: 2;
-        left: 5%;
-        right: 5%;
-        top: 50%;
-        // bottom: 50%;
-        height: max-content;
-        position: fixed;
-        margin: -100px 0 0 0;
-        padding: 5vw;
-        background-color: #fcf7f8;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-        border-radius: 4px;
-        .confirmation-alert {
-            position: relative;
-            text-align: center;
-            font-size: 1em;
-            margin: 0 auto;
-        }
-    }
-    .popup {
+.backpopup {
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    position: fixed;
+    z-index: 3;
+    background-color: #2C363F;
+    opacity: 0.7;
+    width: 100%;
+}
+
+.flash {
+    z-index: 4;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 50%;
+    // bottom: 50%;
+    height: max-content;
+    position: fixed;
+    margin: -100px 0 0 0;
+    padding: 30px;
+    background-color: #fcf7f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    .confirmation-alert {
         position: relative;
+        text-align: center;
+        font-size: 1em;
+        margin: 0 auto;
     }
-    .fa-times {
-        position: absolute;
-        top: 10%;
-        right: 5%;
-    }
+}
+
+.popup {
+    position: relative;
+}
+
+.fa-times {
+    position: absolute;
+    top: 10%;
+    right: 5%;
 }

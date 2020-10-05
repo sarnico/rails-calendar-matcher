@@ -150,17 +150,17 @@
 
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-lewagon-not-connected">
 
-      <%= link_to root_path, class: "navbar-lewagon-not-connected-top-left" do %>
+        <%= link_to root_path, class: "navbar-lewagon-not-connected-top-left" do %>
 
-        <%= image_tag "CalendarMatcher.svg", :class => "navbar-brand-button-not-connected"%>
+          <%= image_tag "CalendarMatcher.svg", :class => "navbar-brand-button-not-connected"%>
 
-        <div class="navbar-brand-title-not-connected">
+          <div class="navbar-brand-title-not-connected">
 
-          <h1>Calendar Matcher</h1>
+            <h1>Calendar Matcher</h1>
 
-        </div>
+          </div>
 
-      <% end %>
+        <% end %>
 
       <%= link_to "Log in with Google", user_google_oauth2_omniauth_authorize_path, class: "button-login" %>
 
@@ -362,21 +362,25 @@
 
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-lewagon-not-connected">
 
-      <%= link_to root_path, class: "navbar-brand-button-not-connected" do %>
+      <div class="title-brand">
 
-        <div>
+        <%= link_to root_path, class: "navbar-brand-button-not-connected" do %>
 
-          <%= image_tag "CalendarMatcher.svg", :class => "icon-cm"%>
+          <div>
 
-        </div>
+            <%= image_tag "CalendarMatcher.svg", :class => "icon-cm"%>
 
-      <% end %>
+          </div>
 
-      <%= link_to root_path, class: "navbar-brand-title-not-connected" do %>
+        <% end %>
 
-        <h1>Calendar Matcher</h1>
+        <%= link_to root_path, class: "navbar-brand-title-not-connected" do %>
 
-      <% end %>
+          <h1>Calendar Matcher</h1>
+
+        <% end %>
+
+      </div>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -384,7 +388,7 @@
 
             <li class="nav-item-not-connected">
 
-              <%= link_to "Log in with Google", user_google_oauth2_omniauth_authorize_path, class: "nav-link-not-connected" %>
+              <%= link_to "Log in with Google", user_google_oauth2_omniauth_authorize_path, class: "button-login" %>
 
             </li>
 
