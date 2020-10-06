@@ -56,7 +56,7 @@
                 display: flex;
                 align-self: center;
                 margin: 0;
-                font-size: 4vw;
+                font-size: 13px;
                 color: #2C363F;
             }
             .navbar-top-right {
@@ -229,7 +229,10 @@
     }
     .root-navbar-title h1 {
         margin: 0;
-        font-size: 3.2vw;
+        font-size: 20px;
+        @media all and (min-width: 1000px) {
+            font-size: 30px;
+        }
     }
     .nav-item {
         display: flex;
