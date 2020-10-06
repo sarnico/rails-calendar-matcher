@@ -13,14 +13,17 @@
         }
     }
     .navbar-brand-title-not-connected h1 {
-        font-size: 4vw;
+        font-size: 30px;
+        @media all and (min-width: 850px) {
+            font-size: 40px;
+        }
         color: #2C363F;
         display: flex;
         align-self: center;
         margin: 0;
         margin-left: 15px;
     }
-    .navbar-brand-title-not-connected h1:hover {
+    .navbar-brand-title-not-connected:hover {
         text-decoration: none;
     }
 }
@@ -38,7 +41,7 @@
                 margin-right: 2vw;
             }
             .navbar-brand-title-not-connected h1 {
-                font-size: 4vw;
+                font-size: 13px;
                 color: #2C363F;
                 display: flex;
                 align-self: center;
